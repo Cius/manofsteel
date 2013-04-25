@@ -29,10 +29,10 @@
 
 	<!-- comment out this bean if you don't use the the default internally -->
 	<!-- H2 database with the automatic filled demo data by startup -->
-	<bean class="de.forsthaus.h2.My_H2_SampleDataFiller">
-		<property name="dataSource" ref="dataSource">
-		</property>
-	</bean>
+<!-- 	<bean class="de.forsthaus.h2.My_H2_SampleDataFiller"> -->
+<!-- 		<property name="dataSource" ref="dataSource"> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 
 	<util:properties id="hibernateProperties">
 		<prop key="hibernate.dialect">${hibernate.dialect}</prop>
