@@ -13,7 +13,7 @@
 
 		<id name="id" type="long">
 			<column name="ipc_id" />
-			<generator class="sequence">
+			<generator class="increment">
 				<param name="sequence">ipc_ip2country_seq</param>
 				<!--
 					for mySQL use generator class="native" <generator class="native" />

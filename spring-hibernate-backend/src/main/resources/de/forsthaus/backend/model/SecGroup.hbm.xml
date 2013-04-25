@@ -12,7 +12,7 @@
 
 		<id name="id" type="long">
 			<column name="grp_id" />
-			<generator class="sequence">
+			<generator class="increment">
 				<param name="sequence">sec_group_seq</param>
 				<!--
 					for mySQL use generator class="native" <generator class="native" />

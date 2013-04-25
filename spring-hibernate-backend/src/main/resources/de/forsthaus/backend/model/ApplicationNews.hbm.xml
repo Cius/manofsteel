@@ -7,7 +7,7 @@
 
 		<id name="id" type="long">
 			<column name="anw_id" />
-			<generator class="sequence">
+			<generator class="increment">
 				<param name="sequence">app_news_seq</param>
 				<!--
 					for mySQL use generator class="native" <generator class="native" />

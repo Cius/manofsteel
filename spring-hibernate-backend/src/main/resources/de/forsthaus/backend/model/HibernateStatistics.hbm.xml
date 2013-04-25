@@ -7,7 +7,7 @@
 		table="hibernate_statistics">
 
 		<id name="id" type="long" column="id">
-			<generator class="sequence">
+			<generator class="increment">
 				<param name="sequence">hibernate_statistics_seq</param>
 				<!--
 					for mySQL use generator class="native" <generator class="native" />

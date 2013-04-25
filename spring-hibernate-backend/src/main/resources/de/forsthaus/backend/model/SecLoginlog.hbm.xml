@@ -12,7 +12,7 @@
 
 		<id name="id" type="long">
 			<column name="lgl_id" />
-			<generator class="sequence">
+			<generator class="increment">
 				<param name="sequence">sec_loginlog_seq</param>
 				<!--
 					for mySQL use generator class="native" <generator class="native" />

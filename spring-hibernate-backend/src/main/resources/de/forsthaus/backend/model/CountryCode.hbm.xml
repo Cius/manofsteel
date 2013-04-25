@@ -13,7 +13,7 @@
 
 		<id name="id" type="long">
 			<column name="ccd_id" />
-			<generator class="sequence">
+			<generator class="increment">
 				<param name="sequence">sys_countrycode_seq</param>
 				<!--
 					for mySQL use generator class="native" <generator class="native" />

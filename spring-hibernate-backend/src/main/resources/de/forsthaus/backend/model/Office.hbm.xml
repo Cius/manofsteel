@@ -13,7 +13,7 @@
 
 		<id name="id" type="long">
 			<column name="fil_id" />
-			<generator class="sequence">
+			<generator class="increment">
 				<param name="sequence">filiale_seq</param>
 				<!--
 					for mySQL use generator class="native" <generator class="native" />
