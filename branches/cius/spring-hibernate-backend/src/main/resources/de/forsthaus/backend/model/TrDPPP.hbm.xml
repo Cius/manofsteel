@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TrDPPP" table="tr_dppp">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">trdppp_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="penilai" type="string">
+			<column name="PENILAI" />
+		</property>
+		<property name="atasan" type="string">
+			<column name="ATASAN" />
+		</property>
+		<property name="thNilai" type="string">
+			<column name="THNILAI" />
+		</property>
+		<property name="nSetia" type="java.lang.Integer">
+			<column name="NSETIA" />
+		</property>
+		<property name="nPres" type="java.lang.Integer">
+			<column name="NPRES" />
+		</property>
+		<property name="nTaat" type="java.lang.Integer">
+			<column name="NTAAT" />
+		</property>
+		<property name="nJujur" type="java.lang.Integer">
+			<column name="NJUJUR" />
+		</property>
+		<property name="nKerja" type="java.lang.Integer">
+			<column name="NKERJA" />
+		</property>
+		<property name="nPkarsa" type="java.lang.Integer">
+			<column name="NPKARSA" />
+		</property>
+		<property name="nPimpin" type="java.lang.Integer">
+			<column name="NPIMPIN" />
+		</property>
+		<property name="nTotal" type="java.lang.Integer">
+			<column name="NTOTAL" />
+		</property>
+		<property name="nRata" type="java.lang.Integer">
+			<column name="NRATA" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>
