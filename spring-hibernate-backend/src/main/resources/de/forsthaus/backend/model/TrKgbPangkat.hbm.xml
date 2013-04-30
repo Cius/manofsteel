@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TrKgbPangkat" table="tr_kgbpangkat">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">trkgbpangkat_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="kJenis" type="string">
+			<column name="KJENIS" />
+		</property>
+		<property name="kPej" type="string">
+			<column name="KPEJ" />
+		</property>
+		<property name="nSkPang" type="string">
+			<column name="NSKPANG" />
+		</property>
+		<property name="tSkPang" type="string">
+			<column name="TSKPANG" />
+		</property>
+		<property name="kGolRu" type="string">
+			<column name="KGOLRU" />
+		</property>
+		<property name="tmt" type="string">
+			<column name="TMT" />
+		</property>
+		<property name="kKenpa" type="string">
+			<column name="KKENPA" />
+		</property>
+		<property name="thKerja" type="string">
+			<column name="THKERJA" />
+		</property>
+		<property name="blKerja" type="string">
+			<column name="BLKERJA" />
+		</property>
+		<property name="gaji" type="string">
+			<column name="GAJI" />
+		</property>
+		<property name="kWilGaji" type="string">
+			<column name="KWILGAJI" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>

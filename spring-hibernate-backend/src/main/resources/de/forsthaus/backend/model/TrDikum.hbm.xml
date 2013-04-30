@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TrDikum" table="tr_dikum">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">trdikum_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="kTpu" type="string">
+			<column name="KTPU" />
+		</property>
+		<property name="kFak" type="string">
+			<column name="KFAK" />
+		</property>
+		<property name="kJur" type="string">
+			<column name="KJUR" />
+		</property>
+		<property name="nJur" type="string">
+			<column name="NJUR" />
+		</property>
+		<property name="nSek" type="string">
+			<column name="NSEK" />
+		</property>
+		<property name="tempat" type="string">
+			<column name="TEMPAT" />
+		</property>
+		<property name="nKepSek" type="string">
+			<column name="NKEPSEK" />
+		</property>
+		<property name="nSttb" type="string">
+			<column name="NSTTB" />
+		</property>
+		<property name="tSttb" type="string">
+			<column name="TSTTB" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>

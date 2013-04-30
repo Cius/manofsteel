@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TrJasa" table="tr_jasa">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">trjasa_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="kBintang" type="string">
+			<column name="KBINTANG" />
+		</property>
+		<property name="nBintang" type="string">
+			<column name="NBINTANG" />
+		</property>
+		<property name="pemberi" type="string">
+			<column name="PEMBERI" />
+		</property>
+		<property name="noSkJasa" type="string">
+			<column name="NOSKJASA" />
+		</property>
+		<property name="tgSkJasa" type="string">
+			<column name="TGSKJASA" />
+		</property>
+		<property name="thJasa" type="string">
+			<column name="THJASA" />
+		</property>
+		<property name="starec" type="string">
+			<column name="STAREC" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>

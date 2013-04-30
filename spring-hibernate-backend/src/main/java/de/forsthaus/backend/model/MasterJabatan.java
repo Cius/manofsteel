@@ -6,15 +6,16 @@ public class MasterJabatan {
 	private int id;
 	private int version;
 	
-	private MasterGabungan pejabat;
-	private String sk;
-	private Date tgl;
-	private MasterUnitKerja unKerja;
-	private MasterGabungan jenisJabatan;
-	private MasterEselon eselon;
-	private MasterGabungan pokJabatan;
-	private String namaJabatan;
-	private Date tmtJabatan;
+	private String kInsKer;
+	private String kUnKer;
+	private String jnsJab;
+	private String kEselon;
+	private String kJab;
+	private String nJab;
+	private String nip;
+	private String nipPejLama;
+	private Date tmt;
+	private String jnsMutasi;
 	
 	public int getId() {
 		return id;
@@ -28,58 +29,64 @@ public class MasterJabatan {
 	public void setVersion(int version) {
 		this.version = version;
 	}
-	public MasterGabungan getPejabat() {
-		return pejabat;
+	public String getkInsKer() {
+		return kInsKer;
 	}
-	public void setPejabat(MasterGabungan pejabat) {
-		this.pejabat = pejabat;
+	public void setkInsKer(String kInsKer) {
+		this.kInsKer = kInsKer;
 	}
-	public String getSk() {
-		return sk;
+	public String getkUnKer() {
+		return kUnKer;
 	}
-	public void setSk(String sk) {
-		this.sk = sk;
+	public void setkUnKer(String kUnKer) {
+		this.kUnKer = kUnKer;
 	}
-	public Date getTgl() {
-		return tgl;
+	public String getJnsJab() {
+		return jnsJab;
 	}
-	public void setTgl(Date tgl) {
-		this.tgl = tgl;
+	public void setJnsJab(String jnsJab) {
+		this.jnsJab = jnsJab;
 	}
-	public MasterUnitKerja getUnKerja() {
-		return unKerja;
+	public String getkEselon() {
+		return kEselon;
 	}
-	public void setUnKerja(MasterUnitKerja unKerja) {
-		this.unKerja = unKerja;
+	public void setkEselon(String kEselon) {
+		this.kEselon = kEselon;
 	}
-	public MasterGabungan getJenisJabatan() {
-		return jenisJabatan;
+	public String getkJab() {
+		return kJab;
 	}
-	public void setJenisJabatan(MasterGabungan jenisJabatan) {
-		this.jenisJabatan = jenisJabatan;
+	public void setkJab(String kJab) {
+		this.kJab = kJab;
 	}
-	public MasterEselon getEselon() {
-		return eselon;
+	public String getnJab() {
+		return nJab;
 	}
-	public void setEselon(MasterEselon eselon) {
-		this.eselon = eselon;
+	public void setnJab(String nJab) {
+		this.nJab = nJab;
 	}
-	public MasterGabungan getPokJabatan() {
-		return pokJabatan;
+	public String getNip() {
+		return nip;
 	}
-	public void setPokJabatan(MasterGabungan pokJabatan) {
-		this.pokJabatan = pokJabatan;
+	public void setNip(String nip) {
+		this.nip = nip;
 	}
-	public String getNamaJabatan() {
-		return namaJabatan;
+	public String getNipPejLama() {
+		return nipPejLama;
 	}
-	public void setNamaJabatan(String namaJabatan) {
-		this.namaJabatan = namaJabatan;
+	public void setNipPejLama(String nipPejLama) {
+		this.nipPejLama = nipPejLama;
 	}
-	public Date getTmtJabatan() {
-		return tmtJabatan;
+	public Date getTmt() {
+		return tmt;
 	}
-	public void setTmtJabatan(Date tmtJabatan) {
-		this.tmtJabatan = tmtJabatan;
+	public void setTmt(Date tmt) {
+		this.tmt = tmt;
+	}
+	public String getJnsMutasi() {
+		return jnsMutasi;
+	}
+	public void setJnsMutasi(String jnsMutasi) {
+		this.jnsMutasi = jnsMutasi;
 	}
 }

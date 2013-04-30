@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TpIdentitas" table="tp_identitas">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">tpidentitas_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="gelar1" type="string">
+			<column name="GELAR1" />
+		</property>
+		<property name="nama" type="string">
+			<column name="NAMA" />
+		</property>
+		<property name="gelar2" type="string">
+			<column name="GELAR2" />
+		</property>
+		<property name="tmLahir" type="string">
+			<column name="TMLAHIR" />
+		</property>
+		<property name="tgLahir" type="string">
+			<column name="TGLAHIR" />
+		</property>
+		<property name="kabLahir" type="string">
+			<column name="KABLAHIR" />
+		</property>
+		<property name="kSex" type="string">
+			<column name="KSEX" />
+		</property>
+		<property name="kAgama" type="date">
+			<column name="KAGAMA" />
+		</property>
+		<property name="kStaPeg" type="string">
+			<column name="KSTAPEG" />
+		</property>
+		<property name="kJnsPeg" type="string">
+			<column name="KJNSPEG" />
+		</property>
+		<property name="kDukPns" type="string">
+			<column name="KDUKPNS" />
+		</property>
+		<property name="kStaWin" type="string">
+			<column name="KSTAWIN" />
+		</property>
+		<property name="suku" type="string">
+			<column name="SUKU" />
+		</property>
+		<property name="kGolDar" type="date">
+			<column name="KGOLDAR" />
+		</property>
+		<property name="alJalan" type="date">
+			<column name="ALJALAN" />
+		</property>
+		<property name="alRt" type="string">
+			<column name="ALRT" />
+		</property>
+		<property name="alRw" type="string">
+			<column name="ALRW" />
+		</property>
+		<property name="kodePos" type="string">
+			<column name="KODEPOS" />
+		</property>
+		<property name="alTelp" type="date">
+			<column name="ALTELP" />
+		</property>
+		<property name="alKProp" type="string">
+			<column name="ALKPROP" />
+		</property>
+		<property name="alKKab" type="string">
+			<column name="ALKKAB" />
+		</property>
+		<property name="alKKec" type="string">
+			<column name="ALKKEC" />
+		</property>
+		<property name="alKDes" type="string">
+			<column name="ALKDES" />
+		</property>
+		<property name="nKarPeg" type="string">
+			<column name="NKARPEG" />
+		</property>
+		<property name="nAsKes" type="date">
+			<column name="NASKES" />
+		</property>
+		<property name="nTasPen" type="date">
+			<column name="NTASPEN" />
+		</property>
+		<property name="nKarIs" type="string">
+			<column name="NKARIS" />
+		</property>
+		<property name="npwp" type="string">
+			<column name="NPWP" />
+		</property>
+		<property name="noPen" type="string">
+			<column name="NOPEN" />
+		</property>
+		<property name="jumJiwa" type="date">
+			<column name="JUMJIWA" />
+		</property>
+		<property name="jumTang" type="string">
+			<column name="JUMTANG" />
+		</property>
+		<property name="jumIsMi" type="string">
+			<column name="JUMISMI" />
+		</property>
+		<property name="jumAnak" type="string">
+			<column name="JUMANAK" />
+		</property>
+		<property name="kCatMut" type="string">
+			<column name="KCATMUT" />
+		</property>
+		<property name="kHukDis" type="string">
+			<column name="KHUKDIS" />
+		</property>
+		<property name="jasa" type="date">
+			<column name="JASA" />
+		</property>
+		<property name="dp3Akhir" type="date">
+			<column name="DP3AKHIR" />
+		</property>
+		<property name="nipIsMi" type="string">
+			<column name="NIPISMI" />
+		</property>
+		<property name="nipLama" type="string">
+			<column name="NIPLAMA" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>

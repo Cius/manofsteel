@@ -59,6 +59,42 @@
 				</value>
 				<value>de/forsthaus/backend/model/ApplicationNews.hbm.xml
 				</value>
+				<value>de/forsthaus/backend/model/TpCpns.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TpIdentitas.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TpJabatan.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TpKgbPangkat.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TpPendidikan.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrBahasa.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrCuti.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrDiklat.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrDikum.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrDPPP.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrDuk.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrHukuman.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrJabatan.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrJasa.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrKaryaTulis.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrKeluarga.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrKgbPangkat.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TrOrganisasi.hbm.xml
+				</value>
 			</list>
 		</property>
 	</bean>

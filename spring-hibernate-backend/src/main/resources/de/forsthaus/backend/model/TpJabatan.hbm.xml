@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TpJabatan" table="tp_jabatan">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">tpjabatan_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="kPejJab" type="string">
+			<column name="KPEJJAB" />
+		</property>
+		<property name="nSkJabat" type="string">
+			<column name="NSKJABAT" />
+		</property>
+		<property name="tSkJabat" type="date">
+			<column name="TSKJABAT" />
+		</property>
+		<property name="jnsJab" type="string">
+			<column name="JNSJAB" />
+		</property>
+		<property name="kJab" type="string">
+			<column name="KJAB" />
+		</property>
+		<property name="kEselon" type="string">
+			<column name="KESELON" />
+		</property>
+		<property name="tmtjab" type="date">
+			<column name="TMTJAB" />
+		</property>
+		<property name="sJab" type="string">
+			<column name="SJAB" />
+		</property>
+		<property name="nJab" type="string">
+			<column name="NJAB" />
+		</property>
+		<property name="nJab1" type="string">
+			<column name="NJAB1" />
+		</property>
+		<property name="kInsKer" type="string">
+			<column name="KINSKER" />
+		</property>
+		<property name="kUnKer" type="string">
+			<column name="KUNKER" />
+		</property>
+		<property name="kSatKer" type="string">
+			<column name="KSATKER" />
+		</property>
+		<property name="tmtEselon" type="date">
+			<column name="TMTESELON" />
+		</property>
+		<property name="tmtJab1" type="date">
+			<column name="TMTJAB1" />
+		</property>
+		<property name="kJnsGuru" type="string">
+			<column name="KJNSGURU" />
+		</property>
+		<property name="kInsInd" type="string">
+			<column name="KINSIND" />
+		</property>
+		<property name="starec" type="string">
+			<column name="STAREC" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>
