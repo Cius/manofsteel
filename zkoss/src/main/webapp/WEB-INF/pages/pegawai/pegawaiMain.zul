@@ -1,0 +1,15 @@
+<?page title="Data Pegawai" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="windowPegawaiMain" apply="${pegawaiMainCtrl}" title="Data Pegawai" border="normal">
+		<div sclass="z-toolbar" style="padding:0">
+			<hbox sclass="hboxRemoveWhiteStrips" width="100%" pack="strech">
+				<toolbar align="start" style="float:left; border-style:none;">
+					<label value="Cari" style="padding-right:3px;"/>
+					<textbox id="txt_Nip" width="120px"/>
+					<button id="button_Search" sclass="oT_ButtonWithIcon"
+					image="/images/icons/search.gif"/>
+				</toolbar>
+			</hbox>
+		</div>
+	</window>
+</zk>

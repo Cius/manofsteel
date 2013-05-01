@@ -87,6 +87,12 @@
 		<property name="brancheService" ref="brancheService" />
 		<property name="customerService" ref="customerService" />
 	</bean>
+	
+	<!-- Pegawai -->
+	
+	<bean id="pegawaiMainCtrl" class="de.forsthaus.webui.pegawai.PegawaiMainCtrl" parent="basisCtrl" scope="prototype">
+	    
+	</bean>
 
 	<!-- Guestbook -->
 	<bean id="guestBookListCtrl" class="de.forsthaus.webui.guestbook.GuestBookListCtrl" parent="basisCtrl" scope="prototype">

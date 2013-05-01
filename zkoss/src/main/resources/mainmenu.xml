@@ -61,6 +61,8 @@
 			iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Branch" />
 		<menuItem id="menu_Item_Offices" zulNavigation="/WEB-INF/pages/office/officeMain.zul"
 			iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Office" />
+		<menuItem id="menu_Item_Pegawai" zulNavigation="/WEB-INF/pages/pegawai/pegawaiMain.zul"
+		    iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Pegawai"/>
 	</menu>
 
 	<!-- Administration MenuTree -->
