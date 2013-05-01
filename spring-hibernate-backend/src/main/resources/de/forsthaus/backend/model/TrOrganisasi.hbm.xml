@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TrOrganisasi" table="tr_organisasi">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">trorganisasi_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="kJnsOrg" type="string">
+			<column name="KJNSORG" />
+		</property>
+		<property name="nOrganisasi" type="string">
+			<column name="NORGANISASI" />
+		</property>
+		<property name="jabOrg" type="string">
+			<column name="JABORG" />
+		</property>
+		<property name="pimpinan" type="string">
+			<column name="PIMPINAN" />
+		</property>
+		<property name="tempat" type="string">
+			<column name="TEMPAT" />
+		</property>
+		<property name="tMulai" type="string">
+			<column name="TMULAI" />
+		</property>
+		<property name="tAkhir" type="string">
+			<column name="TAKHIR" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>

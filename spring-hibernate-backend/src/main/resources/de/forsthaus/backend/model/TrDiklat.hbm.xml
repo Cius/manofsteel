@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TrDiklat" table="tr_diklat">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">trdiklat_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="jnsDiklat" type="string">
+			<column name="JNSDIKLAT" />
+		</property>
+		<property name="kDiklat" type="string">
+			<column name="KDIKLAT" />
+		</property>
+		<property name="nDiklat" type="string">
+			<column name="NDIKLAT" />
+		</property>
+		<property name="tempat" type="string">
+			<column name="TEMPAT" />
+		</property>
+		<property name="panitia" type="string">
+			<column name="PANITIA" />
+		</property>
+		<property name="angkatan" type="string">
+			<column name="ANGKATAN" />
+		</property>
+		<property name="tMulai" type="string">
+			<column name="TMULAI" />
+		</property>
+		<property name="tAkhir" type="string">
+			<column name="TAKHIR" />
+		</property>
+		<property name="jam" type="java.lang.Integer">
+			<column name="JAM" />
+		</property>
+		<property name="nsttp" type="string">
+			<column name="NSTTP" />
+		</property>
+		<property name="tsttp" type="string">
+			<column name="TSTTP" />
+		</property>
+		<property name="negara" type="string">
+			<column name="NEGARA" />
+		</property>
+		<property name="thLulus" type="string">
+			<column name="THLULUS" />
+		</property>
+		<property name="kedudukan" type="string">
+			<column name="KEDUDUKAN" />
+		</property>
+		<property name="topic" type="string">
+			<column name="TOPIC" />
+		</property>
+		<property name="starec" type="string">
+			<column name="STAREC" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>

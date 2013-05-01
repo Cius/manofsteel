@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TpKgbPangkat" table="tp_kgbpangkat">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">tpkgbpangkat_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="kPejKgb" type="string">
+			<column name="KPEJKGB" />
+		</property>
+		<property name="nSTahu" type="string">
+			<column name="NSTAHU" />
+		</property>
+		<property name="tSTahu" type="date">
+			<column name="TSTAHU" />
+		</property>
+		<property name="tmtKgb" type="date">
+			<column name="TMTKGB" />
+		</property>
+		<property name="gaPokKgb" type="java.lang.Integer">
+			<column name="GAPOKKGB" />
+		</property>
+		<property name="thKerjaKgb" type="java.lang.Integer">
+			<column name="THKERJAKGB" />
+		</property>
+		<property name="blKerjaKgb" type="java.lang.Integer">
+			<column name="BLKERJAKGB" />
+		</property>
+		<property name="kKantor" type="string">
+			<column name="KKANTOR" />
+		</property>
+		<property name="kPejPkt" type="string">
+			<column name="KPEJPKT" />
+		</property>
+		<property name="nSkPang" type="string">
+			<column name="NSKPANG" />
+		</property>
+		<property name="tSkPang" type="date">
+			<column name="TSKPANG" />
+		</property>
+		<property name="tmtPang" type="date">
+			<column name="TMTPANG" />
+		</property>
+		<property name="kGolRuPkt" type="string">
+			<column name="KGOLRUPKT" />
+		</property>
+		<property name="thKerjaPkt" type="java.lang.Integer">
+			<column name="THKERJAPKT" />
+		</property>
+		<property name="blKerjaPkt" type="java.lang.Integer">
+			<column name="BLKERJAPKT" />
+		</property>
+		<property name="gaPokPkt" type="java.lang.Integer">
+			<column name="GAPOKPKT" />
+		</property>
+		<property name="aKredit" type="string">
+			<column name="AKREDIT" />
+		</property>
+		<property name="kNPang" type="string">
+			<column name="KNPANG" />
+		</property>
+		<property name="tmtInPasing" type="date">
+			<column name="TMTINPASING" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>

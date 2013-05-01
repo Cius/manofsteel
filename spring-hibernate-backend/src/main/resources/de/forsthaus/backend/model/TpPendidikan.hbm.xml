@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TpPendidikan" table="tp_pendidikan">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">tppendidikan_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="kTpu" type="string">
+			<column name="KTPU" />
+		</property>
+		<property name="kJur" type="string">
+			<column name="KJUR" />
+		</property>
+		<property name="nJur" type="string">
+			<column name="NJUR" />
+		</property>
+		<property name="nSek" type="string">
+			<column name="NSEK" />
+		</property>
+		<property name="tempat" type="string">
+			<column name="TEMPAT" />
+		</property>
+		<property name="tSttb" type="string">
+			<column name="TSTTB" />
+		</property>
+		<property name="kDikStr" type="string">
+			<column name="KDIKSTR" />
+		</property>
+		<property name="nDikStr" type="string">
+			<column name="NDIKSTR" />
+		</property>
+		<property name="sAngkatan" type="string">
+			<column name="SANGKATAN" />
+		</property>
+		<property name="sTMulai" type="string">
+			<column name="STMULAI" />
+		</property>
+		<property name="sTahun" type="string">
+			<column name="STAHUN" />
+		</property>
+		<property name="sJam" type="string">
+			<column name="SJAM" />
+		</property>
+		<property name="kDikFung" type="string">
+			<column name="KDIKFUNG" />
+		</property>
+		<property name="nDikFung" type="string">
+			<column name="NDIKFUNG" />
+		</property>
+		<property name="fAngkatan" type="string">
+			<column name="FANGKATAN" />
+		</property>
+		<property name="fTahun" type="string">
+			<column name="FTAHUN" />
+		</property>
+		<property name="fJam" type="string">
+			<column name="FJAM" />
+		</property>
+		<property name="kDikTek" type="string">
+			<column name="KDIKTEK" />
+		</property>
+		<property name="nDikTek" type="string">
+			<column name="NDIKTEK" />
+		</property>
+		<property name="tAngkatan" type="string">
+			<column name="TANGKATAN" />
+		</property>
+		<property name="tTahun" type="string">
+			<column name="TTAHUN" />
+		</property>
+		<property name="tJam" type="string">
+			<column name="TJAM" />
+		</property>
+		<property name="nilai_DikStr" type="string">
+			<column name="NILAI_DIKSTR" />
+		</property>
+		<property name="rank_DikStr" type="string">
+			<column name="RANK_DIKSTR" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>

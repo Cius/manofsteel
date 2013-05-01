@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TrJabatan" table="tr_jabatan">
+
+		<id name="id" type="long">
+			<column name="rig_id" />
+			<generator class="increment">
+				<param name="sequence">trjabatan_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<property name="jnsJab" type="string">
+			<column name="JNSJAB" />
+		</property>
+		<property name="kPej" type="string">
+			<column name="KPEJ" />
+		</property>
+		<property name="noSkJab" type="string">
+			<column name="NOSKJAB" />
+		</property>
+		<property name="tgSkJab" type="date">
+			<column name="TGSKJAB" />
+		</property>
+		<property name="kEselon" type="string">
+			<column name="KESELON" />
+		</property>
+		<property name="tmtJab" type="string">
+			<column name="TMTJAB" />
+		</property>
+		<property name="nJab" type="string">
+			<column name="NJAB" />
+		</property>
+		<property name="nUnKer" type="string">
+			<column name="NUNKER" />
+		</property>
+		<property name="nInstansi" type="string">
+			<column name="NINSTANSI" />
+		</property>
+		<property name="nJab1" type="string">
+			<column name="NJAB1" />
+		</property>
+		<property name="tmtJab1" type="string">
+			<column name="TMTJAB1" />
+		</property>
+		<property name="kJnsGuru" type="string">
+			<column name="KJNSGURU" />
+		</property>
+		<property name="jabSusPim" type="string">
+			<column name="JABSUSPIM" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGEDT" />
+		</property>
+	</class>
+</hibernate-mapping>
