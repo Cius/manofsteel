@@ -8,8 +8,49 @@
 					<textbox id="txt_Nip" width="120px"/>
 					<button id="button_Search" sclass="oT_ButtonWithIcon"
 					image="/images/icons/search.gif"/>
+					<button id="button_New" sclass="oT_ButtonWithIcon"
+					image="/images/icons/btn_new_16x16.gif"/>
+				</toolbar>
+				
+				<toolbar align="center" style="float:left; border-style:none;">
+					<button id="btnPrint" sclass="oT_ButtonWithIcon"
+					image="/images/icons/btn_print2_16x16.gif"/>
+					<separator bar="true" orient="vertical" />
+					<button id="button_First" sclass="oT_ButtonWithIcon"
+					image="/images/icons/btn_first_16x16.png"/>
+					<button id="button_Prev" sclass="oT_ButtonWithIcon"
+					image="/images/icons/btn_previous_16x16.png"/>
+					<button id="button_Next" sclass="oT_ButtonWithIcon"
+					image="/images/icons/btn_next_16x16.png"/>
+					<button id="button_Last" sclass="oT_ButtonWithIcon"
+					image="/images/icons/btn_last_16x16.png"/>
 				</toolbar>
 			</hbox>
 		</div>
+		
+		<tabbox id="tabbox_PegawaiMain">
+			<tabs>
+				<tab id="tab_PegawaiList" label="${c:l('common.List')}"
+					image="/images/icons/properties.gif" />
+				<tab id="tab_IdentitasPegawai"
+					label="Identitas Pegawai" image="/images/icons/table.gif" />
+				<tab id="tab_RiwayatPengangkatan"
+					label="Riwayat Pengangkatan" image="/images/icons/table.gif" />
+				<tab id="tab_RiwayatPendidikan"
+					label="Riwayat Pendidikan" image="/images/icons/table.gif" />
+				<tab id="tab_RiwayatKeluarga"
+					label="Riwayat Keluarga" image="/images/icons/table.gif" />
+			</tabs>
+
+			<tabpanels>
+				<!-- TabPanel LIST / LISTE -->
+				<tabpanel id="tabPanelPegawaiList" height="100%"
+					style="border: none; padding: 0px; " />
+
+				<!-- TabPanel DETAILS / DETAILS -->
+				<tabpanel id="tabPanelPegawaiDetail" height="100%"
+					style="border: none; padding: 0px; " />
+			</tabpanels>
+		</tabbox>
 	</window>
 </zk>

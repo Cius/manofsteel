@@ -1,0 +1,39 @@
+<?page title="Daftar Pegawai" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="windowPegawaiList" apply="${pegawaiListCtrl}" title="Daftar Pegawai" border="normal">
+	<borderlayout id="borderLayout_pegawaiList">
+		<!-- PAGING COMPONENT -->
+			<north border="none" height="26px">
+				<paging id="pagingPegawaiList" />
+			</north>
+
+			<center border="none">
+
+				<!-- DATABINDED LISTBOX -->
+				<listbox id="listBoxPegawai"
+					style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px;"
+					model="@{controller.pegawai}"
+					selectedItem="@{controller.selectedPegawai}" vflex="true"
+					tooltiptext="${c:l('listbox.tooltiptext')}" width="100%"
+					height="100%" multiple="false">
+					<listhead sizable="true">
+						<listheader id="listheader_BranchText"
+							sclass="FDListBoxHeader1"
+							image="/images/icons/create_doc_16x16.gif"
+							label="${c:l('common.Description')}" sort="auto" width="100%" />
+					</listhead>
+
+					<listitem self="@{each='pegawai'}"
+						value="pegawai"
+						forward="onDoubleClick=onDoubleClickedBranchItem">
+
+						<listcell label="@{pegawai.nip}"
+							style="padding-left: 5px" />
+					</listitem>
+
+				</listbox>
+
+			</center>
+	</borderlayout>
+</window>
+</zk>
