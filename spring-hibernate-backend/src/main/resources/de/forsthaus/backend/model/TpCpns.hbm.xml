@@ -10,16 +10,13 @@
 			<generator class="increment">
 				<param name="sequence">tpcpns_seq</param></generator>
 		</id>
-		<many-to-one name="address" 
-	        column="addressId" 
-	        unique="true"
-	        not-null="true"/>
 
 		<version name="version" column="VERSION" type="integer" />
-
+		
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
+		<many-to-one class="de.forsthaus.backend.model.TpIdentitas" name="identitas" property-ref="nip" column="nip"/>
 		<property name="kPejCpns" type="string">
 			<column name="KPEJCPNS" />
 		</property>
@@ -83,5 +80,18 @@
 		<property name="tgEdt" type="date">
 			<column name="TGLEDT" />
 		</property>
+		
+<!-- 		<join table="TP_CPNS_TP_IDENTITAS"  -->
+<!-- 	        optional="true" fetch="select"> -->
+<!-- 	        <key column="cpnsNip" -->
+<!-- 	            property-ref="nip"  -->
+<!-- 	            unique="true"/> -->
+<!-- 	        <many-to-one name="identitas" -->
+<!-- 	            column="idNip"  -->
+<!-- 	            property-ref="nip" -->
+<!-- 	            unique="true" -->
+<!-- 	            insert="false" -->
+<!-- 	            update="false"/> -->
+<!-- 	    </join> -->
 	</class>
 </hibernate-mapping>

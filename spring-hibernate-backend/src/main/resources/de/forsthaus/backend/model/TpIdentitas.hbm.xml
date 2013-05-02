@@ -37,7 +37,7 @@
 		<property name="kSex" type="string">
 			<column name="KSEX" />
 		</property>
-		<property name="kAgama" type="date">
+		<property name="kAgama" type="string">
 			<column name="KAGAMA" />
 		</property>
 		<property name="kStaPeg" type="string">
@@ -55,10 +55,10 @@
 		<property name="suku" type="string">
 			<column name="SUKU" />
 		</property>
-		<property name="kGolDar" type="date">
+		<property name="kGolDar" type="string">
 			<column name="KGOLDAR" />
 		</property>
-		<property name="alJalan" type="date">
+		<property name="alJalan" type="string">
 			<column name="ALJALAN" />
 		</property>
 		<property name="alRt" type="string">
@@ -70,7 +70,7 @@
 		<property name="kodePos" type="string">
 			<column name="KODEPOS" />
 		</property>
-		<property name="alTelp" type="date">
+		<property name="alTelp" type="string">
 			<column name="ALTELP" />
 		</property>
 		<property name="alKProp" type="string">
@@ -88,10 +88,10 @@
 		<property name="nKarPeg" type="string">
 			<column name="NKARPEG" />
 		</property>
-		<property name="nAsKes" type="date">
+		<property name="nAsKes" type="string">
 			<column name="NASKES" />
 		</property>
-		<property name="nTasPen" type="date">
+		<property name="nTasPen" type="string">
 			<column name="NTASPEN" />
 		</property>
 		<property name="nKarIs" type="string">
@@ -103,7 +103,7 @@
 		<property name="noPen" type="string">
 			<column name="NOPEN" />
 		</property>
-		<property name="jumJiwa" type="date">
+		<property name="jumJiwa" type="string">
 			<column name="JUMJIWA" />
 		</property>
 		<property name="jumTang" type="string">
@@ -121,10 +121,10 @@
 		<property name="kHukDis" type="string">
 			<column name="KHUKDIS" />
 		</property>
-		<property name="jasa" type="date">
+		<property name="jasa" type="string">
 			<column name="JASA" />
 		</property>
-		<property name="dp3Akhir" type="date">
+		<property name="dp3Akhir" type="string">
 			<column name="DP3AKHIR" />
 		</property>
 		<property name="nipIsMi" type="string">
