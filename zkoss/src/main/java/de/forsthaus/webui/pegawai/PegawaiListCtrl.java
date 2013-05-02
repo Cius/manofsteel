@@ -48,7 +48,7 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 	private PegawaiMainCtrl pegawaiMainCtrl;
 
 	private TpCpnsDAO tpCpnsDAO;
-	private TpIdentitasDAO tpIdentitasDAO;
+//	private TpIdentitasDAO tpIdentitasDAO;
 
 	public PegawaiListCtrl() {
 		super();
@@ -200,11 +200,11 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 		getPegawaiMainCtrl().setPegawaiModelList(pegawaiModelList);
 	}
 
-	public TpIdentitasDAO getTpIdentitasDAO() {
-		return tpIdentitasDAO;
-	}
-
-	public void setTpIdentitasDAO(TpIdentitasDAO tpIdentitasDAO) {
-		this.tpIdentitasDAO = tpIdentitasDAO;
-	}
+//	public TpIdentitasDAO getTpIdentitasDAO() {
+//		return tpIdentitasDAO;
+//	}
+//
+//	public void setTpIdentitasDAO(TpIdentitasDAO tpIdentitasDAO) {
+//		this.tpIdentitasDAO = tpIdentitasDAO;
+//	}
 }
