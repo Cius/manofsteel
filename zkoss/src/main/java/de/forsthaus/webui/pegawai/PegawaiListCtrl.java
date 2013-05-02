@@ -71,6 +71,8 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 
 	public void onCreate$windowPegawaiList(Event event) {
 		this.binder = (AnnotateDataBinder) event.getTarget().getAttribute("binder", true);
+		doFillList();
+		this.binder.loadAll();
 	}
 
 	public void doFillList() {
