@@ -93,6 +93,7 @@
 	<bean id="pegawaiMainCtrl" class="de.forsthaus.webui.pegawai.PegawaiMainCtrl" parent="basisCtrl" scope="prototype">
 	    <property name="pegawaiListCtrl" ref="pegawaiListCtrl"/>
 	    <property name="tpCpnsDAO" ref="tpCpnsDao"/>
+	    <property name="tpIdentitasDAO" ref="tpIdentitasDao"/>
 	</bean>
 	
 	<bean id="pegawaiListCtrl" class="de.forsthaus.webui.pegawai.PegawaiListCtrl" parent="basisCtrl" scope="prototype">

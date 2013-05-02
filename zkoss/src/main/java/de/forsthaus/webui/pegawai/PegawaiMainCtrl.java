@@ -110,4 +110,12 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 	public void setPegawaiModelList(BindingListModelList pegawaiModelList) {
 		this.pegawaiModelList = pegawaiModelList;
 	}
+
+	public TpCpnsDAO getTpCpnsDAO() {
+		return tpCpnsDAO;
+	}
+
+	public void setTpCpnsDAO(TpCpnsDAO tpCpnsDAO) {
+		this.tpCpnsDAO = tpCpnsDAO;
+	}
 }

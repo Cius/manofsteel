@@ -19,6 +19,7 @@ import org.zkoss.zul.Window;
 
 import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.TpCpnsDAO;
+import de.forsthaus.backend.dao.TpIdentitasDAO;
 import de.forsthaus.backend.model.TpCpns;
 import de.forsthaus.backend.util.HibernateSearchObject;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
@@ -36,7 +37,8 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 
 	private Paging paging_PegawaiList;
 	private Listbox listBox_PegawaiList;
-	private Listheader listHeader_PegawaiList;
+	private Listheader listHeader_PegawaiList_nip;
+	private Listheader listHeader_PegawaiList_name;
 
 	private int countRows;
 
@@ -46,6 +48,7 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 	private PegawaiMainCtrl pegawaiMainCtrl;
 
 	private TpCpnsDAO tpCpnsDAO;
+	private TpIdentitasDAO tpIdentitasDAO;
 
 	public PegawaiListCtrl() {
 		super();
@@ -84,8 +87,8 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 
 		// not used listheaders must be declared like ->
 		// lh.setSortAscending(""); lh.setSortDescending("")
-		listHeader_PegawaiList.setSortAscending(new FieldComparator("nip", true));
-		listHeader_PegawaiList.setSortDescending(new FieldComparator("nip", false));
+		listHeader_PegawaiList_nip.setSortAscending(new FieldComparator("nip", true));
+		listHeader_PegawaiList_nip.setSortDescending(new FieldComparator("nip", false));
 
 		// ++ create the searchObject and init sorting ++//
 		// get customers and only their latest address
@@ -195,5 +198,13 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 
 	public void setPegawaiModelList(BindingListModelList pegawaiModelList) {
 		getPegawaiMainCtrl().setPegawaiModelList(pegawaiModelList);
+	}
+
+	public TpIdentitasDAO getTpIdentitasDAO() {
+		return tpIdentitasDAO;
+	}
+
+	public void setTpIdentitasDAO(TpIdentitasDAO tpIdentitasDAO) {
+		this.tpIdentitasDAO = tpIdentitasDAO;
 	}
 }
