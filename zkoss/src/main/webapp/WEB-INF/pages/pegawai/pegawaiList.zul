@@ -1,26 +1,32 @@
 <?page title="Daftar Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiList" ?>
+
 <zk>
 <window id="windowPegawaiList" apply="${pegawaiListCtrl}" title="Daftar Pegawai" border="normal">
-	<borderlayout id="borderLayout_pegawaiList">
+	<borderlayout id="borderLayout_PegawaiList">
 		<!-- PAGING COMPONENT -->
 			<north border="none" height="26px">
-				<paging id="pagingPegawaiList" />
+				<paging id="paging_PegawaiList" />
 			</north>
 
 			<center border="none">
 
 				<!-- DATABINDED LISTBOX -->
-				<listbox id="listBoxPegawai"
+				<listbox id="listBox_PegawaiList"
 					style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px;"
-					model="@{controller.pegawai}"
-					selectedItem="@{controller.selectedPegawai}" vflex="true"
+					model="@{controller.pegawaiModelList}"
+					selectedItem="@{controller.selected}" vflex="true"
 					tooltiptext="${c:l('listbox.tooltiptext')}" width="100%"
 					height="100%" multiple="false">
 					<listhead sizable="true">
-						<listheader id="listheader_BranchText"
+						<listheader id="listHeader_PegawaiList_nip"
 							sclass="FDListBoxHeader1"
 							image="/images/icons/create_doc_16x16.gif"
-							label="${c:l('common.Description')}" sort="auto" width="100%" />
+							label="NIP" sort="auto" width="100%" />
+						<listheader id="listHeader_PegawaiList_name"
+							sclass="FDListBoxHeader1"
+							image="/images/icons/create_doc_16x16.gif"
+							label="Nama" sort="auto" width="100%" />
 					</listhead>
 
 					<listitem self="@{each='pegawai'}"
@@ -28,6 +34,8 @@
 						forward="onDoubleClick=onDoubleClickedBranchItem">
 
 						<listcell label="@{pegawai.nip}"
+							style="padding-left: 5px" />
+						<listcell label="@{pegawai.identitas.nama}"
 							style="padding-left: 5px" />
 					</listitem>
 

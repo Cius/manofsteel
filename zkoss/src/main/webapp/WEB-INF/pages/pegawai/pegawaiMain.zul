@@ -44,11 +44,11 @@
 
 			<tabpanels>
 				<!-- TabPanel LIST / LISTE -->
-				<tabpanel id="tabPanelPegawaiList" height="100%"
+				<tabpanel id="tabpanel_PegawaiList" height="100%"
 					style="border: none; padding: 0px; " />
 
 				<!-- TabPanel DETAILS / DETAILS -->
-				<tabpanel id="tabPanelPegawaiDetail" height="100%"
+				<tabpanel id="tabpanel_PegawaiDetail" height="100%"
 					style="border: none; padding: 0px; " />
 			</tabpanels>
 		</tabbox>
