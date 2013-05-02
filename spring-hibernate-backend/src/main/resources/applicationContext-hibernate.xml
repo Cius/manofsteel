@@ -172,6 +172,8 @@
 	<bean id="youtubeLinkDAO" class="de.forsthaus.backend.dao.impl.YoutubeLinkDAOImpl" parent="basisDAO" />
 
 	<bean id="applicationNewsDAO" class="de.forsthaus.backend.dao.impl.ApplicationNewsDAOImpl" parent="basisDAO" />
+	
+	<bean id="tpCpnsDao" class="de.forsthaus.backend.dao.impl.TpCpnsDAOImpl" parent="basisDAO"/>
 
 	<!-- ====================================================== -->
 	<!-- SERVICE beans -->
