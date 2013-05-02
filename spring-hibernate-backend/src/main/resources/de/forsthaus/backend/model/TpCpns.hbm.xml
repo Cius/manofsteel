@@ -5,11 +5,15 @@
 <hibernate-mapping>
 	<class name="de.forsthaus.backend.model.TpCpns" table="tp_cpns">
 
-		<id name="id" type="long">
-			<column name="rig_id" />
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
 			<generator class="increment">
 				<param name="sequence">tpcpns_seq</param></generator>
 		</id>
+		<many-to-one name="address" 
+	        column="addressId" 
+	        unique="true"
+	        not-null="true"/>
 
 		<version name="version" column="VERSION" type="integer" />
 
@@ -41,10 +45,10 @@
 			<column name="TMTTUGAS" />
 		</property>
 		<property name="thnKerja" type="string">
-			<column name="THNKERJA" />
+			<column name="THKERJA" />
 		</property>
 		<property name="blnKerja" type="string">
-			<column name="BLNKERJA" />
+			<column name="BLKERJA" />
 		</property>
 		<property name="kTpuCpns" type="string">
 			<column name="KTPUCPNS" />
@@ -65,19 +69,19 @@
 			<column name="KGOLRUPNS" />
 		</property>
 		<property name="janjiPns" type="string">
-			<column name="JANJIPNS" />
+			<column name="KJANJIPNS" />
 		</property>
 		<property name="userEnt" type="string">
 			<column name="USERENT" />
 		</property>
 		<property name="tgEnt" type="date">
-			<column name="TGENT" />
+			<column name="TGLENT" />
 		</property>
 		<property name="userEdt" type="string">
 			<column name="USEREDT" />
 		</property>
 		<property name="tgEdt" type="date">
-			<column name="TGEDT" />
+			<column name="TGLEDT" />
 		</property>
 	</class>
 </hibernate-mapping>

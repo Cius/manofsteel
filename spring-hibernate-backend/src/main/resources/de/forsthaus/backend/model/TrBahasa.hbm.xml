@@ -5,8 +5,8 @@
 <hibernate-mapping>
 	<class name="de.forsthaus.backend.model.TrBahasa" table="tr_bahasa">
 
-		<id name="id" type="long">
-			<column name="rig_id" />
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
 			<generator class="increment">
 				<param name="sequence">trbahasa_seq</param></generator>
 		</id>

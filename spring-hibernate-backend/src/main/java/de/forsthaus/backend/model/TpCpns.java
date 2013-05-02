@@ -29,6 +29,8 @@ public class TpCpns {
 	private String userEdt;
 	private Date tgEdt;
 	
+	private TpIdentitas identitas;
+	
 	public int getId() {
 		return id;
 	}
@@ -172,6 +174,12 @@ public class TpCpns {
 	}
 	public void setTgEdt(Date tgEdt) {
 		this.tgEdt = tgEdt;
+	}
+	public TpIdentitas getIdentitas() {
+		return identitas;
+	}
+	public void setIdentitas(TpIdentitas identitas) {
+		this.identitas = identitas;
 	}
 	
 }
