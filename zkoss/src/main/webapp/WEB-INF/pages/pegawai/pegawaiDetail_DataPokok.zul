@@ -1,0 +1,20 @@
+<?page title="Data Pokok Pegawai" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="windowPegawaiDetail_DataPokok" title="Data Pokok Pegawai" border="normal">
+	<borderlayout id="borderLayout_PegawaiDataPokok">
+		<center border="none" autoscroll="true">
+			<tabbox id="tabbox_PegawaiDataPokok" orient="vertical">
+				<tabs>
+					<tab id="tab_PegawaiDataPokok_Identitas" label="Identitas Pegawai"
+					image="/images/icons/properties.gif" />
+				</tabs>
+				
+				<tabpanels>
+					<tabpanel id="tabPanel_PegawaiDataPokok_Identitas" height="100%"
+					style="border: none; padding: 0px; " />
+				</tabpanels>
+			</tabbox>
+		</center>
+	</borderlayout>
+</window>
+</zk>

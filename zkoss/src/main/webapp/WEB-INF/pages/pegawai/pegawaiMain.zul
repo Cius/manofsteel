@@ -32,8 +32,8 @@
 			<tabs>
 				<tab id="tab_PegawaiList" label="${c:l('common.List')}"
 					image="/images/icons/properties.gif" />
-				<tab id="tab_IdentitasPegawai"
-					label="Identitas Pegawai" image="/images/icons/table.gif" />
+				<tab id="tab_DataPokok"
+					label="Data Pokok Pegawai" image="/images/icons/table.gif" />
 				<tab id="tab_RiwayatPengangkatan"
 					label="Riwayat Pengangkatan" image="/images/icons/table.gif" />
 				<tab id="tab_RiwayatPendidikan"
@@ -48,7 +48,7 @@
 					style="border: none; padding: 0px; " />
 
 				<!-- TabPanel DETAILS / DETAILS -->
-				<tabpanel id="tabpanel_PegawaiDetail" height="100%"
+				<tabpanel id="tabpanel_DataPokok" height="100%"
 					style="border: none; padding: 0px; " />
 			</tabpanels>
 		</tabbox>
