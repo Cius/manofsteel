@@ -31,13 +31,13 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 	
 	protected Tabbox tabbox_PegawaiMain;
 	protected Tab tab_PegawaiList;
-	protected Tab tab_IdentitasPegawai;
+	protected Tab tab_DataPokok;
 	protected Tab tab_RiwayatPengangkatan;
 	protected Tab tab_RiwayatPendidikan;
 	protected Tab tab_RiwayatKeluarga;
 	
 	protected Tabpanel tabpanel_PegawaiList;
-	protected Tabpanel tabpanel_IdentitasPegawai;
+	protected Tabpanel tabpanel_DataPokok;
 	protected Tabpanel tabpanel_RiwayatPengangkatan;
 	protected Tabpanel tabpanel_RiwayatPendidikan;
 	protected Tabpanel tabpanel_RiwayatKeluarga;
@@ -63,7 +63,7 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 	private BindingListModelList pegawaiModelList;
 	
 	private PegawaiListCtrl pegawaiListCtrl;
-	private PegawaiDetailCtrl pegawaiDetailCtrl;
+	private PegawaiDetailCtrl_DataPokok pegawaiDetailCtrl_DataPokok;
 	
 	private TpCpnsDAO tpCpnsDAO;
 	
@@ -85,6 +85,21 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 		}
 		
 		this.buttonCtrl.setInitNew();
+	}
+	
+	public void onSelect$tabpanel_DataPokok(Event event) {
+		if (this.tabpanel_DataPokok.getFirstChild() != null) {
+			this.tab_DataPokok.setSelected(true);
+
+			// refresh the Binding mechanism
+			getPegawaiDetailCtrl_DataPokok().setSelected(getSelected());
+			getPegawaiDetailCtrl_DataPokok().getBinder().loadAll();
+			return;
+		}
+
+		if (this.tabpanel_DataPokok != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabpanel_DataPokok, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok.zul");
+		}
 	}
 
 	public PegawaiListCtrl getPegawaiListCtrl() {
@@ -117,5 +132,14 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 
 	public void setTpCpnsDAO(TpCpnsDAO tpCpnsDAO) {
 		this.tpCpnsDAO = tpCpnsDAO;
+	}
+
+	public PegawaiDetailCtrl_DataPokok getPegawaiDetailCtrl_DataPokok() {
+		return pegawaiDetailCtrl_DataPokok;
+	}
+
+	public void setPegawaiDetailCtrl_DataPokok(
+			PegawaiDetailCtrl_DataPokok pegawaiDetailCtrl_DataPokok) {
+		this.pegawaiDetailCtrl_DataPokok = pegawaiDetailCtrl_DataPokok;
 	}
 }

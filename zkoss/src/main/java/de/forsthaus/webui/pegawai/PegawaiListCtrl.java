@@ -20,6 +20,7 @@ import org.zkoss.zul.Window;
 import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.TpCpnsDAO;
 import de.forsthaus.backend.dao.TpIdentitasDAO;
+import de.forsthaus.backend.model.Branche;
 import de.forsthaus.backend.model.TpCpns;
 import de.forsthaus.backend.util.HibernateSearchObject;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
@@ -119,6 +120,27 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 			}
 		}
 
+	}
+	
+	public void onDoubleClickedBranchItem(Event event) {
+		// logger.debug(event.toString());
+
+		final TpCpns cpns = getSelected();
+
+		if (cpns != null) {
+			setSelected(cpns);
+
+			// check first, if the tabs are created
+			if (getPegawaiMainCtrl().getPegawaiDetailCtrl_DataPokok() == null) {
+				Events.sendEvent(new Event("onSelect", getPegawaiMainCtrl().tab_DataPokok, null));
+				// if we work with spring beanCreation than we must check a
+				// little bit deeper, because the Controller are preCreated ?
+			} else if (getPegawaiMainCtrl().getPegawaiListCtrl().getBinder() == null) {
+				Events.sendEvent(new Event("onSelect", getPegawaiMainCtrl().tab_DataPokok, null));
+			}
+
+			Events.sendEvent(new Event("onSelect", getPegawaiMainCtrl().tab_DataPokok, cpns));
+		}
 	}
 
 	public void doFitSize() {
