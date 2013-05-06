@@ -92,12 +92,21 @@
 	
 	<bean id="pegawaiMainCtrl" class="de.forsthaus.webui.pegawai.PegawaiMainCtrl" parent="basisCtrl" scope="prototype">
 	    <property name="pegawaiListCtrl" ref="pegawaiListCtrl"/>
+	    <property name="pegawaiDetailCtrl_DataPokok" ref="pegawaiDetailCtrl_DataPokok"/>
 	    <property name="tpCpnsDAO" ref="tpCpnsDao"/>
 <!-- 	    <property name="tpIdentitasDAO" ref="tpIdentitasDao"/> -->
 	</bean>
 	
 	<bean id="pegawaiListCtrl" class="de.forsthaus.webui.pegawai.PegawaiListCtrl" parent="basisCtrl" scope="prototype">
 	    <property name="tpCpnsDAO" ref="tpCpnsDao"/>
+	</bean>
+	
+	<bean id="pegawaiDetailCtrl_DataPokok" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_DataPokok" parent="basisCtrl" scope="prototype">
+	    <property name="pegawaiDetailCtrl_DataPokok_Identitas" ref="pegawaiDetailCtrl_DataPokok_Identitas"/>
+	    <property name="identitasDAO" ref="tpIdentitasDao"/>
+	</bean>
+	
+	<bean id="pegawaiDetailCtrl_DataPokok_Identitas" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_DataPokok_Identitas" parent="basisCtrl" scope="prototype">
 	</bean>
 
 	<!-- Guestbook -->
