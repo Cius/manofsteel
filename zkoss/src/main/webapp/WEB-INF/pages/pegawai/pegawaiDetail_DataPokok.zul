@@ -1,12 +1,15 @@
 <?page title="Data Pokok Pegawai" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok" ?>
+
 <zk>
-<window id="windowPegawaiDetail_DataPokok" title="Data Pokok Pegawai" border="normal">
+<window id="windowPegawaiDetail_DataPokok" apply="${pegawaiDetailCtrl_DataPokok}" title="Data Pokok Pegawai" border="normal">
 	<borderlayout id="borderLayout_PegawaiDataPokok">
 		<center border="none" autoscroll="true">
 			<tabbox id="tabbox_PegawaiDataPokok" orient="vertical">
-				<tabs>
+				<tabs width="200px">
 					<tab id="tab_PegawaiDataPokok_Identitas" label="Identitas Pegawai"
-					image="/images/icons/properties.gif" />
+					image="/images/icons/properties.gif"/>
 				</tabs>
 				
 				<tabpanels>

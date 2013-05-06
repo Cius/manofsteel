@@ -1,32 +1,7 @@
 <?page title="Data Pegawai" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<window id="windowPegawaiMain" apply="${pegawaiMainCtrl}" title="Data Pegawai" border="normal">
-		<div sclass="z-toolbar" style="padding:0">
-			<hbox sclass="hboxRemoveWhiteStrips" width="100%" pack="strech">
-				<toolbar align="start" style="float:left; border-style:none;">
-					<label value="Cari" style="padding-right:3px;"/>
-					<textbox id="txt_Nip" width="120px"/>
-					<button id="button_Search" sclass="oT_ButtonWithIcon"
-					image="/images/icons/search.gif"/>
-					<button id="button_New" sclass="oT_ButtonWithIcon"
-					image="/images/icons/btn_new_16x16.gif"/>
-				</toolbar>
-				
-				<toolbar align="center" style="float:left; border-style:none;">
-					<button id="btnPrint" sclass="oT_ButtonWithIcon"
-					image="/images/icons/btn_print2_16x16.gif"/>
-					<separator bar="true" orient="vertical" />
-					<button id="button_First" sclass="oT_ButtonWithIcon"
-					image="/images/icons/btn_first_16x16.png"/>
-					<button id="button_Prev" sclass="oT_ButtonWithIcon"
-					image="/images/icons/btn_previous_16x16.png"/>
-					<button id="button_Next" sclass="oT_ButtonWithIcon"
-					image="/images/icons/btn_next_16x16.png"/>
-					<button id="button_Last" sclass="oT_ButtonWithIcon"
-					image="/images/icons/btn_last_16x16.png"/>
-				</toolbar>
-			</hbox>
-		</div>
+		
 		
 		<tabbox id="tabbox_PegawaiMain">
 			<tabs>

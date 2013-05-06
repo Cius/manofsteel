@@ -1,0 +1,97 @@
+<?page title="Identitas Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Identitas" ?>
+
+<zk>
+<window id="windowPegawaiDetail_DataPokok_Identitas" apply="${pegawaiDetailCtrl_DataPokok_Identitas}" title="Identitas Pegawai" border="normal">
+	<borderlayout id="borderLayout_PegawaiDataPokok_Identitas">
+		<center border="none" autoscroll="true">
+			<grid>
+				<rows>
+					<row>
+						NIP <textbox id="textBox_nip" width="150px"/>
+					</row>
+					<row>
+						Nama <textbox id="textBox_nama" width="300px"/>
+					</row>
+					<row>
+						Tempat Lahir <textbox id="textBox_tempatlahir" width="150px"/>
+					</row>
+					<row>
+						Kota Lahir <textbox id="textBox_kotalahir" width="150px"/>
+					</row>
+					<row>
+						Tanggal Lahir <datebox id="dateBox_tanggallahir"/>
+					</row>
+					<row>
+						Jenis Kelamin 
+						<combobox id="comboBox_jeniskelamin">
+							<comboitem>Laki-laki</comboitem>
+							<comboitem>Perempuan</comboitem>
+						</combobox>
+					</row>
+					<row>
+						Agama <textbox id="textBox_agama" width="150px"/>
+					</row>
+					<row>
+						Status Kepegawaian <textbox id="textBox_statuskepegawaian" width="150px"/>
+					</row>
+					<row>
+						Jenis Kepegawaian <textbox id="textBox_jeniskepegawaian" width="150px"/>
+					</row>
+					<row>
+						Kedudukan Pegawai <textbox id="textBox_kedudukanpegawai" width="150px"/>
+					</row>
+					<row>
+						Status Perkawinan <textbox id="textBox_statusperkawinan" width="150px"/>
+					</row>
+					<row>
+						Golongan Darah <textbox id="textBox_golongandarah" width="150px"/>
+					</row>
+					<row>
+						Alamat Tempat Tinggal <textbox id="textBox_alamat" width="150px"/>
+					</row>
+					<row>
+						RT/RW <textbox id="textBox_rtrw" width="150px"/>
+					</row>
+					<row>
+						Telp. Rumah/HP <textbox id="textBox_telp" width="150px"/>
+					</row>
+					<row>
+						Kode Pos <textbox id="textBox_kodepos" width="150px"/>
+					</row>
+					<row>
+						Provinsi <textbox id="textBox_provinsir" width="150px"/>
+					</row>
+					<row>
+						Kab/Kota <textbox id="textBox_kota" width="150px"/>
+					</row>
+					<row>
+						Kecamatan <textbox id="textBox_kec" width="150px"/>
+					</row>
+					<row>
+						No. KARPEG <textbox id="textBox_karpeg" width="150px"/>
+					</row>
+					<row>
+						No. ASKES <textbox id="textBox_askes" width="150px"/>
+					</row>
+					<row>
+						No. TASPEN <textbox id="textBox_taspen" width="150px"/>
+					</row>
+					<row>
+						No. KARIS/KARSU <textbox id="textBox_karissu" width="150px"/>
+					</row>
+					<row>
+						NPWP <textbox id="textBox_npwp" width="150px"/>
+					</row>
+					<row>
+						No. KTP <textbox id="textBox_ktp" width="150px"/>
+					</row>
+					<row>
+						NIP Lama <textbox id="textBox_niplama" width="150px"/>
+					</row>
+				</rows>
+			</grid>
+		</center>
+	</borderlayout>
+</window>
+</zk>
