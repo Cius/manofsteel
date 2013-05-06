@@ -18,6 +18,7 @@ import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.TpIdentitasDAO;
 import de.forsthaus.backend.model.TpCpns;
 import de.forsthaus.webui.util.GFCBaseCtrl;
+import de.forsthaus.webui.util.ZksampleCommonUtils;
 
 public class PegawaiDetailCtrl_DataPokok extends GFCBaseCtrl implements Serializable {
 	/**
@@ -30,12 +31,13 @@ public class PegawaiDetailCtrl_DataPokok extends GFCBaseCtrl implements Serializ
 	private Borderlayout borderLayout_PegawaiDataPokok;
 	
 	private Tabbox tabbox_PegawaiDataPokok;
-	private Tab tab_PegawaiDataPokok_Identitas;
+	protected Tab tab_PegawaiDataPokok_Identitas;
 	
-	private Tabpanel tabPanel_PegawaiDataPokok_Identitas;
+	protected Tabpanel tabPanel_PegawaiDataPokok_Identitas;
 	
 	protected transient AnnotateDataBinder binder;
 	private PegawaiMainCtrl pegawaiMainCtrl;
+	private PegawaiDetailCtrl_DataPokok_Identitas pegawaiDetailCtrl_DataPokok_Identitas;
 	
 	private TpIdentitasDAO identitasDAO;
 	
@@ -66,6 +68,21 @@ public class PegawaiDetailCtrl_DataPokok extends GFCBaseCtrl implements Serializ
 		this.binder.loadAll();
 		
 		doFitSize(event);
+	}
+	
+	public void onSelect$tabPanel_PegawaiDataPokok_Identitas(Event event) throws Exception {
+		if (this.tabPanel_PegawaiDataPokok_Identitas.getFirstChild() != null) {
+			this.tab_PegawaiDataPokok_Identitas.setSelected(true);
+
+			// refresh the Binding mechanism
+			getPegawaiDetailCtrl_DataPokok_Identitas().setSelected(getSelected());
+			getPegawaiDetailCtrl_DataPokok_Identitas().getBinder().loadAll();
+			return;
+		}
+
+		if (this.tabPanel_PegawaiDataPokok_Identitas != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiDataPokok_Identitas, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok_Identitas.zul");
+		}
 	}
 	
 	public void doFitSize(Event event) {
@@ -100,5 +117,22 @@ public class PegawaiDetailCtrl_DataPokok extends GFCBaseCtrl implements Serializ
 
 	public void setBinder(AnnotateDataBinder binder) {
 		this.binder = binder;
+	}
+
+	public TpIdentitasDAO getIdentitasDAO() {
+		return identitasDAO;
+	}
+
+	public void setIdentitasDAO(TpIdentitasDAO identitasDAO) {
+		this.identitasDAO = identitasDAO;
+	}
+
+	public PegawaiDetailCtrl_DataPokok_Identitas getPegawaiDetailCtrl_DataPokok_Identitas() {
+		return pegawaiDetailCtrl_DataPokok_Identitas;
+	}
+
+	public void setPegawaiDetailCtrl_DataPokok_Identitas(
+			PegawaiDetailCtrl_DataPokok_Identitas pegawaiDetailCtrl_DataPokok_Identitas) {
+		this.pegawaiDetailCtrl_DataPokok_Identitas = pegawaiDetailCtrl_DataPokok_Identitas;
 	}
 }

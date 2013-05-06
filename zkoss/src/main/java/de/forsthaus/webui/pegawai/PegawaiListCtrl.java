@@ -10,6 +10,7 @@ import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zkplus.databind.BindingListModelList;
 import org.zkoss.zul.Borderlayout;
+import org.zkoss.zul.Button;
 import org.zkoss.zul.FieldComparator;
 import org.zkoss.zul.Intbox;
 import org.zkoss.zul.Listbox;
@@ -23,6 +24,7 @@ import de.forsthaus.backend.dao.TpIdentitasDAO;
 import de.forsthaus.backend.model.Branche;
 import de.forsthaus.backend.model.TpCpns;
 import de.forsthaus.backend.util.HibernateSearchObject;
+import de.forsthaus.webui.util.ButtonStatusCtrl;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
 
 public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializable {
@@ -40,6 +42,21 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 	private Listbox listBox_PegawaiList;
 	private Listheader listHeader_PegawaiList_nip;
 	private Listheader listHeader_PegawaiList_name;
+	
+	private final String btnCtrl_clsPref = "btn_Pegawai";
+	protected ButtonStatusCtrl buttonCtrl;	
+	protected Button search;
+	protected Button newEntry;
+	protected Button edit;
+	protected Button save;
+	protected Button delete;
+	protected Button cancel;
+	
+	protected Button print;
+	protected Button first;
+	protected Button prev;
+	protected Button next;
+	protected Button last;
 
 	private int countRows;
 
@@ -74,9 +91,13 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 	}
 
 	public void onCreate$windowPegawaiList(Event event) {
+		this.buttonCtrl = new ButtonStatusCtrl(getUserWorkspace(), btnCtrl_clsPref, true, search, print, first, prev, next, last, newEntry, edit, delete, save, cancel, null);
+		
 		this.binder = (AnnotateDataBinder) event.getTarget().getAttribute("binder", true);
 		doFillList();
 		this.binder.loadAll();
+		
+		this.buttonCtrl.setInitNew();
 	}
 
 	public void doFillList() {
@@ -122,7 +143,7 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 
 	}
 	
-	public void onDoubleClickedBranchItem(Event event) {
+	public void onDoubleClicked(Event event) {
 		// logger.debug(event.toString());
 
 		final TpCpns cpns = getSelected();
@@ -132,14 +153,14 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 
 			// check first, if the tabs are created
 			if (getPegawaiMainCtrl().getPegawaiDetailCtrl_DataPokok() == null) {
-				Events.sendEvent(new Event("onSelect", getPegawaiMainCtrl().tab_DataPokok, null));
+				Events.sendEvent(new Event("onSelect", getPegawaiMainCtrl().tabpanel_DataPokok, null));
 				// if we work with spring beanCreation than we must check a
 				// little bit deeper, because the Controller are preCreated ?
 			} else if (getPegawaiMainCtrl().getPegawaiListCtrl().getBinder() == null) {
-				Events.sendEvent(new Event("onSelect", getPegawaiMainCtrl().tab_DataPokok, null));
+				Events.sendEvent(new Event("onSelect", getPegawaiMainCtrl().tabpanel_DataPokok, null));
 			}
 
-			Events.sendEvent(new Event("onSelect", getPegawaiMainCtrl().tab_DataPokok, cpns));
+			Events.sendEvent(new Event("onSelect", getPegawaiMainCtrl().tabpanel_DataPokok, cpns));
 		}
 	}
 

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import org.apache.log4j.Logger;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zkplus.databind.BindingListModelList;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Tab;
@@ -44,21 +45,6 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 	
 	protected Textbox txt_Nip;
 	
-	private final String btnCtrl_clsPref = "btn_Pegawai";
-	protected ButtonStatusCtrl buttonCtrl;	
-	protected Button search;
-	protected Button newEntry;
-	protected Button edit;
-	protected Button save;
-	protected Button delete;
-	protected Button cancel;
-	
-	protected Button print;
-	protected Button first;
-	protected Button prev;
-	protected Button next;
-	protected Button last;
-	
 	private TpCpns selected;
 	private BindingListModelList pegawaiModelList;
 	
@@ -77,14 +63,10 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 	}
 	
 	public void onCreate$windowPegawaiMain(Event event) throws Exception {
-		this.buttonCtrl = new ButtonStatusCtrl(getUserWorkspace(), btnCtrl_clsPref, true, search, print, first, prev, next, last, newEntry, edit, delete, save, cancel, null);
-		
 		this.tab_PegawaiList.setVisible(true);
 		if(this.tabpanel_PegawaiList != null) {
 			ZksampleCommonUtils.createTabPanelContent(this.tabpanel_PegawaiList, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiList.zul");
 		}
-		
-		this.buttonCtrl.setInitNew();
 	}
 	
 	public void onSelect$tabpanel_DataPokok(Event event) {
@@ -94,6 +76,8 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 			// refresh the Binding mechanism
 			getPegawaiDetailCtrl_DataPokok().setSelected(getSelected());
 			getPegawaiDetailCtrl_DataPokok().getBinder().loadAll();
+			
+			Events.sendEvent(new Event("onSelect", getPegawaiDetailCtrl_DataPokok().tabPanel_PegawaiDataPokok_Identitas, getSelected()));
 			return;
 		}
 
