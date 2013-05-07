@@ -4,90 +4,102 @@
 <zk>
 <window id="windowPegawaiDetail_DataPokok_Identitas" apply="${pegawaiDetailCtrl_DataPokok_Identitas}" title="Identitas Pegawai" border="normal">
 	<borderlayout id="borderLayout_PegawaiDataPokok_Identitas">
+		<north>
+			<toolbar align="start" style="float:left; border-style: none;">
+				<button id="edit"
+							sclass="oT_ButtonWithIcon" image="/images/icons/btn_edit2_16x16.gif"/>
+				<button id="save"
+							sclass="oT_ButtonWithIcon" image="/images/icons/btn_save2_16x16.gif"/>
+				<button id="cancel"
+							sclass="oT_ButtonWithIcon" image="/images/icons/btn_delete_16x16.gif"/>
+			</toolbar>
+		</north>
 		<center border="none" autoscroll="true">
 			<grid>
 				<rows>
 					<row>
-						NIP <textbox id="textBox_nip" width="150px"/>
+						NIP <textbox id="textBox_nip" value="@{controller.selected.nip}" readonly="true"/>
 					</row>
 					<row>
-						Nama <textbox id="textBox_nama" width="300px"/>
+						Nama <textbox id="textBox_nama" value="@{controller.selected.identitas.nama}" readonly="true"/>
 					</row>
 					<row>
-						Tempat Lahir <textbox id="textBox_tempatlahir" width="150px"/>
+						Tempat Lahir <textbox id="textBox_tempatlahir" value="@{controller.selected.identitas.tmLahir}" readonly="true"/>
 					</row>
 					<row>
-						Kota Lahir <textbox id="textBox_kotalahir" width="150px"/>
+						Kota Lahir <combobox id="comboBox_kotalahir" value="@{controller.selected.identitas.kabLahir}" readonly="true"/>
 					</row>
 					<row>
-						Tanggal Lahir <datebox id="dateBox_tanggallahir"/>
+						Tanggal Lahir <datebox id="dateBox_tanggallahir" value="@{controller.selected.identitas.tgLahir}" readonly="true"/>
 					</row>
 					<row>
-						Jenis Kelamin 
-						<combobox id="comboBox_jeniskelamin">
-							<comboitem>Laki-laki</comboitem>
-							<comboitem>Perempuan</comboitem>
-						</combobox>
+						Jenis Kelamin <combobox id="comboBox_jeniskelamin" value="@{controller.selected.identitas.kSex}" readonly="true"/>
 					</row>
 					<row>
-						Agama <textbox id="textBox_agama" width="150px"/>
+						Agama <combobox id="comboBox_agama" value="@{controller.selected.identitas.kAgama}" readonly="true"/>
 					</row>
 					<row>
-						Status Kepegawaian <textbox id="textBox_statuskepegawaian" width="150px"/>
+						Status Kepegawaian <combobox id="comboBox_statuskepeg" value="@{controller.selected.identitas.kStaPeg}" readonly="true"/>
 					</row>
 					<row>
-						Jenis Kepegawaian <textbox id="textBox_jeniskepegawaian" width="150px"/>
+						Jenis Kepegawaian <combobox id="comboBox_jeniskepeg" value="@{controller.selected.identitas.kJnsPeg}" readonly="true"/>
 					</row>
 					<row>
-						Kedudukan Pegawai <textbox id="textBox_kedudukanpegawai" width="150px"/>
+						Kedudukan Pegawai <combobox id="comboBox_dudukkepeg" value="@{controller.selected.identitas.kDukPns}" readonly="true"/>
 					</row>
 					<row>
-						Status Perkawinan <textbox id="textBox_statusperkawinan" width="150px"/>
+						Status Perkawinan <combobox id="comboBox_statuskawin" value="@{controller.selected.identitas.kStaWin}" readonly="true"/>
 					</row>
 					<row>
-						Golongan Darah <textbox id="textBox_golongandarah" width="150px"/>
+						Golongan Darah <combobox id="comboBox_goldar" value="@{controller.selected.identitas.kGolDar}" readonly="true"/>
 					</row>
 					<row>
-						Alamat Tempat Tinggal <textbox id="textBox_alamat" width="150px"/>
+						Alamat Tempat Tinggal <textbox id="textBox_alamat" value="@{controller.selected.identitas.alJalan}" readonly="true"/>
 					</row>
 					<row>
-						RT/RW <textbox id="textBox_rtrw" width="150px"/>
+						RT <textbox id="textBox_rt" value="@{controller.selected.identitas.alRt}" readonly="true"/>
 					</row>
 					<row>
-						Telp. Rumah/HP <textbox id="textBox_telp" width="150px"/>
+						RW <textbox id="textBox_rw" value="@{controller.selected.identitas.alRw}" readonly="true"/>
 					</row>
 					<row>
-						Kode Pos <textbox id="textBox_kodepos" width="150px"/>
+						Telp. Rumah/HP <textbox id="textBox_telp" value="@{controller.selected.identitas.alTelp}" readonly="true"/>
 					</row>
 					<row>
-						Provinsi <textbox id="textBox_provinsir" width="150px"/>
+						Kode Pos <textbox id="textBox_kodepos" value="@{controller.selected.identitas.kodePos}" readonly="true"/>
 					</row>
 					<row>
-						Kab/Kota <textbox id="textBox_kota" width="150px"/>
+						Provinsi <combobox id="comboBox_prov" value="@{controller.selected.identitas.alKProp}" readonly="true"/>
 					</row>
 					<row>
-						Kecamatan <textbox id="textBox_kec" width="150px"/>
+						Kab/Kota <combobox id="comboBox_kota" value="@{controller.selected.identitas.alKKab}" readonly="true"/>
 					</row>
 					<row>
-						No. KARPEG <textbox id="textBox_karpeg" width="150px"/>
+						Kecamatan <combobox id="comboBox_kec" value="@{controller.selected.identitas.alKKec}" readonly="true"/>
 					</row>
 					<row>
-						No. ASKES <textbox id="textBox_askes" width="150px"/>
+						Kel/Desa <combobox id="comboBox_desa" value="@{controller.selected.identitas.alKDes}" readonly="true"/>
 					</row>
 					<row>
-						No. TASPEN <textbox id="textBox_taspen" width="150px"/>
+						No. KARPEG <textbox id="textBox_karpeg" value="@{controller.selected.identitas.nKarPeg}" readonly="true"/>
 					</row>
 					<row>
-						No. KARIS/KARSU <textbox id="textBox_karissu" width="150px"/>
+						No. ASKES <textbox id="textBox_askes" value="@{controller.selected.identitas.nAsKes}" readonly="true"/>
 					</row>
 					<row>
-						NPWP <textbox id="textBox_npwp" width="150px"/>
+						No. TASPEN <textbox id="textBox_taspen" value="@{controller.selected.identitas.nTasPen}" readonly="true"/>
 					</row>
 					<row>
-						No. KTP <textbox id="textBox_ktp" width="150px"/>
+						No. KARIS/KARSU <textbox id="textBox_karissu" value="@{controller.selected.identitas.nKarIs}" readonly="true"/>
 					</row>
 					<row>
-						NIP Lama <textbox id="textBox_niplama" width="150px"/>
+						NPWP <textbox id="textBox_npwp" value="@{controller.selected.identitas.npwp}" readonly="true"/>
+					</row>
+					<row>
+						No. KTP <textbox id="textBox_ktp" value="@{controller.selected.identitas.noPen}" readonly="true"/>
+					</row>
+					<row>
+						NIP Lama <textbox id="textBox_niplama" value="@{controller.selected.identitas.nipLama}" readonly="true"/>
 					</row>
 				</rows>
 			</grid>

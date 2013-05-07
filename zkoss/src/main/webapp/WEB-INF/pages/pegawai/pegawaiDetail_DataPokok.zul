@@ -5,7 +5,7 @@
 <zk>
 <window id="windowPegawaiDetail_DataPokok" apply="${pegawaiDetailCtrl_DataPokok}" title="Data Pokok Pegawai" border="normal">
 	<borderlayout id="borderLayout_PegawaiDataPokok">
-		<center border="none" autoscroll="true">
+		<center border="none">
 			<tabbox id="tabbox_PegawaiDataPokok" orient="vertical">
 				<tabs width="200px">
 					<tab id="tab_PegawaiDataPokok_Identitas" label="Identitas Pegawai"

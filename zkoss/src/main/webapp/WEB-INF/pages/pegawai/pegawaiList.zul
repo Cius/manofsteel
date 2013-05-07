@@ -34,12 +34,16 @@
 					<listhead sizable="true">
 						<listheader id="listHeader_PegawaiList_nip"
 							sclass="FDListBoxHeader1"
-							image="/images/icons/create_doc_16x16.gif"
 							label="NIP" sort="auto" width="100%" />
 						<listheader id="listHeader_PegawaiList_name"
 							sclass="FDListBoxHeader1"
-							image="/images/icons/create_doc_16x16.gif"
 							label="Nama" sort="auto" width="100%" />
+						<listheader id="listHeader_PegawaiList_status"
+							sclass="FDListBoxHeader1"
+							label="Status Pegawai" sort="auto" width="100%" />
+						<listheader id="listHeader_PegawaiList_jenisKel"
+							sclass="FDListBoxHeader1"
+							label="Jenis Kelamin" sort="auto" width="100%" />
 					</listhead>
 
 					<listitem self="@{each='pegawai'}"
@@ -49,6 +53,10 @@
 						<listcell label="@{pegawai.nip}"
 							style="padding-left: 5px" />
 						<listcell label="@{pegawai.identitas.nama}"
+							style="padding-left: 5px" />
+						<listcell label="@{pegawai.identitas.kStaPeg}"
+							style="padding-left: 5px" />
+						<listcell label="@{pegawai.identitas.kSex}"
 							style="padding-left: 5px" />
 					</listitem>
 
