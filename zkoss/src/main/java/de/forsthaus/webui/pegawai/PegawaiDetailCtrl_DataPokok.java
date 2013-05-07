@@ -102,6 +102,14 @@ public class PegawaiDetailCtrl_DataPokok extends GFCBaseCtrl implements Serializ
 	public TpCpns getSelected() {
 		return getPegawaiMainCtrl().getSelected();
 	}
+	
+	public void setOriginal(TpCpns cpns) {
+		getPegawaiMainCtrl().setOriginal(cpns);
+	}
+	
+	public TpCpns getOriginal() {
+		return getPegawaiMainCtrl().getOriginal();
+	}
 
 	public PegawaiMainCtrl getPegawaiMainCtrl() {
 		return pegawaiMainCtrl;

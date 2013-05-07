@@ -46,6 +46,7 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 	protected Textbox txt_Nip;
 	
 	private TpCpns selected;
+	private TpCpns original;
 	private BindingListModelList pegawaiModelList;
 	
 	private PegawaiListCtrl pegawaiListCtrl;
@@ -125,5 +126,13 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 	public void setPegawaiDetailCtrl_DataPokok(
 			PegawaiDetailCtrl_DataPokok pegawaiDetailCtrl_DataPokok) {
 		this.pegawaiDetailCtrl_DataPokok = pegawaiDetailCtrl_DataPokok;
+	}
+
+	public TpCpns getOriginal() {
+		return original;
+	}
+
+	public void setOriginal(TpCpns original) {
+		this.original = original;
 	}
 }
