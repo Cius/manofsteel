@@ -71,13 +71,13 @@
 		<property name="userEnt" type="string">
 			<column name="USERENT" />
 		</property>
-		<property name="tgEnt" type="date">
+		<property name="tglEnt" type="date">
 			<column name="TGLENT" />
 		</property>
 		<property name="userEdt" type="string">
 			<column name="USEREDT" />
 		</property>
-		<property name="tgEdt" type="date">
+		<property name="tglEdt" type="date">
 			<column name="TGLEDT" />
 		</property>
 		

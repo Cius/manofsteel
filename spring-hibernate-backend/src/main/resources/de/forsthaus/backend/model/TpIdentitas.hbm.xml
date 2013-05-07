@@ -28,7 +28,7 @@
 		<property name="tmLahir" type="string">
 			<column name="TMLAHIR" />
 		</property>
-		<property name="tgLahir" type="string">
+		<property name="tgLahir" type="date">
 			<column name="TGLAHIR" />
 		</property>
 		<property name="kabLahir" type="string">
@@ -121,8 +121,8 @@
 		<property name="kHukDis" type="string">
 			<column name="KHUKDIS" />
 		</property>
-		<property name="jasa" type="string">
-			<column name="JASA" />
+		<property name="kJasa" type="string">
+			<column name="KJASA" />
 		</property>
 		<property name="dp3Akhir" type="string">
 			<column name="DP3AKHIR" />
@@ -136,14 +136,14 @@
 		<property name="userEnt" type="string">
 			<column name="USERENT" />
 		</property>
-		<property name="tgEnt" type="date">
-			<column name="TGENT" />
+		<property name="tglEnt" type="date">
+			<column name="TGLENT" />
 		</property>
 		<property name="userEdt" type="string">
 			<column name="USEREDT" />
 		</property>
-		<property name="tgEdt" type="date">
-			<column name="TGEDT" />
+		<property name="tglEdt" type="date">
+			<column name="TGLEDT" />
 		</property>
 	</class>
 </hibernate-mapping>
