@@ -26,9 +26,9 @@ public class TrDiklat {
 	private String starec;
 	
 	private String userEnt;
-	private Date tgEnt;
+	private Date tglEnt;
 	private String userEdt;
-	private Date tgEdt;
+	private Date tglEdt;
 	
 	public int getId() {
 		return id;
@@ -150,11 +150,11 @@ public class TrDiklat {
 	public void setUserEnt(String userEnt) {
 		this.userEnt = userEnt;
 	}
-	public Date getTgEnt() {
-		return tgEnt;
+	public Date getTglEnt() {
+		return tglEnt;
 	}
-	public void setTgEnt(Date tgEnt) {
-		this.tgEnt = tgEnt;
+	public void setTglEnt(Date tglEnt) {
+		this.tglEnt = tglEnt;
 	}
 	public String getUserEdt() {
 		return userEdt;
@@ -162,10 +162,10 @@ public class TrDiklat {
 	public void setUserEdt(String userEdt) {
 		this.userEdt = userEdt;
 	}
-	public Date getTgEdt() {
-		return tgEdt;
+	public Date getTglEdt() {
+		return tglEdt;
 	}
-	public void setTgEdt(Date tgEdt) {
-		this.tgEdt = tgEdt;
+	public void setTglEdt(Date tglEdt) {
+		this.tglEdt = tglEdt;
 	}
 }

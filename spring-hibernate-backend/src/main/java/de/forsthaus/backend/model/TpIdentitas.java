@@ -12,7 +12,7 @@ public class TpIdentitas {
 	private String gelar2;
 	
 	private String tmLahir;
-	private String tgLahir;
+	private Date tgLahir;
 	private String kabLahir;
 	
 	private String kSex;
@@ -48,15 +48,15 @@ public class TpIdentitas {
 	
 	private String kCatMut;
 	private String kHukDis;
-	private String jasa;
+	private String kJasa;
 	private String dp3Akhir;
 	private String nipIsMi;
 	private String nipLama;
 	
 	private String userEnt;
-	private Date tgEnt;
+	private Date tglEnt;
 	private String userEdt;
-	private Date tgEdt;
+	private Date tglEdt;
 	
 	public int getId() {
 		return id;
@@ -100,10 +100,10 @@ public class TpIdentitas {
 	public void setTmLahir(String tmLahir) {
 		this.tmLahir = tmLahir;
 	}
-	public String getTgLahir() {
+	public Date getTgLahir() {
 		return tgLahir;
 	}
-	public void setTgLahir(String tgLahir) {
+	public void setTgLahir(Date tgLahir) {
 		this.tgLahir = tgLahir;
 	}
 	public String getKabLahir() {
@@ -286,11 +286,11 @@ public class TpIdentitas {
 	public void setkHukDis(String kHukDis) {
 		this.kHukDis = kHukDis;
 	}
-	public String getJasa() {
-		return jasa;
+	public String getkJasa() {
+		return kJasa;
 	}
-	public void setJasa(String jasa) {
-		this.jasa = jasa;
+	public void setkJasa(String jasa) {
+		this.kJasa = jasa;
 	}
 	public String getDp3Akhir() {
 		return dp3Akhir;
@@ -316,11 +316,11 @@ public class TpIdentitas {
 	public void setUserEnt(String userEnt) {
 		this.userEnt = userEnt;
 	}
-	public Date getTgEnt() {
-		return tgEnt;
+	public Date getTglEnt() {
+		return tglEnt;
 	}
-	public void setTgEnt(Date tgEnt) {
-		this.tgEnt = tgEnt;
+	public void setTglEnt(Date tglEnt) {
+		this.tglEnt = tglEnt;
 	}
 	public String getUserEdt() {
 		return userEdt;
@@ -328,10 +328,10 @@ public class TpIdentitas {
 	public void setUserEdt(String userEdt) {
 		this.userEdt = userEdt;
 	}
-	public Date getTgEdt() {
-		return tgEdt;
+	public Date getTglEdt() {
+		return tglEdt;
 	}
-	public void setTgEdt(Date tgEdt) {
-		this.tgEdt = tgEdt;
+	public void setTglEdt(Date tglEdt) {
+		this.tglEdt = tglEdt;
 	}
 }
