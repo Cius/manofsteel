@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- Namespace dependent DataBinding Initiator.          -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPropinsiList" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<window id="windowPropinsiList" apply="${propinsiListCtrl}"
+		border="none" width="100%">
+
+		<borderlayout id="borderLayout_propinsiList">
+
+			<!-- PAGING COMPONENT -->
+			<north border="none" height="26px">
+				<paging id="paging_PropinsiList" />
+			</north>
+
+			<center border="none">
+
+				<!-- DATABINDED LISTBOX -->
+				<listbox id="listBoxPropinsi"
+					style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px;"
+					model="@{controller.propinsis}"
+					selectedItem="@{controller.selectedPropinsi}" vflex="true"
+					tooltiptext="${c:l('listbox.tooltiptext')}" width="100%"
+					height="100%" multiple="false">
+					<listhead sizable="true">
+						<listheader id="listheader_PropinsiList_Kode"
+							sclass="FDListBoxHeader1" image="/images/icons/variable_tab.gif"
+							label="${c:l('listheader_PropinsiList_No.label')}" sort="auto"
+							width="20%" />
+						<listheader
+							id="listheader_PropinsiList_Nama" sclass="FDListBoxHeader1"
+							image="/images/icons/sequence.gif"
+							label="${c:l('listheader_PropinsiList_ShortDescr.label')}"
+							sort="auto" width="60%" />
+						<listheader
+							id="listheader_PropinsiList_Ibukota" sclass="FDListBoxHeader1"
+							image="/images/icons/builder.gif"
+							label="${c:l('listheader_PropinsiList_SinglePrice.label')}"
+							sort="none" align="left" width="20%" />
+					</listhead>
+
+					<listitem self="@{each='propinsi'}"
+						value="@{propinsi}"
+						forward="onDoubleClick=onDoubleClickedPropinsiItem">
+
+						<listcell label="@{propinsi.kodeWilayah}"
+							style="padding-left: 5px" />
+						<listcell label="@{propinsi.namaWilayah}"
+							style="padding-left: 5px" />
+						<listcell label="@{propinsi.ibukota}"
+							style="padding-right: 5px; text-align: right" />
+					</listitem>
+
+				</listbox>
+
+			</center>
+
+<!-- 			<south border="none"> -->
+
+<!-- 				<grid fixedLayout="true" style="border:0px"> -->
+<!-- 					<columns> -->
+<!-- 						<column width="20%" /> -->
+<!-- 						<column width="80%" /> -->
+<!-- 					</columns> -->
+<!-- 					<rows> -->
+<!-- 						<row> -->
+<!-- 							<label -->
+<!-- 								value="${c:l('label_PropinsiList_LongDescription.value')}" /> -->
+<!-- 							<textbox id="longBoxArt_LangBeschreibung" -->
+<!-- 								value="@{controller.selectedPropinsi.artLangbezeichnung}" -->
+<!-- 								width="99%" multiline="true" rows="3" /> -->
+<!-- 						</row> -->
+<!-- 					</rows> -->
+<!-- 				</grid> -->
+
+<!-- 			</south> -->
+
+		</borderlayout>
+
+
+	</window>
+</zk>
+
+
