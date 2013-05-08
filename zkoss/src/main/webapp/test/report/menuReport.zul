@@ -1,0 +1,78 @@
+<zk>
+	<borderlayout height="50px">
+		<north border="none">
+			<menubar id="menubar" width="100%">
+				<menuitem label="Kembali" image="/images/icons/arrow_blue_left_16x16.gif" onClick="alert(self.label)"/>
+				<menuitem label="Cetak" image="/images/icons/print.gif" onClick="alert(self.label)"/>
+				<menu label="Laporan" image="/images/icons/page_detail.gif">
+					<menupopup>
+						<menu label="Daftar Status Pegawai">
+							<menupopup>
+								<menuitem label="Calon PNS" href="report01.zul" />
+								<menuitem label="Pegawai Negeri Sipil" href="report02.zul" />
+							</menupopup>
+						</menu>
+						<menu label="Daftar Urut">
+							<menupopup>
+								<menuitem label="NIP" href="report03.zul" />
+								<menuitem label="NAMA" href="report04.zul" />
+								<menuitem label="KEPANGKATAN (DUK)" href="report05.zul" />
+								<menuitem label="JABATAN STRUKTURAL" href="report06.zul" />
+							</menupopup>
+						</menu>
+						<menuitem label="Daftar Kepangkatan" href="report07.zul" />
+						<menuseparator />
+						<menu label="Daftar Jabatan">
+							<menupopup>
+								<menuitem label="STRUKTURAL" href="report08.zul" />
+								<menuitem label="FUNGSIONAL KHUSUS" href="report09.zul" />
+								<menuitem label="FUNGSIONAL UMUM" href="report10.zul" />
+								<menuseparator />
+								<menuitem label="PEJABAT NEGARA" href="report11.zul" />
+								<menuitem label="JENIS GURU" href="report12.zul" />
+								<menuitem label="RANGKAP JABATAN" href="report13.zul" />
+								<menuitem label="STRUKTURAL BELUM DIKLATPIM" href="report14.zul" />		
+							</menupopup>
+						</menu>
+						<menu label="Daftar Pendidikan">
+							<menupopup>
+								<menuitem label="PENDIDIKAN UMUM TERAKHIR" href="report15.zul" />
+								<menuseparator/>
+								<menuitem label="DIKLAT JABATAN" href="report16.zul" />
+								<menuitem label="DIKLAT KADER" href="report17.zul" />
+								<menuitem label="SEMINAR / PENATARAN / DLL" href="report18.zul" />
+								<menuitem label="KURSUS NON KEDINASAN" href="report19.zul" />
+								<menuseparator />
+								<menuitem label="LATIHAN PRAJABATAN" href="report20.zul" />
+								<menuitem label="LULUS SELEKSI DIKLATPIM" href="report21.zul" />
+								<menuseparator/>
+								<menuitem label="ALUMNI SEKOLAH / AKADEMI / PERTI" href="report22.zul" />
+								<menuitem label="ALUMNI JURUSAN" href="report23.zul" />		
+							</menupopup>
+						</menu>
+						<menu label="Daftar Kenaikan">
+							<menupopup>
+								<menuitem label="PANGKAT" href="report24.zul" />
+								<menuitem label="GAJI BERKALA" href="report25.zul" />
+							</menupopup>
+						</menu>
+						<menuitem label="LEMHANNAS" href="report26.zul" />
+						<menuseparator/>
+						<menuitem label="Daftar Pensiun" href="report27.zul"/>
+						<menuitem label="Daftar Masa Kerja" href="report28.zul"/>
+						<menuitem label="Daftar Persyaratan" href="report29.zul"/>
+						<menuitem label="Daftar Kepemilikan Kartu" href="report30.zul"/>
+						<menuseparator/>
+						<menuitem label="Daftar Alamat Kantor/Rumah" href="report31.zul"/>
+						<menuitem label="Daftar Riwayat Hidup" href="report32.zul"/>
+						<menuitem label="Formulir SIMPEG (FIP)" href="report33.zul"/>
+						<menuitem label="Penguasaan Bahasa" href="report34.zul"/>
+						<menuseparator/>
+						<menuitem label="Ucapan Purna Bhakti" href="report35.zul"/>
+						<menuitem label="Ucapan Ulang Tahun" href="report36.zul"/>
+					</menupopup>
+				</menu>
+			</menubar>
+		</north>
+	</borderlayout>
+</zk>

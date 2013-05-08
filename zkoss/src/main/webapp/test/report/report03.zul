@@ -1,0 +1,102 @@
+<?page title="Laporan Pegawai Negeri Sipil" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+<window id="window_Report" title="Laporan Daftar PNS Urut NIP" border="normal" apply="${report03DaftarPnsUrutNip}">
+	<include src="menuReport.zul"/>
+	<panel border="normal" title="">
+		<panelchildren>
+			<vbox width="100%">
+				<grid vflex="1">
+					<columns>
+						<column label="" width="150px" />
+						<column label="" width="300px"/>
+						<column label="" width="150px"/>
+						<column label="" />
+					</columns>
+					<rows>
+						<row>
+							<label value="Berdasarkan" />
+							<hlayout>
+								<listbox id="listKriteria" onSelect="checkKriteria()" mold="select" rows="1" width="100px" >
+									<listitem label="THN CPNS" value="TAHUN CPNS"/>
+									<listitem label="THN LAHIR" value="TAHUN LAHIR"/>
+									<listitem label="SELURUH" value="SELURUH" selected="true"/>
+								</listbox>
+								<label id="lblSubKriteria" value=" THN " />
+								<listbox id="listSubKriteria" onSelect="" mold="select" rows="1" width="100px"/>
+							</hlayout>
+							<label value="Unit Kerja" />
+							<listbox id="listUnitKerja" onSelect="checkUnitKerja()" mold="select" rows="1" width="250px"/>
+						</row>
+						<row>
+							<label value="Jenis Kelamin" />
+							<listbox id="listJenisKelamin" onSelect="" mold="select" rows="1" width="100px">
+								<listitem label="SELURUH" value="SELURUH" selected="true"/>
+								<listitem label="PRIA" value="PRIA" />
+								<listitem label="WANITA" value="WANITA" />
+							</listbox>
+							<label value="Unit Organisasi" />
+							<listbox id="listUnitOrganisasi" onSelect="checkUnitOrganisasi()" mold="select" rows="1" width="250px"/>
+						</row>
+						<row>
+							<hlayout></hlayout>
+							<button id="btnCari" label="Cari" image="/images/icons/search.gif" />
+							<hlayout></hlayout>
+							<hlayout></hlayout>
+						</row>
+					</rows>
+				</grid>
+				
+				<splitter id="s1" collapse="before"/>
+			
+				<jasperreport id="report" height="450px"/>
+				
+			</vbox>
+		</panelchildren>
+	</panel>
+	
+	<zscript><![CDATA[
+        
+		void checkKriteria(){
+			if(!listKriteria.getSelectedItem().getValue().equals("")){
+				if(listKriteria.getSelectedItem().getValue().equals("TAHUN CPNS")){
+					lblSubKriteria.setVisible(true);
+					for(int i = 0; i<=listSubKriteria.getItemCount()-1;i++){
+						listSubKriteria.removeItemAt(i);	
+					}
+					for(int i = 1970; i<=2011; i++){
+						listSubKriteria.appendItemApi(String.valueOf(i),String.valueOf(i));
+					}
+					listSubKriteria.setVisible(true);	
+				}else if(listKriteria.getSelectedItem().getValue().equals("TAHUN LAHIR")){
+					lblSubKriteria.setVisible(true);
+					for(int i = 0; i<=listSubKriteria.getItemCount()-1;i++){
+						listSubKriteria.removeItemAt(i);	
+					}
+					for(int i = 1952; i<=1991; i++){
+						listSubKriteria.appendItemApi(String.valueOf(i),String.valueOf(i));
+					}
+					listSubKriteria.setVisible(true);	
+				}
+			}else{
+				lblSubKriteria.setVisible(false);
+				listSubKriteria.setVisible(false);
+			}
+		}
+	                  
+        void checkUnitKerja(){
+        	if(!listUnitKerja.getSelectedItem().getValue().equals("")){
+        		listUnitOrganisasi.setSelectedIndex(0);
+        	}
+        }
+        
+        void checkUnitOrganisasi(){
+        	if(!listUnitOrganisasi.getSelectedItem().getValue().equals("")){
+        		listUnitKerja.setSelectedIndex(0);
+        	}
+        }
+       
+    ]]></zscript>
+</window>
+</zk>
