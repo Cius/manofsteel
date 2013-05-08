@@ -81,8 +81,7 @@
 			<column name="TGLEDT" />
 		</property>
 		
-<!-- 		<join table="TP_CPNS_TP_IDENTITAS"  -->
-<!-- 	        optional="true" fetch="select"> -->
+<!-- 		<join table="TP_CPNS_TP_IDENTITAS" optional="true" fetch="select"> -->
 <!-- 	        <key column="cpnsNip" -->
 <!-- 	            property-ref="nip"  -->
 <!-- 	            unique="true"/> -->
