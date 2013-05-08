@@ -95,6 +95,10 @@
 				</value>
 				<value>de/forsthaus/backend/model/TrOrganisasi.hbm.xml
 				</value>
+				<value>de/forsthaus/backend/model/TbMaster.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/TpCpnsReport.hbm.xml
+				</value>
 			</list>
 		</property>
 	</bean>
@@ -174,6 +178,10 @@
 	<bean id="applicationNewsDAO" class="de.forsthaus.backend.dao.impl.ApplicationNewsDAOImpl" parent="basisDAO" />
 	
 	<bean id="tpCpnsDao" class="de.forsthaus.backend.dao.impl.TpCpnsDAOImpl" parent="basisDAO"/>
+	
+	<bean id="tbMasterDao" class="de.forsthaus.backend.dao.impl.TbMasterDAOImpl" parent="basisDAO"/>
+	
+	<bean id="tpCpnsReportDao" class="de.forsthaus.backend.dao.impl.TpCpnsReportDAOImpl" parent="basisDAO"/>
 	<bean id="tpIdentitasDao" class="de.forsthaus.backend.dao.impl.TpIdentitasDAOImpl" parent="basisDAO"/>
 
 	<!-- ====================================================== -->
