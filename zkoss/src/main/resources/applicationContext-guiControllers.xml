@@ -53,6 +53,139 @@
 	<bean id="articleDetailCtrl" class="de.forsthaus.webui.article.ArticleDetailCtrl" parent="basisCtrl" scope="prototype">
 		<!-- <property name="articleService" ref="articleService" /> -->
 	</bean>
+	
+	<!-- Propinsi -->
+	<bean id="propinsiMainCtrl" class="de.forsthaus.webui.wilayah.PropinsiMainCtrl" parent="basisCtrl" scope="prototype">
+		<property name="wilayahDAO" ref="wilayahDAO" />
+		<property name="propinsiListCtrl" ref="propinsiListCtrl" />
+		<property name="kotaListCtrl" ref="kotaListCtrl" />
+		<property name="kecamatanListCtrl" ref="kecamatanListCtrl" />
+		<property name="kelurahanListCtrl" ref="kelurahanListCtrl" />
+		<property name="plwWilayah" ref="pagedListWrapper" />
+<!-- 		<property name="propinsiDetailCtrl" ref="propinsiDetailCtrl" /> -->
+	</bean>
+	<bean id="propinsiDialogCtrl" class="de.forsthaus.webui.wilayah.PropinsiDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="wilayahDAO" ref="wilayahDAO" />
+	</bean>
+	<bean id="propinsiListCtrl" class="de.forsthaus.webui.wilayah.PropinsiListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="wilayahDAO" ref="wilayahDAO" />
+	</bean>
+	<bean id="kotaListCtrl" class="de.forsthaus.webui.wilayah.KotaListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="wilayahDAO" ref="wilayahDAO" />
+	</bean>
+	<bean id="kecamatanListCtrl" class="de.forsthaus.webui.wilayah.KecamatanListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="wilayahDAO" ref="wilayahDAO" />
+	</bean>
+	<bean id="kelurahanListCtrl" class="de.forsthaus.webui.wilayah.KelurahanListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="wilayahDAO" ref="wilayahDAO" />
+	</bean>
+	<bean id="golonganRuangDialogCtrl" class="de.forsthaus.webui.golonganruang.GolonganRuangDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="golonganRuangDAO" ref="golonganRuangDAO" />
+	</bean>
+	<bean id="golonganRuangListCtrl" class="de.forsthaus.webui.golonganruang.GolonganRuangListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="golonganRuangDAO" ref="golonganRuangDAO" />
+	</bean>
+	<bean id="gajiPokokDialogCtrl" class="de.forsthaus.webui.gajipokok.GajiPokokDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gajiPokokDAO" ref="gajiPokokDAO" />
+	</bean>
+	<bean id="gajiPokokListCtrl" class="de.forsthaus.webui.gajipokok.GajiPokokListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gajiPokokDAO" ref="gajiPokokDAO" />
+	</bean>
+	<bean id="agamaDialogCtrl" class="de.forsthaus.webui.gabungan.AgamaDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="agamaListCtrl" class="de.forsthaus.webui.gabungan.AgamaListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="statusKepegawaianDialogCtrl" class="de.forsthaus.webui.gabungan.StatusKepegawaianDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="statusKepegawaianListCtrl" class="de.forsthaus.webui.gabungan.StatusKepegawaianListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="kedudukanPNSDialogCtrl" class="de.forsthaus.webui.gabungan.KedudukanPNSDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="kedudukanPNSListCtrl" class="de.forsthaus.webui.gabungan.KedudukanPNSListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisNaikPangkatDialogCtrl" class="de.forsthaus.webui.gabungan.JenisNaikPangkatDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisNaikPangkatListCtrl" class="de.forsthaus.webui.gabungan.JenisNaikPangkatListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="pekerjaanDialogCtrl" class="de.forsthaus.webui.gabungan.PekerjaanDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="pekerjaanListCtrl" class="de.forsthaus.webui.gabungan.PekerjaanListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisKepegawaianDialogCtrl" class="de.forsthaus.webui.gabungan.JenisKepegawaianDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisKepegawaianListCtrl" class="de.forsthaus.webui.gabungan.JenisKepegawaianListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisHukumanRinganDialogCtrl" class="de.forsthaus.webui.gabungan.JenisHukumanRinganDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisHukumanRinganListCtrl" class="de.forsthaus.webui.gabungan.JenisHukumanRinganListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisHukumanSedangDialogCtrl" class="de.forsthaus.webui.gabungan.JenisHukumanSedangDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisHukumanSedangListCtrl" class="de.forsthaus.webui.gabungan.JenisHukumanSedangListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisHukumanBeratDialogCtrl" class="de.forsthaus.webui.gabungan.JenisHukumanBeratDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisHukumanBeratListCtrl" class="de.forsthaus.webui.gabungan.JenisHukumanBeratListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisHukumanMainCtrl" class="de.forsthaus.webui.gabungan.JenisHukumanMainCtrl" parent="basisCtrl" scope="prototype" />
+	
+	<bean id="unitOrganisasiDialogCtrl" class="de.forsthaus.webui.unitkerja.UnitOrganisasiDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="unitKerjaDAO" ref="unitKerjaDAO" />
+	</bean>
+	<bean id="unitOrganisasiListCtrl" class="de.forsthaus.webui.unitkerja.UnitOrganisasiListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="unitKerjaDAO" ref="unitKerjaDAO" />
+	</bean>
+	<bean id="unitKerjaDialogCtrl" class="de.forsthaus.webui.unitkerja.UnitKerjaDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="unitKerjaDAO" ref="unitKerjaDAO" />
+		<property name="wilayahDAO" ref="wilayahDAO" />
+		<property name="eselonDAO" ref="eselonDAO" />
+	</bean>
+	<bean id="unitKerjaListCtrl" class="de.forsthaus.webui.unitkerja.UnitKerjaListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="unitKerjaDAO" ref="unitKerjaDAO" />
+	</bean>
+	<bean id="satuanKerjaDialogCtrl" class="de.forsthaus.webui.unitkerja.SatuanKerjaDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="unitKerjaDAO" ref="unitKerjaDAO" />
+		<property name="eselonDAO" ref="eselonDAO" />
+	</bean>
+	<bean id="satuanKerjaListCtrl" class="de.forsthaus.webui.unitkerja.SatuanKerjaListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="unitKerjaDAO" ref="unitKerjaDAO" />
+	</bean>
+	<bean id="unitKerjaMainCtrl" class="de.forsthaus.webui.unitkerja.UnitKerjaMainCtrl" parent="basisCtrl" scope="prototype" />
+	
+	<bean id="jenisOrganisasiDialogCtrl" class="de.forsthaus.webui.gabungan.JenisOrganisasiDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="jenisOrganisasiListCtrl" class="de.forsthaus.webui.gabungan.JenisOrganisasiListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="gabunganDAO" ref="gabunganDAO" />
+	</bean>
+	<bean id="eselonDialogCtrl" class="de.forsthaus.webui.eselon.EselonDialogCtrl" parent="basisCtrl" scope="prototype">
+		<property name="eselonDAO" ref="eselonDAO" />
+		<property name="golonganRuangDAO" ref="golonganRuangDAO" />
+	</bean>
+	<bean id="eselonListCtrl" class="de.forsthaus.webui.eselon.EselonListCtrl" parent="basisListCtrl" scope="prototype">
+		<property name="eselonDAO" ref="eselonDAO" />
+	</bean>
+<!-- 	<bean id="propinsiDetailCtrl" class="de.forsthaus.webui.wilayah.PropinsiDetailCtrl" parent="basisCtrl" scope="prototype"> -->
+<!-- 		<property name="propinsiService" ref="wilayahDAO" /> -->
+<!-- 	</bean> -->
 
 	<!-- Branch / Branchenstammdaten -->
 	<bean id="branchMainCtrl" class="de.forsthaus.webui.branch.BranchMainCtrl" parent="basisCtrl" scope="prototype">

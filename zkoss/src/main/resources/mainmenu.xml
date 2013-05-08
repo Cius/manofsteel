@@ -19,11 +19,11 @@
 	<menuItem id="menu_Item_Home" zulNavigation="/WEB-INF/pages/dashboard.zul"
 		iconName="/images/icons/console_view.gif" />
 	<!-- Guestbook -->
-	<menuItem id="menu_Item_Guestbook" zulNavigation="/WEB-INF/pages/guestbook/guestBookList.zul"
-		iconName="/images/icons/create_doc_16x16.gif" />
+<!-- 	<menuItem id="menu_Item_Guestbook" zulNavigation="/WEB-INF/pages/guestbook/guestBookList.zul" -->
+<!-- 		iconName="/images/icons/create_doc_16x16.gif" /> -->
 	<!-- Calendar -->
-	<menuItem id="menu_Item_Calendar" zulNavigation="/WEB-INF/pages/calendar/calendar.zul"
-		iconName="/images/icons/calendar1_16x16.gif" />
+<!-- 	<menuItem id="menu_Item_Calendar" zulNavigation="/WEB-INF/pages/calendar/calendar.zul" -->
+<!-- 		iconName="/images/icons/calendar1_16x16.gif" /> -->
 	<!-- Spreadsheet -->
 	<!--
 		closed, until the spreadsheet jar's are in the maven repo <menuItem
@@ -33,17 +33,17 @@
 	-->
 
 	<!-- ReadMe MenuTree -->
-	<menu id="menu_Category_ReadMe" rightName="" open="true">
-		<!-- Documentation -->
-		<menuItem id="menu_Item_Documentation" zulNavigation="/WEB-INF/pages/documentation/documentation.zul"
-			iconName="/images/icons/icon-pdf_16x16.png" />
-		<!-- Blog -->
-		<menuItem id="menu_Item_Blog" zulNavigation="/WEB-INF/pages/blog/blog.zul"
-			iconName="/images/icons/wpmini-blue_16x16.png" />
-		<!-- get the codes -->
-		<menuItem id="menu_Item_Codes" zulNavigation="/WEB-INF/pages/codes/codes.zul"
-			iconName="/images/icons/cardbox1_16x16.gif" />
-	</menu>
+<!-- 	<menu id="menu_Category_ReadMe" rightName="" open="true"> -->
+ 		<!-- Documentation --> 
+<!-- 		<menuItem id="menu_Item_Documentation" zulNavigation="/WEB-INF/pages/documentation/documentation.zul" -->
+<!-- 			iconName="/images/icons/icon-pdf_16x16.png" /> -->
+ 		<!-- Blog --> 
+<!-- 		<menuItem id="menu_Item_Blog" zulNavigation="/WEB-INF/pages/blog/blog.zul" -->
+<!-- 			iconName="/images/icons/wpmini-blue_16x16.png" /> -->
+ 		<!-- get the codes --> 
+<!-- 		<menuItem id="menu_Item_Codes" zulNavigation="/WEB-INF/pages/codes/codes.zul" -->
+<!-- 			iconName="/images/icons/cardbox1_16x16.gif" /> -->
+<!-- 	</menu> -->
 
 	<!-- OfficeData MenuTree -->
 	<menu id="menu_Category_OfficeData" rightName="menuCat_OfficeData">
@@ -61,6 +61,32 @@
 			iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Branch" />
 		<menuItem id="menu_Item_Offices" zulNavigation="/WEB-INF/pages/office/officeMain.zul"
 			iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Office" />
+		<menuItem id="menu_Item_Propinsi" zulNavigation="/WEB-INF/pages/wilayah/propinsiMain.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_Propinsi" />
+		<menuItem id="menu_Item_GolonganRuang" zulNavigation="/WEB-INF/pages/golonganruang/golonganRuangList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_GolonganRuang" />
+		<menuItem id="menu_Item_GajiPokok" zulNavigation="/WEB-INF/pages/gajipokok/gajiPokokList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_GajiPokok" />
+		<menuItem id="menu_Item_Agama" zulNavigation="/WEB-INF/pages/gabungan/agamaList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_Agama" />
+		<menuItem id="menu_Item_StatusKepegawaian" zulNavigation="/WEB-INF/pages/gabungan/statusKepegawaianList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_StatusKepegawaian" />
+		<menuItem id="menu_Item_KedudukanPNS" zulNavigation="/WEB-INF/pages/gabungan/kedudukanPNSList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_KedudukanPNS" />
+		<menuItem id="menu_Item_JenisNaikPangkat" zulNavigation="/WEB-INF/pages/gabungan/jenisNaikPangkatList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_JenisNaikPangkat" />
+		<menuItem id="menu_Item_Pekerjaan" zulNavigation="/WEB-INF/pages/gabungan/pekerjaanList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_Pekerjaan" />
+		<menuItem id="menu_Item_JenisKepegawaian" zulNavigation="/WEB-INF/pages/gabungan/jenisKepegawaianList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_JenisKepegawaian" />
+		<menuItem id="menu_Item_JenisHukuman" zulNavigation="/WEB-INF/pages/gabungan/jenisHukumanMain.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_JenisHukuman" />
+		<menuItem id="menu_Item_JenisOrganisasi" zulNavigation="/WEB-INF/pages/gabungan/jenisOrganisasiList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_JenisOrganisasi" />
+		<menuItem id="menu_Item_Eselon" zulNavigation="/WEB-INF/pages/eselon/eselonList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_Eselon" />
+		<menuItem id="menu_Item_UnitKerja" zulNavigation="/WEB-INF/pages/unitkerja/unitKerjaMain.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_UnitKerja" />
 		<menuItem id="menu_Item_Pegawai" zulNavigation="/WEB-INF/pages/pegawai/pegawaiMain.zul"
 		    iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Pegawai"/>
 	</menu>
@@ -87,8 +113,8 @@
 		<menuItem id="menu_Item_LoginsLog"
 			zulNavigation="/WEB-INF/pages/sec_loginlog/secLoginLogMain.zul"
 			iconName="/images/icons/method_16x16.gif" rightName="menuItem_Administration_LoginsLog" />
-		<menuItem id="menu_Item_HibernateStatistics" zulNavigation="/WEB-INF/pages/debug/HibernateStatistics.zul"
-			iconName="/images/icons/method_16x16.gif" rightName="menuItem_Administration_HibernateStats" />
+<!-- 		<menuItem id="menu_Item_HibernateStatistics" zulNavigation="/WEB-INF/pages/debug/HibernateStatistics.zul" -->
+<!-- 			iconName="/images/icons/method_16x16.gif" rightName="menuItem_Administration_HibernateStats" /> -->
 	</menu>
 
 

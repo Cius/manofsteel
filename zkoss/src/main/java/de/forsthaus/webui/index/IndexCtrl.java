@@ -252,7 +252,7 @@ public class IndexCtrl extends GFCBaseCtrl implements Serializable {
 			}
 		} else {
 			timer = null;
-			doCreateDemoTimerForNotifications(event);
+			//doCreateDemoTimerForNotifications(event);
 		}
 
 	}
