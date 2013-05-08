@@ -78,14 +78,14 @@
 
 					<hbox pack="stretch" width="100%">
 
-						<div id="divNo" align="left" style="padding: 1px; ">
-							<image src="/images/zkpowered_34x34.png" />
-						</div>
+<!-- 						<div id="divNo" align="left" style="padding: 1px; "> -->
+<!-- 							<image src="/images/zkpowered_34x34.png" /> -->
+<!-- 						</div> -->
 
 
-						<div align="left" style="padding: 0px;">
-							<image src="/images/ZKHeader2_176x38.jpg" />
-						</div>
+<!-- 						<div align="left" style="padding: 0px;"> -->
+<!-- 							<image src="/images/ZKHeader2_176x38.jpg" /> -->
+<!-- 						</div> -->
 
 
 						<div align="right" style="float: right">

@@ -22,7 +22,7 @@
 	<window id="loginwin" border="none" width="320px" use="de.forsthaus.webui.login.ZkLoginDialogCtrl">
 
 		<groupbox mold="3d" closable="false" sclass="outerGroupBox" contentStyle="background-color : white">
-			<caption label="Login to Zksample2" image="/images/earth2.gif" style="font-weight: bold;">
+			<caption label="Login to Application" image="/images/earth2.gif" style="font-weight: bold;">
 
 				<toolbarbutton id="button_ZKLoginDialog_Close" image="/images/icons/stop.gif"
 					tooltiptext="${c:l('button_ZKLoginDialog_Close.tooltiptext')}" />
