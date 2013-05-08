@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TpCpnsReport" table="tp_cpns">
+
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="increment">
+				<param name="sequence">tpcpns_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+		
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<one-to-one name="master" class="de.forsthaus.backend.model.TbMaster"/>
+		<property name="kPejCpns" type="string">
+			<column name="KPEJCPNS" />
+		</property>
+		<property name="skCpns" type="string">
+			<column name="SKCPNS" />
+		</property>
+		<property name="tSkCpns" type="date">
+			<column name="TSKCPNS" />
+		</property>
+		<property name="tmtCpns" type="date">
+			<column name="TMTCPNS" />
+		</property>
+		<property name="kGolRuCpns" type="string">
+			<column name="KGOLRUCPNS" />
+		</property>
+		<property name="latPrajab" type="string">
+			<column name="LATPRAJAB" />
+		</property>
+		<property name="thnPrajab" type="string">
+			<column name="THNPRAJAB" />
+		</property>
+		<property name="tmtTugas" type="date">
+			<column name="TMTTUGAS" />
+		</property>
+		<property name="thnKerja" type="string">
+			<column name="THKERJA" />
+		</property>
+		<property name="blnKerja" type="string">
+			<column name="BLKERJA" />
+		</property>
+		<property name="kTpuCpns" type="string">
+			<column name="KTPUCPNS" />
+		</property>
+		<property name="kPejPns" type="string">
+			<column name="KPEJPNS" />
+		</property>
+		<property name="skPns" type="string">
+			<column name="SKPNS" />
+		</property>
+		<property name="tSkPns" type="date">
+			<column name="TSKPNS" />
+		</property>
+		<property name="tmtPns" type="date">
+			<column name="TMTPNS" />
+		</property>
+		<property name="kGolRuPns" type="string">
+			<column name="KGOLRUPNS" />
+		</property>
+		<property name="janjiPns" type="string">
+			<column name="KJANJIPNS" />
+		</property>
+		<property name="userEnt" type="string">
+			<column name="USERENT" />
+		</property>
+		<property name="tgEnt" type="date">
+			<column name="TGLENT" />
+		</property>
+		<property name="userEdt" type="string">
+			<column name="USEREDT" />
+		</property>
+		<property name="tgEdt" type="date">
+			<column name="TGLEDT" />
+		</property>
+	</class>
+</hibernate-mapping>

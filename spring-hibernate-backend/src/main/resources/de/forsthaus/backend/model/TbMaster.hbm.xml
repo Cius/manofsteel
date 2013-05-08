@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.TbMaster" table="tb_master">
+
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="increment">
+				<param name="sequence">tbmaster_seq</param>
+			</generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+		
+		<property name="nip" type="string">
+			<column name="NIP" />
+		</property>
+		<many-to-one name="identitas" class="de.forsthaus.backend.model.TpIdentitas" property-ref="nip" not-null="true" insert="false" update="false" unique="true">
+        	<column name="NIP" />
+    	</many-to-one>
+		<many-to-one name="cpns" class="de.forsthaus.backend.model.TpCpns" property-ref="nip" not-null="false" insert="false" update="false" unique="true">
+        	<column name="NIP" />
+    	</many-to-one>
+		<property name="nama" type="string">
+			<column name="NAMA" />
+		</property>
+		<property name="tempatLahir" type="string">
+			<column name="TEMPAT_LAHIR" />
+		</property>
+		<property name="tglLahir" type="date">
+			<column name="TGL_LAHIR" />
+		</property>
+		<property name="kelamin" type="string">
+			<column name="KELAMIN" />
+		</property>
+		<property name="agama" type="string">
+			<column name="AGAMA" />
+		</property>
+		<property name="statusPegawai" type="string">
+			<column name="STATUS_PEGAWAI" />
+		</property>
+		<property name="statusKawin" type="string">
+			<column name="STATUS_KAWIN" />
+		</property>
+		<property name="alamatTinggal" type="string">
+			<column name="ALAMAT_TINGGAL" />
+		</property>
+		<property name="kelurahan" type="string">
+			<column name="KELURAHAN" />
+		</property>
+		<property name="kecamatan" type="string">
+			<column name="KECAMATAN" />
+		</property>
+		<property name="kabupaten" type="string">
+			<column name="KABUPATEN" />
+		</property>
+		<property name="propinsi" type="string">
+			<column name="PROPINSI" />
+		</property>
+		<property name="karpeg" type="string">
+			<column name="KARPEG" />
+		</property>
+		<property name="npwp" type="string">
+			<column name="NPWP" />
+		</property>
+		<property name="tmtcpns" type="date">
+			<column name="TMTCPNS" />
+		</property>
+		<property name="tmtpns" type="date">
+			<column name="TMTPNS" />
+		</property>
+		<property name="kodeGol" type="string">
+			<column name="KODE_GOL" />
+		</property>
+		<property name="golruang" type="string">
+			<column name="GOLRUANG" />
+		</property>
+		<property name="pangkat" type="string">
+			<column name="PANGKAT" />
+		</property>
+		<property name="tmtpangkat" type="date">
+			<column name="TMTPANGKAT" />
+		</property>
+		<property name="pejabatGol" type="string">
+			<column name="PEJABAT_GOL" />
+		</property>
+		<property name="noskgol" type="string">
+			<column name="NOSKGOL" />
+		</property>
+		<property name="tgskgol" type="date">
+			<column name="TGSKGOL" />
+		</property>
+		<property name="thkerjagol" type="string">
+			<column name="THKERJAGOL" />
+		</property>
+		<property name="blkerjagol" type="string">
+			<column name="BLKERJAGOL" />
+		</property>
+		<property name="gajigol" type="string">
+			<column name="GAJIGOL" />
+		</property>
+		<property name="pejabatgaber" type="string">
+			<column name="PEJABATGABER" />
+		</property>
+		<property name="noskgaber" type="string">
+			<column name="NOSKGABER" />
+		</property>
+		<property name="tgskgaber" type="string">
+			<column name="TGSKGABER" />
+		</property>
+		<property name="tmtgaber" type="date">
+			<column name="TMTGABER" />
+		</property>
+		<property name="gajigaber" type="string">
+			<column name="GAJIGABER" />
+		</property>
+		<property name="jenisJabatan" type="string">
+			<column name="JENIS_JABATAN" />
+		</property>
+		<property name="kodeEselon" type="string">
+			<column name="KODE_ESELON" />
+		</property>
+		<property name="eselon" type="string">
+			<column name="ESELON" />
+		</property>
+		<property name="jabatan" type="string">
+			<column name="JABATAN" />
+		</property>
+		<property name="tmtJabatan" type="date">
+			<column name="TMT_JABATAN" />
+		</property>
+		<property name="tmtEselon" type="date">
+			<column name="TMT_ESELON" />
+		</property>
+		<property name="unitkerja" type="string">
+			<column name="UNITKERJA" />
+		</property>
+		<property name="jenisGuru" type="string">
+			<column name="JENIS_GURU" />
+		</property>
+		<property name="kodePendidikan" type="string">
+			<column name="KODE_PENDIDIKAN" />
+		</property>
+		<property name="jurusan" type="string">
+			<column name="JURUSAN" />
+		</property>
+		<property name="namaSekolah" type="string">
+			<column name="NAMA_SEKOLAH" />
+		</property>
+		<property name="tempatSekolah" type="string">
+			<column name="TEMPAT_SEKOLAH" />
+		</property>
+		<property name="tahunLulus" type="string">
+			<column name="TAHUN_LULUS" />
+		</property>
+		<property name="kodeDikstruk" type="string">
+			<column name="KODE_DIKSTRUK" />
+		</property>
+		<property name="diklatStruktural" type="string">
+			<column name="DIKLAT_STRUKTURAL" />
+		</property>
+		<property name="tahunLulusDiklat" type="string">
+			<column name="TAHUN_LULUS_DIKLAT" />
+		</property>
+		<property name="angkatanDiklat" type="string">
+			<column name="ANGKATAN_DIKLAT" />
+		</property>
+		<property name="jamDiklat" type="string">
+			<column name="JAM_DIKLAT" />
+		</property>
+		<property name="niplama" type="string">
+			<column name="NIPLAMA" />
+		</property>
+	</class>
+</hibernate-mapping>
