@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.UnitKerja" table="mst_unitkerja">
+
+		<!--
+			<id name="id" type="long"> <column name="art_id" /> <generator
+			class="assigned" /> </id>
+		-->
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment">
+				<param name="sequence">unitkerja_seq</param>
+				<!--
+					for mySQL use generator class="native" <generator class="native" />
+				-->
+			</generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="kinsker" type="string">
+			<column name="KINSKER"  not-null="true" />
+		</property>
+		<property name="kunker" type="string">
+			<column name="KUNKER" not-null="true"/>
+		</property>
+		<property name="nunker" type="string">
+			<column name="NUNKER" />
+		</property>
+		<property name="alamat" type="string">
+			<column name="ALAMAT" />
+		</property>
+		<property name="telp" type="string">
+			<column name="TELP" />
+		</property>
+		<property name="tunit" type="string">
+			<column name="TUNIT" />
+		</property>
+		<property name="kpok" type="string">
+			<column name="KPOK" />
+		</property>
+		<property name="npok" type="string">
+			<column name="NPOK" />
+		</property>
+		<property name="bagan" type="string">
+			<column name="BAGAN" />
+		</property>
+		<property name="noperda" type="string">
+			<column name="NOPERDA" />
+		</property>
+		<property name="tgperda" type="string">
+			<column name="TGPERDA" />
+		</property>
+		<property name="perdadari" type="date">
+			<column name="PERDADARI" />
+		</property>
+		<property name="kota" type="string">
+			<column name="KOTA" />
+		</property>
+		<property name="klokasi" type="string">
+			<column name="KLOKASI" />
+		</property>
+		<many-to-one name="eselon" class="de.forsthaus.backend.model.Eselon" property-ref="kEselon"
+			fetch="join" lazy="false">
+			<column name="keselon" />
+		</many-to-one>
+
+	</class>
+
+</hibernate-mapping>

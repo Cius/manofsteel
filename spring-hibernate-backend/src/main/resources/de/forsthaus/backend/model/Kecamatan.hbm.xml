@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.Kecamatan" table="mst_kecamatan">
+
+		<!--
+			<id name="id" type="long"> <column name="art_id" /> <generator
+			class="assigned" /> </id>
+		-->
+
+		<id name="id" type="long">
+			<column name="kode" />
+			<generator class="increment">
+				<param name="sequence">kecamatan_seq</param>
+				<!--
+					for mySQL use generator class="native" <generator class="native" />
+				-->
+			</generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="kecamatan" type="string">
+			<column name="kecamatan" length="50" not-null="true" />
+		</property>
+		<property name="ibukota" type="string">
+			<column name="ibukota" />
+		</property>
+		<set name="kelurahans" inverse="true">
+			<key>
+				<column name="kode_kecamatan" />
+			</key>
+			<one-to-many class="de.forsthaus.backend.model.Kelurahan" />
+		</set>
+		<many-to-one name="Kota" class="de.forsthaus.backend.model.Kota"
+			fetch="join">
+			<column name="kode_kota" not-null="true" />
+		</many-to-one>
+		
+	</class>
+
+</hibernate-mapping>

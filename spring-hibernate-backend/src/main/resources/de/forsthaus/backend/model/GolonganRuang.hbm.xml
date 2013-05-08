@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.GolonganRuang" table="mst_golruang">
+
+		<!--
+			<id name="id" type="long"> <column name="art_id" /> <generator
+			class="assigned" /> </id>
+		-->
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment">
+				<param name="sequence">golruang_seq</param>
+				<!--
+					for mySQL use generator class="native" <generator class="native" />
+				-->
+			</generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="kodeJenisGolongan" type="string">
+			<column name="KJNSGOL" length="50" not-null="true" unique="true"/>
+		</property>
+		<property name="kodeGolonganRuang" type="string">
+			<column name="KGOLRU" />
+		</property>
+		<property name="namaGolonganRuang" type="string">
+			<column name="NGOLRU" length="50" not-null="true"/>
+		</property>
+		<property name="pangkat" type="string">
+			<column name="PANGKAT" length="50" not-null="true" />
+		</property>
+		<property name="pangkatGolonganRuang" type="string">
+			<column name="PKTGOLRU" length="50" not-null="true" />
+		</property>
+
+	</class>
+
+</hibernate-mapping>

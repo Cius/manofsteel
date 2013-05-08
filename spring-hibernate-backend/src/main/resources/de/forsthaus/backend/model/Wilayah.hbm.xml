@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.Wilayah" table="mst_wilayah">
+
+		<!--
+			<id name="id" type="long"> <column name="art_id" /> <generator
+			class="assigned" /> </id>
+		-->
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment">
+				<param name="sequence">wilayah_seq</param>
+				<!--
+					for mySQL use generator class="native" <generator class="native" />
+				-->
+			</generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="kodeWilayah" type="string">
+			<column name="KWIL" length="50" not-null="true" unique="true"/>
+		</property>
+		<property name="namaWilayah" type="string">
+			<column name="NWIL" />
+		</property>
+		<property name="ibukota" type="string">
+			<column name="IBUKOTA" length="50" not-null="true"/>
+		</property>
+		<property name="kinsduk" type="string">
+			<column name="KINSDUK" length="50" not-null="true" />
+		</property>
+		<property name="tipeWilayah" type="string">
+			<column name="TWIL" length="50" not-null="true" />
+		</property>
+		<property name="kdLokker" type="string">
+			<column name="KD_LOKKER" length="50" not-null="true" />
+		</property>
+
+	</class>
+
+</hibernate-mapping>
