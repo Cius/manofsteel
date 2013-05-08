@@ -59,6 +59,26 @@
 				</value>
 				<value>de/forsthaus/backend/model/ApplicationNews.hbm.xml
 				</value>
+				<value>de/forsthaus/backend/model/Wilayah.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/GolonganRuang.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/GajiPokok.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/Gabungan.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/Eselon.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/UnitKerja.hbm.xml
+				</value>
+<!-- 				<value>de/forsthaus/backend/model/Propinsi.hbm.xml -->
+<!-- 				</value> -->
+<!-- 				<value>de/forsthaus/backend/model/Kota.hbm.xml -->
+<!-- 				</value> -->
+<!-- 				<value>de/forsthaus/backend/model/Kecamatan.hbm.xml -->
+<!-- 				</value> -->
+<!-- 				<value>de/forsthaus/backend/model/Kelurahan.hbm.xml -->
+<!-- 				</value> -->
 				<value>de/forsthaus/backend/model/TpCpns.hbm.xml
 				</value>
 				<value>de/forsthaus/backend/model/TpIdentitas.hbm.xml
@@ -184,9 +204,18 @@
 	<bean id="tpCpnsReportDao" class="de.forsthaus.backend.dao.impl.TpCpnsReportDAOImpl" parent="basisDAO"/>
 	<bean id="tpIdentitasDao" class="de.forsthaus.backend.dao.impl.TpIdentitasDAOImpl" parent="basisDAO"/>
 
+	<bean id="wilayahDAO" class="de.forsthaus.backend.dao.impl.WilayahDAOImpl" parent="basisDAO" />
+	<bean id="golonganRuangDAO" class="de.forsthaus.backend.dao.impl.GolonganRuangDAOImpl" parent="basisDAO" />
+	<bean id="gajiPokokDAO" class="de.forsthaus.backend.dao.impl.GajiPokokDAOImpl" parent="basisDAO" />
+	<bean id="gabunganDAO" class="de.forsthaus.backend.dao.impl.GabunganDAOImpl" parent="basisDAO" />
+	<bean id="eselonDAO" class="de.forsthaus.backend.dao.impl.EselonDAOImpl" parent="basisDAO" />
+	<bean id="unitKerjaDAO" class="de.forsthaus.backend.dao.impl.UnitKerjaDAOImpl" parent="basisDAO" />
+	
+
 	<!-- ====================================================== -->
 	<!-- SERVICE beans -->
 	<!-- ====================================================== -->
+	
 	<bean name="customerService" class="de.forsthaus.backend.service.impl.CustomerServiceImpl">
 		<property name="customerDAO" ref="customerDAO" />
 		<property name="officeDAO" ref="officeDAO" />
