@@ -4,9 +4,12 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 
 import org.apache.log4j.Logger;
+import org.springframework.dao.DataAccessException;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Path;
 import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.EventQueues;
+import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zul.Borderlayout;
 import org.zkoss.zul.Button;
@@ -17,10 +20,12 @@ import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
 import de.forsthaus.UserWorkspace;
+import de.forsthaus.backend.dao.TpCpnsDAO;
 import de.forsthaus.backend.model.TpCpns;
 import de.forsthaus.backend.util.ZksampleBeanUtils;
 import de.forsthaus.webui.util.ButtonStatusCtrl;
 import de.forsthaus.webui.util.GFCBaseCtrl;
+import de.forsthaus.webui.util.ZksampleMessageUtils;
 
 public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implements Serializable {
 
@@ -68,6 +73,7 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 	private Button cancel;
 	
 	private PegawaiDetailCtrl_DataPokok pegawaiDetailCtrl_DataPokok;
+	private TpCpnsDAO tpCpnsDAO;
 	
 	private AnnotateDataBinder binder;
 	
@@ -109,7 +115,15 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 		doEdit();
 	}
 	
-	public void doEdit() {
+	public void onClick$cancel(Event event) throws Exception {
+		doCancel();
+	}
+	
+	public void onClick$save(Event event) throws Exception {
+		doSave();
+	}
+	
+	private void doEdit() {
 		doStoreInitValue();
 		this.buttonCtrl_Pegawai_DataPokok_Identitas.setBtnStatus_Edit();
 		doReadOnlyMode(false);
@@ -117,12 +131,41 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 		textBox_nip.setFocus(true);
 	}
 	
-	public void doCancel() {
+	private void doCancel() {
 		doResetToInitValue();
 		if(getBinder() != null) {
 			getBinder().loadAll();
 			doReadOnlyMode(true);
 			this.buttonCtrl_Pegawai_DataPokok_Identitas.setInitEdit();
+		}
+	}
+	
+	private void doSave() throws InterruptedException {
+		getPegawaiDetailCtrl_DataPokok().getBinder().saveAll();
+
+		try {
+			getTpCpnsDAO().saveOrUpdate(getPegawaiDetailCtrl_DataPokok().getSelected());
+			doStoreInitValue();
+			// refresh the list
+			getPegawaiDetailCtrl_DataPokok().getPegawaiMainCtrl().getPegawaiListCtrl().doFillList();
+			// later refresh StatusBar
+			Events.postEvent("onSelect", getPegawaiDetailCtrl_DataPokok().getPegawaiMainCtrl().getPegawaiListCtrl().getListBox_PegawaiList(), getSelected());
+
+			// show the objects data in the statusBar
+			final String str = getSelected().getNip();
+			EventQueues.lookup("selectedObjectEventQueue", EventQueues.DESKTOP, true).publish(new Event("onChangeSelectedObject", null, str));
+
+		} catch (final DataAccessException e) {
+			ZksampleMessageUtils.showErrorMessage(e.getMostSpecificCause().toString());
+
+			// Reset to init values
+			doResetToInitValue();
+
+			return;
+
+		} finally {
+			this.buttonCtrl_Pegawai_DataPokok_Identitas.setInitEdit();
+			doReadOnlyMode(true);
 		}
 	}
 	
@@ -238,6 +281,14 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 	public void setPegawaiDetailCtrl_DataPokok(
 			PegawaiDetailCtrl_DataPokok pegawaiDetailCtrl_DataPokok) {
 		this.pegawaiDetailCtrl_DataPokok = pegawaiDetailCtrl_DataPokok;
+	}
+
+	public TpCpnsDAO getTpCpnsDAO() {
+		return tpCpnsDAO;
+	}
+
+	public void setTpCpnsDAO(TpCpnsDAO tpCpnsDAO) {
+		this.tpCpnsDAO = tpCpnsDAO;
 	}
 
 }
