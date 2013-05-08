@@ -346,7 +346,38 @@
 	<!-- <bean id="spreadsheetMainCtrl" class="de.forsthaus.webui.spreadsheet.SpreadsheetMainCtrl" parent="basisCtrl" scope="prototype"> 
 		</bean> -->
 
-
+	<!-- Report by omega -->
+	<bean id="report01DaftarCpns" class="de.forsthaus.webui.pegawai.report.Report01DaftarCpnsCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tpCpnsReportDAO" ref="tpCpnsReportDao" />
+	</bean>
+	
+	<bean id="report02DaftarPns" class="de.forsthaus.webui.pegawai.report.Report02DaftarPnsCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+	</bean>
+	
+	<bean id="report03DaftarPnsUrutNip" class="de.forsthaus.webui.pegawai.report.Report03DaftarPnsUrutNipCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+	</bean>
+	
+	<bean id="report04DaftarPnsUrutPangkat" class="de.forsthaus.webui.pegawai.report.Report04DaftarPnsUrutPangkatCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+	</bean>
+	
+	<bean id="report05DaftarPnsUrutNama" class="de.forsthaus.webui.pegawai.report.Report05DaftarPnsUrutNamaCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+	</bean>
+	
+	<bean id="report06DaftarPnsUrutJabatan" class="de.forsthaus.webui.pegawai.report.Report06DaftarPnsUrutJabatanCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+	</bean>
+	
+	<bean id="report07DaftarKepangkatan" class="de.forsthaus.webui.pegawai.report.Report07DaftarKepangkatanCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+	</bean>
+	
+	<bean id="report08DaftarJabatanStruktural" class="de.forsthaus.webui.pegawai.report.Report08DaftarJabatanStrukturalCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+	</bean>
 </beans>
 
 
