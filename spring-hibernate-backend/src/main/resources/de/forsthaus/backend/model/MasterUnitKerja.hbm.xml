@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.MasterUnitKerja" table="mst_unitkerja">
+
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="increment">
+				<param name="sequence">mstunitkerja_seq</param></generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="kinsker" type="string">
+			<column name="KINSKER" />
+		</property>
+		<property name="kunker" type="string">
+			<column name="KUNKER" />
+		</property>
+		<property name="nunker" type="string">
+			<column name="NUNKER" />
+		</property>
+		<property name="alamat" type="string">
+			<column name="ALAMAT" />
+		</property>
+		<property name="kota" type="string">
+			<column name="KOTA" />
+		</property>
+		<property name="telp" type="string">
+			<column name="TELP" />
+		</property>
+		<property name="tUnit" type="string">
+			<column name="TUNIT" />
+		</property>
+		<property name="kLokasi" type="string">
+			<column name="KLOKASI" />
+		</property>
+		<property name="kEselon" type="string">
+			<column name="KESELON" />
+		</property>
+		<property name="kPok" type="string">
+			<column name="KPOK" />
+		</property>
+		<property name="nPok" type="string">
+			<column name="NPOK" />
+		</property>
+		<property name="bagan" type="string">
+			<column name="BAGAN" />
+		</property>
+		<property name="noPerda" type="string">
+			<column name="NOPERDA" />
+		</property>
+		<property name="tgPerda" type="date">
+			<column name="TGPERDA" />
+		</property>
+		<property name="perdadari" type="string">
+			<column name="PERDADARI" />
+		</property>
+	</class>
+</hibernate-mapping>
