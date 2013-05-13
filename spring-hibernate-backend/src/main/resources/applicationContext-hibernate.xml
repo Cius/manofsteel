@@ -59,6 +59,8 @@
 				</value>
 				<value>de/forsthaus/backend/model/ApplicationNews.hbm.xml
 				</value>
+				<value>de/forsthaus/backend/model/MasterUnitKerja.hbm.xml
+				</value>
 				<value>de/forsthaus/backend/model/Wilayah.hbm.xml
 				</value>
 				<value>de/forsthaus/backend/model/GolonganRuang.hbm.xml
@@ -201,6 +203,8 @@
 
 	<bean id="applicationNewsDAO" class="de.forsthaus.backend.dao.impl.ApplicationNewsDAOImpl" parent="basisDAO" />
 	
+	<bean id="masterUnitKerjaDao" class="de.forsthaus.backend.dao.impl.MasterUnitKerjaDAOImpl" parent="basisDAO"/>
+	
 	<bean id="tpCpnsDao" class="de.forsthaus.backend.dao.impl.TpCpnsDAOImpl" parent="basisDAO"/>
 	
 	<bean id="tbMasterDao" class="de.forsthaus.backend.dao.impl.TbMasterDAOImpl" parent="basisDAO"/>
@@ -221,7 +225,6 @@
 	<!-- ====================================================== -->
 	<!-- SERVICE beans -->
 	<!-- ====================================================== -->
-	
 	<bean name="customerService" class="de.forsthaus.backend.service.impl.CustomerServiceImpl">
 		<property name="customerDAO" ref="customerDAO" />
 		<property name="officeDAO" ref="officeDAO" />
