@@ -1,8 +1,13 @@
 package de.forsthaus.backend.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
+import de.forsthaus.backend.util.ConstantsText;
 import de.forsthaus.backend.util.PegawaiUtil;
 
 public class TbMaster {
@@ -63,6 +68,8 @@ public class TbMaster {
 	
 	private TpIdentitas identitas;
 	private TpCpns cpns;
+	private TpJabatan tpjabatan;
+	private Set<TrDiklat> trdiklat = new HashSet<TrDiklat>();
 	
 	private String masaKerja;
 	private int tahunKerja;
@@ -588,4 +595,70 @@ public class TbMaster {
 		this.cpns = cpns;
 	}
 
+	public TpJabatan getTpjabatan() {
+		return tpjabatan;
+	}
+
+	public void setTpjabatan(TpJabatan tpjabatan) {
+		this.tpjabatan = tpjabatan;
+	}
+
+	public Set<TrDiklat> getTrdiklat() {
+		return trdiklat;
+	}
+
+	public void setTrdiklat(Set<TrDiklat> trdiklat) {
+		this.trdiklat = trdiklat;
+	}
+
+	public String getDiklatTerakhir() {
+		String diklatTerakhir="";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+		int i = 1;
+		if(getTrdiklat()!=null){
+			TrDiklat trDiklat = null;
+			for (Iterator<TrDiklat> iterator = getTrdiklat().iterator(); iterator.hasNext();) {
+				trDiklat = (TrDiklat) iterator.next();
+				diklatTerakhir = i + ". "+trDiklat.getnDiklat()+" TAHUN "+sdf.format(trDiklat.gettAkhir()+"<br/>");
+				i++;
+			}
+		}
+		if(i<3){
+			for (int j = i; j <= 3; j++) {
+				diklatTerakhir += i + ". "+"---"+"<br/>";
+				i++;
+			}
+		}
+		
+		return diklatTerakhir;
+	}
+	
+	public Date getTmtTerakhir(){
+		Date tmtTerakhir=null;
+		if(statusPegawai.equals(ConstantsText.STATUS_PNS)){
+			tmtTerakhir = tmtpns;
+		}else{
+			tmtTerakhir = tmtcpns;
+		}
+		return tmtTerakhir;
+	}
+
+	public String getGolTerakhir(){
+		String golTerakhir="";
+		if(statusPegawai.equals(ConstantsText.STATUS_PNS)){
+			golTerakhir= golruang;
+		}else{
+			golTerakhir= cpns.getkGolRuCpnsDesc();
+		}
+		return golTerakhir;
+	}
+	
+	public String getLamaJabatan(){
+		List<Integer> list = PegawaiUtil.getTanggalBulanSekarang(tmtJabatan);
+		return list!=null?list.get(0)+" THN "+list.get(1)+" BLN":"";
+	}
+	
+	public String getKEselonDesc(){
+		return PegawaiUtil.convertEselon(kodeEselon);
+	}
 }
