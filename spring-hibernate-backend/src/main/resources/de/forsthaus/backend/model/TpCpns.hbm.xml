@@ -17,7 +17,7 @@
 			<column name="NIP" />
 		</property>
 		<many-to-one class="de.forsthaus.backend.model.TpIdentitas" name="identitas" property-ref="nip" column="nip"/>
-		<property name="kPejCpns" type="string">
+		<property name="kodePejCpns" type="string">
 			<column name="KPEJCPNS" />
 		</property>
 		<property name="skCpns" type="string">
@@ -29,7 +29,7 @@
 		<property name="tmtCpns" type="date">
 			<column name="TMTCPNS" />
 		</property>
-		<property name="kGolRuCpns" type="string">
+		<property name="kodeGolRuCpns" type="string">
 			<column name="KGOLRUCPNS" />
 		</property>
 		<property name="latPrajab" type="string">
@@ -47,10 +47,10 @@
 		<property name="blnKerja" type="string">
 			<column name="BLKERJA" />
 		</property>
-		<property name="kTpuCpns" type="string">
+		<property name="kodeTpuCpns" type="string">
 			<column name="KTPUCPNS" />
 		</property>
-		<property name="kPejPns" type="string">
+		<property name="kodePejPns" type="string">
 			<column name="KPEJPNS" />
 		</property>
 		<property name="skPns" type="string">
@@ -62,7 +62,7 @@
 		<property name="tmtPns" type="date">
 			<column name="TMTPNS" />
 		</property>
-		<property name="kGolRuPns" type="string">
+		<property name="kodeGolRuPns" type="string">
 			<column name="KGOLRUPNS" />
 		</property>
 		<property name="janjiPns" type="string">

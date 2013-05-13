@@ -19,7 +19,7 @@
 		<property name="jnsJab" type="string">
 			<column name="JNSJAB" />
 		</property>
-		<property name="kPej" type="string">
+		<property name="kodePej" type="string">
 			<column name="KPEJ" />
 		</property>
 		<property name="noSkJab" type="string">
@@ -28,7 +28,7 @@
 		<property name="tgSkJab" type="date">
 			<column name="TGSKJAB" />
 		</property>
-		<property name="kEselon" type="string">
+		<property name="kodeEselon" type="string">
 			<column name="KESELON" />
 		</property>
 		<property name="tmtJab" type="string">
@@ -49,7 +49,7 @@
 		<property name="tmtJab1" type="string">
 			<column name="TMTJAB1" />
 		</property>
-		<property name="kJnsGuru" type="string">
+		<property name="kodeJnsGuru" type="string">
 			<column name="KJNSGURU" />
 		</property>
 		<property name="jabSusPim" type="string">

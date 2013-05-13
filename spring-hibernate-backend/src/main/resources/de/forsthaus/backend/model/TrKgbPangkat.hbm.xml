@@ -16,10 +16,10 @@
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<property name="kJenis" type="string">
+		<property name="kodeJenis" type="string">
 			<column name="KJENIS" />
 		</property>
-		<property name="kPej" type="string">
+		<property name="kodePej" type="string">
 			<column name="KPEJ" />
 		</property>
 		<property name="nSkPang" type="string">
@@ -28,13 +28,13 @@
 		<property name="tSkPang" type="string">
 			<column name="TSKPANG" />
 		</property>
-		<property name="kGolRu" type="string">
+		<property name="kodeGolRu" type="string">
 			<column name="KGOLRU" />
 		</property>
 		<property name="tmt" type="string">
 			<column name="TMT" />
 		</property>
-		<property name="kKenpa" type="string">
+		<property name="kodeKenpa" type="string">
 			<column name="KKENPA" />
 		</property>
 		<property name="thKerja" type="string">
@@ -46,7 +46,7 @@
 		<property name="gaji" type="string">
 			<column name="GAJI" />
 		</property>
-		<property name="kWilGaji" type="string">
+		<property name="kodeWilGaji" type="string">
 			<column name="KWILGAJI" />
 		</property>
 		<property name="userEnt" type="string">

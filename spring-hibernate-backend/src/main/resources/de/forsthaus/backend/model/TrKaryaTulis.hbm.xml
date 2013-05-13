@@ -25,7 +25,7 @@
 		<property name="tahun" type="string">
 			<column name="TAHUN" />
 		</property>
-		<property name="ket" type="string">
+		<property name="kodeet" type="string">
 			<column name="KET" />
 		</property>
 		<property name="userEnt" type="string">

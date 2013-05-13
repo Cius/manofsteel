@@ -16,7 +16,7 @@
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<property name="kJnsOrg" type="string">
+		<property name="kodeJnsOrg" type="string">
 			<column name="KJNSORG" />
 		</property>
 		<property name="nOrganisasi" type="string">

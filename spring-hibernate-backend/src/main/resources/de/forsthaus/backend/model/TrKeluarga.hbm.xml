@@ -16,7 +16,7 @@
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<property name="kHubKel" type="string">
+		<property name="kodeHubKel" type="string">
 			<column name="KHUBKEL" />
 		</property>
 		<property name="namaKel" type="string">
@@ -31,16 +31,16 @@
 		<property name="tgKawin" type="string">
 			<column name="TGKAWIN" />
 		</property>
-		<property name="kSex" type="string">
+		<property name="kodeSex" type="string">
 			<column name="KSEX" />
 		</property>
-		<property name="kTpu" type="string">
+		<property name="kodeTpu" type="string">
 			<column name="KTPU" />
 		</property>
 		<property name="statun" type="string">
 			<column name="STATUN" />
 		</property>
-		<property name="kKerja" type="string">
+		<property name="kodeKerja" type="string">
 			<column name="KKERJA" />
 		</property>
 		<property name="alJalan1" type="string">

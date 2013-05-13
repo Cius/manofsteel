@@ -16,7 +16,7 @@
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<property name="kBintang" type="string">
+		<property name="kodeBintang" type="string">
 			<column name="KBINTANG" />
 		</property>
 		<property name="nBintang" type="string">

@@ -34,28 +34,28 @@
 		<property name="kabLahir" type="string">
 			<column name="KABLAHIR" />
 		</property>
-		<property name="kSex" type="string">
+		<property name="kodeSex" type="string">
 			<column name="KSEX" />
 		</property>
-		<property name="kAgama" type="string">
+		<property name="kodeAgama" type="string">
 			<column name="KAGAMA" />
 		</property>
-		<property name="kStaPeg" type="string">
+		<property name="kodeStaPeg" type="string">
 			<column name="KSTAPEG" />
 		</property>
-		<property name="kJnsPeg" type="string">
+		<property name="kodeJnsPeg" type="string">
 			<column name="KJNSPEG" />
 		</property>
-		<property name="kDukPns" type="string">
+		<property name="kodeDukPns" type="string">
 			<column name="KDUKPNS" />
 		</property>
-		<property name="kStaWin" type="string">
+		<property name="kodeStaWin" type="string">
 			<column name="KSTAWIN" />
 		</property>
 		<property name="suku" type="string">
 			<column name="SUKU" />
 		</property>
-		<property name="kGolDar" type="string">
+		<property name="kodeGolDar" type="string">
 			<column name="KGOLDAR" />
 		</property>
 		<property name="alJalan" type="string">
@@ -115,13 +115,13 @@
 		<property name="jumAnak" type="string">
 			<column name="JUMANAK" />
 		</property>
-		<property name="kCatMut" type="string">
+		<property name="kodeCatMut" type="string">
 			<column name="KCATMUT" />
 		</property>
-		<property name="kHukDis" type="string">
+		<property name="kodeHukDis" type="string">
 			<column name="KHUKDIS" />
 		</property>
-		<property name="kJasa" type="string">
+		<property name="kodeJasa" type="string">
 			<column name="KJASA" />
 		</property>
 		<property name="dp3Akhir" type="string">

@@ -16,7 +16,7 @@
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<property name="kPejKgb" type="string">
+		<property name="kodePejKgb" type="string">
 			<column name="KPEJKGB" />
 		</property>
 		<property name="nSTahu" type="string">
@@ -37,10 +37,10 @@
 		<property name="blKerjaKgb" type="java.lang.Integer">
 			<column name="BLKERJAKGB" />
 		</property>
-		<property name="kKantor" type="string">
+		<property name="kodeKantor" type="string">
 			<column name="KKANTOR" />
 		</property>
-		<property name="kPejPkt" type="string">
+		<property name="kodePejPkt" type="string">
 			<column name="KPEJPKT" />
 		</property>
 		<property name="nSkPang" type="string">
@@ -52,7 +52,7 @@
 		<property name="tmtPang" type="date">
 			<column name="TMTPANG" />
 		</property>
-		<property name="kGolRuPkt" type="string">
+		<property name="kodeGolRuPkt" type="string">
 			<column name="KGOLRUPKT" />
 		</property>
 		<property name="thKerjaPkt" type="java.lang.Integer">
@@ -67,7 +67,7 @@
 		<property name="aKredit" type="string">
 			<column name="AKREDIT" />
 		</property>
-		<property name="kNPang" type="string">
+		<property name="kodeNPang" type="string">
 			<column name="KNPANG" />
 		</property>
 		<property name="tmtInPasing" type="date">

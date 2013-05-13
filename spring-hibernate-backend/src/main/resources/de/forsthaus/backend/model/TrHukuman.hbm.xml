@@ -22,7 +22,7 @@
 		<property name="jnsHukum" type="string">
 			<column name="JNSHUKUM" />
 		</property>
-		<property name="kPej" type="string">
+		<property name="kodePej" type="string">
 			<column name="KPEJ" />
 		</property>
 		<property name="nSkHukum" type="string">

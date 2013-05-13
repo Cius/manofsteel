@@ -19,7 +19,7 @@
 		<property name="nBahasa" type="string">
 			<column name="NBAHASA" />
 		</property>
-		<property name="kBahasa" type="string">
+		<property name="kodeBahasa" type="string">
 			<column name="KBAHASA" />
 		</property>
 		<property name="jBahasa" type="string">

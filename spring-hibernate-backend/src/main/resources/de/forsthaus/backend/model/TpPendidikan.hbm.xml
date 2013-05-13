@@ -16,10 +16,10 @@
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<property name="kTpu" type="string">
+		<property name="kodeTpu" type="string">
 			<column name="KTPU" />
 		</property>
-		<property name="kJur" type="string">
+		<property name="kodeJur" type="string">
 			<column name="KJUR" />
 		</property>
 		<property name="nJur" type="string">
@@ -34,7 +34,7 @@
 		<property name="tSttb" type="string">
 			<column name="TSTTB" />
 		</property>
-		<property name="kDikStr" type="string">
+		<property name="kodeDikStr" type="string">
 			<column name="KDIKSTR" />
 		</property>
 		<property name="nDikStr" type="string">
@@ -52,7 +52,7 @@
 		<property name="sJam" type="string">
 			<column name="SJAM" />
 		</property>
-		<property name="kDikFung" type="string">
+		<property name="kodeDikFung" type="string">
 			<column name="KDIKFUNG" />
 		</property>
 		<property name="nDikFung" type="string">
@@ -67,7 +67,7 @@
 		<property name="fJam" type="string">
 			<column name="FJAM" />
 		</property>
-		<property name="kDikTek" type="string">
+		<property name="kodeDikTek" type="string">
 			<column name="KDIKTEK" />
 		</property>
 		<property name="nDikTek" type="string">

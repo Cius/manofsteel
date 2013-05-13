@@ -16,13 +16,13 @@
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<property name="kTpu" type="string">
+		<property name="kodeTpu" type="string">
 			<column name="KTPU" />
 		</property>
-		<property name="kFak" type="string">
+		<property name="kodeFak" type="string">
 			<column name="KFAK" />
 		</property>
-		<property name="kJur" type="string">
+		<property name="kodeJur" type="string">
 			<column name="KJUR" />
 		</property>
 		<property name="nJur" type="string">

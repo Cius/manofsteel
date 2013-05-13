@@ -16,10 +16,10 @@
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<property name="kJnsCuti" type="string">
+		<property name="kodeJnsCuti" type="string">
 			<column name="KJNSCUTI" />
 		</property>
-		<property name="kPej" type="string">
+		<property name="kodePej" type="string">
 			<column name="KPEJ" />
 		</property>
 		<property name="nSk" type="string">
