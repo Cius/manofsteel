@@ -11,9 +11,17 @@
 					<tab id="tab_PegawaiDataPokok_Identitas" label="Identitas Pegawai"
 					image="/images/icons/properties.gif"/>
 				</tabs>
+				<tabs width="200px">
+					<tab id="tab_PegawaiDataPokok_Pengangkatan" label="Pengangkatan CPNS"
+					image="/images/icons/properties.gif"/>
+				</tabs>
 				
 				<tabpanels>
 					<tabpanel id="tabPanel_PegawaiDataPokok_Identitas" height="100%"
+					style="border: none; padding: 0px; " />
+				</tabpanels>
+				<tabpanels>
+					<tabpanel id="tabPanel_PegawaiDataPokok_PengangkatanCPNS" height="100%"
 					style="border: none; padding: 0px; " />
 				</tabpanels>
 			</tabbox>

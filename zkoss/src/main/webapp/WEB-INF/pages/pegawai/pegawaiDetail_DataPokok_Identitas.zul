@@ -33,25 +33,25 @@
 						Tanggal Lahir <datebox id="dateBox_tanggallahir" value="@{controller.selected.identitas.tgLahir}" readonly="true"/>
 					</row>
 					<row>
-						Jenis Kelamin <combobox id="comboBox_jeniskelamin" value="@{controller.selected.identitas.kSex}" readonly="true"/>
+						Jenis Kelamin <hlayout><label id="label_jeniskelamin"/> <button id="edit_jeniskelamin">Select...</button></hlayout>
 					</row>
 					<row>
-						Agama <combobox id="comboBox_agama" value="@{controller.selected.identitas.kAgama}" readonly="true"/>
+						Agama <hlayout><label id="label_agama"/> <button id="edit_agama">Select...</button></hlayout>
 					</row>
 					<row>
-						Status Kepegawaian <combobox id="comboBox_statuskepeg" value="@{controller.selected.identitas.kStaPeg}" readonly="true"/>
+						Status Kepegawaian <hlayout><label id="label_statuskepegawaian"/> <button id="edit_statuskepegawaian">Select...</button></hlayout>
 					</row>
 					<row>
-						Jenis Kepegawaian <combobox id="comboBox_jeniskepeg" value="@{controller.selected.identitas.kJnsPeg}" readonly="true"/>
+						Jenis Kepegawaian <hlayout><label id="label_jeniskepegawaian"/> <button id="edit_jeniskepegawaian">Select...</button></hlayout>
 					</row>
 					<row>
-						Kedudukan Pegawai <combobox id="comboBox_dudukkepeg" value="@{controller.selected.identitas.kDukPns}" readonly="true"/>
+						Kedudukan Pegawai <hlayout><label id="label_kedudukanpegawai"/> <button id="edit_kedudukanpegawai">Select...</button></hlayout>
 					</row>
 					<row>
-						Status Perkawinan <combobox id="comboBox_statuskawin" value="@{controller.selected.identitas.kStaWin}" readonly="true"/>
+						Status Perkawinan <hlayout><label id="label_statusperkawinan"/> <button id="edit_statusperkawinan">Select...</button></hlayout>
 					</row>
 					<row>
-						Golongan Darah <combobox id="comboBox_goldar" value="@{controller.selected.identitas.kGolDar}" readonly="true"/>
+						Golongan Darah <hlayout><label id="label_golongandarah"/> <button id="edit_golongandarah">Select...</button></hlayout>
 					</row>
 					<row>
 						Alamat Tempat Tinggal <textbox id="textBox_alamat" value="@{controller.selected.identitas.alJalan}" readonly="true"/>
@@ -69,16 +69,16 @@
 						Kode Pos <textbox id="textBox_kodepos" value="@{controller.selected.identitas.kodePos}" readonly="true"/>
 					</row>
 					<row>
-						Provinsi <combobox id="comboBox_prov" value="@{controller.selected.identitas.alKProp}" readonly="true"/>
+						Provinsi <hlayout><label id="label_provinsi"/> <button id="edit_provinsi">Select...</button></hlayout>
 					</row>
 					<row>
-						Kab/Kota <combobox id="comboBox_kota" value="@{controller.selected.identitas.alKKab}" readonly="true"/>
+						Kab/Kota <hlayout><label id="label_kota"/> <button id="edit_kota">Select...</button></hlayout>
 					</row>
 					<row>
-						Kecamatan <combobox id="comboBox_kec" value="@{controller.selected.identitas.alKKec}" readonly="true"/>
+						Kecamatan <hlayout><label id="label_kecamatan"/> <button id="edit_kecamatan">Select...</button></hlayout>
 					</row>
 					<row>
-						Kel/Desa <combobox id="comboBox_desa" value="@{controller.selected.identitas.alKDes}" readonly="true"/>
+						Kel/Desa <hlayout><label id="label_desa"/> <button id="edit_desa">Select...</button></hlayout>
 					</row>
 					<row>
 						No. KARPEG <textbox id="textBox_karpeg" value="@{controller.selected.identitas.nKarPeg}" readonly="true"/>

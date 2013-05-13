@@ -1,0 +1,50 @@
+<?page title="Identitas Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Identitas" ?>
+
+<zk>
+<window id="windowPegawaiDetail_DataPokok_Identitas" apply="${pegawaiDetailCtrl_DataPokok_Identitas}" title="Identitas Pegawai" border="normal">
+	<borderlayout id="borderLayout_PegawaiDataPokok_Identitas">
+		<north>
+			<toolbar align="start" style="float:left; border-style: none;">
+				<button id="edit"
+							sclass="oT_ButtonWithIcon" image="/images/icons/btn_edit2_16x16.gif"/>
+				<button id="save"
+							sclass="oT_ButtonWithIcon" image="/images/icons/btn_save2_16x16.gif"/>
+				<button id="cancel"
+							sclass="oT_ButtonWithIcon" image="/images/icons/btn_delete_16x16.gif"/>
+			</toolbar>
+		</north>
+		<center border="none" autoscroll="true">
+			<grid>
+				<rows>
+					<row>
+						NIP <textbox id="textBox_nip" value="@{controller.selected.nip}" readonly="true"/>
+					</row>
+					<row>
+						Pejabat yang Menetapkan <hlayout><label id="label_pejabat"/> <button id="edit_pejabat">Select...</button></hlayout>
+					</row>
+					<row>
+						Nomor SK PNS <textbox id="textBox_nosk" value="@{controller.selected.skPns}" readonly="true"/>
+					</row>
+					<row>
+						Tgl SK PNS <datebox id="dateBox_tglsk" value="@{controller.selected.tSkPns}" readonly="true"/>
+					</row>
+					<row>
+						Golongan Ruang <hlayout><label id="label_golru"/> <button id="edit_golru">Select...</button></hlayout>
+					</row>
+					<row>
+						TMT PNS <datebox id="dateBox_tmtpns" value="@{controller.selected.tmtPns}" readonly="true"/>
+					</row>
+					<row>
+						Sumpah/Janji PNS 
+						<combobox id="comboBox_sumpah" selectedItem="@{controller.selected.latPrajab}">
+							<comboitem value="1" label="SUDAH"/>
+							<comboitem value="2" label="BELUM"/>				
+						</combobox>
+					</row>
+				</rows>
+			</grid>
+		</center>
+	</borderlayout>
+</window>
+</zk>
