@@ -153,7 +153,7 @@ public class IndexCtrl extends GFCBaseCtrl implements Serializable {
 		 */
 		new ApplicationMessageQueue();
 
-		doCreateDemoTimerForNotifications(event);
+//		doCreateDemoTimerForNotifications(event);
 	}
 
 	/**

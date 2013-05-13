@@ -1,4 +1,4 @@
-package de.forsthaus.webui.unitkerja;
+package de.forsthaus.webui.gabungan;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -12,7 +12,8 @@ import org.zkoss.zul.Tabbox;
 import org.zkoss.zul.Tabpanel;
 import org.zkoss.zul.Window;
 
-import de.forsthaus.backend.model.UnitKerja;
+import de.forsthaus.backend.model.Gabungan;
+import de.forsthaus.backend.model.JenisGuru;
 import de.forsthaus.webui.util.ButtonStatusCtrl;
 import de.forsthaus.webui.util.GFCBaseCtrl;
 import de.forsthaus.webui.util.ZksampleCommonUtils;
@@ -47,11 +48,10 @@ import de.forsthaus.webui.util.pagging.PagedListWrapper;
  * @author bbruhns
  * @author Stephan Gerth
  */
-public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
+public class JenisGuruMainCtrl extends GFCBaseCtrl implements Serializable {
 
-	private static final long serialVersionUID = -4292373618041246989L;
-
-	private static final Logger logger = Logger.getLogger(UnitKerjaMainCtrl.class);
+	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(JenisGuruMainCtrl.class);
 
 	/*
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -60,22 +60,18 @@ public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
 	 * 'extends GFCBaseCtrl' GenericForwardComposer.
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	 */
-	protected Window unitKerjaMainWindow; // autowired
+	protected Window jenisGuruMainWindow; // autowired
 
 	// Tabs
-	protected Tabbox tabbox_UnitKerjaMain; // autowired
-	protected Tab tabUnitOrganisasiList; // autowired
-	protected Tab tabUnitKerjaList; // autowired
-	protected Tab tabSatuanKerjaList;
-	protected Tab tabKelompokUnitList;
-	protected Tabpanel tabPanelUnitOrganisasiList; // autowired
-	protected Tabpanel tabPanelUnitKerjaList; // autowired
-	protected Tabpanel tabPanelSatuanKerjaList; // autowired
-	protected Tabpanel tabPanelKelompokUnitList; // autowired
+	protected Tabbox tabbox_JenisGuruMain; // autowired
+	protected Tab tabJenisGuruList; // autowired
+	protected Tab tabKelompokGuruList; // autowired
+	protected Tabpanel tabPanelJenisGuruList; // autowired
+	protected Tabpanel tabPanelKelompokGuruList; // autowired
 
 	// Button controller for the CRUD buttons
-	private final String btnCtroller_ClassPrefix = "button_UnitKerjaDialog_";
-	private ButtonStatusCtrl btnCtrlUnitKerja;
+	private final String btnCtroller_ClassPrefix = "button_JenisGuruDialog_";
+	private ButtonStatusCtrl btnCtrlJenisGuru;
 	protected Button btnNew; // autowired
 	protected Button btnEdit; // autowired
 	protected Button btnDelete; // autowired
@@ -91,12 +87,12 @@ public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
 
 	protected Button btnHelp;
 
-	private PagedListWrapper<UnitKerja> plwUnitKerja;
+	private PagedListWrapper<JenisGuru> plwJenisGuru;
 
 	/**
 	 * default constructor.<br>
 	 */
-	public UnitKerjaMainCtrl() {
+	public JenisGuruMainCtrl() {
 		super();
 	}
 
@@ -124,23 +120,23 @@ public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
 	 * @param event
 	 * @throws Exception
 	 */
-	public void onCreate$unitKerjaMainWindow(Event event) throws Exception {
+	public void onCreate$jenisGuruMainWindow(Event event) throws Exception {
 
 		// create the Button Controller. Disable not used buttons during working
-		btnCtrlUnitKerja = new ButtonStatusCtrl(getUserWorkspace(), btnCtroller_ClassPrefix, true, null, btnPrint, btnFirst, btnPrevious, btnNext, btnLast, btnNew, btnEdit, btnDelete, btnSave,
+		btnCtrlJenisGuru = new ButtonStatusCtrl(getUserWorkspace(), btnCtroller_ClassPrefix, true, null, btnPrint, btnFirst, btnPrevious, btnNext, btnLast, btnNew, btnEdit, btnDelete, btnSave,
 				btnCancel, null);
 
 		/**
 		 * Initiate the first loading by selecting the customerList tab and
 		 * create the components from the zul-file.
 		 */
-		tabUnitOrganisasiList.setSelected(true);
-		if (tabPanelUnitOrganisasiList != null) {
-			ZksampleCommonUtils.createTabPanelContent(tabPanelUnitOrganisasiList, this, "ModuleMainController", "/WEB-INF/pages/unitkerja/unitOrganisasiList.zul");
+		tabKelompokGuruList.setSelected(true);
+		if (tabPanelKelompokGuruList != null) {
+			ZksampleCommonUtils.createTabPanelContent(tabPanelKelompokGuruList, this, "ModuleMainController", "/WEB-INF/pages/gabungan/kelompokGuruList.zul");
 		}
 		
 		// Set the buttons for editMode
-		btnCtrlUnitKerja.setInitEdit();
+		btnCtrlJenisGuru.setInitEdit();
 	}
 
 	/**
@@ -150,56 +146,31 @@ public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
 	 * @param event
 	 * @throws IOException
 	 */
-	public void onSelect$tabUnitOrganisasiList(Event event) throws IOException {
+	public void onSelect$tabJenisGuruList(Event event) throws IOException {
 		// logger.debug(event.toString());
 
-		if (tabPanelUnitOrganisasiList.getFirstChild() != null) {
-			tabUnitOrganisasiList.setSelected(true);
+		if (tabPanelJenisGuruList.getFirstChild() != null) {
+			tabJenisGuruList.setSelected(true);
 			return;
 		}
 
-		if (tabPanelUnitOrganisasiList != null) {
-			ZksampleCommonUtils.createTabPanelContent(tabPanelUnitOrganisasiList, this, "ModuleMainController", "/WEB-INF/pages/unitkerja/unitOrganisasiList.zul");
+		if (tabPanelJenisGuruList != null) {
+			ZksampleCommonUtils.createTabPanelContent(tabPanelJenisGuruList, this, "ModuleMainController", "/WEB-INF/pages/gabungan/jenisGuruList.zul");
 		}
 	}
 	
-	public void onSelect$tabUnitKerjaList(Event event) throws IOException {
+	public void onSelect$tabKelompokGuruList(Event event) throws IOException {
 		// Check if the tabpanel is already loaded
-		if (tabPanelUnitKerjaList.getFirstChild() != null) {
-			tabUnitKerjaList.setSelected(true);
+		if (tabPanelKelompokGuruList.getFirstChild() != null) {
+			tabKelompokGuruList.setSelected(true);
 			return;
 		}
 
-		if (tabPanelUnitKerjaList != null) {
-			ZksampleCommonUtils.createTabPanelContent(tabPanelUnitKerjaList, this, "ModuleMainController", "/WEB-INF/pages/unitkerja/unitKerjaList.zul");
+		if (tabPanelKelompokGuruList != null) {
+			ZksampleCommonUtils.createTabPanelContent(tabPanelKelompokGuruList, this, "ModuleMainController", "/WEB-INF/pages/gabungan/kelompokGuruList.zul");
 		}
 	}
 	
-	public void onSelect$tabSatuanKerjaList(Event event) throws IOException {
-		
-		// Check if the tabpanel is already loaded
-		if (tabPanelSatuanKerjaList.getFirstChild() != null) {
-			tabSatuanKerjaList.setSelected(true);
-			return;
-		}
-
-		if (tabPanelSatuanKerjaList != null) {
-			ZksampleCommonUtils.createTabPanelContent(tabPanelSatuanKerjaList, this, "ModuleMainController", "/WEB-INF/pages/unitkerja/satuanKerjaList.zul");
-		}
-	}
-	
-	public void onSelect$tabKelompokUnitList(Event event) throws IOException {
-		
-		// Check if the tabpanel is already loaded
-		if (tabPanelKelompokUnitList.getFirstChild() != null) {
-			tabKelompokUnitList.setSelected(true);
-			return;
-		}
-
-		if (tabPanelKelompokUnitList != null) {
-			ZksampleCommonUtils.createTabPanelContent(tabPanelKelompokUnitList, this, "ModuleMainController", "/WEB-INF/pages/unitkerja/kelompokUnitList.zul");
-		}
-	}
 
 	/**
 	 * When the "help" button is clicked.
@@ -247,12 +218,12 @@ public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
 		event.stopPropagation();
 	}
 
-	public PagedListWrapper<UnitKerja> getPlwUnitKerja() {
-		return plwUnitKerja;
+	public PagedListWrapper<JenisGuru> getPlwJenisGuru() {
+		return plwJenisGuru;
 	}
 
-	public void setPlwUnitKerja(PagedListWrapper<UnitKerja> plwUnitKerja) {
-		this.plwUnitKerja = plwUnitKerja;
+	public void setPlwJenisGuru(PagedListWrapper<JenisGuru> plwJenisGuru) {
+		this.plwJenisGuru = plwJenisGuru;
 	}
 
 }

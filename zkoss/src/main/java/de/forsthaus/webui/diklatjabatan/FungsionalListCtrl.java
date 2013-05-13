@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Zksample2.  If not, see <http://www.gnu.org/licenses/gpl.html>.
  */
-package de.forsthaus.webui.gabungan;
+package de.forsthaus.webui.diklatjabatan;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -41,7 +41,7 @@ import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.GabunganDAO;
 import de.forsthaus.backend.model.Gabungan;
 import de.forsthaus.backend.util.HibernateSearchObject;
-import de.forsthaus.webui.gabungan.model.AgamaListModelItemRenderer;
+import de.forsthaus.webui.diklatjabatan.model.DiklatJabatanListModelItemRenderer;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
 import de.forsthaus.webui.util.MultiLineMessageBox;
 import de.forsthaus.webui.util.ZksampleMessageUtils;
@@ -63,10 +63,12 @@ import de.forsthaus.webui.util.ZksampleMessageUtils;
  * @author bbruhns
  * @author sgerth
  */
-public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializable {
+public class FungsionalListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializable {
 
-	private static final long serialVersionUID = -6139454778139881103L;
-	private static final Logger logger = Logger.getLogger(AgamaListCtrl.class);
+
+	private static final long serialVersionUID = 8328380361242901716L;
+
+	private static final Logger logger = Logger.getLogger(FungsionalListCtrl.class);
 
 	/*
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -75,16 +77,16 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 	 * 'extends GFCBaseCtrl' GenericForwardComposer.
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	 */
-	protected Window agamaListWindow; // autowired
-	protected Panel panel_AgamaList; // autowired
+	protected Window fungsionalListWindow; // autowired
+	protected Panel panel_FungsionalList; // autowired
 
 
 	// listbox gabunganList
-	protected Borderlayout borderLayout_AgamaList; // autowired
-	protected Paging paging_AgamaList; // aurowired
-	protected Listbox listBoxAgama; // aurowired
-	protected Listheader listheader_AgamaList_Kode; // autowired
-	protected Listheader listheader_AgamaList_Nama; // autowired
+	protected Borderlayout borderLayout_FungsionalList; // autowired
+	protected Paging paging_FungsionalList; // aurowired
+	protected Listbox listBoxFungsional; // aurowired
+	protected Listheader listheader_FungsionalList_Kode; // autowired
+	protected Listheader listheader_FungsionalList_Nama; // autowired
 
 	// row count for listbox
 	private int countRows;
@@ -95,11 +97,11 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 	/**
 	 * default constructor.<br>
 	 */
-	public AgamaListCtrl() {
+	public FungsionalListCtrl() {
 		super();
 	}
 
-	public void onCreate$agamaListWindow(Event event) throws Exception {
+	public void onCreate$fungsionalListWindow(Event event) throws Exception {
 		/**
 		 * Calculate how many rows have been place in the listbox. Get the
 		 * currentDesktopHeight from a hidden Intbox from the index.zul that are
@@ -108,7 +110,7 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 
 		int panelHeight = 25;
 		// TODO put the logic for working with panel in the ApplicationWorkspace
-		panel_AgamaList.setVisible(false);
+		panel_FungsionalList.setVisible(false);
 
 		final int menuOffset = UserWorkspace.getInstance().getMenuOffset();
 		int height = ((Intbox) Path.getComponent("/outerIndexWindow/currentDesktopHeight")).getValue().intValue();
@@ -119,28 +121,28 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 		// System.out.println("MaxListBoxHeight : " + maxListBoxHeight);
 		// System.out.println("==========> : " + getCountRows());
 
-		borderLayout_AgamaList.setHeight(String.valueOf(maxListBoxHeight) + "px");
+		borderLayout_FungsionalList.setHeight(String.valueOf(maxListBoxHeight) + "px");
 
 		// not used listheaders must be declared like ->
 		// lh.setSortAscending(""); lh.setSortDescending("")
-		listheader_AgamaList_Kode.setSortAscending(new FieldComparator("kode", true));
-		listheader_AgamaList_Kode.setSortDescending(new FieldComparator("kode", false));
-		listheader_AgamaList_Nama.setSortAscending(new FieldComparator("nama", true));
-		listheader_AgamaList_Nama.setSortDescending(new FieldComparator("nama", false));
+		listheader_FungsionalList_Kode.setSortAscending(new FieldComparator("kode", true));
+		listheader_FungsionalList_Kode.setSortDescending(new FieldComparator("kode", false));
+		listheader_FungsionalList_Nama.setSortAscending(new FieldComparator("nama", true));
+		listheader_FungsionalList_Nama.setSortDescending(new FieldComparator("nama", false));
 
 		// ++ create the searchObject and init sorting ++//
 		HibernateSearchObject<Gabungan> soGabungan = new HibernateSearchObject<Gabungan>(Gabungan.class, getCountRows());
-		soGabungan.addFilterEqual("kodeTabel", "01");
+		soGabungan.addFilterEqual("kodeTabel", "15");
 		soGabungan.addSort("kode", false);
 
 		// set the paging params
-		paging_AgamaList.setPageSize(getCountRows());
-		paging_AgamaList.setDetailed(true);
+		paging_FungsionalList.setPageSize(getCountRows());
+		paging_FungsionalList.setDetailed(true);
 
 		// Set the ListModel.
-		getPagedListWrapper().init(soGabungan, listBoxAgama, paging_AgamaList);
+		getPagedListWrapper().init(soGabungan, listBoxFungsional, paging_FungsionalList);
 		// set the itemRenderer
-		listBoxAgama.setItemRenderer(new AgamaListModelItemRenderer());
+		listBoxFungsional.setItemRenderer(new DiklatJabatanListModelItemRenderer());
 
 	}
 
@@ -153,10 +155,10 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 	 * @param event
 	 * @throws Exception
 	 */
-	public void onDoubleClickedAgamaItem(Event event) throws Exception {
+	public void onDoubleClickedDiklatJabatanItem(Event event) throws Exception {
 
 		// get the selected object
-		Listitem item = this.listBoxAgama.getSelectedItem();
+		Listitem item = this.listBoxFungsional.getSelectedItem();
 
 		if (item != null) {
 			// CAST AND STORE THE SELECTED OBJECT
@@ -169,7 +171,7 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 	/**
 	 * Call the Gabungan dialog with a new empty entry. <br>
 	 */
-	public void onClick$button_AgamaList_New(Event event) throws Exception {
+	public void onClick$button_FungsionalList_New(Event event) throws Exception {
 
 		// create a new right object
 		/** !!! DO NOT BREAK THE TIERS !!! */
@@ -184,10 +186,10 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 	 * Opens the detail view. <br>
 	 * Overhanded some params in a map if needed. <br>
 	 * 
-	 * @param agama
+	 * @param fungsional
 	 * @throws Exception
 	 */
-	private void showDetailView(Gabungan agama) throws Exception {
+	private void showDetailView(Gabungan fungsional) throws Exception {
 
 		/*
 		 * We can call our Dialog zul-file with parameters. So we can call them
@@ -195,18 +197,18 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 		 * only a Map is accepted. So we put the object in a HashMap.
 		 */
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("agama", agama);
+		map.put("fungsional", fungsional);
 		/*
 		 * we can additionally handed over the listBox, so we have in the dialog
 		 * access to the listbox Listmodel. This is fine for syncronizing the
 		 * data in the customerListbox from the dialog when we do a delete, edit
 		 * or insert a customer.
 		 */
-		map.put("listBoxGabungan", listBoxAgama);
+		map.put("listBoxGabungan", listBoxFungsional);
 
 		// call the zul-file with the parameters packed in a map
 		try {
-			Executions.createComponents("/WEB-INF/pages/gabungan/agamaDialog.zul", null, map);
+			Executions.createComponents("/WEB-INF/pages/diklatjabatan/fungsionalDialog.zul", null, map);
 		} catch (final Exception e) {
 			logger.error("onOpenWindow:: error opening window / " + e.getMessage());
 
@@ -241,8 +243,8 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 	 */
 	public void onClick$btnRefresh(Event event) throws InterruptedException {
 
-		Events.postEvent("onCreate", agamaListWindow, event);
-		agamaListWindow.invalidate();
+		Events.postEvent("onCreate", fungsionalListWindow, event);
+		fungsionalListWindow.invalidate();
 	}
 
 //	/**

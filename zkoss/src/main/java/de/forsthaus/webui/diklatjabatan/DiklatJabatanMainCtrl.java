@@ -1,4 +1,4 @@
-package de.forsthaus.webui.unitkerja;
+package de.forsthaus.webui.diklatjabatan;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -12,7 +12,7 @@ import org.zkoss.zul.Tabbox;
 import org.zkoss.zul.Tabpanel;
 import org.zkoss.zul.Window;
 
-import de.forsthaus.backend.model.UnitKerja;
+import de.forsthaus.backend.model.Gabungan;
 import de.forsthaus.webui.util.ButtonStatusCtrl;
 import de.forsthaus.webui.util.GFCBaseCtrl;
 import de.forsthaus.webui.util.ZksampleCommonUtils;
@@ -47,11 +47,11 @@ import de.forsthaus.webui.util.pagging.PagedListWrapper;
  * @author bbruhns
  * @author Stephan Gerth
  */
-public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
+public class DiklatJabatanMainCtrl extends GFCBaseCtrl implements Serializable {
 
 	private static final long serialVersionUID = -4292373618041246989L;
 
-	private static final Logger logger = Logger.getLogger(UnitKerjaMainCtrl.class);
+	private static final Logger logger = Logger.getLogger(DiklatJabatanMainCtrl.class);
 
 	/*
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -60,22 +60,20 @@ public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
 	 * 'extends GFCBaseCtrl' GenericForwardComposer.
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	 */
-	protected Window unitKerjaMainWindow; // autowired
+	protected Window diklatJabatanMainWindow; // autowired
 
 	// Tabs
-	protected Tabbox tabbox_UnitKerjaMain; // autowired
-	protected Tab tabUnitOrganisasiList; // autowired
-	protected Tab tabUnitKerjaList; // autowired
-	protected Tab tabSatuanKerjaList;
-	protected Tab tabKelompokUnitList;
-	protected Tabpanel tabPanelUnitOrganisasiList; // autowired
-	protected Tabpanel tabPanelUnitKerjaList; // autowired
-	protected Tabpanel tabPanelSatuanKerjaList; // autowired
-	protected Tabpanel tabPanelKelompokUnitList; // autowired
+	protected Tabbox tabbox_DiklatJabatanMain; // autowired
+	protected Tab tabStrukturalList; // autowired
+	protected Tab tabFungsionalList; // autowired
+	protected Tab tabTeknisList;
+	protected Tabpanel tabPanelStrukturalList; // autowired
+	protected Tabpanel tabPanelFungsionalList; // autowired
+	protected Tabpanel tabPanelTeknisList; // autowired
 
 	// Button controller for the CRUD buttons
-	private final String btnCtroller_ClassPrefix = "button_UnitKerjaDialog_";
-	private ButtonStatusCtrl btnCtrlUnitKerja;
+	private final String btnCtroller_ClassPrefix = "button_DiklatJabatanDialog_";
+	private ButtonStatusCtrl btnCtrlDiklatJabatan;
 	protected Button btnNew; // autowired
 	protected Button btnEdit; // autowired
 	protected Button btnDelete; // autowired
@@ -91,12 +89,12 @@ public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
 
 	protected Button btnHelp;
 
-	private PagedListWrapper<UnitKerja> plwUnitKerja;
+	private PagedListWrapper<Gabungan> plwDiklatJabatan;
 
 	/**
 	 * default constructor.<br>
 	 */
-	public UnitKerjaMainCtrl() {
+	public DiklatJabatanMainCtrl() {
 		super();
 	}
 
@@ -124,23 +122,23 @@ public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
 	 * @param event
 	 * @throws Exception
 	 */
-	public void onCreate$unitKerjaMainWindow(Event event) throws Exception {
+	public void onCreate$diklatJabatanMainWindow(Event event) throws Exception {
 
 		// create the Button Controller. Disable not used buttons during working
-		btnCtrlUnitKerja = new ButtonStatusCtrl(getUserWorkspace(), btnCtroller_ClassPrefix, true, null, btnPrint, btnFirst, btnPrevious, btnNext, btnLast, btnNew, btnEdit, btnDelete, btnSave,
+		btnCtrlDiklatJabatan = new ButtonStatusCtrl(getUserWorkspace(), btnCtroller_ClassPrefix, true, null, btnPrint, btnFirst, btnPrevious, btnNext, btnLast, btnNew, btnEdit, btnDelete, btnSave,
 				btnCancel, null);
 
 		/**
 		 * Initiate the first loading by selecting the customerList tab and
 		 * create the components from the zul-file.
 		 */
-		tabUnitOrganisasiList.setSelected(true);
-		if (tabPanelUnitOrganisasiList != null) {
-			ZksampleCommonUtils.createTabPanelContent(tabPanelUnitOrganisasiList, this, "ModuleMainController", "/WEB-INF/pages/unitkerja/unitOrganisasiList.zul");
+		tabStrukturalList.setSelected(true);
+		if (tabPanelStrukturalList != null) {
+			ZksampleCommonUtils.createTabPanelContent(tabPanelStrukturalList, this, "ModuleMainController", "/WEB-INF/pages/diklatjabatan/strukturalList.zul");
 		}
 		
 		// Set the buttons for editMode
-		btnCtrlUnitKerja.setInitEdit();
+		btnCtrlDiklatJabatan.setInitEdit();
 	}
 
 	/**
@@ -150,56 +148,45 @@ public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
 	 * @param event
 	 * @throws IOException
 	 */
-	public void onSelect$tabUnitOrganisasiList(Event event) throws IOException {
+	public void onSelect$tabStrukturalList(Event event) throws IOException {
 		// logger.debug(event.toString());
 
-		if (tabPanelUnitOrganisasiList.getFirstChild() != null) {
-			tabUnitOrganisasiList.setSelected(true);
+		if (tabPanelStrukturalList.getFirstChild() != null) {
+			tabStrukturalList.setSelected(true);
 			return;
 		}
 
-		if (tabPanelUnitOrganisasiList != null) {
-			ZksampleCommonUtils.createTabPanelContent(tabPanelUnitOrganisasiList, this, "ModuleMainController", "/WEB-INF/pages/unitkerja/unitOrganisasiList.zul");
+		if (tabPanelStrukturalList != null) {
+			ZksampleCommonUtils.createTabPanelContent(tabPanelStrukturalList, this, "ModuleMainController", "/WEB-INF/pages/diklatjabatan/strukturalList.zul");
 		}
 	}
 	
-	public void onSelect$tabUnitKerjaList(Event event) throws IOException {
+	public void onSelect$tabFungsionalList(Event event) throws IOException {
 		// Check if the tabpanel is already loaded
-		if (tabPanelUnitKerjaList.getFirstChild() != null) {
-			tabUnitKerjaList.setSelected(true);
+		if (tabPanelFungsionalList.getFirstChild() != null) {
+			tabFungsionalList.setSelected(true);
 			return;
 		}
 
-		if (tabPanelUnitKerjaList != null) {
-			ZksampleCommonUtils.createTabPanelContent(tabPanelUnitKerjaList, this, "ModuleMainController", "/WEB-INF/pages/unitkerja/unitKerjaList.zul");
+		if (tabPanelFungsionalList != null) {
+			ZksampleCommonUtils.createTabPanelContent(tabPanelFungsionalList, this, "ModuleMainController", "/WEB-INF/pages/diklatjabatan/fungsionalList.zul");
 		}
 	}
 	
-	public void onSelect$tabSatuanKerjaList(Event event) throws IOException {
+	public void onSelect$tabTeknisList(Event event) throws IOException {
 		
 		// Check if the tabpanel is already loaded
-		if (tabPanelSatuanKerjaList.getFirstChild() != null) {
-			tabSatuanKerjaList.setSelected(true);
+		if (tabPanelTeknisList.getFirstChild() != null) {
+			tabTeknisList.setSelected(true);
 			return;
 		}
 
-		if (tabPanelSatuanKerjaList != null) {
-			ZksampleCommonUtils.createTabPanelContent(tabPanelSatuanKerjaList, this, "ModuleMainController", "/WEB-INF/pages/unitkerja/satuanKerjaList.zul");
+		if (tabPanelTeknisList != null) {
+			ZksampleCommonUtils.createTabPanelContent(tabPanelTeknisList, this, "ModuleMainController", "/WEB-INF/pages/diklatjabatan/teknisList.zul");
 		}
 	}
 	
-	public void onSelect$tabKelompokUnitList(Event event) throws IOException {
-		
-		// Check if the tabpanel is already loaded
-		if (tabPanelKelompokUnitList.getFirstChild() != null) {
-			tabKelompokUnitList.setSelected(true);
-			return;
-		}
 
-		if (tabPanelKelompokUnitList != null) {
-			ZksampleCommonUtils.createTabPanelContent(tabPanelKelompokUnitList, this, "ModuleMainController", "/WEB-INF/pages/unitkerja/kelompokUnitList.zul");
-		}
-	}
 
 	/**
 	 * When the "help" button is clicked.
@@ -247,12 +234,12 @@ public class UnitKerjaMainCtrl extends GFCBaseCtrl implements Serializable {
 		event.stopPropagation();
 	}
 
-	public PagedListWrapper<UnitKerja> getPlwUnitKerja() {
-		return plwUnitKerja;
+	public PagedListWrapper<Gabungan> getPlwDiklatJabatan() {
+		return plwDiklatJabatan;
 	}
 
-	public void setPlwUnitKerja(PagedListWrapper<UnitKerja> plwUnitKerja) {
-		this.plwUnitKerja = plwUnitKerja;
+	public void setPlwDiklatJabatan(PagedListWrapper<Gabungan> plwDiklatJabatan) {
+		this.plwDiklatJabatan = plwDiklatJabatan;
 	}
 
 }

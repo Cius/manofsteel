@@ -16,10 +16,11 @@
  * You should have received a copy of the GNU General Public License
  * along with Zksample2.  If not, see <http://www.gnu.org/licenses/gpl.html>.
  */
-package de.forsthaus.webui.gabungan;
+package de.forsthaus.webui.unitkerja;
 
 import java.io.Serializable;
 import java.util.Map;
+import java.util.regex.Matcher;
 
 import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
@@ -29,12 +30,18 @@ import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Listitem;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
-import de.forsthaus.backend.dao.GabunganDAO;
-import de.forsthaus.backend.model.Gabungan;
+import de.forsthaus.backend.dao.EselonDAO;
+import de.forsthaus.backend.dao.UnitKerjaDAO;
+import de.forsthaus.backend.dao.WilayahDAO;
+import de.forsthaus.backend.model.Eselon;
+import de.forsthaus.backend.model.UnitKerja;
+import de.forsthaus.backend.model.Wilayah;
+import de.forsthaus.webui.unitkerja.model.UnitKerjaEselonListModelItemRenderer;
 import de.forsthaus.webui.util.ButtonStatusCtrl;
 import de.forsthaus.webui.util.GFCBaseCtrl;
 import de.forsthaus.webui.util.MultiLineMessageBox;
@@ -43,7 +50,7 @@ import de.forsthaus.webui.util.ZksampleMessageUtils;
 /**
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br>
  * This is the controller class for the
- * /WEB-INF/pages/sec_right/agamaDialog.zul file.<br>
+ * /WEB-INF/pages/sec_right/kelompokUnitDialog.zul file.<br>
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br>
  * 
  * @changes 05/15/2009: sge Migrating the list models for paging. <br>
@@ -55,10 +62,11 @@ import de.forsthaus.webui.util.ZksampleMessageUtils;
  * @author bbruhns
  * @author sgerth
  */
-public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
+public class KelompokUnitDialogCtrl extends GFCBaseCtrl implements Serializable {
 
-	private static final long serialVersionUID = -546886879998950467L;
-	private static final Logger logger = Logger.getLogger(AgamaDialogCtrl.class);
+	private static final long serialVersionUID = -3989381318982978024L;
+
+	private static final Logger logger = Logger.getLogger(KelompokUnitDialogCtrl.class);
 
 	/*
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -67,23 +75,27 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 * 'extends GFCBaseCtrl' GenericForwardComposer.
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	 */
-	protected Window agamaDialogWindow; // autowired
+	protected Window kelompokUnitDialogWindow; // autowired
 	protected Textbox tb_Kode;
-	protected Textbox tb_Agama;
-
+	protected Textbox tb_UnitKerja;
+	protected Textbox tb_POK;
+	protected Textbox tb_KelompokUnit;
+	
 	// overhanded vars per params
-	private transient Listbox listBoxAgama; // overhanded
-	private Gabungan agama;
+	private transient Listbox listBoxKelompokUnit; // overhanded
+	private UnitKerja unitKerja;
 
 	// old value vars for edit mode. that we can check if something
 	// on the values are edited since the last init.
 	private transient String oldVar_Kode;
-	private transient String oldVar_Agama;
+	private transient String oldVar_KelompokUnit;
+	private transient String oldVar_UnitKerja;
+	private transient String oldVar_POK;
 
 	private transient boolean validationOn;
 
 	// Button controller for the CRUD buttons
-	private transient final String btnCtroller_ClassPrefix = "button_AgamaDialog_";
+	private transient final String btnCtroller_ClassPrefix = "button_KelompokUnitDialog_";
 	private transient ButtonStatusCtrl btnCtrl;
 	protected Button btnNew; // autowired
 	protected Button btnEdit; // autowired
@@ -93,12 +105,12 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	protected Button btnClose; // autowired
 
 	// ServiceDAOs / Domain Classes
-	private transient GabunganDAO gabunganDAO;
+	private transient UnitKerjaDAO unitKerjaDAO;
 
 	/**
 	 * default constructor.<br>
 	 */
-	public AgamaDialogCtrl() {
+	public KelompokUnitDialogCtrl() {
 		super();
 	}
 
@@ -109,32 +121,32 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 * @param event
 	 * @throws Exception
 	 */
-	public void onCreate$agamaDialogWindow(Event event) throws Exception {
+	public void onCreate$kelompokUnitDialogWindow(Event event) throws Exception {
 		// create the Button Controller. Disable not used buttons during working
 		btnCtrl = new ButtonStatusCtrl(getUserWorkspace(), btnCtroller_ClassPrefix, true, btnNew, btnEdit, btnDelete, btnSave, btnCancel, btnClose);
 
 		// get the params map that are overhanded by creation.
 		Map<String, Object> args = getCreationArgsMap(event);
 
-		if (args.containsKey("agama")) {
-			setAgama((Gabungan) args.get("agama"));
+		if (args.containsKey("kelompokUnit")) {
+			setUnitKerja((UnitKerja) args.get("kelompokUnit"));
 		} else {
-			setAgama(null);
+			setUnitKerja(null);
 		}
-
+		
 		// we get the listBox Object for the users list. So we have access
 		// to it and can synchronize the shown data when we do insert, edit or
 		// delete users here.
-		if (args.containsKey("listBoxAgama")) {
-			listBoxAgama = (Listbox) args.get("listBoxAgama");
+		if (args.containsKey("listBoxKelompokUnit")) {
+			listBoxKelompokUnit = (Listbox) args.get("listBoxKelompokUnit");
 		} else {
-			listBoxAgama = null;
+			listBoxKelompokUnit = null;
 		}
 
 		// set Field Properties
 		doSetFieldProperties();
 
-		doShowDialog(getAgama());
+		doShowDialog(getUnitKerja());
 
 	}
 
@@ -148,7 +160,7 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 * @param event
 	 * @throws Exception
 	 */
-	public void onClose$agamaDialogWindow(Event event) throws Exception {
+	public void onClose$kelompokUnitDialogWindow(Event event) throws Exception {
 		// logger.debug(event.toString());
 
 		doClose();
@@ -236,7 +248,7 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 			doClose();
 		} catch (final Exception e) {
 			// close anyway
-			agamaDialogWindow.onClose();
+			kelompokUnitDialogWindow.onClose();
 		}
 	}
 
@@ -280,7 +292,7 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 			}
 		}
 
-		agamaDialogWindow.onClose();
+		kelompokUnitDialogWindow.onClose();
 	}
 
 	/**
@@ -299,11 +311,13 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 * Writes the bean data to the components.<br>
 	 * 
 	 * @param aRight
-	 *            Agama
+	 *            KelompokUnit
 	 */
-	public void doWriteBeanToComponents(Gabungan agama) {
-		tb_Kode.setValue(agama.getKode());
-		tb_Agama.setValue(agama.getNama());
+	public void doWriteBeanToComponents(UnitKerja kelompokUnit) {
+		tb_Kode.setValue(kelompokUnit.getKunker());
+		tb_KelompokUnit.setValue(kelompokUnit.getNpok());
+		tb_UnitKerja.setValue(kelompokUnit.getNunker());
+		tb_POK.setValue(kelompokUnit.getKpok());
 
 	}
 
@@ -312,9 +326,11 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 * 
 	 * @param aRight
 	 */
-	public void doWriteComponentsToBean(Gabungan agama) {
-		agama.setKode(tb_Kode.getValue());
-		agama.setNama(tb_Agama.getValue());
+	public void doWriteComponentsToBean(UnitKerja kelompokUnit) {
+		kelompokUnit.setKunker(tb_Kode.getValue());
+		kelompokUnit.setNunker(tb_UnitKerja.getValue());
+		kelompokUnit.setKpok(tb_POK.getValue());
+		kelompokUnit.setNpok(tb_POK.getValue());
 	}
 
 	/**
@@ -326,22 +342,22 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 * @param golongan
 	 * @throws InterruptedException
 	 */
-	public void doShowDialog(Gabungan agama) throws InterruptedException {
+	public void doShowDialog(UnitKerja kelompokUnit) throws InterruptedException {
 
 		// if aRight == null then we opened the Dialog without
 		// args for a given entity, so we get a new Obj().
-		if (agama == null) {
+		if (kelompokUnit == null) {
 			/** !!! DO NOT BREAK THE TIERS !!! */
 			// We don't create a new DomainObject() in the frontend.
 			// We GET it from the backend.
-			agama = getGabunganDAO().getNewGabungan();
-			setAgama(agama);
+			kelompokUnit = getUnitKerjaDAO().getNewUnitKerja();
+			setUnitKerja(kelompokUnit);
 		} else {
-			setAgama(null);
+			setUnitKerja(null);
 		}
 
 		// set Readonly mode accordingly if the object is new or not.
-		if (agama.isNew()) {
+		if (kelompokUnit.isNew()) {
 			doEdit();
 			btnCtrl.setInitNew();
 		} else {
@@ -351,13 +367,13 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 
 		try {
 			// fill the components with the data
-			doWriteBeanToComponents(agama);
+			doWriteBeanToComponents(kelompokUnit);
 
 			// stores the inital data for comparing if they are changed
 			// during user action.
 			doStoreInitValues();
 
-			agamaDialogWindow.doModal(); // open the dialog in modal
+			kelompokUnitDialogWindow.doModal(); // open the dialog in modal
 			// mode
 		} catch (final Exception e) {
 			Messagebox.show(e.toString());
@@ -373,7 +389,9 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 */
 	private void doSetFieldProperties() {
 		tb_Kode.setMaxlength(50);
-		tb_Agama.setMaxlength(50);
+		tb_KelompokUnit.setMaxlength(100);
+		tb_UnitKerja.setMaxlength(100);
+		tb_POK.setMaxlength(100);
 	}
 
 	/**
@@ -381,7 +399,9 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 */
 	private void doStoreInitValues() {
 		oldVar_Kode = tb_Kode.getValue();
-		oldVar_Agama = tb_Agama.getValue();
+		oldVar_KelompokUnit = tb_KelompokUnit.getValue();
+		oldVar_UnitKerja = tb_UnitKerja.getValue();
+		oldVar_POK = tb_POK.getValue();
 	}
 
 	/**
@@ -389,7 +409,9 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 */
 	private void doResetInitValues() {
 		tb_Kode.setValue(oldVar_Kode);
-		tb_Agama.setValue(oldVar_Agama);
+		tb_KelompokUnit.setValue(oldVar_KelompokUnit);
+		tb_UnitKerja.setValue(oldVar_UnitKerja);
+		tb_POK.setValue(oldVar_POK);
 	}
 
 	/**
@@ -404,7 +426,13 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 		if (oldVar_Kode != tb_Kode.getValue()) {
 			changed = true;
 		}
-		if (oldVar_Agama != tb_Agama.getValue()) {
+		if (oldVar_KelompokUnit != tb_KelompokUnit.getValue()) {
+			changed = true;
+		}
+		if (oldVar_UnitKerja != tb_UnitKerja.getValue()) {
+			changed = true;
+		}
+		if (oldVar_POK != tb_POK.getValue()) {
 			changed = true;
 		}
 
@@ -419,7 +447,9 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 		setValidationOn(true);
 
 		tb_Kode.setConstraint("NO EMPTY");
-		tb_Agama.setConstraint("NO EMPTY");
+		tb_KelompokUnit.setConstraint("NO EMPTY");
+		tb_UnitKerja.setConstraint("NO EMPTY");
+		tb_POK.setConstraint("NO EMPTY");
 	}
 
 	/**
@@ -430,7 +460,9 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 		setValidationOn(false);
 
 		tb_Kode.setConstraint("");
-		tb_Agama.setConstraint("");
+		tb_KelompokUnit.setConstraint("");
+		tb_UnitKerja.setConstraint("");
+		tb_POK.setConstraint("");
 	}
 
 	// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -438,16 +470,16 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 	/**
-	 * Deletes a agama object from database.<br>
+	 * Deletes a kelompokUnit object from database.<br>
 	 * 
 	 * @throws InterruptedException
 	 */
 	private void doDelete() throws InterruptedException {
 
-		final Gabungan gol = getAgama();
+		final UnitKerja gol = getUnitKerja();
 
 		// Show a confirm box
-		String msg = Labels.getLabel("message.Question.Are_you_sure_to_delete_this_record") + "\n\n --> " + gol.getNama();
+		String msg = Labels.getLabel("message.Question.Are_you_sure_to_delete_this_record") + "\n\n --> " + gol.getKunker();
 		String title = Labels.getLabel("message.Deleting.Record");
 
 		MultiLineMessageBox.doSetTemplate();
@@ -471,13 +503,13 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 			private void delete() throws InterruptedException {
 
 				try {
-					getGabunganDAO().delete(gol);
+					getUnitKerjaDAO().delete(gol);
 				} catch (DataAccessException e) {
 					ZksampleMessageUtils.showErrorMessage(e.getMostSpecificCause().toString());
 				}
 
 				// now synchronize the listBox
-				final ListModelList lml = (ListModelList) listBoxAgama.getListModel();
+				final ListModelList lml = (ListModelList) listBoxKelompokUnit.getListModel();
 
 				// Check if the object is new or updated
 				// -1 means that the obj is not in the list, so it's
@@ -487,7 +519,7 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 					lml.remove(lml.indexOf(gol));
 				}
 
-				agamaDialogWindow.onClose(); // close
+				kelompokUnitDialogWindow.onClose(); // close
 			}
 		}
 
@@ -497,7 +529,7 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	}
 
 	/**
-	 * Create a new agama object. <br>
+	 * Create a new kelompokUnit object. <br>
 	 */
 	private void doNew() {
 
@@ -507,7 +539,7 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 		/** !!! DO NOT BREAK THE TIERS !!! */
 		// We don't create a new DomainObject() in the frontend.
 		// We GET it from the backend.
-		setAgama(getGabunganDAO().getNewGabungan());
+		setUnitKerja(getUnitKerjaDAO().getNewUnitKerja());
 
 		doClear(); // clear all commponents
 		doEdit(); // edit mode
@@ -522,7 +554,9 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	private void doEdit() {
 
 		tb_Kode.setReadonly(false);
-		tb_Agama.setReadonly(false);
+		tb_KelompokUnit.setReadonly(false);
+		tb_POK.setReadonly(false);
+		tb_UnitKerja.setReadonly(false);
 
 		btnCtrl.setBtnStatus_Edit();
 
@@ -535,7 +569,9 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 */
 	public void doReadOnly() {
 		tb_Kode.setReadonly(true);
-		tb_Agama.setReadonly(true);
+		tb_KelompokUnit.setReadonly(true);
+		tb_POK.setReadonly(true);
+		tb_UnitKerja.setReadonly(true);
 	}
 
 	/**
@@ -547,7 +583,9 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 		doRemoveValidation();
 
 		tb_Kode.setValue("");
-		tb_Agama.setValue("");
+		tb_KelompokUnit.setValue("");
+		tb_POK.setValue("");
+		tb_UnitKerja.setValue("");
 	}
 
 	/**
@@ -557,8 +595,8 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 */
 	public void doSave() throws InterruptedException {
 
-		final Gabungan gol = getAgama();
-		gol.setKodeTabel("01");
+		final UnitKerja gol = getUnitKerja();
+		gol.setTunit("2");
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// force validation, if on, than execute by component.getValue()
@@ -572,7 +610,7 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 
 		// save it to database
 		try {
-			getGabunganDAO().saveOrUpdate(gol);
+			getUnitKerjaDAO().saveOrUpdate(gol);
 		} catch (DataAccessException e) {
 			ZksampleMessageUtils.showErrorMessage(e.getMostSpecificCause().toString());
 
@@ -585,7 +623,7 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 		}
 
 		// now synchronize the listBox
-		ListModelList lml = (ListModelList) this.listBoxAgama.getListModel();
+		ListModelList lml = (ListModelList) this.listBoxKelompokUnit.getListModel();
 
 		// Check if the object is new or updated
 		// -1 means that the obj is not in the list, so it's new.
@@ -613,20 +651,19 @@ public class AgamaDialogCtrl extends GFCBaseCtrl implements Serializable {
 		return this.validationOn;
 	}
 
-	public GabunganDAO getGabunganDAO() {
-		return this.gabunganDAO;
+	public UnitKerjaDAO getUnitKerjaDAO() {
+		return this.unitKerjaDAO;
 	}
 
-	public void setGabunganDAO(GabunganDAO gabunganDAO) {
-		this.gabunganDAO = gabunganDAO;
+	public void setUnitKerjaDAO(UnitKerjaDAO unitKerjaDAO) {
+		this.unitKerjaDAO = unitKerjaDAO;
 	}
 
-	public Gabungan getAgama() {
-		return agama;
+	public UnitKerja getUnitKerja() {
+		return unitKerja;
 	}
 
-	public void setAgama(Gabungan agama) {
-		this.agama = agama;
+	public void setUnitKerja(UnitKerja unitKerja) {
+		this.unitKerja = unitKerja;
 	}
-
 }

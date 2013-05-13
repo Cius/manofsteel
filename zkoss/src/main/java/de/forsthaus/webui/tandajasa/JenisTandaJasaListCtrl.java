@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Zksample2.  If not, see <http://www.gnu.org/licenses/gpl.html>.
  */
-package de.forsthaus.webui.unitkerja;
+package de.forsthaus.webui.tandajasa;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -42,12 +42,15 @@ import org.zkoss.zul.Panel;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
+import com.googlecode.genericdao.search.Filter;
+
 import de.forsthaus.UserWorkspace;
-import de.forsthaus.backend.dao.UnitKerjaDAO;
-import de.forsthaus.backend.model.UnitKerja;
+import de.forsthaus.backend.dao.GabunganDAO;
+import de.forsthaus.backend.model.Gabungan;
+import de.forsthaus.backend.model.SecRight;
 import de.forsthaus.backend.util.HibernateSearchObject;
-import de.forsthaus.webui.unitkerja.model.SatuanKerjaListModelItemRenderer;
-import de.forsthaus.webui.unitkerja.model.UnitKerjaListModelItemRenderer;
+import de.forsthaus.webui.tandajasa.model.JenisTandaJasaListModelItemRenderer;
+import de.forsthaus.webui.tandajasa.model.KelompokTandaJasaListModelItemRenderer;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
 import de.forsthaus.webui.util.MultiLineMessageBox;
 import de.forsthaus.webui.util.ZksampleMessageUtils;
@@ -56,7 +59,7 @@ import de.forsthaus.webui.util.pagging.PagedListWrapper;
 /**
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br>
  * This is the controller class for the
- * /WEB-INF/pages/sec_right/satuanKerjaList.zul file.<br>
+ * /WEB-INF/pages/sec_right/jenisTandaJasaList.zul file.<br>
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br>
  * 
  * @changes 05/15/2009: sge Migrating the list models for paging. <br>
@@ -70,12 +73,12 @@ import de.forsthaus.webui.util.pagging.PagedListWrapper;
  * @author bbruhns
  * @author sgerth
  */
-public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements Serializable {
+public class JenisTandaJasaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializable {
 
 
 	private static final long serialVersionUID = 8328380361242901716L;
 
-	private static final Logger logger = Logger.getLogger(SatuanKerjaListCtrl.class);
+	private static final Logger logger = Logger.getLogger(JenisTandaJasaListCtrl.class);
 
 	/*
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -84,44 +87,40 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 	 * 'extends GFCBaseCtrl' GenericForwardComposer.
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	 */
-	protected Window satuanKerjaListWindow; // autowired
-	protected Panel panel_SatuanKerjaList; // autowired
+	protected Window jenisTandaJasaListWindow; // autowired
+	protected Panel panel_JenisTandaJasaList; // autowired
 
 
-	// listbox satuanKerjaList
-	protected Borderlayout borderLayout_SatuanKerjaList; // autowired
-	protected Paging paging_SatuanKerjaList; // aurowired
-	protected Listbox listBoxSatuanKerja; // aurowired
-	protected Listheader listheader_SatuanKerjaList_Kode; // autowired
-	protected Listheader listheader_SatuanKerjaList_Nama; // autowired
-	protected Listheader listheader_SatuanKerjaList_Eselon; // autowired
+	// listbox jenisTandaJasaList
+	protected Borderlayout borderLayout_JenisTandaJasaList; // autowired
+	protected Paging paging_JenisTandaJasaList; // aurowired
+	protected Listbox listBoxJenisTandaJasa; // aurowired
+	protected Listheader listheader_JenisTandaJasaList_Kode; // autowired
+	protected Listheader listheader_JenisTandaJasaList_Nama; // autowired
+	
+	protected Bandbox bandbox_KelompokTandaJasaSearch;
+	protected Textbox tb_KelompokTandaJasa;
+	protected Listheader listheader_Kode;
+	protected Listheader listheader_Nama;
+	protected Paging paging_KelompokTandaJasaSearchList;
+	protected PagedListWrapper<Gabungan> plwKelompokTandaJasa;
+	protected Listbox listBoxKelompokTandaJasaSearch;
+	protected Checkbox checkbox_JenisTandaJasaList_ShowAll;
 
 	// row count for listbox
 	private int countRows;
 
 	// ServiceDAOs / Domain Classes
-	private transient UnitKerjaDAO unitKerjaDAO;
+	private transient GabunganDAO GabunganDAO;
 
-	private Bandbox bandbox_UnitKerjaSearch;
-	private Textbox tb_UnitKerja;
-	private Listbox listBoxUnitKerjaSearch;
-	private Paging paging_UnitKerjaSearchList;
-	private PagedListWrapper<UnitKerja> plwUnitKerja;
-	private Checkbox checkbox_SatuanKerjaList_ShowAll;
-
-	private Listheader listheader_Kode;
-	private Listheader listheader_Nama;
-	private Listheader listheader_Eselon;
-	private Listheader listheader_Kecamatan;
-	
 	/**
 	 * default constructor.<br>
 	 */
-	public SatuanKerjaListCtrl() {
+	public JenisTandaJasaListCtrl() {
 		super();
 	}
 
-	public void onCreate$satuanKerjaListWindow(Event event) throws Exception {
+	public void onCreate$jenisTandaJasaListWindow(Event event) throws Exception {
 		/**
 		 * Calculate how many rows have been place in the listbox. Get the
 		 * currentDesktopHeight from a hidden Intbox from the index.zul that are
@@ -130,7 +129,7 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 
 		int panelHeight = 25;
 		// TODO put the logic for working with panel in the ApplicationWorkspace
-		panel_SatuanKerjaList.setVisible(false);
+		panel_JenisTandaJasaList.setVisible(false);
 
 		final int menuOffset = UserWorkspace.getInstance().getMenuOffset();
 		int height = ((Intbox) Path.getComponent("/outerIndexWindow/currentDesktopHeight")).getValue().intValue();
@@ -141,124 +140,127 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 		// System.out.println("MaxListBoxHeight : " + maxListBoxHeight);
 		// System.out.println("==========> : " + getCountRows());
 
-		borderLayout_SatuanKerjaList.setHeight(String.valueOf(maxListBoxHeight) + "px");
+		borderLayout_JenisTandaJasaList.setHeight(String.valueOf(maxListBoxHeight) + "px");
 
 		// not used listheaders must be declared like ->
 		// lh.setSortAscending(""); lh.setSortDescending("")
-		listheader_SatuanKerjaList_Kode.setSortAscending(new FieldComparator("kunker", true));
-		listheader_SatuanKerjaList_Kode.setSortDescending(new FieldComparator("kunker", false));
-		listheader_SatuanKerjaList_Nama.setSortAscending(new FieldComparator("nunker", true));
-		listheader_SatuanKerjaList_Nama.setSortDescending(new FieldComparator("nunker", false));
+		listheader_JenisTandaJasaList_Kode.setSortAscending(new FieldComparator("kode", true));
+		listheader_JenisTandaJasaList_Kode.setSortDescending(new FieldComparator("kode", false));
+		listheader_JenisTandaJasaList_Nama.setSortAscending(new FieldComparator("nama", true));
+		listheader_JenisTandaJasaList_Nama.setSortDescending(new FieldComparator("nama", false));
 
 		// ++ create the searchObject and init sorting ++//
-		HibernateSearchObject<UnitKerja> soSatuanKerja = new HibernateSearchObject<UnitKerja>(UnitKerja.class, getCountRows());
-		soSatuanKerja.addFilterEqual("tunit", "3");
-		soSatuanKerja.addSort("kunker", false);
+		HibernateSearchObject<Gabungan> soJenisTandaJasa = new HibernateSearchObject<Gabungan>(Gabungan.class, getCountRows());
+		soJenisTandaJasa.addFilterEqual("kodeTabel", "13");
+		Filter f = Filter.like("kode", "%00");
+		soJenisTandaJasa.addFilterNot(f);
+		soJenisTandaJasa.addSort("kode", false);
 
 		// set the paging params
-		paging_SatuanKerjaList.setPageSize(getCountRows());
-		paging_SatuanKerjaList.setDetailed(true);
+		paging_JenisTandaJasaList.setPageSize(getCountRows());
+		paging_JenisTandaJasaList.setDetailed(true);
 
 		// Set the ListModel.
-		getPagedListWrapper().init(soSatuanKerja, listBoxSatuanKerja, paging_SatuanKerjaList);
+		getPagedListWrapper().init(soJenisTandaJasa, listBoxJenisTandaJasa, paging_JenisTandaJasaList);
 		// set the itemRenderer
-		listBoxSatuanKerja.setItemRenderer(new SatuanKerjaListModelItemRenderer());
+		listBoxJenisTandaJasa.setItemRenderer(new JenisTandaJasaListModelItemRenderer());
 
 	}
 	
-	public void onClick$button_bbox_UnitOrganisasi_Search(Event event) {
+	public void onClick$button_bbox_KelompokTandaJasa_Search(Event event) {
 		// logger.debug(event.toString());
 
 		doSearch();
 	}
 	
-	public void onClick$button_bbox_UnitOrganisasi_Close(Event event) {
+	public void onClick$button_bbox_KelompokTandaJasa_Close(Event event) {
 		// logger.debug(event.toString());
 
-		bandbox_UnitKerjaSearch.close();
+		bandbox_KelompokTandaJasaSearch.close();
 	}
 	
 	private void doSearch() {
-		HibernateSearchObject<UnitKerja> searchObj = new HibernateSearchObject<UnitKerja>(UnitKerja.class, 10);
-		searchObj.addFilterEqual("tunit", "2");
+		HibernateSearchObject<Gabungan> searchObj = new HibernateSearchObject<Gabungan>(Gabungan.class, 10);
+		searchObj.addFilterEqual("kodeTabel", "1");
 		
 		// check which field have input
-		if (StringUtils.isNotEmpty(tb_UnitKerja.getValue())) {
-			searchObj.addFilterLike("nunker", "%" + tb_UnitKerja.getValue() + "%");
+		if (StringUtils.isNotEmpty(tb_KelompokTandaJasa.getValue())) {
+			searchObj.addFilterLike("nama", "%" + tb_KelompokTandaJasa.getValue() + "%");
 		}
 
 		// Set the ListModel.
-		getPlwUnitKerja().init(searchObj, listBoxUnitKerjaSearch, paging_UnitKerjaSearchList);
+		getPlwKelompokTandaJasa().init(searchObj, listBoxKelompokTandaJasaSearch, paging_KelompokTandaJasaSearchList);
 	}
 	
-	public void onSelect$listBoxUnitKerjaSearch(Event event) {
+	public void onSelect$listBoxKelompokTandaJasaSearch(Event event) {
 		// logger.debug(event.toString());
 
-		Listitem item = listBoxUnitKerjaSearch.getSelectedItem();
+		Listitem item = this.listBoxKelompokTandaJasaSearch.getSelectedItem();
 		ListModelList lml = null;
-		UnitKerja uk = (UnitKerja) item.getAttribute("data");
-		bandbox_UnitKerjaSearch.setValue(uk.getNunker());
-		HibernateSearchObject<UnitKerja> soOrder = new HibernateSearchObject<UnitKerja>(UnitKerja.class, 20);
-		soOrder.addSort("kunker", false);
+		Gabungan uk = (Gabungan) item.getAttribute("data");
+		bandbox_KelompokTandaJasaSearch.setValue(uk.getNama());
+		HibernateSearchObject<Gabungan> soOrder = new HibernateSearchObject<Gabungan>(Gabungan.class, 20);
+		soOrder.addSort("kode", false);
 				
 		if (item != null) {
-			lml = (ListModelList)listBoxSatuanKerja.getModel();
+			lml = (ListModelList)listBoxJenisTandaJasa.getModel();
 			lml.clear();
-			soOrder.addFilterEqual("tunit", "3");
-			soOrder.addFilterLike("kunker", uk.getKunker().substring(0, 5) + "%");
-			getPagedListWrapper().init(soOrder, listBoxSatuanKerja, paging_SatuanKerjaList);
+			soOrder.addFilterEqual("kodeTabel", "13");
+			soOrder.addFilterLike("kode", uk.getKode().substring(0, 1) + "%");
+			Filter f = Filter.like("kode", "%00");
+			soOrder.addFilterNot(f);
+			getPagedListWrapper().init(soOrder, listBoxJenisTandaJasa, paging_JenisTandaJasaList);
 		}
 
-		checkbox_SatuanKerjaList_ShowAll.setChecked(false);
+		checkbox_JenisTandaJasaList_ShowAll.setChecked(false);
 		// close the bandbox
-		bandbox_UnitKerjaSearch.close();
+		bandbox_KelompokTandaJasaSearch.close();
 
 	}
 	
-	public void onCheck$checkbox_SatuanKerjaList_ShowAll(Event event) {
+	public void onCheck$checkbox_JenisTandaJasaList_ShowAll(Event event) {
 
 		// empty the text search boxes
-		bandbox_UnitKerjaSearch.setValue(""); // clear
+		bandbox_KelompokTandaJasaSearch.setValue(""); // clear
 
 		// ++ create the searchObject and init sorting ++//
-		HibernateSearchObject<UnitKerja> soUnitKerja = new HibernateSearchObject<UnitKerja>(UnitKerja.class, getCountRows());
-		soUnitKerja.addFilterEqual("tunit", "3");
-		soUnitKerja.addSort("kunker", false);
+		HibernateSearchObject<Gabungan> soJenisTandaJasa = new HibernateSearchObject<Gabungan>(Gabungan.class, getCountRows());
+		soJenisTandaJasa.addFilterEqual("kodeTabel", "13");
+		Filter f = Filter.like("kode", "%00");
+		soJenisTandaJasa.addFilterNot(f);
+		soJenisTandaJasa.addSort("kode", false);
 
 		// Set the ListModel.
-		getPagedListWrapper().init(soUnitKerja, listBoxSatuanKerja, paging_SatuanKerjaList);
+		getPagedListWrapper().init(soJenisTandaJasa, listBoxJenisTandaJasa, paging_JenisTandaJasaList);
 
 	}
 	
-	public void onOpen$bandbox_UnitKerjaSearch(Event event) throws Exception {
+	public void onOpen$bandbox_KelompokTandaJasaSearch(Event event) throws Exception {
 		// logger.debug(event.toString());
 
-		listheader_Kode.setSortAscending(new FieldComparator("kunker", true));
-		listheader_Kode.setSortDescending(new FieldComparator("kunker", false));
-		listheader_Nama.setSortAscending(new FieldComparator("nunker", true));
-		listheader_Nama.setSortDescending(new FieldComparator("nunker", false));
-		listheader_Eselon.setSortAscending(new FieldComparator("eselon.nEselon", true));
-		listheader_Eselon.setSortDescending(new FieldComparator("eselon.nEselon", false));
-		listheader_Kecamatan.setSortAscending(new FieldComparator("kota", true));
-		listheader_Kecamatan.setSortDescending(new FieldComparator("kota", false));
+		listheader_Kode.setSortAscending(new FieldComparator("kode", true));
+		listheader_Kode.setSortDescending(new FieldComparator("kode", false));
+		listheader_Nama.setSortAscending(new FieldComparator("nama", true));
+		listheader_Nama.setSortDescending(new FieldComparator("nama", false));
 
 		// set the paging params
-		paging_UnitKerjaSearchList.setPageSize(20);
-		paging_UnitKerjaSearchList.setDetailed(true);
+		paging_KelompokTandaJasaSearchList.setPageSize(20);
+		paging_KelompokTandaJasaSearchList.setDetailed(true);
 
 		// ++ create the searchObject and init sorting ++ //
-		HibernateSearchObject<UnitKerja> searchObject = new HibernateSearchObject<UnitKerja>(UnitKerja.class, 20);
-		searchObject.addFilterEqual("tunit", "2");
-		searchObject.addSort("kunker", false);
+		HibernateSearchObject<Gabungan> searchObject = new HibernateSearchObject<Gabungan>(Gabungan.class, 20);
+		searchObject.addFilterEqual("kodeTabel", "13");
+		searchObject.addFilterLike("kode", "%00");
+		searchObject.addSort("kode", false);
 
 		// Set the ListModel.
-		getPlwUnitKerja().init(searchObject, listBoxUnitKerjaSearch, paging_UnitKerjaSearchList);
+		getPlwKelompokTandaJasa().init(searchObject, listBoxKelompokTandaJasaSearch, paging_KelompokTandaJasaSearchList);
 		// set the itemRenderer
-		listBoxUnitKerjaSearch.setItemRenderer(new UnitKerjaListModelItemRenderer());
+		listBoxKelompokTandaJasaSearch.setItemRenderer(new KelompokTandaJasaListModelItemRenderer());
 	}
 
 	/**
-	 * Call the SatuanKerja dialog with the selected entry. <br>
+	 * Call the JenisTandaJasa dialog with the selected entry. <br>
 	 * <br>
 	 * This methode is forwarded from the listboxes item renderer. <br>
 	 * see: de.forsthaus.webui.branch.model.BranchListModelItemRenderer.java <br>
@@ -266,29 +268,29 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 	 * @param event
 	 * @throws Exception
 	 */
-	public void onDoubleClickedSatuanKerjaItem(Event event) throws Exception {
+	public void onDoubleClickedJenisTandaJasaItem(Event event) throws Exception {
 
 		// get the selected object
-		Listitem item = this.listBoxSatuanKerja.getSelectedItem();
+		Listitem item = this.listBoxJenisTandaJasa.getSelectedItem();
 
 		if (item != null) {
 			// CAST AND STORE THE SELECTED OBJECT
-			UnitKerja aRight = (UnitKerja) item.getAttribute("data");
+			Gabungan aRight = (Gabungan) item.getAttribute("data");
 
 			showDetailView(aRight);
 		}
 	}
 
 	/**
-	 * Call the SatuanKerja dialog with a new empty entry. <br>
+	 * Call the JenisTandaJasa dialog with a new empty entry. <br>
 	 */
-	public void onClick$button_SatuanKerjaList_New(Event event) throws Exception {
+	public void onClick$button_JenisTandaJasaList_New(Event event) throws Exception {
 
 		// create a new right object
 		/** !!! DO NOT BREAK THE TIERS !!! */
 		// We don't create a new DomainObject() in the frontend.
 		// We GET it from the backend.
-		UnitKerja golongan = getUnitKerjaDAO().getNewUnitKerja();
+		Gabungan golongan = getGabunganDAO().getNewGabungan();
 		showDetailView(golongan);
 
 	}
@@ -297,10 +299,10 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 	 * Opens the detail view. <br>
 	 * Overhanded some params in a map if needed. <br>
 	 * 
-	 * @param satuanKerja
+	 * @param jenisTandaJasa
 	 * @throws Exception
 	 */
-	private void showDetailView(UnitKerja satuanKerja) throws Exception {
+	private void showDetailView(Gabungan jenisTandaJasa) throws Exception {
 
 		/*
 		 * We can call our Dialog zul-file with parameters. So we can call them
@@ -308,18 +310,18 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 		 * only a Map is accepted. So we put the object in a HashMap.
 		 */
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("satuanKerja", satuanKerja);
+		map.put("jenisTandaJasa", jenisTandaJasa);
 		/*
 		 * we can additionally handed over the listBox, so we have in the dialog
 		 * access to the listbox Listmodel. This is fine for syncronizing the
 		 * data in the customerListbox from the dialog when we do a delete, edit
 		 * or insert a customer.
 		 */
-		map.put("listBoxSatuanKerja", listBoxSatuanKerja);
+		map.put("listBoxJenisTandaJasa", listBoxJenisTandaJasa);
 
 		// call the zul-file with the parameters packed in a map
 		try {
-			Executions.createComponents("/WEB-INF/pages/unitkerja/satuanKerjaDialog.zul", null, map);
+			Executions.createComponents("/WEB-INF/pages/tandajasa/jenisTandaJasaDialog.zul", null, map);
 		} catch (final Exception e) {
 			logger.error("onOpenWindow:: error opening window / " + e.getMessage());
 
@@ -354,8 +356,8 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 	 */
 	public void onClick$btnRefresh(Event event) throws InterruptedException {
 
-		Events.postEvent("onCreate", satuanKerjaListWindow, event);
-		satuanKerjaListWindow.invalidate();
+		Events.postEvent("onCreate", jenisTandaJasaListWindow, event);
+		jenisTandaJasaListWindow.invalidate();
 	}
 
 //	/**
@@ -364,9 +366,9 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 //	 * @param event
 //	 * @throws InterruptedException
 //	 */
-//	public void onClick$button_SatuanKerjaList_PrintRightList(Event event) throws InterruptedException {
+//	public void onClick$button_JenisTandaJasaList_PrintRightList(Event event) throws InterruptedException {
 //		final Window win = (Window) Path.getComponent("/outerIndexWindow");
-//		new SatuanKerjaSimpleDJReport(win);
+//		new JenisTandaJasaSimpleDJReport(win);
 //	}
 
 	/**
@@ -388,20 +390,20 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 		this.countRows = countRows;
 	}
 
-	public UnitKerjaDAO getUnitKerjaDAO() {
-		return this.unitKerjaDAO;
+	public GabunganDAO getGabunganDAO() {
+		return this.GabunganDAO;
 	}
 
-	public void setUnitKerjaDAO(UnitKerjaDAO satuanKerjaDAO) {
-		this.unitKerjaDAO = satuanKerjaDAO;
+	public void setGabunganDAO(GabunganDAO gabunganDAO) {
+		this.GabunganDAO = gabunganDAO;
 	}
 
-	public PagedListWrapper<UnitKerja> getPlwUnitKerja() {
-		return plwUnitKerja;
+	public PagedListWrapper<Gabungan> getPlwKelompokTandaJasa() {
+		return plwKelompokTandaJasa;
 	}
 
-	public void setPlwUnitKerja(PagedListWrapper<UnitKerja> plwUnitKerja) {
-		this.plwUnitKerja = plwUnitKerja;
+	public void setPlwKelompokTandaJasa(PagedListWrapper<Gabungan> plwKelompokTandaJasa) {
+		this.plwKelompokTandaJasa = plwKelompokTandaJasa;
 	}
 
 }

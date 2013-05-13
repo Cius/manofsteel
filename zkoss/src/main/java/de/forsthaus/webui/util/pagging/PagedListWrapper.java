@@ -86,6 +86,16 @@ public class PagedListWrapper<E> extends ListModelList implements Serializable {
 
 		setSearchObject(hibernateSearchObject1);
 	}
+	
+	public void init(List<E> set, Listbox listBox, Paging paging1) {
+		setPaging(paging1);
+		setListeners(listBox);
+		
+		clear();
+		
+		getPaging().setTotalSize(set.size());
+		addAll(set);
+	}
 
 	private void initModel() {
 		getSearchObject().setFirstResult(0);

@@ -131,16 +131,16 @@ public class DashboardMainCtrl extends GFCBaseCtrl implements Serializable {
 		cellRight.setStyle("padding: 0px;");
 		cellRight.setParent(hbox);
 
-		cellLeft.appendChild(DashboardTableRecordsCounterCtrl.show(200, true, 600000));
-		cellRight.appendChild(DashboardYoutubeVideoCtrl.show(198));
+//		cellLeft.appendChild(DashboardTableRecordsCounterCtrl.show(200, true, 600000));
+//		cellRight.appendChild(DashboardYoutubeVideoCtrl.show(198));
 
 		// hbox.appendChild(DashboardTableRecordsCounterCtrl.show(200, true,
 		// 600000));
 		// hbox.appendChild(DashboardYoutubeVideoCtrl.show(198));
 
 		divDashboardCenter.appendChild(hbox);
-		divDashboardCenter.appendChild(DashboardApplicationInformationCtrl.show(200));
-		divDashboardCenter.appendChild(DashboardApplicationLoginInformationCtrl.show(200));
+//		divDashboardCenter.appendChild(DashboardApplicationInformationCtrl.show(200));
+//		divDashboardCenter.appendChild(DashboardApplicationLoginInformationCtrl.show(200));
 
 		/**
 		 * EAST area
@@ -149,9 +149,9 @@ public class DashboardMainCtrl extends GFCBaseCtrl implements Serializable {
 		// divDashboardEast.appendChild(DashboardGoogleTranslateCtrl.show(65));
 		// divDashboardEast.appendChild(DashboardYoutubeVideoCtrl.show(198));
 		// divDashboardEast.appendChild(DashboardBBCNewsCtrl.show(480, "no"));
-		divDashboardEast.appendChild(DashboardGoogleNewsCtrl.show(400, "no"));
-		divDashboardEast.appendChild(DashboardStockNewsCtrl.show(390, "no"));
-		divDashboardEast.appendChild(DashboardGermanSoccerStatsCtrl.show(460, "no"));
+//		divDashboardEast.appendChild(DashboardGoogleNewsCtrl.show(400, "no"));
+//		divDashboardEast.appendChild(DashboardStockNewsCtrl.show(390, "no"));
+//		divDashboardEast.appendChild(DashboardGermanSoccerStatsCtrl.show(460, "no"));
 
 	}
 	// +++++++++++++++++++++++++++++++++++++++++++++++++ //

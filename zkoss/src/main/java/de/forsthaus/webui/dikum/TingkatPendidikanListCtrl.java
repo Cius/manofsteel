@@ -16,10 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with Zksample2.  If not, see <http://www.gnu.org/licenses/gpl.html>.
  */
-package de.forsthaus.webui.gabungan;
+package de.forsthaus.webui.dikum;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.zkoss.util.resource.Labels;
@@ -37,11 +41,15 @@ import org.zkoss.zul.Paging;
 import org.zkoss.zul.Panel;
 import org.zkoss.zul.Window;
 
+import com.googlecode.genericdao.search.Search;
+
 import de.forsthaus.UserWorkspace;
-import de.forsthaus.backend.dao.GabunganDAO;
-import de.forsthaus.backend.model.Gabungan;
+import de.forsthaus.backend.dao.DikumDAO;
+import de.forsthaus.backend.dao.DikumDAO;
+import de.forsthaus.backend.model.Dikum;
+import de.forsthaus.backend.model.Dikum;
 import de.forsthaus.backend.util.HibernateSearchObject;
-import de.forsthaus.webui.gabungan.model.AgamaListModelItemRenderer;
+import de.forsthaus.webui.dikum.model.TingkatPendidikanListModelItemRenderer;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
 import de.forsthaus.webui.util.MultiLineMessageBox;
 import de.forsthaus.webui.util.ZksampleMessageUtils;
@@ -49,7 +57,7 @@ import de.forsthaus.webui.util.ZksampleMessageUtils;
 /**
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br>
  * This is the controller class for the
- * /WEB-INF/pages/sec_right/gabunganList.zul file.<br>
+ * /WEB-INF/pages/sec_right/unitKerjaList.zul file.<br>
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br>
  * 
  * @changes 05/15/2009: sge Migrating the list models for paging. <br>
@@ -63,10 +71,12 @@ import de.forsthaus.webui.util.ZksampleMessageUtils;
  * @author bbruhns
  * @author sgerth
  */
-public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializable {
+public class TingkatPendidikanListCtrl extends GFCBaseListCtrl<Dikum> implements Serializable {
 
-	private static final long serialVersionUID = -6139454778139881103L;
-	private static final Logger logger = Logger.getLogger(AgamaListCtrl.class);
+
+	private static final long serialVersionUID = 8328380361242901716L;
+
+	private static final Logger logger = Logger.getLogger(TingkatPendidikanListCtrl.class);
 
 	/*
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -75,31 +85,31 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 	 * 'extends GFCBaseCtrl' GenericForwardComposer.
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	 */
-	protected Window agamaListWindow; // autowired
-	protected Panel panel_AgamaList; // autowired
+	protected Window tingkatPendidikanListWindow; // autowired
+	protected Panel panel_TingkatPendidikanList; // autowired
 
 
-	// listbox gabunganList
-	protected Borderlayout borderLayout_AgamaList; // autowired
-	protected Paging paging_AgamaList; // aurowired
-	protected Listbox listBoxAgama; // aurowired
-	protected Listheader listheader_AgamaList_Kode; // autowired
-	protected Listheader listheader_AgamaList_Nama; // autowired
+	// listbox unitKerjaList
+	protected Borderlayout borderLayout_TingkatPendidikanList; // autowired
+	protected Paging paging_TingkatPendidikanList; // aurowired
+	protected Listbox listBoxTingkatPendidikan; // aurowired
+	protected Listheader listheader_TingkatPendidikanList_Kode; // autowired
+	protected Listheader listheader_TingkatPendidikanList_Nama; // autowired
 
 	// row count for listbox
 	private int countRows;
 
 	// ServiceDAOs / Domain Classes
-	private transient GabunganDAO gabunganDAO;
+	private transient DikumDAO dikumDAO;
 
 	/**
 	 * default constructor.<br>
 	 */
-	public AgamaListCtrl() {
+	public TingkatPendidikanListCtrl() {
 		super();
 	}
 
-	public void onCreate$agamaListWindow(Event event) throws Exception {
+	public void onCreate$tingkatPendidikanListWindow(Event event) throws Exception {
 		/**
 		 * Calculate how many rows have been place in the listbox. Get the
 		 * currentDesktopHeight from a hidden Intbox from the index.zul that are
@@ -108,7 +118,7 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 
 		int panelHeight = 25;
 		// TODO put the logic for working with panel in the ApplicationWorkspace
-		panel_AgamaList.setVisible(false);
+		panel_TingkatPendidikanList.setVisible(false);
 
 		final int menuOffset = UserWorkspace.getInstance().getMenuOffset();
 		int height = ((Intbox) Path.getComponent("/outerIndexWindow/currentDesktopHeight")).getValue().intValue();
@@ -119,33 +129,31 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 		// System.out.println("MaxListBoxHeight : " + maxListBoxHeight);
 		// System.out.println("==========> : " + getCountRows());
 
-		borderLayout_AgamaList.setHeight(String.valueOf(maxListBoxHeight) + "px");
+		borderLayout_TingkatPendidikanList.setHeight(String.valueOf(maxListBoxHeight) + "px");
 
 		// not used listheaders must be declared like ->
 		// lh.setSortAscending(""); lh.setSortDescending("")
-		listheader_AgamaList_Kode.setSortAscending(new FieldComparator("kode", true));
-		listheader_AgamaList_Kode.setSortDescending(new FieldComparator("kode", false));
-		listheader_AgamaList_Nama.setSortAscending(new FieldComparator("nama", true));
-		listheader_AgamaList_Nama.setSortDescending(new FieldComparator("nama", false));
+		listheader_TingkatPendidikanList_Kode.setSortAscending(new FieldComparator("ktpu", true));
+		listheader_TingkatPendidikanList_Kode.setSortDescending(new FieldComparator("ktpu", false));
+		listheader_TingkatPendidikanList_Nama.setSortAscending(new FieldComparator("ndik", true));
+		listheader_TingkatPendidikanList_Nama.setSortDescending(new FieldComparator("ndik", false));
 
 		// ++ create the searchObject and init sorting ++//
-		HibernateSearchObject<Gabungan> soGabungan = new HibernateSearchObject<Gabungan>(Gabungan.class, getCountRows());
-		soGabungan.addFilterEqual("kodeTabel", "01");
-		soGabungan.addSort("kode", false);
+		List<Dikum> list = getDikumDAO().getAllDikum();
 
 		// set the paging params
-		paging_AgamaList.setPageSize(getCountRows());
-		paging_AgamaList.setDetailed(true);
+		paging_TingkatPendidikanList.setPageSize(getCountRows());
+		paging_TingkatPendidikanList.setDetailed(true);
 
 		// Set the ListModel.
-		getPagedListWrapper().init(soGabungan, listBoxAgama, paging_AgamaList);
+		getPagedListWrapper().init(list, listBoxTingkatPendidikan, paging_TingkatPendidikanList);
 		// set the itemRenderer
-		listBoxAgama.setItemRenderer(new AgamaListModelItemRenderer());
+		listBoxTingkatPendidikan.setItemRenderer(new TingkatPendidikanListModelItemRenderer());
 
 	}
 
 	/**
-	 * Call the Gabungan dialog with the selected entry. <br>
+	 * Call the Dikum dialog with the selected entry. <br>
 	 * <br>
 	 * This methode is forwarded from the listboxes item renderer. <br>
 	 * see: de.forsthaus.webui.branch.model.BranchListModelItemRenderer.java <br>
@@ -153,29 +161,29 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 	 * @param event
 	 * @throws Exception
 	 */
-	public void onDoubleClickedAgamaItem(Event event) throws Exception {
+	public void onDoubleClickedTingkatPendidikanItem(Event event) throws Exception {
 
 		// get the selected object
-		Listitem item = this.listBoxAgama.getSelectedItem();
+		Listitem item = this.listBoxTingkatPendidikan.getSelectedItem();
 
 		if (item != null) {
 			// CAST AND STORE THE SELECTED OBJECT
-			Gabungan aRight = (Gabungan) item.getAttribute("data");
+			Dikum aRight = (Dikum) item.getAttribute("data");
 
 			showDetailView(aRight);
 		}
 	}
 
 	/**
-	 * Call the Gabungan dialog with a new empty entry. <br>
+	 * Call the Dikum dialog with a new empty entry. <br>
 	 */
-	public void onClick$button_AgamaList_New(Event event) throws Exception {
+	public void onClick$button_TingkatPendidikanList_New(Event event) throws Exception {
 
 		// create a new right object
 		/** !!! DO NOT BREAK THE TIERS !!! */
 		// We don't create a new DomainObject() in the frontend.
 		// We GET it from the backend.
-		Gabungan golongan = getGabunganDAO().getNewGabungan();
+		Dikum golongan = getDikumDAO().getNewDikum();
 		showDetailView(golongan);
 
 	}
@@ -184,10 +192,10 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 	 * Opens the detail view. <br>
 	 * Overhanded some params in a map if needed. <br>
 	 * 
-	 * @param agama
+	 * @param tingkatPendidikan
 	 * @throws Exception
 	 */
-	private void showDetailView(Gabungan agama) throws Exception {
+	private void showDetailView(Dikum tingkatPendidikan) throws Exception {
 
 		/*
 		 * We can call our Dialog zul-file with parameters. So we can call them
@@ -195,18 +203,18 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 		 * only a Map is accepted. So we put the object in a HashMap.
 		 */
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("agama", agama);
+		map.put("tingkatPendidikan", tingkatPendidikan);
 		/*
 		 * we can additionally handed over the listBox, so we have in the dialog
 		 * access to the listbox Listmodel. This is fine for syncronizing the
 		 * data in the customerListbox from the dialog when we do a delete, edit
 		 * or insert a customer.
 		 */
-		map.put("listBoxGabungan", listBoxAgama);
+		map.put("listBoxDikum", listBoxTingkatPendidikan);
 
 		// call the zul-file with the parameters packed in a map
 		try {
-			Executions.createComponents("/WEB-INF/pages/gabungan/agamaDialog.zul", null, map);
+			Executions.createComponents("/WEB-INF/pages/dikum/tingkatPendidikanDialog.zul", null, map);
 		} catch (final Exception e) {
 			logger.error("onOpenWindow:: error opening window / " + e.getMessage());
 
@@ -241,8 +249,8 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 	 */
 	public void onClick$btnRefresh(Event event) throws InterruptedException {
 
-		Events.postEvent("onCreate", agamaListWindow, event);
-		agamaListWindow.invalidate();
+		Events.postEvent("onCreate", tingkatPendidikanListWindow, event);
+		tingkatPendidikanListWindow.invalidate();
 	}
 
 //	/**
@@ -251,9 +259,9 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 //	 * @param event
 //	 * @throws InterruptedException
 //	 */
-//	public void onClick$button_GabunganList_PrintRightList(Event event) throws InterruptedException {
+//	public void onClick$button_DikumList_PrintRightList(Event event) throws InterruptedException {
 //		final Window win = (Window) Path.getComponent("/outerIndexWindow");
-//		new GabunganSimpleDJReport(win);
+//		new DikumSimpleDJReport(win);
 //	}
 
 	/**
@@ -275,12 +283,12 @@ public class AgamaListCtrl extends GFCBaseListCtrl<Gabungan> implements Serializ
 		this.countRows = countRows;
 	}
 
-	public GabunganDAO getGabunganDAO() {
-		return this.gabunganDAO;
+	public DikumDAO getDikumDAO() {
+		return dikumDAO;
 	}
 
-	public void setGabunganDAO(GabunganDAO gabunganDAO) {
-		this.gabunganDAO = gabunganDAO;
+	public void setDikumDAO(DikumDAO dikumDAO) {
+		this.dikumDAO = dikumDAO;
 	}
 
 }

@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Zksample2.  If not, see <http://www.gnu.org/licenses/gpl.html>.
  */
-package de.forsthaus.webui.unitkerja;
+package de.forsthaus.webui.dikum;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -43,10 +43,10 @@ import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
 import de.forsthaus.UserWorkspace;
-import de.forsthaus.backend.dao.UnitKerjaDAO;
-import de.forsthaus.backend.model.UnitKerja;
+import de.forsthaus.backend.dao.DikumDAO;
+import de.forsthaus.backend.model.Dikum;
 import de.forsthaus.backend.util.HibernateSearchObject;
-import de.forsthaus.webui.unitkerja.model.SatuanKerjaListModelItemRenderer;
+import de.forsthaus.webui.dikum.model.JurusanGolRuangListModelItemRenderer;
 import de.forsthaus.webui.unitkerja.model.UnitKerjaListModelItemRenderer;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
 import de.forsthaus.webui.util.MultiLineMessageBox;
@@ -56,7 +56,7 @@ import de.forsthaus.webui.util.pagging.PagedListWrapper;
 /**
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br>
  * This is the controller class for the
- * /WEB-INF/pages/sec_right/satuanKerjaList.zul file.<br>
+ * /WEB-INF/pages/sec_right/programStudiList.zul file.<br>
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br>
  * 
  * @changes 05/15/2009: sge Migrating the list models for paging. <br>
@@ -70,12 +70,12 @@ import de.forsthaus.webui.util.pagging.PagedListWrapper;
  * @author bbruhns
  * @author sgerth
  */
-public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements Serializable {
+public class ProgramStudiListCtrl extends GFCBaseListCtrl<Dikum> implements Serializable {
 
 
 	private static final long serialVersionUID = 8328380361242901716L;
 
-	private static final Logger logger = Logger.getLogger(SatuanKerjaListCtrl.class);
+	private static final Logger logger = Logger.getLogger(ProgramStudiListCtrl.class);
 
 	/*
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -84,44 +84,47 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 	 * 'extends GFCBaseCtrl' GenericForwardComposer.
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	 */
-	protected Window satuanKerjaListWindow; // autowired
-	protected Panel panel_SatuanKerjaList; // autowired
+	protected Window programStudiListWindow; // autowired
+	protected Panel panel_ProgramStudiList; // autowired
 
 
-	// listbox satuanKerjaList
-	protected Borderlayout borderLayout_SatuanKerjaList; // autowired
-	protected Paging paging_SatuanKerjaList; // aurowired
-	protected Listbox listBoxSatuanKerja; // aurowired
-	protected Listheader listheader_SatuanKerjaList_Kode; // autowired
-	protected Listheader listheader_SatuanKerjaList_Nama; // autowired
-	protected Listheader listheader_SatuanKerjaList_Eselon; // autowired
+	// listbox programStudiList
+	protected Borderlayout borderLayout_ProgramStudiList; // autowired
+	protected Paging paging_ProgramStudiList; // aurowired
+	protected Listbox listBoxProgramStudi; // aurowired
+	protected Listheader listheader_ProgramStudiList_Kode; // autowired
+	protected Listheader listheader_ProgramStudiList_Nama; // autowired
+	protected Listheader listheader_ProgramStudiList_Gawal; // autowired
+	protected Listheader listheader_ProgramStudiList_Gakhir; // autowired
+	protected Listheader listheader_ProgramStudiList_Rumpun; // autowired
 
 	// row count for listbox
 	private int countRows;
 
 	// ServiceDAOs / Domain Classes
-	private transient UnitKerjaDAO unitKerjaDAO;
+	private transient DikumDAO dikumDAO;
 
-	private Bandbox bandbox_UnitKerjaSearch;
-	private Textbox tb_UnitKerja;
-	private Listbox listBoxUnitKerjaSearch;
-	private Paging paging_UnitKerjaSearchList;
-	private PagedListWrapper<UnitKerja> plwUnitKerja;
-	private Checkbox checkbox_SatuanKerjaList_ShowAll;
+	private Bandbox bandbox_JurusanSearch;
+	private Textbox tb_Jurusan;
+	private Listbox listBoxJurusanSearch;
+	private Paging paging_JurusanSearchList;
+	private PagedListWrapper<Dikum> plwJurusan;
+	private Checkbox checkbox_ProgramStudiList_ShowAll;
 
 	private Listheader listheader_Kode;
 	private Listheader listheader_Nama;
-	private Listheader listheader_Eselon;
-	private Listheader listheader_Kecamatan;
+	private Listheader listheader_Gawal;
+	private Listheader listheader_Gakhir;
+	private Listheader listheader_Rumpun; 
 	
 	/**
 	 * default constructor.<br>
 	 */
-	public SatuanKerjaListCtrl() {
+	public ProgramStudiListCtrl() {
 		super();
 	}
 
-	public void onCreate$satuanKerjaListWindow(Event event) throws Exception {
+	public void onCreate$programStudiListWindow(Event event) throws Exception {
 		/**
 		 * Calculate how many rows have been place in the listbox. Get the
 		 * currentDesktopHeight from a hidden Intbox from the index.zul that are
@@ -130,7 +133,7 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 
 		int panelHeight = 25;
 		// TODO put the logic for working with panel in the ApplicationWorkspace
-		panel_SatuanKerjaList.setVisible(false);
+		panel_ProgramStudiList.setVisible(false);
 
 		final int menuOffset = UserWorkspace.getInstance().getMenuOffset();
 		int height = ((Intbox) Path.getComponent("/outerIndexWindow/currentDesktopHeight")).getValue().intValue();
@@ -141,28 +144,33 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 		// System.out.println("MaxListBoxHeight : " + maxListBoxHeight);
 		// System.out.println("==========> : " + getCountRows());
 
-		borderLayout_SatuanKerjaList.setHeight(String.valueOf(maxListBoxHeight) + "px");
+		borderLayout_ProgramStudiList.setHeight(String.valueOf(maxListBoxHeight) + "px");
 
 		// not used listheaders must be declared like ->
 		// lh.setSortAscending(""); lh.setSortDescending("")
-		listheader_SatuanKerjaList_Kode.setSortAscending(new FieldComparator("kunker", true));
-		listheader_SatuanKerjaList_Kode.setSortDescending(new FieldComparator("kunker", false));
-		listheader_SatuanKerjaList_Nama.setSortAscending(new FieldComparator("nunker", true));
-		listheader_SatuanKerjaList_Nama.setSortDescending(new FieldComparator("nunker", false));
+		listheader_ProgramStudiList_Kode.setSortAscending(new FieldComparator("kjur", true));
+		listheader_ProgramStudiList_Kode.setSortDescending(new FieldComparator("kjur", false));
+		listheader_ProgramStudiList_Nama.setSortAscending(new FieldComparator("njur", true));
+		listheader_ProgramStudiList_Nama.setSortDescending(new FieldComparator("njur", false));
+		listheader_ProgramStudiList_Gawal.setSortAscending(new FieldComparator("gawal", true));
+		listheader_ProgramStudiList_Gawal.setSortDescending(new FieldComparator("gawal", false));
+		listheader_ProgramStudiList_Gakhir.setSortAscending(new FieldComparator("gakhir", true));
+		listheader_ProgramStudiList_Gakhir.setSortDescending(new FieldComparator("gakhir", false));
+		listheader_ProgramStudiList_Rumpun.setSortAscending(new FieldComparator("krumpun", true));
+		listheader_ProgramStudiList_Rumpun.setSortDescending(new FieldComparator("krumpun", false));
 
 		// ++ create the searchObject and init sorting ++//
-		HibernateSearchObject<UnitKerja> soSatuanKerja = new HibernateSearchObject<UnitKerja>(UnitKerja.class, getCountRows());
-		soSatuanKerja.addFilterEqual("tunit", "3");
-		soSatuanKerja.addSort("kunker", false);
+		HibernateSearchObject<Dikum> soProgramStudi = new HibernateSearchObject<Dikum>(Dikum.class, getCountRows());
+		soProgramStudi.addSort("kjur", false);
 
 		// set the paging params
-		paging_SatuanKerjaList.setPageSize(getCountRows());
-		paging_SatuanKerjaList.setDetailed(true);
+		paging_ProgramStudiList.setPageSize(getCountRows());
+		paging_ProgramStudiList.setDetailed(true);
 
 		// Set the ListModel.
-		getPagedListWrapper().init(soSatuanKerja, listBoxSatuanKerja, paging_SatuanKerjaList);
+		getPagedListWrapper().init(soProgramStudi, listBoxProgramStudi, paging_ProgramStudiList);
 		// set the itemRenderer
-		listBoxSatuanKerja.setItemRenderer(new SatuanKerjaListModelItemRenderer());
+		listBoxProgramStudi.setItemRenderer(new JurusanGolRuangListModelItemRenderer());
 
 	}
 	
@@ -175,58 +183,55 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 	public void onClick$button_bbox_UnitOrganisasi_Close(Event event) {
 		// logger.debug(event.toString());
 
-		bandbox_UnitKerjaSearch.close();
+		bandbox_JurusanSearch.close();
 	}
 	
 	private void doSearch() {
-		HibernateSearchObject<UnitKerja> searchObj = new HibernateSearchObject<UnitKerja>(UnitKerja.class, 10);
-		searchObj.addFilterEqual("tunit", "2");
+		HibernateSearchObject<Dikum> searchObj = new HibernateSearchObject<Dikum>(Dikum.class, 20);
 		
 		// check which field have input
-		if (StringUtils.isNotEmpty(tb_UnitKerja.getValue())) {
-			searchObj.addFilterLike("nunker", "%" + tb_UnitKerja.getValue() + "%");
+		if (StringUtils.isNotEmpty(tb_Jurusan.getValue())) {
+			searchObj.addFilterLike("nunker", "%" + tb_Jurusan.getValue() + "%");
 		}
 
 		// Set the ListModel.
-		getPlwUnitKerja().init(searchObj, listBoxUnitKerjaSearch, paging_UnitKerjaSearchList);
+		getPlwJurusan().init(searchObj, listBoxJurusanSearch, paging_JurusanSearchList);
 	}
 	
 	public void onSelect$listBoxUnitKerjaSearch(Event event) {
 		// logger.debug(event.toString());
 
-		Listitem item = listBoxUnitKerjaSearch.getSelectedItem();
+		Listitem item = listBoxJurusanSearch.getSelectedItem();
 		ListModelList lml = null;
-		UnitKerja uk = (UnitKerja) item.getAttribute("data");
-		bandbox_UnitKerjaSearch.setValue(uk.getNunker());
-		HibernateSearchObject<UnitKerja> soOrder = new HibernateSearchObject<UnitKerja>(UnitKerja.class, 20);
+		Dikum uk = (Dikum) item.getAttribute("data");
+		bandbox_JurusanSearch.setValue(uk.getNjur());
+		HibernateSearchObject<Dikum> soOrder = new HibernateSearchObject<Dikum>(Dikum.class, 20);
 		soOrder.addSort("kunker", false);
 				
 		if (item != null) {
-			lml = (ListModelList)listBoxSatuanKerja.getModel();
+			lml = (ListModelList)listBoxProgramStudi.getModel();
 			lml.clear();
-			soOrder.addFilterEqual("tunit", "3");
-			soOrder.addFilterLike("kunker", uk.getKunker().substring(0, 5) + "%");
-			getPagedListWrapper().init(soOrder, listBoxSatuanKerja, paging_SatuanKerjaList);
+//			soOrder.addFilterLike("kunker", uk.getKunker().substring(0, 5) + "%");
+			getPagedListWrapper().init(soOrder, listBoxProgramStudi, paging_ProgramStudiList);
 		}
 
-		checkbox_SatuanKerjaList_ShowAll.setChecked(false);
+		checkbox_ProgramStudiList_ShowAll.setChecked(false);
 		// close the bandbox
-		bandbox_UnitKerjaSearch.close();
+		bandbox_JurusanSearch.close();
 
 	}
 	
-	public void onCheck$checkbox_SatuanKerjaList_ShowAll(Event event) {
+	public void onCheck$checkbox_ProgramStudiList_ShowAll(Event event) {
 
 		// empty the text search boxes
-		bandbox_UnitKerjaSearch.setValue(""); // clear
+		bandbox_JurusanSearch.setValue(""); // clear
 
 		// ++ create the searchObject and init sorting ++//
-		HibernateSearchObject<UnitKerja> soUnitKerja = new HibernateSearchObject<UnitKerja>(UnitKerja.class, getCountRows());
-		soUnitKerja.addFilterEqual("tunit", "3");
-		soUnitKerja.addSort("kunker", false);
+		HibernateSearchObject<Dikum> soUnitKerja = new HibernateSearchObject<Dikum>(Dikum.class, getCountRows());
+		soUnitKerja.addSort("kjur", false);
 
 		// Set the ListModel.
-		getPagedListWrapper().init(soUnitKerja, listBoxSatuanKerja, paging_SatuanKerjaList);
+		getPagedListWrapper().init(soUnitKerja, listBoxProgramStudi, paging_ProgramStudiList);
 
 	}
 	
@@ -237,28 +242,27 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 		listheader_Kode.setSortDescending(new FieldComparator("kunker", false));
 		listheader_Nama.setSortAscending(new FieldComparator("nunker", true));
 		listheader_Nama.setSortDescending(new FieldComparator("nunker", false));
-		listheader_Eselon.setSortAscending(new FieldComparator("eselon.nEselon", true));
-		listheader_Eselon.setSortDescending(new FieldComparator("eselon.nEselon", false));
-		listheader_Kecamatan.setSortAscending(new FieldComparator("kota", true));
-		listheader_Kecamatan.setSortDescending(new FieldComparator("kota", false));
+		listheader_Gawal.setSortAscending("");
+		listheader_Gawal.setSortDescending("");
+		listheader_Gakhir.setSortAscending("");
+		listheader_Gakhir.setSortDescending("");
 
 		// set the paging params
-		paging_UnitKerjaSearchList.setPageSize(20);
-		paging_UnitKerjaSearchList.setDetailed(true);
+		paging_JurusanSearchList.setPageSize(20);
+		paging_JurusanSearchList.setDetailed(true);
 
 		// ++ create the searchObject and init sorting ++ //
-		HibernateSearchObject<UnitKerja> searchObject = new HibernateSearchObject<UnitKerja>(UnitKerja.class, 20);
-		searchObject.addFilterEqual("tunit", "2");
-		searchObject.addSort("kunker", false);
+		HibernateSearchObject<Dikum> searchObject = new HibernateSearchObject<Dikum>(Dikum.class, 20);
+		searchObject.addSort("kjur", false);
 
 		// Set the ListModel.
-		getPlwUnitKerja().init(searchObject, listBoxUnitKerjaSearch, paging_UnitKerjaSearchList);
+		getPlwJurusan().init(searchObject, listBoxJurusanSearch, paging_JurusanSearchList);
 		// set the itemRenderer
-		listBoxUnitKerjaSearch.setItemRenderer(new UnitKerjaListModelItemRenderer());
+		listBoxJurusanSearch.setItemRenderer(new UnitKerjaListModelItemRenderer());
 	}
 
 	/**
-	 * Call the SatuanKerja dialog with the selected entry. <br>
+	 * Call the ProgramStudi dialog with the selected entry. <br>
 	 * <br>
 	 * This methode is forwarded from the listboxes item renderer. <br>
 	 * see: de.forsthaus.webui.branch.model.BranchListModelItemRenderer.java <br>
@@ -266,29 +270,29 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 	 * @param event
 	 * @throws Exception
 	 */
-	public void onDoubleClickedSatuanKerjaItem(Event event) throws Exception {
+	public void onDoubleClickedProgramStudiItem(Event event) throws Exception {
 
 		// get the selected object
-		Listitem item = this.listBoxSatuanKerja.getSelectedItem();
+		Listitem item = this.listBoxProgramStudi.getSelectedItem();
 
 		if (item != null) {
 			// CAST AND STORE THE SELECTED OBJECT
-			UnitKerja aRight = (UnitKerja) item.getAttribute("data");
+			Dikum aRight = (Dikum) item.getAttribute("data");
 
 			showDetailView(aRight);
 		}
 	}
 
 	/**
-	 * Call the SatuanKerja dialog with a new empty entry. <br>
+	 * Call the ProgramStudi dialog with a new empty entry. <br>
 	 */
-	public void onClick$button_SatuanKerjaList_New(Event event) throws Exception {
+	public void onClick$button_ProgramStudiList_New(Event event) throws Exception {
 
 		// create a new right object
 		/** !!! DO NOT BREAK THE TIERS !!! */
 		// We don't create a new DomainObject() in the frontend.
 		// We GET it from the backend.
-		UnitKerja golongan = getUnitKerjaDAO().getNewUnitKerja();
+		Dikum golongan = getDikumDAO().getNewDikum();
 		showDetailView(golongan);
 
 	}
@@ -297,10 +301,10 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 	 * Opens the detail view. <br>
 	 * Overhanded some params in a map if needed. <br>
 	 * 
-	 * @param satuanKerja
+	 * @param programStudi
 	 * @throws Exception
 	 */
-	private void showDetailView(UnitKerja satuanKerja) throws Exception {
+	private void showDetailView(Dikum programStudi) throws Exception {
 
 		/*
 		 * We can call our Dialog zul-file with parameters. So we can call them
@@ -308,18 +312,18 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 		 * only a Map is accepted. So we put the object in a HashMap.
 		 */
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("satuanKerja", satuanKerja);
+		map.put("programStudi", programStudi);
 		/*
 		 * we can additionally handed over the listBox, so we have in the dialog
 		 * access to the listbox Listmodel. This is fine for syncronizing the
 		 * data in the customerListbox from the dialog when we do a delete, edit
 		 * or insert a customer.
 		 */
-		map.put("listBoxSatuanKerja", listBoxSatuanKerja);
+		map.put("listBoxProgramStudi", listBoxProgramStudi);
 
 		// call the zul-file with the parameters packed in a map
 		try {
-			Executions.createComponents("/WEB-INF/pages/unitkerja/satuanKerjaDialog.zul", null, map);
+			Executions.createComponents("/WEB-INF/pages/dikum/programStudiDialog.zul", null, map);
 		} catch (final Exception e) {
 			logger.error("onOpenWindow:: error opening window / " + e.getMessage());
 
@@ -354,8 +358,8 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 	 */
 	public void onClick$btnRefresh(Event event) throws InterruptedException {
 
-		Events.postEvent("onCreate", satuanKerjaListWindow, event);
-		satuanKerjaListWindow.invalidate();
+		Events.postEvent("onCreate", programStudiListWindow, event);
+		programStudiListWindow.invalidate();
 	}
 
 //	/**
@@ -364,9 +368,9 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 //	 * @param event
 //	 * @throws InterruptedException
 //	 */
-//	public void onClick$button_SatuanKerjaList_PrintRightList(Event event) throws InterruptedException {
+//	public void onClick$button_ProgramStudiList_PrintRightList(Event event) throws InterruptedException {
 //		final Window win = (Window) Path.getComponent("/outerIndexWindow");
-//		new SatuanKerjaSimpleDJReport(win);
+//		new ProgramStudiSimpleDJReport(win);
 //	}
 
 	/**
@@ -388,20 +392,20 @@ public class SatuanKerjaListCtrl extends GFCBaseListCtrl<UnitKerja> implements S
 		this.countRows = countRows;
 	}
 
-	public UnitKerjaDAO getUnitKerjaDAO() {
-		return this.unitKerjaDAO;
+	public PagedListWrapper<Dikum> getPlwJurusan() {
+		return plwJurusan;
 	}
 
-	public void setUnitKerjaDAO(UnitKerjaDAO satuanKerjaDAO) {
-		this.unitKerjaDAO = satuanKerjaDAO;
+	public void setPlwJurusan(PagedListWrapper<Dikum> plwUnitKerja) {
+		this.plwJurusan = plwUnitKerja;
 	}
 
-	public PagedListWrapper<UnitKerja> getPlwUnitKerja() {
-		return plwUnitKerja;
+	public DikumDAO getDikumDAO() {
+		return dikumDAO;
 	}
 
-	public void setPlwUnitKerja(PagedListWrapper<UnitKerja> plwUnitKerja) {
-		this.plwUnitKerja = plwUnitKerja;
+	public void setDikumDAO(DikumDAO dikumDAO) {
+		this.dikumDAO = dikumDAO;
 	}
 
 }
