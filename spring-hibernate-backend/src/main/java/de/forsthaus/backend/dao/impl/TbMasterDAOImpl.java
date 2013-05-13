@@ -62,11 +62,11 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 		
 		criteria.createAlias("tpjabatan", "b");
 		if(!unitKerja.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitKerja.substring(0, 5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitKerja.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
 		}else if(!unitOrganisasi.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitOrganisasi.substring(0,5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitOrganisasi.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
 		}
 		
 		List<TbMaster> listTbMaster = new ArrayList<TbMaster>();
@@ -115,11 +115,11 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 		
 		criteria.createAlias("tpjabatan", "b");
 		if(!unitKerja.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitKerja.substring(0, 5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitKerja.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
 		}else if(!unitOrganisasi.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitOrganisasi.substring(0,5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitOrganisasi.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
 		}
 		
 		List<TbMaster> listTbMaster = new ArrayList<TbMaster>();
@@ -239,11 +239,11 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 		
 		criteria.createAlias("tpjabatan", "b");
 		if(!unitKerja.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitKerja.substring(0, 5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitKerja.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
 		}else if(!unitOrganisasi.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitOrganisasi.substring(0,5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitOrganisasi.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
 		}
 		
 		return getHibernateTemplate().findByCriteria(criteria);
@@ -273,11 +273,11 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 		
 		criteria.createAlias("tpjabatan", "b");
 		if(!unitKerja.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitKerja.substring(0, 5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitKerja.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
 		}else if(!unitOrganisasi.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitOrganisasi.substring(0,5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitOrganisasi.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
 		}
 		
 		return getHibernateTemplate().findByCriteria(criteria);
@@ -304,11 +304,11 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 		}
 		
 		if(!unitKerja.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitKerja.substring(0, 5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitKerja.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
 		}else if(!unitOrganisasi.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitOrganisasi.substring(0,5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitOrganisasi.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
 		}
 		
 		return getHibernateTemplate().findByCriteria(criteria);
@@ -325,11 +325,11 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
 		
 		if(!unitKerja.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitKerja.substring(0, 5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitKerja.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
 		}else if(!unitOrganisasi.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitOrganisasi.substring(0,5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitOrganisasi.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
 		}
 		
 		return getHibernateTemplate().findByCriteria(criteria);
@@ -378,11 +378,11 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 		}
 		
 		if(!unitKerja.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitKerja.substring(0, 5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitKerja.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
 		}else if(!unitOrganisasi.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitOrganisasi.substring(0,5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitOrganisasi.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
 		}
 		
 		return getHibernateTemplate().findByCriteria(criteria);
@@ -438,11 +438,11 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 		}
 		
 		if(!unitKerja.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitKerja.substring(0, 5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitKerja.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
 		}else if(!unitOrganisasi.equals("")){
-			criteria.add(Restrictions.eq("b.kUnKer", unitOrganisasi.substring(0,5)));
-			criteria.add(Restrictions.eq("b.kSatKer", unitOrganisasi.substring(5, 7)));
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
 		}
 		
 		return getHibernateTemplate().findByCriteria(criteria);
