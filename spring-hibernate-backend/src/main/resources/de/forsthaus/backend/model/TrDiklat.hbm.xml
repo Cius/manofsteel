@@ -34,20 +34,20 @@
 		<property name="angkatan" type="string">
 			<column name="ANGKATAN" />
 		</property>
-		<property name="tMulai" type="string">
+		<property name="tMulai" type="date">
 			<column name="TMULAI" />
 		</property>
-		<property name="tAkhir" type="string">
+		<property name="tAkhir" type="date">
 			<column name="TAKHIR" />
 		</property>
 		<property name="jam" type="java.lang.Integer">
 			<column name="JAM" />
 		</property>
-		<property name="nsttp" type="string">
-			<column name="NSTTP" />
+		<property name="nsttpp" type="string">
+			<column name="NSTTPP" />
 		</property>
-		<property name="tsttp" type="string">
-			<column name="TSTTP" />
+		<property name="tsttpp" type="string">
+			<column name="TSTTPP" />
 		</property>
 		<property name="negara" type="string">
 			<column name="NEGARA" />
@@ -55,11 +55,11 @@
 		<property name="thLulus" type="string">
 			<column name="THLULUS" />
 		</property>
-		<property name="kodeedudukan" type="string">
+		<property name="kodeKedudukan" type="string">
 			<column name="KEDUDUKAN" />
 		</property>
 		<property name="topic" type="string">
-			<column name="TOPIC" />
+			<column name="TOPIK" />
 		</property>
 		<property name="starec" type="string">
 			<column name="STAREC" />

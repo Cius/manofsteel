@@ -23,6 +23,13 @@
 		<many-to-one name="cpns" class="de.forsthaus.backend.model.TpCpns" property-ref="nip" not-null="false" insert="false" update="false" unique="true">
         	<column name="NIP" />
     	</many-to-one>
+    	<many-to-one name="tpjabatan" class="de.forsthaus.backend.model.TpJabatan" property-ref="nip" not-null="false" insert="false" update="false" unique="true">
+        	<column name="NIP" />
+    	</many-to-one>
+    	<set name="trdiklat" table="tr_diklat" inverse="true" lazy="false" fetch="select">
+            <key column="NIP" property-ref="nip"/>
+            <one-to-many class="de.forsthaus.backend.model.TrDiklat" />
+        </set>
 		<property name="nama" type="string">
 			<column name="NAMA" />
 		</property>
