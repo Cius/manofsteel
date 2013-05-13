@@ -38,6 +38,13 @@ public class PegawaiDetailCtrl_DataPokok extends GFCBaseCtrl implements Serializ
 	protected transient AnnotateDataBinder binder;
 	private PegawaiMainCtrl pegawaiMainCtrl;
 	private PegawaiDetailCtrl_DataPokok_Identitas pegawaiDetailCtrl_DataPokok_Identitas;
+	private PegawaiDetailCtrl_DataPokok_PengangkatanCPNS pegawaiDetailCtrl_DataPokok_PengangkatanCPNS;
+	private PegawaiDetailCtrl_DataPokok_PengangkatanPNS pegawaiDetailCtrl_DataPokok_PengangkatanPNS;
+	private PegawaiDetailCtrl_DataPokok_Pangkat pegawaiDetailCtrl_DataPokok_Pangkat;
+	private PegawaiDetailCtrl_DataPokok_Jabatan pegawaiDetailCtrl_DataPokok_Jabatan;
+	private PegawaiDetailCtrl_DataPokok_Gaji pegawaiDetailCtrl_DataPokok_Gaji;
+	private PegawaiDetailCtrl_DataPokok_Pendidikan pegawaiDetailCtrl_DataPokok_Pendidikan;
+	private PegawaiDetailCtrl_DataPokok_Instansi pegawaiDetailCtrl_DataPokok_Instansi;
 	
 	private TpIdentitasDAO identitasDAO;
 	
@@ -142,5 +149,68 @@ public class PegawaiDetailCtrl_DataPokok extends GFCBaseCtrl implements Serializ
 	public void setPegawaiDetailCtrl_DataPokok_Identitas(
 			PegawaiDetailCtrl_DataPokok_Identitas pegawaiDetailCtrl_DataPokok_Identitas) {
 		this.pegawaiDetailCtrl_DataPokok_Identitas = pegawaiDetailCtrl_DataPokok_Identitas;
+	}
+
+	public PegawaiDetailCtrl_DataPokok_PengangkatanCPNS getPegawaiDetailCtrl_DataPokok_PengangkatanCPNS() {
+		return pegawaiDetailCtrl_DataPokok_PengangkatanCPNS;
+	}
+
+	public void setPegawaiDetailCtrl_DataPokok_PengangkatanCPNS(
+			PegawaiDetailCtrl_DataPokok_PengangkatanCPNS pegawaiDetailCtrl_DataPokok_PengangkatanCPNS) {
+		this.pegawaiDetailCtrl_DataPokok_PengangkatanCPNS = pegawaiDetailCtrl_DataPokok_PengangkatanCPNS;
+	}
+
+	public PegawaiDetailCtrl_DataPokok_PengangkatanPNS getPegawaiDetailCtrl_DataPokok_PengangkatanPNS() {
+		return pegawaiDetailCtrl_DataPokok_PengangkatanPNS;
+	}
+
+	public void setPegawaiDetailCtrl_DataPokok_PengangkatanPNS(
+			PegawaiDetailCtrl_DataPokok_PengangkatanPNS pegawaiDetailCtrl_DataPokok_PengangkatanPNS) {
+		this.pegawaiDetailCtrl_DataPokok_PengangkatanPNS = pegawaiDetailCtrl_DataPokok_PengangkatanPNS;
+	}
+
+	public PegawaiDetailCtrl_DataPokok_Pangkat getPegawaiDetailCtrl_DataPokok_Pangkat() {
+		return pegawaiDetailCtrl_DataPokok_Pangkat;
+	}
+
+	public void setPegawaiDetailCtrl_DataPokok_Pangkat(
+			PegawaiDetailCtrl_DataPokok_Pangkat pegawaiDetailCtrl_DataPokok_Pangkat) {
+		this.pegawaiDetailCtrl_DataPokok_Pangkat = pegawaiDetailCtrl_DataPokok_Pangkat;
+	}
+
+	public PegawaiDetailCtrl_DataPokok_Jabatan getPegawaiDetailCtrl_DataPokok_Jabatan() {
+		return pegawaiDetailCtrl_DataPokok_Jabatan;
+	}
+
+	public void setPegawaiDetailCtrl_DataPokok_Jabatan(
+			PegawaiDetailCtrl_DataPokok_Jabatan pegawaiDetailCtrl_DataPokok_Jabatan) {
+		this.pegawaiDetailCtrl_DataPokok_Jabatan = pegawaiDetailCtrl_DataPokok_Jabatan;
+	}
+
+	public PegawaiDetailCtrl_DataPokok_Gaji getPegawaiDetailCtrl_DataPokok_Gaji() {
+		return pegawaiDetailCtrl_DataPokok_Gaji;
+	}
+
+	public void setPegawaiDetailCtrl_DataPokok_Gaji(
+			PegawaiDetailCtrl_DataPokok_Gaji pegawaiDetailCtrl_DataPokok_Gaji) {
+		this.pegawaiDetailCtrl_DataPokok_Gaji = pegawaiDetailCtrl_DataPokok_Gaji;
+	}
+
+	public PegawaiDetailCtrl_DataPokok_Pendidikan getPegawaiDetailCtrl_DataPokok_Pendidikan() {
+		return pegawaiDetailCtrl_DataPokok_Pendidikan;
+	}
+
+	public void setPegawaiDetailCtrl_DataPokok_Pendidikan(
+			PegawaiDetailCtrl_DataPokok_Pendidikan pegawaiDetailCtrl_DataPokok_Pendidikan) {
+		this.pegawaiDetailCtrl_DataPokok_Pendidikan = pegawaiDetailCtrl_DataPokok_Pendidikan;
+	}
+
+	public PegawaiDetailCtrl_DataPokok_Instansi getPegawaiDetailCtrl_DataPokok_Instansi() {
+		return pegawaiDetailCtrl_DataPokok_Instansi;
+	}
+
+	public void setPegawaiDetailCtrl_DataPokok_Instansi(
+			PegawaiDetailCtrl_DataPokok_Instansi pegawaiDetailCtrl_DataPokok_Instansi) {
+		this.pegawaiDetailCtrl_DataPokok_Instansi = pegawaiDetailCtrl_DataPokok_Instansi;
 	}
 }

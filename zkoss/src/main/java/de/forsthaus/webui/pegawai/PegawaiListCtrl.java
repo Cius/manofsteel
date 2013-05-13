@@ -20,8 +20,6 @@ import org.zkoss.zul.Window;
 
 import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.TpCpnsDAO;
-import de.forsthaus.backend.dao.TpIdentitasDAO;
-import de.forsthaus.backend.model.Branche;
 import de.forsthaus.backend.model.TpCpns;
 import de.forsthaus.backend.util.HibernateSearchObject;
 import de.forsthaus.webui.util.ButtonStatusCtrl;

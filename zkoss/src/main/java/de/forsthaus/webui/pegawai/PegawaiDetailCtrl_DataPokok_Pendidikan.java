@@ -26,6 +26,7 @@ import org.zkoss.zul.Window;
 
 import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.GabunganDAO;
+import de.forsthaus.backend.dao.GolonganRuangDAO;
 import de.forsthaus.backend.dao.TpCpnsDAO;
 import de.forsthaus.backend.dao.WilayahDAO;
 import de.forsthaus.backend.model.TpCpns;
@@ -35,63 +36,37 @@ import de.forsthaus.webui.util.GFCBaseCtrl;
 import de.forsthaus.webui.util.MultiLineMessageBox;
 import de.forsthaus.webui.util.ZksampleMessageUtils;
 
-public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implements Serializable {
+public class PegawaiDetailCtrl_DataPokok_Pendidikan extends GFCBaseCtrl implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4005265307103199688L;
-	private static final Logger logger = Logger.getLogger(PegawaiDetailCtrl_DataPokok_Identitas.class);
+	private static final Logger logger = Logger.getLogger(PegawaiDetailCtrl_DataPokok_Pendidikan.class);
 	
 	protected Window windowPegawaiDetail_DataPokok_Identitas;
 	private Borderlayout borderLayout_PegawaiDataPokok_Identitas;
 	private Textbox textBox_nip;
-	private Textbox textBox_nama;
-	private Textbox textBox_tempatlahir;
-	private Combobox comboBox_kotalahir;
-	private Datebox dateBox_tanggallahir;
-	private Label label_jeniskelamin;
-	private Label label_agama;
-	private Label label_statuskepegawaian;
-	private Label label_jeniskepegawaian;
-	private Label label_kedudukanpegawai;
-	private Label label_statusperkawinan;
-	private Label label_golongandarah;
-	private Textbox textBox_alamat;
-	private Textbox textBox_rt;
-	private Textbox textBox_rw;
-	private Textbox textBox_telp;
-	private Textbox textBox_kodepos;
-	private Label label_provinsi;
-	private Label label_kota;
-	private Label label_kecamatan;
-	private Label label_desa;
-	private Textbox textBox_karpeg;
-	private Textbox textBox_askes;
-	private Textbox textBox_taspen;
-	private Textbox textBox_karissu;
-	private Textbox textBox_npwp;
-	private Textbox textBox_ktp;
-	private Textbox textBox_niplama;
-	
-	private Button edit_provinsi;
+	private Textbox textBox_dikum;
+	private Textbox textBox_sekolah;
+	private Textbox textBox_dikpim;
+	private Textbox textBox_dikfung;
+	private Textbox textBox_diktek;
 		
-	private final String btnController_classPrefix = "btn_Pegawai_DataPokok_Identitas_";
-	private ButtonStatusCtrl buttonCtrl_Pegawai_DataPokok_Identitas;
+	private final String btnController_classPrefix = "btn_Pegawai_DataPokok_Pendidikan_";
+	private ButtonStatusCtrl buttonCtrl_Pegawai_DataPokok_Pendidikan;
 	private Button edit;
 	private Button save;
 	private Button cancel;
 	
-	private ListModel sex;
-	
 	private PegawaiDetailCtrl_DataPokok pegawaiDetailCtrl_DataPokok;
 	private TpCpnsDAO tpCpnsDAO;
 	private GabunganDAO gabunganDAO;
-	private WilayahDAO wilayahDAO;
+	private GolonganRuangDAO golonganRuangDAO;
 	
 	private AnnotateDataBinder binder;
 	
-	public PegawaiDetailCtrl_DataPokok_Identitas() {
+	public PegawaiDetailCtrl_DataPokok_Pendidikan() {
 		super();
 	}
 	
@@ -102,7 +77,7 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 		if (this.arg.containsKey("ModuleMainController")) {
 			setPegawaiDetailCtrl_DataPokok((PegawaiDetailCtrl_DataPokok) this.arg.get("ModuleMainController"));
 
-			getPegawaiDetailCtrl_DataPokok().setPegawaiDetailCtrl_DataPokok_Identitas(this);
+			getPegawaiDetailCtrl_DataPokok().setPegawaiDetailCtrl_DataPokok_Pendidikan(this);
 
 			if (getPegawaiDetailCtrl_DataPokok().getSelected() != null) {
 				TpCpns entry = getSelected();
@@ -117,39 +92,12 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 	}
 	
 	public void onCreate$windowPegawaiDetail_DataPokok_Identitas(Event event) throws Exception {
-		this.buttonCtrl_Pegawai_DataPokok_Identitas = new ButtonStatusCtrl(getUserWorkspace(), btnController_classPrefix, true, null, null, null, null, null, null, null, edit, null, save, cancel, null);
+		this.buttonCtrl_Pegawai_DataPokok_Pendidikan = new ButtonStatusCtrl(getUserWorkspace(), btnController_classPrefix, true, null, null, null, null, null, null, null, edit, null, save, cancel, null);
 		this.binder = (AnnotateDataBinder) event.getTarget().getAttribute("binder", true);
 		this.binder.loadAll();
-		
-		if(gabunganDAO.getGabunganByKodeTabelAndKode("7", getSelected().getIdentitas().getKodeSex()) != null) {
-			label_jeniskelamin.setValue(gabunganDAO.getGabunganByKodeTabelAndKode("7", getSelected().getIdentitas().getKodeSex()).getNama());
-		}
-		if(gabunganDAO.getGabunganByKodeTabelAndKode("1", getSelected().getIdentitas().getKodeAgama())!= null) {
-			label_agama.setValue(gabunganDAO.getGabunganByKodeTabelAndKode("1", getSelected().getIdentitas().getKodeAgama()).getNama());
-		}
-		if(gabunganDAO.getGabunganByKodeTabelAndKode("2", getSelected().getIdentitas().getKodeStaPeg())!= null) {
-			label_statuskepegawaian.setValue(gabunganDAO.getGabunganByKodeTabelAndKode("2", getSelected().getIdentitas().getKodeStaPeg()).getNama());
-		}
-		if(gabunganDAO.getGabunganByKodeTabelAndKode("3", getSelected().getIdentitas().getKodeJnsPeg())!= null) {
-			label_jeniskepegawaian.setValue(gabunganDAO.getGabunganByKodeTabelAndKode("3", getSelected().getIdentitas().getKodeJnsPeg()).getNama());
-		}
-		if(gabunganDAO.getGabunganByKodeTabelAndKode("4", getSelected().getIdentitas().getKodeDukPns())!= null) {
-			label_kedudukanpegawai.setValue(gabunganDAO.getGabunganByKodeTabelAndKode("4", getSelected().getIdentitas().getKodeDukPns()).getNama());
-		}
-		if(gabunganDAO.getGabunganByKodeTabelAndKode("5", getSelected().getIdentitas().getKodeStaWin())!= null) {
-			label_statusperkawinan.setValue(gabunganDAO.getGabunganByKodeTabelAndKode("5", getSelected().getIdentitas().getKodeStaWin()).getNama());
-		}
-		if(gabunganDAO.getGabunganByKodeTabelAndKode("6", getSelected().getIdentitas().getKodeGolDar())!= null) {
-			label_golongandarah.setValue(gabunganDAO.getGabunganByKodeTabelAndKode("6", getSelected().getIdentitas().getKodeGolDar()).getNama());
-		}
-		
-		label_provinsi.setValue(wilayahDAO.getWilayahByKode(getSelected().getIdentitas().getAlKProp() + "00000000").getNamaWilayah());
-		label_kota.setValue(wilayahDAO.getWilayahByKode(getSelected().getIdentitas().getAlKProp() + getSelected().getIdentitas().getAlKKab() + "000000").getNamaWilayah());
-		label_kecamatan.setValue(wilayahDAO.getWilayahByKode(getSelected().getIdentitas().getAlKProp() + getSelected().getIdentitas().getAlKKab() + getSelected().getIdentitas().getAlKKec() + "0000").getNamaWilayah());
-		label_desa.setValue(wilayahDAO.getWilayahByKode(getSelected().getIdentitas().getAlKProp() + getSelected().getIdentitas().getAlKKab() + getSelected().getIdentitas().getAlKKec() + getSelected().getIdentitas().getAlKDes()).getNamaWilayah());
 				
 		doFitSize(event);
-		this.buttonCtrl_Pegawai_DataPokok_Identitas.setInitEdit();
+		this.buttonCtrl_Pegawai_DataPokok_Pendidikan.setInitEdit();
 	}
 	
 	public void onClick$edit(Event event) throws Exception {
@@ -182,7 +130,7 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 	
 	private void doEdit() {
 		doStoreInitValue();
-		this.buttonCtrl_Pegawai_DataPokok_Identitas.setBtnStatus_Edit();
+		this.buttonCtrl_Pegawai_DataPokok_Pendidikan.setBtnStatus_Edit();
 		doReadOnlyMode(false);
 		getBinder().loadAll();
 		textBox_nip.setFocus(true);
@@ -193,7 +141,7 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 		if(getBinder() != null) {
 			getBinder().loadAll();
 			doReadOnlyMode(true);
-			this.buttonCtrl_Pegawai_DataPokok_Identitas.setInitEdit();
+			this.buttonCtrl_Pegawai_DataPokok_Pendidikan.setInitEdit();
 		}
 	}
 	
@@ -221,29 +169,13 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 			return;
 
 		} finally {
-			this.buttonCtrl_Pegawai_DataPokok_Identitas.setInitEdit();
+			this.buttonCtrl_Pegawai_DataPokok_Pendidikan.setInitEdit();
 			doReadOnlyMode(true);
 		}
 	}
 	
 	public void doReadOnlyMode(boolean b) {
 		textBox_nip.setReadonly(b);
-		textBox_nama.setReadonly(b);
-		textBox_tempatlahir.setReadonly(b);
-		comboBox_kotalahir.setReadonly(b);
-		dateBox_tanggallahir.setReadonly(b);
-		textBox_alamat.setReadonly(b);
-		textBox_rt.setReadonly(b);
-		textBox_rw.setReadonly(b);
-		textBox_telp.setReadonly(b);
-		textBox_kodepos.setReadonly(b);
-		textBox_karpeg.setReadonly(b);
-		textBox_askes.setReadonly(b);
-		textBox_taspen.setReadonly(b);
-		textBox_karissu.setReadonly(b);
-		textBox_npwp.setReadonly(b);
-		textBox_ktp.setReadonly(b);
-		textBox_niplama.setReadonly(b);
 	}
 	
 	public void doFitSize(Event event) {
@@ -337,14 +269,6 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 		this.tpCpnsDAO = tpCpnsDAO;
 	}
 
-	public ListModel getSex() {
-		return sex;
-	}
-
-	public void setSex(ListModel sex) {
-		this.sex = sex;
-	}
-
 	public GabunganDAO getGabunganDAO() {
 		return gabunganDAO;
 	}
@@ -353,12 +277,12 @@ public class PegawaiDetailCtrl_DataPokok_Identitas extends GFCBaseCtrl implement
 		this.gabunganDAO = gabunganDAO;
 	}
 
-	public WilayahDAO getWilayahDAO() {
-		return wilayahDAO;
+	public GolonganRuangDAO getGolonganRuangDAO() {
+		return golonganRuangDAO;
 	}
 
-	public void setWilayahDAO(WilayahDAO wilayahDAO) {
-		this.wilayahDAO = wilayahDAO;
+	public void setGolonganRuangDAO(GolonganRuangDAO golonganRuangDAO) {
+		this.golonganRuangDAO = golonganRuangDAO;
 	}
 
 }
