@@ -29,6 +29,7 @@ public class TpJabatan {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
+	
 	public int getId() {
 		return id;
 	}
@@ -179,6 +180,4 @@ public class TpJabatan {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
-	
-	
 }

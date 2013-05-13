@@ -14,14 +14,14 @@ public class TrDiklat {
 	private String panitia;
 	private String angkatan;
 	
-	private String tMulai;
-	private String tAkhir;
+	private Date tMulai;
+	private Date tAkhir;
 	private int jam;
-	private String nsttp;
-	private String tsttp;
+	private String nsttpp;
+	private String tsttpp;
 	private String negara;
 	private String thLulus;
-	private String kodeedudukan;
+	private String kodeKedudukan;
 	private String topic;
 	private String starec;
 	
@@ -29,6 +29,7 @@ public class TrDiklat {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
+	
 	public int getId() {
 		return id;
 	}
@@ -83,16 +84,16 @@ public class TrDiklat {
 	public void setAngkatan(String angkatan) {
 		this.angkatan = angkatan;
 	}
-	public String gettMulai() {
+	public Date gettMulai() {
 		return tMulai;
 	}
-	public void settMulai(String tMulai) {
+	public void settMulai(Date tMulai) {
 		this.tMulai = tMulai;
 	}
-	public String gettAkhir() {
+	public Date gettAkhir() {
 		return tAkhir;
 	}
-	public void settAkhir(String tAkhir) {
+	public void settAkhir(Date tAkhir) {
 		this.tAkhir = tAkhir;
 	}
 	public int getJam() {
@@ -101,17 +102,17 @@ public class TrDiklat {
 	public void setJam(int jam) {
 		this.jam = jam;
 	}
-	public String getNsttp() {
-		return nsttp;
+	public String getNsttpp() {
+		return nsttpp;
 	}
-	public void setNsttp(String nsttp) {
-		this.nsttp = nsttp;
+	public void setNsttpp(String nsttpp) {
+		this.nsttpp = nsttpp;
 	}
-	public String getTsttp() {
-		return tsttp;
+	public String getTsttpp() {
+		return tsttpp;
 	}
-	public void setTsttp(String tsttp) {
-		this.tsttp = tsttp;
+	public void setTsttpp(String tsttpp) {
+		this.tsttpp = tsttpp;
 	}
 	public String getNegara() {
 		return negara;
@@ -125,11 +126,11 @@ public class TrDiklat {
 	public void setThLulus(String thLulus) {
 		this.thLulus = thLulus;
 	}
-	public String getKodeedudukan() {
-		return kodeedudukan;
+	public String getKodeKedudukan() {
+		return kodeKedudukan;
 	}
-	public void setKodeedudukan(String kodeedudukan) {
-		this.kodeedudukan = kodeedudukan;
+	public void setKodeKedudukan(String kodeKedudukan) {
+		this.kodeKedudukan = kodeKedudukan;
 	}
 	public String getTopic() {
 		return topic;
@@ -167,6 +168,4 @@ public class TrDiklat {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
-	
-	
 }
