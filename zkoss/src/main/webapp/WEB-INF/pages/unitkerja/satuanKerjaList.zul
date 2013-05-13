@@ -34,10 +34,71 @@
 					<hbox align="center" style="padding: 2px">
 
 						<space />
-<!-- 						<checkbox id="checkbox_SatuanKerjaList_ShowAll" -->
-<!-- 							label="${c:l('common.Show.All')}" /> -->
-<!-- 						<separator bar="true" orient="vertical" /> -->
+						<checkbox id="checkbox_SatuanKerjaList_ShowAll"
+							label="TampilkanSemua" checked="true" />
+						<separator bar="true" orient="vertical" />
+						<label id="label_Search" value="Unit Kerja"></label>
+						<bandbox id="bandbox_UnitKerjaSearch" width="280px"
+									tooltiptext="Cari atau Pilih Unit Kerja">
+							<bandpopup id="bpop_UnitKerjaSearch" width="540px" height="455px">
+								<panel id="panel_bboxUnitKerjaSearch" title="Pilih Unit Kerja" />
+									<vbox>
+										<hbox width="100%">
+											<grid fixedLayout="true" style="border:0px" width="100%">
+												<columns>
+													<column width="150px" />
+													<column width="250px" />
+												</columns>
+												<rows>
+													<row>
+														<label value="Unit Kerja" />
+														<textbox id="tb_UnitKerja" width="98%" />
+														<button id="button_bbox_UnitKerja_Search"
+																image="/images/icons/search.gif"
+																label="Cari"
+																tooltiptext="Cari/Pilih Unit Kerja" />
+														<button id="button_bbox_UnitKerja_Close"
+																image="/images/icons/stop.gif"
+																tooltiptext="Tutup" />
+													</row>
+													<row spans="4">
+														<vbox width="100%">
+														<paging id="paging_UnitKerjaSearchList" pageSize="20" />
+														<listbox id="listBoxUnitKerjaSearch"
+																style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px;"
+																width="100%" height="100%" multiple="false">
+														<listhead sizable="true">
+														<listheader id="listheader_Kode" sclass="FDListBoxHeader1"
+																			image="/images/icons/builder.gif" sort="auto"
+																			width="15%"
+																			label="Kode" />
+														<listheader id="listheader_Nama"
+																			sclass="FDListBoxHeader1"
+																			image="/images/icons/create_doc.gif" sort="auto"
+																			width="35%"
+																			label="Unit Kerja" />
+														<listheader id="listheader_Eselon"
+																			sclass="FDListBoxHeader1"
+																			image="/images/icons/create_doc.gif" sort="auto"
+																			width="35%"
+																			label="Eselon" />
+														<listheader id="listheader_Kecamatan"
+																			sclass="FDListBoxHeader1"
+																			image="/images/icons/create_doc.gif" sort="auto"
+																			width="15%"
+																			label="Lokasi Kerja/Kecamatan" />
+														</listhead>
+													</listbox>
+												</vbox>
+											</row>
 
+										</rows>
+									</grid>
+
+											</hbox>
+										</vbox>
+									</bandpopup>
+								</bandbox>
 <!-- 						<label id="label_SatuanKerjaList_rigName" -->
 <!-- 							value="Golongan Ruang" /> -->
 <!-- 						<textbox id="tb_SearchSatuanKerja" -->
@@ -90,12 +151,12 @@
 						<listheader id="listheader_SatuanKerjaList_Kode"
 							sclass="FDListBoxHeader1" image="/images/icons/create_doc.gif"
 							label="Kode"
-							sort="auto" width="25%" />
+							sort="auto" width="15%" />
 						<listheader id="listheader_SatuanKerjaList_Nama"
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"
 							label="Satuan Kerja"
-							sort="auto" width="25%" />
+							sort="auto" width="60%" />
 						<listheader id="listheader_SatuanKerjaList_Eselon"
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"

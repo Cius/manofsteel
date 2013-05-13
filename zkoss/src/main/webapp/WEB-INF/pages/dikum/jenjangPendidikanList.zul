@@ -7,11 +7,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-	<window id="unitKerjaListWindow" apply="${unitKerjaListCtrl}"
+	<window id="jenjangPendidikanListWindow" apply="${jenjangPendidikanListCtrl}"
 		border="none" width="100%">
 
-		<panel id="panel_UnitKerjaList"
-			title="Unit Kerja" border="none" />
+		<panel id="panel_JenjangPendidikanList"
+			title="Jenjang Pendidikan" border="none" />
 
 		<div sclass="z-toolbar" style="padding:0">
 			<hbox pack="stretch" sclass="hboxRemoveWhiteStrips"
@@ -34,14 +34,14 @@
 					<hbox align="center" style="padding: 2px">
 
 						<space />
-						<checkbox id="checkbox_UnitKerjaList_ShowAll"
+						<checkbox id="checkbox_JenjangPendidikanList_ShowAll"
 							label="TampilkanSemua" checked="true"/>
 						<separator bar="true" orient="vertical" />
-    					<label id="label_Search" value="Unit Organisasi"></label>
-						<bandbox id="bandbox_UnitOrganisasiSearch" width="280px"
-									tooltiptext="Cari atau Pilih Unit Organisasi">
-							<bandpopup id="bpop_UnitOrganisasiSearch" width="540px" height="455px">
-								<panel id="panel_bboxUnitOrganisasiSearch" title="Pilih Unit Organisasi" />
+    					<label id="label_Search" value="Tingkat Pendidikan"></label>
+						<bandbox id="bandbox_TingkatPendidikanSearch" width="280px"
+									tooltiptext="Cari atau Pilih Tingkat Pendidikan">
+							<bandpopup id="bpop_TingkatPendidikanSearch" width="540px" height="455px">
+								<panel id="panel_bboxTingkatPendidikanSearch" title="Pilih Tingkat Pendidikan" />
 									<vbox>
 										<hbox width="100%">
 											<grid fixedLayout="true" style="border:0px" width="100%">
@@ -51,20 +51,20 @@
 												</columns>
 												<rows>
 													<row>
-														<label value="Unit Organisasi" />
-														<textbox id="tb_UnitOrganisasi" width="98%" />
-														<button id="button_bbox_UnitOrganisasi_Search"
+														<label value="Tingkat Pendidikan" />
+														<textbox id="tb_TingkatPendidikan" width="98%" />
+														<button id="button_bbox_TingkatPendidikan_Search"
 																image="/images/icons/search.gif"
 																label="Cari"
-																tooltiptext="Cari/Pilih Unit Organisasi" />
-														<button id="button_bbox_UnitOrganisasi_Close"
+																tooltiptext="Cari/Pilih Tingkat Pendidikan" />
+														<button id="button_bbox_TingkatPendidikan_Close"
 																image="/images/icons/stop.gif"
 																tooltiptext="Tutup" />
 													</row>
 													<row spans="4">
 														<vbox width="100%">
-														<paging id="paging_UnitOrganisasiSearchList" pageSize="20" />
-														<listbox id="listBoxUnitOrganisasiSearch"
+														<paging id="paging_TingkatPendidikanSearchList" pageSize="20" />
+														<listbox id="listBoxTingkatPendidikanSearch"
 																style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px;"
 																width="100%" height="100%" multiple="false">
 														<listhead sizable="true">
@@ -76,7 +76,7 @@
 																			sclass="FDListBoxHeader1"
 																			image="/images/icons/create_doc.gif" sort="auto"
 																			width="55%"
-																			label="Unit Organisasi" />
+																			label="Tingkat Pendidikan Umum" />
 														</listhead>
 													</listbox>
 												</vbox>
@@ -96,51 +96,51 @@
 				<!-- CRUD BUTTONS -->
 				<toolbar align="end"
 					style="float:right; border-style: none;">
-					<button id="button_UnitKerjaList_PrintList"
+					<button id="button_JenjangPendidikanList_PrintList"
 						sclass="oT_ButtonWithIcon"
 						image="/images/icons/btn_print2_16x16.gif"
-						tooltiptext="${c:l('button_UnitKerjaList_PrintRightList.tooltiptext')}" />
+						tooltiptext="${c:l('button_JenjangPendidikanList_PrintRightList.tooltiptext')}" />
 					<separator bar="true" orient="vertical" />
-					<button id="button_UnitKerjaList_New"
+					<button id="button_JenjangPendidikanList_New"
 						sclass="oT_ButtonWithIcon"
 						image="/images/icons/btn_new2_16x16.gif"
-						tooltiptext="${c:l('button_UnitKerjaList_NewRight.tooltiptext')}" />
+						tooltiptext="${c:l('button_JenjangPendidikanList_NewRight.tooltiptext')}" />
 				</toolbar>
 			</hbox>
 		</div>
 
-		<borderlayout id="borderLayout_UnitKerjaList">
+		<borderlayout id="borderLayout_JenjangPendidikanList">
 
 			<north border="none" height="26px">
-				<paging id="paging_UnitKerjaList" />
+				<paging id="paging_JenjangPendidikanList" />
 			</north>
 
 			<center border="none">
 
-				<listbox id="listBoxUnitKerja"
+				<listbox id="listBoxJenjangPendidikan"
 					style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px;"
 					vflex="true" tooltiptext="${c:l('listbox.tooltiptext')}"
 					width="100%" height="100%" multiple="false">
 					<listhead sizable="true">
-						<listheader id="listheader_UnitKerjaList_Kode"
+						<listheader id="listheader_JenjangPendidikanList_Kode"
 							sclass="FDListBoxHeader1" image="/images/icons/create_doc.gif"
 							label="Kode"
 							sort="auto" width="15%" />
-						<listheader id="listheader_UnitKerjaList_Nama"
+						<listheader id="listheader_JenjangPendidikanList_Nama"
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"
-							label="UnitKerja"
-							sort="auto" width="40%" />
-						<listheader id="listheader_UnitKerjaList_Eselon"
+							label="Jenjang Pendidikan"
+							sort="auto" width="45%" />
+						<listheader id="listheader_JenjangPendidikanList_Gawal"
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"
-							label="Eselon"
+							label="Golongan Awal"
 							sort="auto" width="20%" />
-						<listheader id="listheader_UnitKerjaList_Kecamatan"
+						<listheader id="listheader_JenjangPendidikanList_Gakhir"
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"
-							label="Lokasi Kerja/Kecamatan"
-							sort="auto" width="25%" />
+							label="Golongan Akhir"
+							sort="auto" width="20%" />
 					</listhead>
 				</listbox>
 

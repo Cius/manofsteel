@@ -8,23 +8,12 @@
 	xmlns:w="http://www.zkoss.org/2005/zk/client"
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-	<window id="unitKerjaMainWindow" apply="${unitKerjaMainCtrl}"
+	<window id="tandaJasaMainWindow" apply="${tandaJasaMainCtrl}"
 		border="none" width="100%">
 
 		<div sclass="z-toolbar" style="padding:0">
 			<hbox pack="stretch" sclass="hboxRemoveWhiteStrips"
 				width="100%">
-
-				<!-- COMMON BUTTONS -->
-				<toolbar align="start"
-					style="float:left; border-style: none;">
-					<toolbarbutton id="btnHelp"
-						image="/images/icons/light_16x16.gif"
-						tooltiptext="${c:l('btnHelp.tooltiptext')}" />
-					<toolbarbutton id="btnRefresh"
-						image="/images/icons/refresh2_yellow_16x16.gif"
-						tooltiptext="${c:l('btnRefresh.tooltiptext')}" />
-				</toolbar>
 
 				<!-- CRUD BUTTONS -->
 				<toolbar align="end"
@@ -56,27 +45,19 @@
 		</div>
 
 		<!-- Tabbox Container -->
-		<tabbox id="tabbox_UnitKerjaMain">
+		<tabbox id="tabbox_TandaJasaMain">
 			<tabs>
-				<tab id="tabUnitOrganisasiList" label="Unit Organisasi"
+				<tab id="tabKelompokTandaJasaList" label="Kelompok Tanda Jasa"
 					image="/images/icons/properties.gif" />
-				<tab id="tabUnitKerjaList" label="Unit Kerja"
-					image="/images/icons/properties.gif" />
-				<tab id="tabSatuanKerjaList" label="Satuan Kerja"
-					image="/images/icons/properties.gif" />
-				<tab id="tabKelompokUnitList" label="Kelompok Unit"
+				<tab id="tabJenisTandaJasaList" label="Jenis Tanda Jasa"
 					image="/images/icons/properties.gif" />
 			</tabs>
 
 			<tabpanels>
 				<!-- TabPanel LIST / LISTE -->
-				<tabpanel id="tabPanelUnitOrganisasiList" height="100%"
+				<tabpanel id="tabPanelKelompokTandaJasaList" height="100%"
 					style="border: none; padding: 0px; " />					
-				<tabpanel id="tabPanelUnitKerjaList" height="100%"
-					style="border: none; padding: 0px; " />
-				<tabpanel id="tabPanelSatuanKerjaList" height="100%"
-					style="border: none; padding: 0px; " />
-				<tabpanel id="tabPanelKelompokUnitList" height="100%"
+				<tabpanel id="tabPanelJenisTandaJasaList" height="100%"
 					style="border: none; padding: 0px; " />
 			</tabpanels>
 		</tabbox>

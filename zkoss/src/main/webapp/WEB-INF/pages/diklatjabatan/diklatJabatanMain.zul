@@ -8,7 +8,7 @@
 	xmlns:w="http://www.zkoss.org/2005/zk/client"
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-	<window id="unitKerjaMainWindow" apply="${unitKerjaMainCtrl}"
+	<window id="diklatJabatanMainWindow" apply="${diklatJabatanMainCtrl}"
 		border="none" width="100%">
 
 		<div sclass="z-toolbar" style="padding:0">
@@ -56,27 +56,23 @@
 		</div>
 
 		<!-- Tabbox Container -->
-		<tabbox id="tabbox_UnitKerjaMain">
+		<tabbox id="tabbox_DiklatJabatanMain">
 			<tabs>
-				<tab id="tabUnitOrganisasiList" label="Unit Organisasi"
+				<tab id="tabStrukturalList" label="Struktural"
 					image="/images/icons/properties.gif" />
-				<tab id="tabUnitKerjaList" label="Unit Kerja"
+				<tab id="tabFungsionalList" label="Fungsional"
 					image="/images/icons/properties.gif" />
-				<tab id="tabSatuanKerjaList" label="Satuan Kerja"
-					image="/images/icons/properties.gif" />
-				<tab id="tabKelompokUnitList" label="Kelompok Unit"
+				<tab id="tabTeknisList" label="Teknis"
 					image="/images/icons/properties.gif" />
 			</tabs>
 
 			<tabpanels>
 				<!-- TabPanel LIST / LISTE -->
-				<tabpanel id="tabPanelUnitOrganisasiList" height="100%"
+				<tabpanel id="tabPanelStrukturalList" height="100%"
 					style="border: none; padding: 0px; " />					
-				<tabpanel id="tabPanelUnitKerjaList" height="100%"
+				<tabpanel id="tabPanelFungsionalList" height="100%"
 					style="border: none; padding: 0px; " />
-				<tabpanel id="tabPanelSatuanKerjaList" height="100%"
-					style="border: none; padding: 0px; " />
-				<tabpanel id="tabPanelKelompokUnitList" height="100%"
+				<tabpanel id="tabPanelTeknisList" height="100%"
 					style="border: none; padding: 0px; " />
 			</tabpanels>
 		</tabbox>
