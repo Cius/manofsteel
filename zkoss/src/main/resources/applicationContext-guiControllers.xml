@@ -240,6 +240,12 @@
 	</bean>
 	
 	<bean id="pegawaiDetailCtrl_DataPokok_Identitas" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_DataPokok_Identitas" parent="basisCtrl" scope="prototype">
+	    <property name="gabunganDAO" ref="gabunganDAO"/>
+	</bean>
+	
+	<bean id="provinsiSelectCtrl" class="de.forsthaus.webui.pegawai.identitas.IdentitasSelectCtrl_Provinsi" parent="basisCtrl" scope="prototype">
+	    <property name="wilayahDAO" ref="wilayahDAO"/>
+	    <property name="identitasCtrl" ref="pegawaiDetailCtrl_DataPokok_Identitas"/>
 	</bean>
 
 	<!-- Guestbook -->
