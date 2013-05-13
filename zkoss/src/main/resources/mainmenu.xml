@@ -46,21 +46,21 @@
 <!-- 	</menu> -->
 
 	<!-- OfficeData MenuTree -->
-	<menu id="menu_Category_OfficeData" rightName="menuCat_OfficeData">
-		<menuItem id="menu_Item_Customers" zulNavigation="/WEB-INF/pages/customer/customerList.zul"
-			iconName="/images/icons/view.gif" rightName="menuItem_OfficeData_Customers" />
-		<menuItem id="menu_Item_Orders" zulNavigation="/WEB-INF/pages/order/orderList.zul"
-			iconName="/images/icons/view.gif" rightName="menuItem_OfficeData_Orders" />
-	</menu>
+<!-- 	<menu id="menu_Category_OfficeData" rightName="menuCat_OfficeData"> -->
+<!-- 		<menuItem id="menu_Item_Customers" zulNavigation="/WEB-INF/pages/customer/customerList.zul" -->
+<!-- 			iconName="/images/icons/view.gif" rightName="menuItem_OfficeData_Customers" /> -->
+<!-- 		<menuItem id="menu_Item_Orders" zulNavigation="/WEB-INF/pages/order/orderList.zul" -->
+<!-- 			iconName="/images/icons/view.gif" rightName="menuItem_OfficeData_Orders" /> -->
+<!-- 	</menu> -->
 
 	<!-- BaseData MenuTree -->
 	<menu id="menu_Category_MainData" rightName="menuCat_MainData">
-		<menuItem id="menu_Item_Articles" zulNavigation="/WEB-INF/pages/article/articleMain.zul"
-			iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_ArticleItems" />
-		<menuItem id="menu_Item_Branches" zulNavigation="/WEB-INF/pages/branch/branchMain.zul"
-			iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Branch" />
-		<menuItem id="menu_Item_Offices" zulNavigation="/WEB-INF/pages/office/officeMain.zul"
-			iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Office" />
+<!-- 		<menuItem id="menu_Item_Articles" zulNavigation="/WEB-INF/pages/article/articleMain.zul" -->
+<!-- 			iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_ArticleItems" /> -->
+<!-- 		<menuItem id="menu_Item_Branches" zulNavigation="/WEB-INF/pages/branch/branchMain.zul" -->
+<!-- 			iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Branch" /> -->
+<!-- 		<menuItem id="menu_Item_Offices" zulNavigation="/WEB-INF/pages/office/officeMain.zul" -->
+<!-- 			iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Office" /> -->
 		<menuItem id="menu_Item_Propinsi" zulNavigation="/WEB-INF/pages/wilayah/propinsiMain.zul"
 			iconName="/images/icons/view.gif" rightName="menuItem_MainData_Propinsi" />
 		<menuItem id="menu_Item_GolonganRuang" zulNavigation="/WEB-INF/pages/golonganruang/golonganRuangList.zul"
@@ -87,6 +87,21 @@
 			iconName="/images/icons/view.gif" rightName="menuItem_MainData_Eselon" />
 		<menuItem id="menu_Item_UnitKerja" zulNavigation="/WEB-INF/pages/unitkerja/unitKerjaMain.zul"
 			iconName="/images/icons/view.gif" rightName="menuItem_MainData_UnitKerja" />
+		<menuItem id="menu_Item_TandaJasa" zulNavigation="/WEB-INF/pages/tandajasa/tandaJasaMain.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_TandaJasa" />
+		<menuItem id="menu_Item_JenisGuru" zulNavigation="/WEB-INF/pages/gabungan/jenisGuruMain.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_JenisGuru" />
+		<menuItem id="menu_Item_WilayahGaji" zulNavigation="/WEB-INF/pages/gabungan/wilayahGajiMain.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_WilayahGaji" />
+		<menuItem id="menu_Item_Dikum" zulNavigation="/WEB-INF/pages/dikum/dikumMain.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_Dikum" />
+		<menuItem id="menu_Item_DiklatJabatan" zulNavigation="/WEB-INF/pages/diklatjabatan/diklatJabatanMain.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_DiklatJabatan" />
+		<menuItem id="menu_Item_UnitKerjaAlamat" zulNavigation="/WEB-INF/pages/alamat/unitKerjaAlamatList.zul"
+			iconName="/images/icons/view.gif" rightName="menuItem_MainData_UnitKerjaAlamat" />
+	</menu>
+	
+	<menu id="menu_Category_Perekaman" rightName="menuCat_Perekaman">
 		<menuItem id="menu_Item_Pegawai" zulNavigation="/WEB-INF/pages/pegawai/pegawaiMain.zul"
 		    iconName="/images/icons/index_16x16.gif" rightName="menuItem_MainData_Pegawai"/>
 	</menu>
