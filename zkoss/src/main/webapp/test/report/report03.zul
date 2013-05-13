@@ -58,32 +58,27 @@
 	
 	<zscript><![CDATA[
         
-		void checkKriteria(){
-			if(!listKriteria.getSelectedItem().getValue().equals("")){
-				if(listKriteria.getSelectedItem().getValue().equals("TAHUN CPNS")){
-					lblSubKriteria.setVisible(true);
-					for(int i = 0; i<=listSubKriteria.getItemCount()-1;i++){
-						listSubKriteria.removeItemAt(i);	
-					}
-					for(int i = 1970; i<=2011; i++){
-						listSubKriteria.appendItemApi(String.valueOf(i),String.valueOf(i));
-					}
-					listSubKriteria.setVisible(true);	
-				}else if(listKriteria.getSelectedItem().getValue().equals("TAHUN LAHIR")){
-					lblSubKriteria.setVisible(true);
-					for(int i = 0; i<=listSubKriteria.getItemCount()-1;i++){
-						listSubKriteria.removeItemAt(i);	
-					}
-					for(int i = 1952; i<=1991; i++){
-						listSubKriteria.appendItemApi(String.valueOf(i),String.valueOf(i));
-					}
-					listSubKriteria.setVisible(true);	
-				}
-			}else{
-				lblSubKriteria.setVisible(false);
-				listSubKriteria.setVisible(false);
-			}
-		}
+     		void checkKriteria(){
+   			if(!listKriteria.getSelectedItem().getValue().equals("SELURUH")){
+   				lblSubKriteria.setVisible(true);
+   				ListModelList aList = new ListModelList();
+   				if(listKriteria.getSelectedItem().getValue().equals("TAHUN CPNS")){
+   					for(int i = 1970; i<=2011; i++){
+   						aList.add(String.valueOf(i));
+   					}
+   				}else if(listKriteria.getSelectedItem().getValue().equals("TAHUN LAHIR")){
+   					for(int i = 1952; i<=1991; i++){
+   						aList.add(String.valueOf(i));
+   					}
+   				}
+   				listSubKriteria.setModel(aList);
+   				listSubKriteria.setVisible(true);
+   				listSubKriteria.setSelectedIndex(0);
+   			}else{
+   				lblSubKriteria.setVisible(false);
+   				listSubKriteria.setVisible(false);
+   			}
+   		}
 	                  
         void checkUnitKerja(){
         	if(!listUnitKerja.getSelectedItem().getValue().equals("")){

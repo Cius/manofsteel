@@ -2,7 +2,7 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 
 <zk>
-<window id="window_Report" title="Laporan Daftar PNS Urut Jabatan" border="normal" apply="${report06DaftarPnsUrutJabatan}">
+<window id="window_Report" title="Laporan Daftar PNS Urut Jabatan Struktural" border="normal" apply="${report06DaftarPnsUrutJabatan}">
 	<include src="menuReport.zul"/>
 	<panel border="normal" title="">
 		<panelchildren>
@@ -10,71 +10,20 @@
 				<grid vflex="1">
 					<columns>
 						<column label="" width="150px" />
-						<column label="" width="300px"/>
-						<column label="" width="150px"/>
 						<column label="" />
 					</columns>
 					<rows>
 						<row>
 							<label value="Unit Kerja" />
-							<listbox id="listUnitKerja" onSelect="checkUnitKerja()" mold="select" rows="1" width="250px">
-								<listitem label="--Pilih Salah Satu--" value="" selected="true"/>
-								<listitem label="RUMAH SAKIT UMUM DAERAH" value="RUMAH SAKIT UMUM DAERAH" />
-								<listitem label="PUSKESMAS BATANG TARANG KEC. BALAI" value="PUSKESMAS BATANG TARANG KEC. BALAI" />
-								<listitem label="SMA NEGERI 2 SANGGAU" value="SMA NEGERI 2 SANGGAU" />
-								<listitem label="SAM NEGERI 1 TAYAN HULU" value="SAM NEGERI 1 TAYAN HULU" />
-								<listitem label="SMK NEGERI 1 PARINDU" value="SMK NEGERI 1 PARINDU" />
-								<listitem label="SMK NEGERI 1 BALAI" value="SMK NEGERI 1 BALAI" />
-								<listitem label="SMA NEGERI 1 NOYAN" value="SMA NEGERI 1 NOYAN" />
-								<listitem label="SMK NEGERI 1 ENTIKONG" value="SMK NEGERI 1 ENTIKONG" />
-								<listitem label="SMP NEGERI 3 MELIAU" value="SMP NEGERI 3 MELIAU" />
-								<listitem label="SMP NEGERI 6 MELIAU" value="SMP NEGERI 6 MELIAU" />
-								<listitem label="SMP NEGERI 5 PARINDU" value="SMP NEGERI 5 PARINDU" />
-								<listitem label="SMP NEGERI 1 TAYAN HILIR" value="SMP NEGERI 1 TAYAN HILIR" />
-								<listitem label="SMP NEGERI 6 TAYAN HILIR" value="SMP NEGERI 6 TAYAN HILIR" />
-								<listitem label="SMP NEGERI 3 BALAI" value="SMP NEGERI 3 BALAI" />
-								<listitem label="SMP NEGERI 3 SEKAYAM" value="SMP NEGERI 3 SEKAYAM" />
-								<listitem label="SMP NEGERI 6 SATAP SEKAYAM" value="SMP NEGERI 6 SATAP SEKAYAM" />
-								<listitem label="SMP NEGERI 4 SATAP ENTIKONG" value="SMP NEGERI 4 SATAP ENTIKONG" />
-								<listitem label="SMP NEGERI 2 JANGKANG" value="SMP NEGERI 2 JANGKANG" />
-								<listitem label="SMP NEGERI 4 JANGKANG" value="SMP NEGERI 4 JANGKANG" />
-								<listitem label="SDN NO. 38 SUNGAI RANAS" value="SDN NO. 38 SUNGAI RANAS" />
-								<listitem label="SDN NO. 19 SUI MAWANG" value="SDN NO. 19 SUI MAWANG" />
-								<listitem label="SDN NO. 12 BODOK" value="SDN NO. 12 BODOK" />
-								<listitem label="SDN NO. 13 KAMPUH" value="SDN NO. 13 KAMPUH" />
-								<listitem label="SDN NO. 02 PANGA KEC. ENTIKONG" value="SDN NO. 02 PANGA KEC. ENTIKONG" />
-								<listitem label="SDN NO. 07 MANGKAU KEC. ENTIKONG" value="SDN NO. 07 MANGKAU KEC. ENTIKONG" />
-								<listitem label="SDN NO. 14 BADAT KEC. ENTIKONG" value="SDN NO. 14 BADAT KEC. ENTIKONG" />
-								<listitem label="SDN NO. 16 GUN JEMAK KEC. ENTIKONG" value="SDN NO. 16 GUN JEMAK KEC. ENTIKONG" />
-								<listitem label="SDN NO. 07 BANTAN" value="SDN NO. 07 BANTAN" />
-								<listitem label="SDN NO. 26 SUNGAI DAUN" value="SDN NO. 26 SUNGAI DAUN" />
-								<listitem label="SDN NO. 06 DOROI" value="SDN NO. 06 DOROI" />
-								<listitem label="SDN NO. 02 KETORI" value="SDN NO. 02 KETORI" />
-								<listitem label="SDN NO. 06 LALANG" value="SDN NO. 06 LALANG" />
-								<listitem label="SDN NO. 30 TANJUNG BARA" value="SDN NO. 30 TANJUNG BARA" />
-								<listitem label="SDN NO. 15 SUNGAI ADONG" value="SDN NO. 15 SUNGAI ADONG" />
-								<listitem label="SDN NO. 22 TIBUNG" value="SDN NO. 22 TIBUNG" />
-								<listitem label="SDN NO. 03 KEDIAN" value="SDN NO. 03 KEDIAN" />
-								<listitem label="SDN NO. 13 SUI RENGAS" value="SDN NO. 13 SUI RENGAS" />
-								<listitem label="SDN NO. 33 TELABANG" value="SDN NO. 33 TELABANG" />
-								<listitem label="SDN NO. 40 MUNGGUK DIAN" value="SDN NO. 40 MUNGGUK DIAN" />
-								<listitem label="SDN NO. 12 KUALA LABAI" value="SDN NO. 12 KUALA LABAI" />
-							</listbox>
+							<listbox id="listUnitKerja" onSelect="checkUnitKerja()" mold="select" rows="1" width="250px"/>
 						</row>
 						<row>
 							<label value="Unit Organisasi" />
-							<listbox id="listUnitOrganisasi" onSelect="checkUnitOrganisasi()" mold="select" rows="1" width="250px">
-								<listitem label="--Pilih Salah Satu--" value="" selected="true"/>
-								<listitem label="DINAS DIKPORA" value="DINAS DIKPORA" />
-								<listitem label="DINAS KESEHATAN" value="DINAS KESEHATAN" />
-								<listitem label="RUMAH SAKIT UMUM DAERAH" value="RUMAH SAKIT UMUM DAERAH" />
-							</listbox>
+							<listbox id="listUnitOrganisasi" onSelect="checkUnitOrganisasi()" mold="select" rows="1" width="250px"/>
 						</row>
 						<row>
 							<hlayout></hlayout>
 							<button id="btnCari" label="Cari" image="/images/icons/search.gif" />
-							<hlayout></hlayout>
-							<hlayout></hlayout>
 						</row>
 					</rows>
 				</grid>

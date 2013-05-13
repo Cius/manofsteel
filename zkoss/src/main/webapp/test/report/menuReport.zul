@@ -3,7 +3,6 @@
 		<north border="none">
 			<menubar id="menubar" width="100%">
 				<menuitem label="Kembali" image="/images/icons/arrow_blue_left_16x16.gif" onClick="alert(self.label)"/>
-				<menuitem label="Cetak" image="/images/icons/print.gif" onClick="alert(self.label)"/>
 				<menu label="Laporan" image="/images/icons/page_detail.gif">
 					<menupopup>
 						<menu label="Daftar Status Pegawai">
@@ -15,8 +14,8 @@
 						<menu label="Daftar Urut">
 							<menupopup>
 								<menuitem label="NIP" href="report03.zul" />
-								<menuitem label="NAMA" href="report04.zul" />
-								<menuitem label="KEPANGKATAN (DUK)" href="report05.zul" />
+								<menuitem label="NAMA" href="report05.zul" />
+								<menuitem label="KEPANGKATAN (DUK)" href="report04.zul" />
 								<menuitem label="JABATAN STRUKTURAL" href="report06.zul" />
 							</menupopup>
 						</menu>
