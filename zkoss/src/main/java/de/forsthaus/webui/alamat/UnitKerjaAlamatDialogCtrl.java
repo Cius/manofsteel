@@ -68,7 +68,7 @@ public class UnitKerjaAlamatDialogCtrl extends GFCBaseCtrl implements Serializab
 	 * 'extends GFCBaseCtrl' GenericForwardComposer.
 	 * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	 */
-	protected Window unitKerjaDialogWindow; // autowired
+	protected Window unitKerjaAlamatDialogWindow; // autowired
 	protected Textbox tb_Alamat;
 	protected Textbox tb_UnitKerja;
 	protected Textbox tb_Kota;
@@ -114,7 +114,7 @@ public class UnitKerjaAlamatDialogCtrl extends GFCBaseCtrl implements Serializab
 	 * @param event
 	 * @throws Exception
 	 */
-	public void onCreate$unitKerjaDialogWindow(Event event) throws Exception {
+	public void onCreate$unitKerjaAlamatDialogWindow(Event event) throws Exception {
 		// create the Button Controller. Disable not used buttons during working
 		btnCtrl = new ButtonStatusCtrl(getUserWorkspace(), btnCtroller_ClassPrefix, true, btnNew, btnEdit, btnDelete, btnSave, btnCancel, btnClose);
 
@@ -241,7 +241,7 @@ public class UnitKerjaAlamatDialogCtrl extends GFCBaseCtrl implements Serializab
 			doClose();
 		} catch (final Exception e) {
 			// close anyway
-			unitKerjaDialogWindow.onClose();
+			unitKerjaAlamatDialogWindow.onClose();
 		}
 	}
 
@@ -285,7 +285,7 @@ public class UnitKerjaAlamatDialogCtrl extends GFCBaseCtrl implements Serializab
 			}
 		}
 
-		unitKerjaDialogWindow.onClose();
+		unitKerjaAlamatDialogWindow.onClose();
 	}
 
 	/**
@@ -365,7 +365,7 @@ public class UnitKerjaAlamatDialogCtrl extends GFCBaseCtrl implements Serializab
 			// during user action.
 			doStoreInitValues();
 
-			unitKerjaDialogWindow.doModal(); // open the dialog in modal
+			unitKerjaAlamatDialogWindow.doModal(); // open the dialog in modal
 			// mode
 		} catch (final Exception e) {
 			Messagebox.show(e.toString());
@@ -511,7 +511,7 @@ public class UnitKerjaAlamatDialogCtrl extends GFCBaseCtrl implements Serializab
 					lml.remove(lml.indexOf(gol));
 				}
 
-				unitKerjaDialogWindow.onClose(); // close
+				unitKerjaAlamatDialogWindow.onClose(); // close
 			}
 		}
 
