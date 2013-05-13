@@ -1,6 +1,5 @@
 package de.forsthaus.backend.util;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -49,13 +48,36 @@ public class PegawaiUtil {
 		return roman;
 	}
 	
+	public static String getRomanToDec(String roman){
+		String [] romans = {"I","II","III","IV","V","VI","VII","VIII","IX","X"};
+		String dec ="";
+		for (int i = 0; i < romans.length; i++) {
+			if(romans[i].equals(roman)){
+				dec = String.valueOf((i+1));
+				break;
+			}
+		}
+		return dec;
+	}
+	
+	public static String getKodeJabatan(String jabatan){
+		if(jabatan.equals(ConstantsText.JABATAN_STRUKTURAL)){
+			return "1";
+		}else if(jabatan.equals(ConstantsText.JABATAN_FKHUSUS)){
+			return "2";
+		}else if(jabatan.equals(ConstantsText.JABATAN_FUMUM)){
+			return "4";
+		}
+		return "";
+	}
+	
 	public static String convertGolongan(String kodeGol){
 		try{
 			String [] awal = {"I","II","III","IV"};
 			String [] akhir = {"a","b","c","d","e"};
 			int iAwal = Integer.parseInt(String.valueOf(kodeGol.charAt(0)));
 			int iAkhir = Integer.parseInt(String.valueOf(kodeGol.charAt(1)));
-			if((iAwal>=1 && iAwal<=4) && (iAkhir>=1 && iAkhir<=4)){
+			if((iAwal>=1 && iAwal<=4) && (iAkhir>=1 && iAkhir<=5)){
 				return awal[iAwal-1] + "/" + akhir[iAkhir-1];
 			}else{
 				return "";
@@ -65,11 +87,25 @@ public class PegawaiUtil {
 		}
 	}
 	
+	public static String convertEselon(String kodeGol){
+		try{
+			String [] awal = {"I","II","III","IV"};
+			String [] akhir = {"A","B","C","D","E"};
+			int iAwal = Integer.parseInt(String.valueOf(kodeGol.charAt(0)));
+			int iAkhir = Integer.parseInt(String.valueOf(kodeGol.charAt(1)));
+			if((iAwal>=1 && iAwal<=4) && (iAkhir>=1 && iAkhir<=5)){
+				return awal[iAwal-1] + "." + akhir[iAkhir-1];
+			}else{
+				return "";
+			}
+		}catch(Exception e){
+			return "";
+		}
+	}
+	
 	public static void main(String[] args) {
-		PegawaiUtil pg = new PegawaiUtil();
-		
-		String ese = pg.convertGolongan("32");
-		System.out.println(ese);
-
+		char a = 'a';
+		a++;		
+		System.out.println(a);
 	}
 }
