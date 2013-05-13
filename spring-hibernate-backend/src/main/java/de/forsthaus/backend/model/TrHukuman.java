@@ -9,7 +9,7 @@ public class TrHukuman {
 	private String nip;
 	private String tkHukum;
 	private String jnsHukum;
-	private String kPej;
+	private String kodePej;
 	private String nSkHukum;
 	private String tSkHukum;
 	private String tMulai;
@@ -19,7 +19,6 @@ public class TrHukuman {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -50,11 +49,11 @@ public class TrHukuman {
 	public void setJnsHukum(String jnsHukum) {
 		this.jnsHukum = jnsHukum;
 	}
-	public String getkPej() {
-		return kPej;
+	public String getKodePej() {
+		return kodePej;
 	}
-	public void setkPej(String kPej) {
-		this.kPej = kPej;
+	public void setKodePej(String kodePej) {
+		this.kodePej = kodePej;
 	}
 	public String getnSkHukum() {
 		return nSkHukum;
@@ -104,4 +103,6 @@ public class TrHukuman {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

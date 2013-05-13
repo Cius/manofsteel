@@ -7,29 +7,28 @@ public class TpJabatan {
 	private int version;
 	
 	private String nip;
-	private String kPejJab;
+	private String kodePejJab;
 	private String nSkJabat;
 	private Date tSkJabat;
 	private String jnsJab;
-	private String kJab;
-	private String kEselon;
+	private String kodeJab;
+	private String kodeEselon;
 	private Date tmtjab;
 	private String sJab;
 	private String nJab;
 	private String nJab1;
-	private String kInsKer;
-	private String kUnKer;
-	private String kSatKer;
+	private String kodeInsKer;
+	private String kodeUnKer;
+	private String kodeSatKer;
 	private Date tmtEselon;
 	private Date tmtJab1;
-	private String kJnsGuru;
-	private String kInsInd;
+	private String kodeJnsGuru;
+	private String kodeInsInd;
 	private String starec;
 	private String userEnt;
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -48,11 +47,11 @@ public class TpJabatan {
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
-	public String getkPejJab() {
-		return kPejJab;
+	public String getKodePejJab() {
+		return kodePejJab;
 	}
-	public void setkPejJab(String kPejJab) {
-		this.kPejJab = kPejJab;
+	public void setKodePejJab(String kodePejJab) {
+		this.kodePejJab = kodePejJab;
 	}
 	public String getnSkJabat() {
 		return nSkJabat;
@@ -72,17 +71,17 @@ public class TpJabatan {
 	public void setJnsJab(String jnsJab) {
 		this.jnsJab = jnsJab;
 	}
-	public String getkJab() {
-		return kJab;
+	public String getKodeJab() {
+		return kodeJab;
 	}
-	public void setkJab(String kJab) {
-		this.kJab = kJab;
+	public void setKodeJab(String kodeJab) {
+		this.kodeJab = kodeJab;
 	}
-	public String getkEselon() {
-		return kEselon;
+	public String getKodeEselon() {
+		return kodeEselon;
 	}
-	public void setkEselon(String kEselon) {
-		this.kEselon = kEselon;
+	public void setKodeEselon(String kodeEselon) {
+		this.kodeEselon = kodeEselon;
 	}
 	public Date getTmtjab() {
 		return tmtjab;
@@ -108,23 +107,23 @@ public class TpJabatan {
 	public void setnJab1(String nJab1) {
 		this.nJab1 = nJab1;
 	}
-	public String getkInsKer() {
-		return kInsKer;
+	public String getKodeInsKer() {
+		return kodeInsKer;
 	}
-	public void setkInsKer(String kInsKer) {
-		this.kInsKer = kInsKer;
+	public void setKodeInsKer(String kodeInsKer) {
+		this.kodeInsKer = kodeInsKer;
 	}
-	public String getkUnKer() {
-		return kUnKer;
+	public String getKodeUnKer() {
+		return kodeUnKer;
 	}
-	public void setkUnKer(String kUnKer) {
-		this.kUnKer = kUnKer;
+	public void setKodeUnKer(String kodeUnKer) {
+		this.kodeUnKer = kodeUnKer;
 	}
-	public String getkSatKer() {
-		return kSatKer;
+	public String getKodeSatKer() {
+		return kodeSatKer;
 	}
-	public void setkSatKer(String kSatKer) {
-		this.kSatKer = kSatKer;
+	public void setKodeSatKer(String kodeSatKer) {
+		this.kodeSatKer = kodeSatKer;
 	}
 	public Date getTmtEselon() {
 		return tmtEselon;
@@ -138,17 +137,17 @@ public class TpJabatan {
 	public void setTmtJab1(Date tmtJab1) {
 		this.tmtJab1 = tmtJab1;
 	}
-	public String getkJnsGuru() {
-		return kJnsGuru;
+	public String getKodeJnsGuru() {
+		return kodeJnsGuru;
 	}
-	public void setkJnsGuru(String kJnsGuru) {
-		this.kJnsGuru = kJnsGuru;
+	public void setKodeJnsGuru(String kodeJnsGuru) {
+		this.kodeJnsGuru = kodeJnsGuru;
 	}
-	public String getkInsInd() {
-		return kInsInd;
+	public String getKodeInsInd() {
+		return kodeInsInd;
 	}
-	public void setkInsInd(String kInsInd) {
-		this.kInsInd = kInsInd;
+	public void setKodeInsInd(String kodeInsInd) {
+		this.kodeInsInd = kodeInsInd;
 	}
 	public String getStarec() {
 		return starec;
@@ -180,4 +179,6 @@ public class TpJabatan {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

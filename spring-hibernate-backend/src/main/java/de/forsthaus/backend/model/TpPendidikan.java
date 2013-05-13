@@ -7,24 +7,24 @@ public class TpPendidikan {
 	private int version;
 	
 	private String nip;
-	private String kTpu;
-	private String kJur;
+	private String kodeTpu;
+	private String kodeJur;
 	private String nJur;
 	private String nSek;
 	private String tempat;
 	private String tSttb;
-	private String kDikStr;
+	private String kodeDikStr;
 	private String nDikStr;
 	private String sAngkatan;
 	private String sTMulai;
 	private String sTahun;
 	private String sJam;
-	private String kDikFung;
+	private String kodeDikFung;
 	private String nDikFung;
 	private String fAngkatan;
 	private String fTahun;
 	private String fJam;
-	private String kDikTek;
+	private String kodeDikTek;
 	private String nDikTek;
 	private String tAngkatan;
 	private String tTahun;
@@ -35,7 +35,6 @@ public class TpPendidikan {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -54,17 +53,17 @@ public class TpPendidikan {
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
-	public String getkTpu() {
-		return kTpu;
+	public String getKodeTpu() {
+		return kodeTpu;
 	}
-	public void setkTpu(String kTpu) {
-		this.kTpu = kTpu;
+	public void setKodeTpu(String kodeTpu) {
+		this.kodeTpu = kodeTpu;
 	}
-	public String getkJur() {
-		return kJur;
+	public String getKodeJur() {
+		return kodeJur;
 	}
-	public void setkJur(String kJur) {
-		this.kJur = kJur;
+	public void setKodeJur(String kodeJur) {
+		this.kodeJur = kodeJur;
 	}
 	public String getnJur() {
 		return nJur;
@@ -90,11 +89,11 @@ public class TpPendidikan {
 	public void settSttb(String tSttb) {
 		this.tSttb = tSttb;
 	}
-	public String getkDikStr() {
-		return kDikStr;
+	public String getKodeDikStr() {
+		return kodeDikStr;
 	}
-	public void setkDikStr(String kDikStr) {
-		this.kDikStr = kDikStr;
+	public void setKodeDikStr(String kodeDikStr) {
+		this.kodeDikStr = kodeDikStr;
 	}
 	public String getnDikStr() {
 		return nDikStr;
@@ -126,11 +125,11 @@ public class TpPendidikan {
 	public void setsJam(String sJam) {
 		this.sJam = sJam;
 	}
-	public String getkDikFung() {
-		return kDikFung;
+	public String getKodeDikFung() {
+		return kodeDikFung;
 	}
-	public void setkDikFung(String kDikFung) {
-		this.kDikFung = kDikFung;
+	public void setKodeDikFung(String kodeDikFung) {
+		this.kodeDikFung = kodeDikFung;
 	}
 	public String getnDikFung() {
 		return nDikFung;
@@ -156,11 +155,11 @@ public class TpPendidikan {
 	public void setfJam(String fJam) {
 		this.fJam = fJam;
 	}
-	public String getkDikTek() {
-		return kDikTek;
+	public String getKodeDikTek() {
+		return kodeDikTek;
 	}
-	public void setkDikTek(String kDikTek) {
-		this.kDikTek = kDikTek;
+	public void setKodeDikTek(String kodeDikTek) {
+		this.kodeDikTek = kodeDikTek;
 	}
 	public String getnDikTek() {
 		return nDikTek;
@@ -222,4 +221,6 @@ public class TpPendidikan {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

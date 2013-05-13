@@ -8,24 +8,23 @@ public class TrJabatan {
 	
 	private String nip;
 	private String jnsJab;
-	private String kPej;
+	private String kodePej;
 	private String noSkJab;
 	private Date tgSkJab;
-	private String kEselon;
+	private String kodeEselon;
 	private String tmtJab;
 	private String nJab;
 	private String nUnKer;
 	private String nInstansi;
 	private String nJab1;
 	private String tmtJab1;
-	private String kJnsGuru;
+	private String kodeJnsGuru;
 	private String jabSusPim;
 	
 	private String userEnt;
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -50,11 +49,11 @@ public class TrJabatan {
 	public void setJnsJab(String jnsJab) {
 		this.jnsJab = jnsJab;
 	}
-	public String getkPej() {
-		return kPej;
+	public String getKodePej() {
+		return kodePej;
 	}
-	public void setkPej(String kPej) {
-		this.kPej = kPej;
+	public void setKodePej(String kodePej) {
+		this.kodePej = kodePej;
 	}
 	public String getNoSkJab() {
 		return noSkJab;
@@ -68,11 +67,11 @@ public class TrJabatan {
 	public void setTgSkJab(Date tgSkJab) {
 		this.tgSkJab = tgSkJab;
 	}
-	public String getkEselon() {
-		return kEselon;
+	public String getKodeEselon() {
+		return kodeEselon;
 	}
-	public void setkEselon(String kEselon) {
-		this.kEselon = kEselon;
+	public void setKodeEselon(String kodeEselon) {
+		this.kodeEselon = kodeEselon;
 	}
 	public String getTmtJab() {
 		return tmtJab;
@@ -110,11 +109,11 @@ public class TrJabatan {
 	public void setTmtJab1(String tmtJab1) {
 		this.tmtJab1 = tmtJab1;
 	}
-	public String getkJnsGuru() {
-		return kJnsGuru;
+	public String getKodeJnsGuru() {
+		return kodeJnsGuru;
 	}
-	public void setkJnsGuru(String kJnsGuru) {
-		this.kJnsGuru = kJnsGuru;
+	public void setKodeJnsGuru(String kodeJnsGuru) {
+		this.kodeJnsGuru = kodeJnsGuru;
 	}
 	public String getJabSusPim() {
 		return jabSusPim;
@@ -146,4 +145,6 @@ public class TrJabatan {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

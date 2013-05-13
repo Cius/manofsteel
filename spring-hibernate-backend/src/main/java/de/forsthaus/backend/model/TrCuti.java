@@ -7,8 +7,8 @@ public class TrCuti {
 	private int version;
 	
 	private String nip;
-	private String kJnsCuti;
-	private String kPej;
+	private String kodeJnsCuti;
+	private String kodePej;
 	private String nSk;
 	private String tSk;
 	private String tMulai;
@@ -18,7 +18,6 @@ public class TrCuti {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -37,17 +36,17 @@ public class TrCuti {
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
-	public String getkJnsCuti() {
-		return kJnsCuti;
+	public String getKodeJnsCuti() {
+		return kodeJnsCuti;
 	}
-	public void setkJnsCuti(String kJnsCuti) {
-		this.kJnsCuti = kJnsCuti;
+	public void setKodeJnsCuti(String kodeJnsCuti) {
+		this.kodeJnsCuti = kodeJnsCuti;
 	}
-	public String getkPej() {
-		return kPej;
+	public String getKodePej() {
+		return kodePej;
 	}
-	public void setkPej(String kPej) {
-		this.kPej = kPej;
+	public void setKodePej(String kodePej) {
+		this.kodePej = kodePej;
 	}
 	public String getnSk() {
 		return nSk;
@@ -97,4 +96,6 @@ public class TrCuti {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

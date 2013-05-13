@@ -7,7 +7,7 @@ public class TrJasa {
 	private int version;
 	
 	private String nip;
-	private String kBintang;
+	private String kodeBintang;
 	private String nBintang;
 	private String pemberi;
 	
@@ -20,7 +20,6 @@ public class TrJasa {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -39,11 +38,11 @@ public class TrJasa {
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
-	public String getkBintang() {
-		return kBintang;
+	public String getKodeBintang() {
+		return kodeBintang;
 	}
-	public void setkBintang(String kBintang) {
-		this.kBintang = kBintang;
+	public void setKodeBintang(String kodeBintang) {
+		this.kodeBintang = kodeBintang;
 	}
 	public String getnBintang() {
 		return nBintang;
@@ -105,4 +104,6 @@ public class TrJasa {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

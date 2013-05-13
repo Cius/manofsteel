@@ -8,7 +8,7 @@ public class TrDiklat {
 	
 	private String nip;
 	private String jnsDiklat;
-	private String kDiklat;
+	private String kodeDiklat;
 	private String nDiklat;
 	private String tempat;
 	private String panitia;
@@ -21,7 +21,7 @@ public class TrDiklat {
 	private String tsttp;
 	private String negara;
 	private String thLulus;
-	private String kedudukan;
+	private String kodeedudukan;
 	private String topic;
 	private String starec;
 	
@@ -29,7 +29,6 @@ public class TrDiklat {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -54,11 +53,11 @@ public class TrDiklat {
 	public void setJnsDiklat(String jnsDiklat) {
 		this.jnsDiklat = jnsDiklat;
 	}
-	public String getkDiklat() {
-		return kDiklat;
+	public String getKodeDiklat() {
+		return kodeDiklat;
 	}
-	public void setkDiklat(String kDiklat) {
-		this.kDiklat = kDiklat;
+	public void setKodeDiklat(String kodeDiklat) {
+		this.kodeDiklat = kodeDiklat;
 	}
 	public String getnDiklat() {
 		return nDiklat;
@@ -126,11 +125,11 @@ public class TrDiklat {
 	public void setThLulus(String thLulus) {
 		this.thLulus = thLulus;
 	}
-	public String getKedudukan() {
-		return kedudukan;
+	public String getKodeedudukan() {
+		return kodeedudukan;
 	}
-	public void setKedudukan(String kedudukan) {
-		this.kedudukan = kedudukan;
+	public void setKodeedudukan(String kodeedudukan) {
+		this.kodeedudukan = kodeedudukan;
 	}
 	public String getTopic() {
 		return topic;
@@ -168,4 +167,6 @@ public class TrDiklat {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

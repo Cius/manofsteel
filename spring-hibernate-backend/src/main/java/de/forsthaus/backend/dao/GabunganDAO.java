@@ -18,6 +18,8 @@ public interface GabunganDAO {
 	
 	public List<Gabungan> getGabunganByKodeTabel(String string);
 	
+	public Gabungan getGabunganByKodeTabelAndKode(String tabel, String kode);
+	
 	public void saveOrUpdate(Gabungan entity);
 
 	public void delete(Gabungan entity);

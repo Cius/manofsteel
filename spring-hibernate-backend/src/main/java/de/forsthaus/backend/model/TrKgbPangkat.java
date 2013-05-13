@@ -7,23 +7,22 @@ public class TrKgbPangkat {
 	private int version;
 	
 	private String nip;
-	private String kJenis;
-	private String kPej;
+	private String kodeJenis;
+	private String kodePej;
 	private String nSkPang;
 	private String tSkPang;
-	private String kGolRu;
+	private String kodeGolRu;
 	private String tmt;
-	private String kKenpa;
+	private String kodeKenpa;
 	private String thKerja;
 	private String blKerja;
 	private String gaji;
-	private String kWilGaji;
+	private String kodeWilGaji;
 	
 	private String userEnt;
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -42,17 +41,17 @@ public class TrKgbPangkat {
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
-	public String getkJenis() {
-		return kJenis;
+	public String getKodeJenis() {
+		return kodeJenis;
 	}
-	public void setkJenis(String kJenis) {
-		this.kJenis = kJenis;
+	public void setKodeJenis(String kodeJenis) {
+		this.kodeJenis = kodeJenis;
 	}
-	public String getkPej() {
-		return kPej;
+	public String getKodePej() {
+		return kodePej;
 	}
-	public void setkPej(String kPej) {
-		this.kPej = kPej;
+	public void setKodePej(String kodePej) {
+		this.kodePej = kodePej;
 	}
 	public String getnSkPang() {
 		return nSkPang;
@@ -66,11 +65,11 @@ public class TrKgbPangkat {
 	public void settSkPang(String tSkPang) {
 		this.tSkPang = tSkPang;
 	}
-	public String getkGolRu() {
-		return kGolRu;
+	public String getKodeGolRu() {
+		return kodeGolRu;
 	}
-	public void setkGolRu(String kGolRu) {
-		this.kGolRu = kGolRu;
+	public void setKodeGolRu(String kodeGolRu) {
+		this.kodeGolRu = kodeGolRu;
 	}
 	public String getTmt() {
 		return tmt;
@@ -78,11 +77,11 @@ public class TrKgbPangkat {
 	public void setTmt(String tmt) {
 		this.tmt = tmt;
 	}
-	public String getkKenpa() {
-		return kKenpa;
+	public String getKodeKenpa() {
+		return kodeKenpa;
 	}
-	public void setkKenpa(String kKenpa) {
-		this.kKenpa = kKenpa;
+	public void setKodeKenpa(String kodeKenpa) {
+		this.kodeKenpa = kodeKenpa;
 	}
 	public String getThKerja() {
 		return thKerja;
@@ -102,11 +101,11 @@ public class TrKgbPangkat {
 	public void setGaji(String gaji) {
 		this.gaji = gaji;
 	}
-	public String getkWilGaji() {
-		return kWilGaji;
+	public String getKodeWilGaji() {
+		return kodeWilGaji;
 	}
-	public void setkWilGaji(String kWilGaji) {
-		this.kWilGaji = kWilGaji;
+	public void setKodeWilGaji(String kodeWilGaji) {
+		this.kodeWilGaji = kodeWilGaji;
 	}
 	public String getUserEnt() {
 		return userEnt;
@@ -132,4 +131,6 @@ public class TrKgbPangkat {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

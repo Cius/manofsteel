@@ -7,7 +7,7 @@ public class TpKgbPangkat {
 	private int version;
 	
 	private String nip;
-	private String kPejKgb;
+	private String kodePejKgb;
 	private String nSTahu;
 	private Date tSTahu;
 	
@@ -16,26 +16,25 @@ public class TpKgbPangkat {
 	private int thKerjaKgb;
 	private int blKerjaKgb;
 	
-	private String kKantor;
-	private String kPejPkt;
+	private String kodeKantor;
+	private String kodePejPkt;
 	private String nSkPang;
 	private Date tSkPang;
 	private Date tmtPang;
 	
-	private String kGolRuPkt;
+	private String kodeGolRuPkt;
 	private int thKerjaPkt;
 	private int blKerjaPkt;
 	private int gaPokPkt;
 	
 	private String aKredit;
-	private String kNPang;
+	private String kodeNPang;
 	private Date tmtInPasing;
 	
 	private String userEnt;
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -54,11 +53,11 @@ public class TpKgbPangkat {
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
-	public String getkPejKgb() {
-		return kPejKgb;
+	public String getKodePejKgb() {
+		return kodePejKgb;
 	}
-	public void setkPejKgb(String kPejKgb) {
-		this.kPejKgb = kPejKgb;
+	public void setKodePejKgb(String kodePejKgb) {
+		this.kodePejKgb = kodePejKgb;
 	}
 	public String getnSTahu() {
 		return nSTahu;
@@ -96,17 +95,17 @@ public class TpKgbPangkat {
 	public void setBlKerjaKgb(int blKerjaKgb) {
 		this.blKerjaKgb = blKerjaKgb;
 	}
-	public String getkKantor() {
-		return kKantor;
+	public String getKodeKantor() {
+		return kodeKantor;
 	}
-	public void setkKantor(String kKantor) {
-		this.kKantor = kKantor;
+	public void setKodeKantor(String kodeKantor) {
+		this.kodeKantor = kodeKantor;
 	}
-	public String getkPejPkt() {
-		return kPejPkt;
+	public String getKodePejPkt() {
+		return kodePejPkt;
 	}
-	public void setkPejPkt(String kPejPkt) {
-		this.kPejPkt = kPejPkt;
+	public void setKodePejPkt(String kodePejPkt) {
+		this.kodePejPkt = kodePejPkt;
 	}
 	public String getnSkPang() {
 		return nSkPang;
@@ -126,11 +125,11 @@ public class TpKgbPangkat {
 	public void setTmtPang(Date tmtPang) {
 		this.tmtPang = tmtPang;
 	}
-	public String getkGolRuPkt() {
-		return kGolRuPkt;
+	public String getKodeGolRuPkt() {
+		return kodeGolRuPkt;
 	}
-	public void setkGolRuPkt(String kGolRuPkt) {
-		this.kGolRuPkt = kGolRuPkt;
+	public void setKodeGolRuPkt(String kodeGolRuPkt) {
+		this.kodeGolRuPkt = kodeGolRuPkt;
 	}
 	public int getThKerjaPkt() {
 		return thKerjaPkt;
@@ -156,11 +155,11 @@ public class TpKgbPangkat {
 	public void setaKredit(String aKredit) {
 		this.aKredit = aKredit;
 	}
-	public String getkNPang() {
-		return kNPang;
+	public String getKodeNPang() {
+		return kodeNPang;
 	}
-	public void setkNPang(String kNPang) {
-		this.kNPang = kNPang;
+	public void setKodeNPang(String kodeNPang) {
+		this.kodeNPang = kodeNPang;
 	}
 	public Date getTmtInPasing() {
 		return tmtInPasing;
@@ -192,4 +191,6 @@ public class TpKgbPangkat {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

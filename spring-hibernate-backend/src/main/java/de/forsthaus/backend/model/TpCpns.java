@@ -9,22 +9,22 @@ public class TpCpns {
 	private int version;
 
 	private String nip;
-	private String kPejCpns;
+	private String kodePejCpns;
 	private String skCpns;
 	private Date tSkCpns;
 	private Date tmtCpns;
-	private String kGolRuCpns;
+	private String kodeGolRuCpns;
 	private String latPrajab;
 	private String thnPrajab;
 	private Date tmtTugas;
 	private String thnKerja;
 	private String blnKerja;
-	private String kTpuCpns;
-	private String kPejPns;
+	private String kodeTpuCpns;
+	private String kodePejPns;
 	private String skPns;
 	private Date tSkPns;
 	private Date tmtPns;
-	private String kGolRuPns;
+	private String kodeGolRuPns;
 	private String janjiPns;
 	private String userEnt;
 	private Date tglEnt;
@@ -43,202 +43,264 @@ public class TpCpns {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 
 	public int getVersion() {
 		return version;
 	}
 
+
 	public void setVersion(int version) {
 		this.version = version;
 	}
+
 
 	public String getNip() {
 		return nip;
 	}
 
+
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
 
-	public String getkPejCpns() {
-		return kPejCpns;
+
+	public String getKodePejCpns() {
+		return kodePejCpns;
 	}
 
-	public void setkPejCpns(String kPejCpns) {
-		this.kPejCpns = kPejCpns;
+
+	public void setKodePejCpns(String kodePejCpns) {
+		this.kodePejCpns = kodePejCpns;
 	}
+
 
 	public String getSkCpns() {
 		return skCpns;
 	}
 
+
 	public void setSkCpns(String skCpns) {
 		this.skCpns = skCpns;
 	}
+
 
 	public Date gettSkCpns() {
 		return tSkCpns;
 	}
 
+
 	public void settSkCpns(Date tSkCpns) {
 		this.tSkCpns = tSkCpns;
 	}
+
 
 	public Date getTmtCpns() {
 		return tmtCpns;
 	}
 
+
 	public void setTmtCpns(Date tmtCpns) {
 		this.tmtCpns = tmtCpns;
 	}
 
-	public String getkGolRuCpns() {
-		return kGolRuCpns;
+
+	public String getKodeGolRuCpns() {
+		return kodeGolRuCpns;
 	}
 
-	public void setkGolRuCpns(String kGolRuCpns) {
-		this.kGolRuCpns = kGolRuCpns;
+
+	public void setKodeGolRuCpns(String kodeGolRuCpns) {
+		this.kodeGolRuCpns = kodeGolRuCpns;
 	}
+
 
 	public String getLatPrajab() {
 		return latPrajab;
 	}
 
+
 	public void setLatPrajab(String latPrajab) {
 		this.latPrajab = latPrajab;
 	}
+
 
 	public String getThnPrajab() {
 		return thnPrajab;
 	}
 
+
 	public void setThnPrajab(String thnPrajab) {
 		this.thnPrajab = thnPrajab;
 	}
+
 
 	public Date getTmtTugas() {
 		return tmtTugas;
 	}
 
+
 	public void setTmtTugas(Date tmtTugas) {
 		this.tmtTugas = tmtTugas;
 	}
+
 
 	public String getThnKerja() {
 		return thnKerja;
 	}
 
+
 	public void setThnKerja(String thnKerja) {
 		this.thnKerja = thnKerja;
 	}
+
 
 	public String getBlnKerja() {
 		return blnKerja;
 	}
 
+
 	public void setBlnKerja(String blnKerja) {
 		this.blnKerja = blnKerja;
 	}
 
-	public String getkTpuCpns() {
-		return kTpuCpns;
+
+	public String getKodeTpuCpns() {
+		return kodeTpuCpns;
 	}
 
-	public void setkTpuCpns(String kTpuCpns) {
-		this.kTpuCpns = kTpuCpns;
+
+	public void setKodeTpuCpns(String kodeTpuCpns) {
+		this.kodeTpuCpns = kodeTpuCpns;
 	}
 
-	public String getkPejPns() {
-		return kPejPns;
+
+	public String getKodePejPns() {
+		return kodePejPns;
 	}
 
-	public void setkPejPns(String kPejPns) {
-		this.kPejPns = kPejPns;
+
+	public void setKodePejPns(String kodePejPns) {
+		this.kodePejPns = kodePejPns;
 	}
+
 
 	public String getSkPns() {
 		return skPns;
 	}
 
+
 	public void setSkPns(String skPns) {
 		this.skPns = skPns;
 	}
+
 
 	public Date gettSkPns() {
 		return tSkPns;
 	}
 
+
 	public void settSkPns(Date tSkPns) {
 		this.tSkPns = tSkPns;
 	}
+
 
 	public Date getTmtPns() {
 		return tmtPns;
 	}
 
+
 	public void setTmtPns(Date tmtPns) {
 		this.tmtPns = tmtPns;
 	}
 
-	public String getkGolRuPns() {
-		return kGolRuPns;
+
+	public String getKodeGolRuPns() {
+		return kodeGolRuPns;
 	}
 
-	public void setkGolRuPns(String kGolRuPns) {
-		this.kGolRuPns = kGolRuPns;
+
+	public void setKodeGolRuPns(String kodeGolRuPns) {
+		this.kodeGolRuPns = kodeGolRuPns;
 	}
+
 
 	public String getJanjiPns() {
 		return janjiPns;
 	}
 
+
 	public void setJanjiPns(String janjiPns) {
 		this.janjiPns = janjiPns;
 	}
+
 
 	public String getUserEnt() {
 		return userEnt;
 	}
 
+
 	public void setUserEnt(String userEnt) {
 		this.userEnt = userEnt;
 	}
 
+
 	public Date getTglEnt() {
 		return tglEnt;
 	}
+
+
 	public void setTglEnt(Date tglEnt) {
 		this.tglEnt = tglEnt;
 	}
+
 
 	public String getUserEdt() {
 		return userEdt;
 	}
 
+
 	public void setUserEdt(String userEdt) {
 		this.userEdt = userEdt;
 	}
 
+
 	public Date getTglEdt() {
 		return tglEdt;
 	}
+
+
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+
 
 	public TpIdentitas getIdentitas() {
 		return identitas;
 	}
 
+
 	public void setIdentitas(TpIdentitas identitas) {
 		this.identitas = identitas;
 	}
 
+
+	public String getKodeGolRuCpnsDesc() {
+		return kGolRuCpnsDesc;
+	}
+
+
+	public void setKodeGolRuCpnsDesc(String kodeGolRuCpnsDesc) {
+		this.kGolRuCpnsDesc = kodeGolRuCpnsDesc;
+	}
+
+
 	public String getkGolRuCpnsDesc() {
-		kGolRuCpnsDesc = PegawaiUtil.convertGolongan(kGolRuCpns); 
+		kGolRuCpnsDesc = PegawaiUtil.convertGolongan(kodeGolRuCpns); 
 		return kGolRuCpnsDesc;
 	}
 

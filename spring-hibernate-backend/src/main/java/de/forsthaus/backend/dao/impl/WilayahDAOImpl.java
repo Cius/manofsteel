@@ -103,7 +103,11 @@ public class WilayahDAOImpl extends BasisDAO<Wilayah> implements WilayahDAO, Ini
 		DetachedCriteria criteria = DetachedCriteria.forClass(Wilayah.class);
 		criteria.add(Restrictions.eq("kodeWilayah", kode));
 
-		return (Wilayah)getHibernateTemplate().findByCriteria(criteria).get(0);
+		try {
+			return (Wilayah)getHibernateTemplate().findByCriteria(criteria).get(0);
+		} catch(IndexOutOfBoundsException e) {
+			return null;
+		}
 	}
 
 }

@@ -7,7 +7,7 @@ public class TrOrganisasi {
 	private int version;
 	
 	private String nip;
-	private String kJnsOrg;
+	private String kodeJnsOrg;
 	private String nOrganisasi;
 	private String jabOrg;
 	private String pimpinan;
@@ -19,7 +19,6 @@ public class TrOrganisasi {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -38,11 +37,11 @@ public class TrOrganisasi {
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
-	public String getkJnsOrg() {
-		return kJnsOrg;
+	public String getKodeJnsOrg() {
+		return kodeJnsOrg;
 	}
-	public void setkJnsOrg(String kJnsOrg) {
-		this.kJnsOrg = kJnsOrg;
+	public void setKodeJnsOrg(String kodeJnsOrg) {
+		this.kodeJnsOrg = kodeJnsOrg;
 	}
 	public String getnOrganisasi() {
 		return nOrganisasi;
@@ -104,4 +103,6 @@ public class TrOrganisasi {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

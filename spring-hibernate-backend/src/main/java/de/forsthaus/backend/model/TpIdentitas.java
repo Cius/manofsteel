@@ -15,14 +15,14 @@ public class TpIdentitas {
 	private Date tgLahir;
 	private String kabLahir;
 
-	private String kSex;
-	private String kAgama;
-	private String kStaPeg;
-	private String kJnsPeg;
-	private String kDukPns;
-	private String kStaWin;
+	private String kodeSex;
+	private String kodeAgama;
+	private String kodeStaPeg;
+	private String kodeJnsPeg;
+	private String kodeDukPns;
+	private String kodeStaWin;
 	private String suku;
-	private String kGolDar;
+	private String kodeGolDar;
 
 	private String alJalan;
 	private String alRt;
@@ -46,9 +46,9 @@ public class TpIdentitas {
 	private String jumIsMi;
 	private String jumAnak;
 
-	private String kCatMut;
-	private String kHukDis;
-	private String kJasa;
+	private String kodeCatMut;
+	private String kodeHukDis;
+	private String kodeJasa;
 	private String dp3Akhir;
 	private String nipIsMi;
 	private String nipLama;
@@ -129,56 +129,56 @@ public class TpIdentitas {
 		return kabLahir;
 	}
 
-	public void setKabLahir(String kabLahir) {
-		this.kabLahir = kabLahir;
+	public void setKabLahir(String kodeabLahir) {
+		this.kabLahir = kodeabLahir;
 	}
 
-	public String getkSex() {
-		return kSex;
+	public String getKodeSex() {
+		return kodeSex;
 	}
 
-	public void setkSex(String kSex) {
-		this.kSex = kSex;
+	public void setKodeSex(String kodeSex) {
+		this.kodeSex = kodeSex;
 	}
 
-	public String getkAgama() {
-		return kAgama;
+	public String getKodeAgama() {
+		return kodeAgama;
 	}
 
-	public void setkAgama(String kAgama) {
-		this.kAgama = kAgama;
+	public void setKodeAgama(String kodeAgama) {
+		this.kodeAgama = kodeAgama;
 	}
 
-	public String getkStaPeg() {
-		return kStaPeg;
+	public String getKodeStaPeg() {
+		return kodeStaPeg;
 	}
 
-	public void setkStaPeg(String kStaPeg) {
-		this.kStaPeg = kStaPeg;
+	public void setKodeStaPeg(String kodeStaPeg) {
+		this.kodeStaPeg = kodeStaPeg;
 	}
 
-	public String getkJnsPeg() {
-		return kJnsPeg;
+	public String getKodeJnsPeg() {
+		return kodeJnsPeg;
 	}
 
-	public void setkJnsPeg(String kJnsPeg) {
-		this.kJnsPeg = kJnsPeg;
+	public void setKodeJnsPeg(String kodeJnsPeg) {
+		this.kodeJnsPeg = kodeJnsPeg;
 	}
 
-	public String getkDukPns() {
-		return kDukPns;
+	public String getKodeDukPns() {
+		return kodeDukPns;
 	}
 
-	public void setkDukPns(String kDukPns) {
-		this.kDukPns = kDukPns;
+	public void setKodeDukPns(String kodeDukPns) {
+		this.kodeDukPns = kodeDukPns;
 	}
 
-	public String getkStaWin() {
-		return kStaWin;
+	public String getKodeStaWin() {
+		return kodeStaWin;
 	}
 
-	public void setkStaWin(String kStaWin) {
-		this.kStaWin = kStaWin;
+	public void setKodeStaWin(String kodeStaWin) {
+		this.kodeStaWin = kodeStaWin;
 	}
 
 	public String getSuku() {
@@ -189,12 +189,12 @@ public class TpIdentitas {
 		this.suku = suku;
 	}
 
-	public String getkGolDar() {
-		return kGolDar;
+	public String getKodeGolDar() {
+		return kodeGolDar;
 	}
 
-	public void setkGolDar(String kGolDar) {
-		this.kGolDar = kGolDar;
+	public void setKodeGolDar(String kodeGolDar) {
+		this.kodeGolDar = kodeGolDar;
 	}
 
 	public String getAlJalan() {
@@ -225,8 +225,8 @@ public class TpIdentitas {
 		return kodePos;
 	}
 
-	public void setKodePos(String kodePos) {
-		this.kodePos = kodePos;
+	public void setKodePos(String kodeodePos) {
+		this.kodePos = kodeodePos;
 	}
 
 	public String getAlTelp() {
@@ -349,28 +349,28 @@ public class TpIdentitas {
 		this.jumAnak = jumAnak;
 	}
 
-	public String getkCatMut() {
-		return kCatMut;
+	public String getKodeCatMut() {
+		return kodeCatMut;
 	}
 
-	public void setkCatMut(String kCatMut) {
-		this.kCatMut = kCatMut;
+	public void setKodeCatMut(String kodeCatMut) {
+		this.kodeCatMut = kodeCatMut;
 	}
 
-	public String getkHukDis() {
-		return kHukDis;
+	public String getKodeHukDis() {
+		return kodeHukDis;
 	}
 
-	public void setkHukDis(String kHukDis) {
-		this.kHukDis = kHukDis;
+	public void setKodeHukDis(String kodeHukDis) {
+		this.kodeHukDis = kodeHukDis;
 	}
 
-	public String getkJasa() {
-		return kJasa;
+	public String getKodeJasa() {
+		return kodeJasa;
 	}
 
-	public void setkJasa(String jasa) {
-		this.kJasa = jasa;
+	public void setKodeJasa(String kodeJasa) {
+		this.kodeJasa = kodeJasa;
 	}
 
 	public String getDp3Akhir() {
@@ -430,27 +430,27 @@ public class TpIdentitas {
 	}
 
 	public String getkDukPnsDesc() {
-		if(kDukPns.equals("01")){
+		if(kodeDukPns.equals("01")){
 			kDukPnsDesc = "AKTIF";
-		}else if(kDukPns.equals("02")){
+		}else if(kodeDukPns.equals("02")){
 			kDukPnsDesc = "CUTIL LUAR TANGGUNAN NEGARA (CLTN)";
-		}else if(kDukPns.equals("03")){
+		}else if(kodeDukPns.equals("03")){
 			kDukPnsDesc = "PERPANJANGAN CLTN";
-		}else if(kDukPns.equals("04")){
+		}else if(kodeDukPns.equals("04")){
 			kDukPnsDesc = "TUGAS BELAJAR";
-		}else if(kDukPns.equals("05")){
+		}else if(kodeDukPns.equals("05")){
 			kDukPnsDesc = "PEMBERHENTIAN SEMENTARA";
-		}else if(kDukPns.equals("06")){
+		}else if(kodeDukPns.equals("06")){
 			kDukPnsDesc = "PENERIMA UANG TUNGGU";
-		}else if(kDukPns.equals("07")){
+		}else if(kodeDukPns.equals("07")){
 			kDukPnsDesc = "WAJIB MILITER";
-		}else if(kDukPns.equals("08")){
+		}else if(kodeDukPns.equals("08")){
 			kDukPnsDesc = "PNS YANG DINYATAKAN HILANG";
-		}else if(kDukPns.equals("09")){
+		}else if(kodeDukPns.equals("09")){
 			kDukPnsDesc = "PEJABAT NEGARA";
-		}else if(kDukPns.equals("10")){
+		}else if(kodeDukPns.equals("10")){
 			kDukPnsDesc = "KEPALA DESA";
-		}else if(kDukPns.equals("11")){
+		}else if(kodeDukPns.equals("11")){
 			kDukPnsDesc = "KEBERATAN ATAS PENJATUHAN HUKUMAN DISIPLIN";
 		}
 		return kDukPnsDesc;
@@ -461,43 +461,43 @@ public class TpIdentitas {
 	}
 
 	public String getkJnsPegDesc() {
-		if(kJnsPeg.equals("01")){
+		if(kodeJnsPeg.equals("01")){
 			kJnsPegDesc = "PNS PUSAT DEPDAGRI";
-		}else if(kJnsPeg.equals("02")){
+		}else if(kodeJnsPeg.equals("02")){
 			kJnsPegDesc = "PNS PUSAT DPB PADA INSTANSI LAIN";
-		}else if(kJnsPeg.equals("03")){
+		}else if(kodeJnsPeg.equals("03")){
 			kJnsPegDesc = "PNS PUSAT DPK PADA INSTANSI LAIN";
-		}else if(kJnsPeg.equals("04")){
+		}else if(kodeJnsPeg.equals("04")){
 			kJnsPegDesc = "PNS PUSAT DPB PADA PEMDA PROPINSI";
-		}else if(kJnsPeg.equals("05")){
+		}else if(kodeJnsPeg.equals("05")){
 			kJnsPegDesc = "PNS PUSAT DPK PADA PEMDA PROPINSI";
-		}else if(kJnsPeg.equals("06")){
+		}else if(kodeJnsPeg.equals("06")){
 			kJnsPegDesc = "PNS PUSAT DPB PADA PEMDA KOTA";
-		}else if(kJnsPeg.equals("07")){
+		}else if(kodeJnsPeg.equals("07")){
 			kJnsPegDesc = "PNS PUSAT DPK PADA PEMDA KOTA";
-		}else if(kJnsPeg.equals("08")){
+		}else if(kodeJnsPeg.equals("08")){
 			kJnsPegDesc = "PNS PUSAT DPB PADA BUMN BADAN LAIN";
-		}else if(kJnsPeg.equals("09")){
+		}else if(kodeJnsPeg.equals("09")){
 			kJnsPegDesc = "PNS PUSAT DPK PADA BUMN BADAN LAIN";
-		}else if(kJnsPeg.equals("10")){
+		}else if(kodeJnsPeg.equals("10")){
 			kJnsPegDesc = "PNS DAERAH PROPINSI";
-		}else if(kJnsPeg.equals("11")){
+		}else if(kodeJnsPeg.equals("11")){
 			kJnsPegDesc = "PNS DAERAH PROPINSI DPB PADA INSTANSI";
-		}else if(kJnsPeg.equals("12")){
+		}else if(kodeJnsPeg.equals("12")){
 			kJnsPegDesc = "PNS DAERAH PROPINSI DPK PADA INSTANSI";
-		}else if(kJnsPeg.equals("13")){
+		}else if(kodeJnsPeg.equals("13")){
 			kJnsPegDesc = "PNS DAERAH PROPINSI DPB PADA BUMN/BUMD";
-		}else if(kJnsPeg.equals("14")){
+		}else if(kodeJnsPeg.equals("14")){
 			kJnsPegDesc = "PNS DAERAH PROPINSI DPK PADA BUMN/BUMD";
-		}else if(kJnsPeg.equals("15")){
+		}else if(kodeJnsPeg.equals("15")){
 			kJnsPegDesc = "PNS DAERAH KABUPATEN";
-		}else if(kJnsPeg.equals("16")){
+		}else if(kodeJnsPeg.equals("16")){
 			kJnsPegDesc = "PNS DAERAH KABUPATEN/KOTA DPB PADA INSTANSI";
-		}else if(kJnsPeg.equals("17")){
+		}else if(kodeJnsPeg.equals("17")){
 			kJnsPegDesc = "PNS DAERAH KABUPATEN/KOTA DPK PADA INSTANSI";
-		}else if(kJnsPeg.equals("18")){
+		}else if(kodeJnsPeg.equals("18")){
 			kJnsPegDesc = "PNS DAERAH KABUPATEN/KOTA DPB PADA BUMD/BA";
-		}else if(kJnsPeg.equals("19")){
+		}else if(kodeJnsPeg.equals("19")){
 			kJnsPegDesc = "PNS DAERAH KABUPATEN/KOTA DPB PADA BUMD/BA";
 		}
 		return kJnsPegDesc;

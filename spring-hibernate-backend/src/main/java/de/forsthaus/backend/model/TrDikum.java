@@ -7,9 +7,9 @@ public class TrDikum {
 	private int version;
 	
 	private String nip;
-	private String kTpu;
-	private String kFak;
-	private String kJur;
+	private String kodeTpu;
+	private String kodeFak;
+	private String kodeJur;
 	private String nJur;
 	private String nSek;
 	private String tempat;
@@ -22,7 +22,6 @@ public class TrDikum {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -41,23 +40,23 @@ public class TrDikum {
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
-	public String getkTpu() {
-		return kTpu;
+	public String getKodeTpu() {
+		return kodeTpu;
 	}
-	public void setkTpu(String kTpu) {
-		this.kTpu = kTpu;
+	public void setKodeTpu(String kodeTpu) {
+		this.kodeTpu = kodeTpu;
 	}
-	public String getkFak() {
-		return kFak;
+	public String getKodeFak() {
+		return kodeFak;
 	}
-	public void setkFak(String kFak) {
-		this.kFak = kFak;
+	public void setKodeFak(String kodeFak) {
+		this.kodeFak = kodeFak;
 	}
-	public String getkJur() {
-		return kJur;
+	public String getKodeJur() {
+		return kodeJur;
 	}
-	public void setkJur(String kJur) {
-		this.kJur = kJur;
+	public void setKodeJur(String kodeJur) {
+		this.kodeJur = kodeJur;
 	}
 	public String getnJur() {
 		return nJur;
@@ -125,4 +124,6 @@ public class TrDikum {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

@@ -30,7 +30,7 @@ public class GabunganDAOImpl extends BasisDAO<Gabungan> implements GabunganDAO, 
 	@Override
 	public List<Gabungan> getAllGabungan() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Gabungan.class);
-		criteria.addOrder(Order.asc("kodeGabungan"));
+		criteria.addOrder(Order.asc("kode"));
 
 		return getHibernateTemplate().findByCriteria(criteria);
 	}
@@ -52,7 +52,7 @@ public class GabunganDAOImpl extends BasisDAO<Gabungan> implements GabunganDAO, 
 	public List<Gabungan> getGabunganLikeName(String string) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Gabungan.class);
 		criteria.add(Restrictions.like("namaGabungan", string, MatchMode.ANYWHERE));
-		criteria.addOrder(Order.asc("kodeGabungan"));
+		criteria.addOrder(Order.asc("kode"));
 
 		return getHibernateTemplate().findByCriteria(criteria);
 	}
@@ -61,9 +61,22 @@ public class GabunganDAOImpl extends BasisDAO<Gabungan> implements GabunganDAO, 
 	public List<Gabungan> getGabunganByKodeTabel(String string) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Gabungan.class);
 		criteria.add(Restrictions.eq("kodeTabel", string));
-		criteria.addOrder(Order.asc("kodeGabungan"));
+		criteria.addOrder(Order.asc("kode"));
 
 		return getHibernateTemplate().findByCriteria(criteria);
+	}
+
+	@Override
+	public Gabungan getGabunganByKodeTabelAndKode(String tabel, String kode) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Gabungan.class);
+		criteria.add(Restrictions.eq("kodeTabel", tabel));
+		criteria.add(Restrictions.eq("kode", kode));
+		
+		try {
+			return ((List<Gabungan>) getHibernateTemplate().findByCriteria(criteria)).get(0);
+		} catch(IndexOutOfBoundsException e) {
+			return null;
+		}
 	}
 
 }

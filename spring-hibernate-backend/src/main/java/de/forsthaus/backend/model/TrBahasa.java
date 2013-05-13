@@ -8,13 +8,12 @@ public class TrBahasa {
 	
 	private String nip;
 	private String nBahasa;
-	private String kBahasa;
+	private String kodeBahasa;
 	private String jBahasa;
 	private String userEnt;
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -39,11 +38,11 @@ public class TrBahasa {
 	public void setnBahasa(String nBahasa) {
 		this.nBahasa = nBahasa;
 	}
-	public String getkBahasa() {
-		return kBahasa;
+	public String getKodeBahasa() {
+		return kodeBahasa;
 	}
-	public void setkBahasa(String kBahasa) {
-		this.kBahasa = kBahasa;
+	public void setKodeBahasa(String kodeBahasa) {
+		this.kodeBahasa = kodeBahasa;
 	}
 	public String getjBahasa() {
 		return jBahasa;
@@ -75,4 +74,6 @@ public class TrBahasa {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

@@ -7,15 +7,15 @@ public class TrKeluarga {
 	private int version;
 	
 	private String nip;
-	private String kHubKel;
+	private String kodeHubKel;
 	private String namaKel;
 	private String tmLahir;
 	private String tgLahir;
 	private String tgKawin;
-	private String kSex;
-	private String kTpu;
+	private String kodeSex;
+	private String kodeTpu;
 	private String statun;
-	private String kKerja;
+	private String kodeKerja;
 	private String alJalan1;
 	private String alJalan2;
 	private String alJalan3;
@@ -28,7 +28,6 @@ public class TrKeluarga {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -47,11 +46,11 @@ public class TrKeluarga {
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
-	public String getkHubKel() {
-		return kHubKel;
+	public String getKodeHubKel() {
+		return kodeHubKel;
 	}
-	public void setkHubKel(String kHubKel) {
-		this.kHubKel = kHubKel;
+	public void setKodeHubKel(String kodeHubKel) {
+		this.kodeHubKel = kodeHubKel;
 	}
 	public String getNamaKel() {
 		return namaKel;
@@ -77,17 +76,17 @@ public class TrKeluarga {
 	public void setTgKawin(String tgKawin) {
 		this.tgKawin = tgKawin;
 	}
-	public String getkSex() {
-		return kSex;
+	public String getKodeSex() {
+		return kodeSex;
 	}
-	public void setkSex(String kSex) {
-		this.kSex = kSex;
+	public void setKodeSex(String kodeSex) {
+		this.kodeSex = kodeSex;
 	}
-	public String getkTpu() {
-		return kTpu;
+	public String getKodeTpu() {
+		return kodeTpu;
 	}
-	public void setkTpu(String kTpu) {
-		this.kTpu = kTpu;
+	public void setKodeTpu(String kodeTpu) {
+		this.kodeTpu = kodeTpu;
 	}
 	public String getStatun() {
 		return statun;
@@ -95,11 +94,11 @@ public class TrKeluarga {
 	public void setStatun(String statun) {
 		this.statun = statun;
 	}
-	public String getkKerja() {
-		return kKerja;
+	public String getKodeKerja() {
+		return kodeKerja;
 	}
-	public void setkKerja(String kKerja) {
-		this.kKerja = kKerja;
+	public void setKodeKerja(String kodeKerja) {
+		this.kodeKerja = kodeKerja;
 	}
 	public String getAlJalan1() {
 		return alJalan1;
@@ -167,4 +166,6 @@ public class TrKeluarga {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }

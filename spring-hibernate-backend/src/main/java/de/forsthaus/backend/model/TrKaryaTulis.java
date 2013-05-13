@@ -10,13 +10,12 @@ public class TrKaryaTulis {
 	private String jenis;
 	private String judul;
 	private String tahun;
-	private String ket;
+	private String kodeet;
 	
 	private String userEnt;
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
-	
 	public int getId() {
 		return id;
 	}
@@ -53,11 +52,11 @@ public class TrKaryaTulis {
 	public void setTahun(String tahun) {
 		this.tahun = tahun;
 	}
-	public String getKet() {
-		return ket;
+	public String getKodeet() {
+		return kodeet;
 	}
-	public void setKet(String ket) {
-		this.ket = ket;
+	public void setKodeet(String kodeet) {
+		this.kodeet = kodeet;
 	}
 	public String getUserEnt() {
 		return userEnt;
@@ -83,4 +82,6 @@ public class TrKaryaTulis {
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
 	}
+	
+	
 }
