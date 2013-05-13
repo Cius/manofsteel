@@ -109,12 +109,12 @@
 										<div align="right" style="float: right; padding-bottom: 3px;">
 
 											<hbox pack="end">
-												<checkbox id="chkbNotifications"
-													label="${c:l('common.Notifications.Stop')}" style="color: white;" />
+<!-- 												<checkbox id="chkbNotifications" -->
+<!-- 													label="${c:l('common.Notifications.Stop')}" style="color: white;" /> -->
 												<a id="btnUserSettings" label="${c:l('common.MySettings')}"
 													style="color: white;" />
 												<space width="5px" />
-												<a id="btnAbout" label="${c:l('common.About')}" style="color: white;" />
+<!-- 												<a id="btnAbout" label="${c:l('common.About')}" style="color: white;" /> -->
 												<space width="5px" />
 												<a id="btnLogout" label="${c:l('btnLogout.label')}"
 													style="color: white;" />
@@ -198,7 +198,7 @@
 
 						<center border="none">
 							<!-- The StatusBar. Comps are created in the Controller -->
-							<window id="winStatusBar" apply="${statusBarCtrl}" border="none" width="100%" height="22px" />
+<!-- 							<window id="winStatusBar" apply="${statusBarCtrl}" border="none" width="100%" height="22px" /> -->
 						</center>
 
 					</borderlayout>
