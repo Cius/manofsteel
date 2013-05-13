@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.forsthaus.backend.model.Dikum" table="mst_dikum">
+
+		<!--
+			<id name="id" type="long"> <column name="art_id" /> <generator
+			class="assigned" /> </id>
+		-->
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment">
+				<param name="sequence">dikum_seq</param>
+				<!--
+					for mySQL use generator class="native" <generator class="native" />
+				-->
+			</generator>
+		</id>
+
+		<version name="version" column="VERSION" type="integer" />
+
+		<property name="ktpu" type="string">
+			<column name="KTPU"  not-null="true"/>
+		</property>
+		<property name="kjur" type="string">
+			<column name="KJUR" not-null="true"/>
+		</property>
+		<property name="njur" type="string">
+			<column name="NJUR" not-null="true"/>
+		</property>
+		<property name="ndik" type="string">
+			<column name="NDIK" not-null="true"/>
+		</property>
+		<property name="krumpun" type="string">
+			<column name="KRUMPUN" not-null="true"/>
+		</property>
+		<many-to-one name="gawal" class="de.forsthaus.backend.model.GolonganRuang" property-ref="kodeGolonganRuang"
+			fetch="join" lazy="false">
+			<column name="GAWAL" />
+		</many-to-one>
+		<many-to-one name="gakhir" class="de.forsthaus.backend.model.GolonganRuang" property-ref="kodeGolonganRuang"
+			fetch="join" lazy="false">
+			<column name="GAKHIR" />
+		</many-to-one>
+	</class>
+
+</hibernate-mapping>

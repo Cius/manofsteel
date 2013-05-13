@@ -71,6 +71,10 @@
 				</value>
 				<value>de/forsthaus/backend/model/UnitKerja.hbm.xml
 				</value>
+				<value>de/forsthaus/backend/model/JenisGuru.hbm.xml
+				</value>
+				<value>de/forsthaus/backend/model/Dikum.hbm.xml
+				</value>
 <!-- 				<value>de/forsthaus/backend/model/Propinsi.hbm.xml -->
 <!-- 				</value> -->
 <!-- 				<value>de/forsthaus/backend/model/Kota.hbm.xml -->
@@ -210,6 +214,8 @@
 	<bean id="gabunganDAO" class="de.forsthaus.backend.dao.impl.GabunganDAOImpl" parent="basisDAO" />
 	<bean id="eselonDAO" class="de.forsthaus.backend.dao.impl.EselonDAOImpl" parent="basisDAO" />
 	<bean id="unitKerjaDAO" class="de.forsthaus.backend.dao.impl.UnitKerjaDAOImpl" parent="basisDAO" />
+	<bean id="jenisGuruDAO" class="de.forsthaus.backend.dao.impl.JenisGuruDAOImpl" parent="basisDAO" />
+	<bean id="dikumDAO" class="de.forsthaus.backend.dao.impl.DikumDAOImpl" parent="basisDAO" />
 	
 
 	<!-- ====================================================== -->
