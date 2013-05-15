@@ -35,4 +35,22 @@ public class ConstantsText {
 	public static final String JABATAN_STRUKTURAL="STRUKTURAL";
 	public static final String ESELON_AWAL="ESELON_AWAL";
 	public static final String ESELON_AKHIR="ESELON_AKHIR";
+	
+	public static final String KODETABEL_AGAMA 				= "1";
+	public static final String KODETABEL_STATUSPEG 			= "2";
+	public static final String KODETABEL_JENISPEG 			= "3";
+	public static final String KODETABEL_DUDUKPEG 			= "4";
+	public static final String KODETABEL_JENISNAIK 			= "8";
+	public static final String KODETABEL_POKJABATAN 		= "11";
+	public static final String KODETABEL_PEJABAT 			= "12";
+	public static final String KODETABEL_WILAYAHGAJI 		= "17";
+	public static final String KODETABEL_JENISJABATAN 		= "29";
+	
+	public static final String TIPEWILAYAH_PROVINSI = "1";
+	public static final String TIPEWILAYAH_KOTA = "2";
+	public static final String TIPEWILAYAH_KEC = "3";
+	public static final String TIPEWILAYAH_DES = "4";
+	public static final String ZEROADDITION_PROVINSI = "00000000";
+	public static final String ZEROADDITION_KOTA = "000000";
+	public static final String ZEROADDITION_KEC = "0000";
 }
