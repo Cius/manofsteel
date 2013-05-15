@@ -619,7 +619,7 @@ public class TbMaster {
 			TrDiklat trDiklat = null;
 			for (Iterator<TrDiklat> iterator = getTrdiklat().iterator(); iterator.hasNext();) {
 				trDiklat = (TrDiklat) iterator.next();
-				diklatTerakhir = i + ". "+trDiklat.getnDiklat()+" TAHUN "+sdf.format(trDiklat.gettAkhir()+"<br/>");
+				diklatTerakhir = i + ". "+trDiklat.getNumDiklat()+" TAHUN "+sdf.format(trDiklat.getTglAkhir()+"<br/>");
 				i++;
 			}
 		}

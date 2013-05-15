@@ -1,6 +1,7 @@
 package de.forsthaus.backend.model;
 
 import java.util.Date;
+import java.util.List;
 
 import de.forsthaus.backend.util.PegawaiUtil;
 
@@ -11,7 +12,7 @@ public class TpCpns {
 	private String nip;
 	private String kodePejCpns;
 	private String skCpns;
-	private Date tSkCpns;
+	private Date tglSkCpns;
 	private Date tmtCpns;
 	private String kodeGolRuCpns;
 	private String latPrajab;
@@ -22,7 +23,7 @@ public class TpCpns {
 	private String kodeTpuCpns;
 	private String kodePejPns;
 	private String skPns;
-	private Date tSkPns;
+	private Date tglSkPns;
 	private Date tmtPns;
 	private String kodeGolRuPns;
 	private String janjiPns;
@@ -32,6 +33,10 @@ public class TpCpns {
 	private Date tglEdt;
 	
 	private TpIdentitas identitas;
+	private TpKgbPangkat pangkat;
+	private TpJabatan jabatan;
+	
+	private List<TrKgbPangkat> pangkats;
 	
 	private String kGolRuCpnsDesc;
 	private String latPrajabDesc;
@@ -82,12 +87,12 @@ public class TpCpns {
 		this.skCpns = skCpns;
 	}
 
-	public Date gettSkCpns() {
-		return tSkCpns;
+	public Date getTglSkCpns() {
+		return tglSkCpns;
 	}
 
-	public void settSkCpns(Date tSkCpns) {
-		this.tSkCpns = tSkCpns;
+	public void setTglSkCpns(Date tSkCpns) {
+		this.tglSkCpns = tSkCpns;
 	}
 
 	public Date getTmtCpns() {
@@ -176,12 +181,12 @@ public class TpCpns {
 		this.skPns = skPns;
 	}
 
-	public Date gettSkPns() {
-		return tSkPns;
+	public Date getTglSkPns() {
+		return tglSkPns;
 	}
 
-	public void settSkPns(Date tSkPns) {
-		this.tSkPns = tSkPns;
+	public void setTglSkPns(Date tSkPns) {
+		this.tglSkPns = tSkPns;
 	}
 
 	public Date getTmtPns() {
@@ -270,6 +275,30 @@ public class TpCpns {
 
 	public void setLatPrajabDesc(String latPrajabDesc) {
 		this.latPrajabDesc = latPrajabDesc;
+	}
+
+	public TpKgbPangkat getPangkat() {
+		return pangkat;
+	}
+
+	public void setPangkat(TpKgbPangkat pangkat) {
+		this.pangkat = pangkat;
+	}
+
+	public TpJabatan getJabatan() {
+		return jabatan;
+	}
+
+	public void setJabatan(TpJabatan jabatan) {
+		this.jabatan = jabatan;
+	}
+
+	public List<TrKgbPangkat> getPangkats() {
+		return pangkats;
+	}
+
+	public void setPangkats(List<TrKgbPangkat> pangkats) {
+		this.pangkats = pangkats;
 	}
 
 }

@@ -9,7 +9,7 @@ public class TrKgbPangkat {
 	private String nip;
 	private String kodeJenis;
 	private String kodePej;
-	private String nSkPang;
+	private String numSkPang;
 	private String tSkPang;
 	private String kodeGolRu;
 	private String tmt;
@@ -53,16 +53,16 @@ public class TrKgbPangkat {
 	public void setKodePej(String kodePej) {
 		this.kodePej = kodePej;
 	}
-	public String getnSkPang() {
-		return nSkPang;
+	public String getNumSkPang() {
+		return numSkPang;
 	}
-	public void setnSkPang(String nSkPang) {
-		this.nSkPang = nSkPang;
+	public void setNumSkPang(String numSkPang) {
+		this.numSkPang = numSkPang;
 	}
-	public String gettSkPang() {
+	public String getTglSkPang() {
 		return tSkPang;
 	}
-	public void settSkPang(String tSkPang) {
+	public void setTglSkPang(String tSkPang) {
 		this.tSkPang = tSkPang;
 	}
 	public String getKodeGolRu() {

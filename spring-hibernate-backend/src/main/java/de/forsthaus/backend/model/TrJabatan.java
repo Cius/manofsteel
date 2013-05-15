@@ -13,10 +13,10 @@ public class TrJabatan {
 	private Date tgSkJab;
 	private String kodeEselon;
 	private String tmtJab;
-	private String nJab;
-	private String nUnKer;
-	private String nInstansi;
-	private String nJab1;
+	private String namaJab;
+	private String numUnKer;
+	private String numInstansi;
+	private String namaJab1;
 	private String tmtJab1;
 	private String kodeJnsGuru;
 	private String jabSusPim;
@@ -79,29 +79,29 @@ public class TrJabatan {
 	public void setTmtJab(String tmtJab) {
 		this.tmtJab = tmtJab;
 	}
-	public String getnJab() {
-		return nJab;
+	public String getNamaJab() {
+		return namaJab;
 	}
-	public void setnJab(String nJab) {
-		this.nJab = nJab;
+	public void setNamaJab(String namaJab) {
+		this.namaJab = namaJab;
 	}
-	public String getnUnKer() {
-		return nUnKer;
+	public String getNumUnKer() {
+		return numUnKer;
 	}
-	public void setnUnKer(String nUnKer) {
-		this.nUnKer = nUnKer;
+	public void setNumUnKer(String numUnKer) {
+		this.numUnKer = numUnKer;
 	}
-	public String getnInstansi() {
-		return nInstansi;
+	public String getNumInstansi() {
+		return numInstansi;
 	}
-	public void setnInstansi(String nInstansi) {
-		this.nInstansi = nInstansi;
+	public void setNumInstansi(String numInstansi) {
+		this.numInstansi = numInstansi;
 	}
-	public String getnJab1() {
-		return nJab1;
+	public String getNamaJab1() {
+		return namaJab1;
 	}
-	public void setnJab1(String nJab1) {
-		this.nJab1 = nJab1;
+	public void setNamaJab1(String namaJab1) {
+		this.namaJab1 = namaJab1;
 	}
 	public String getTmtJab1() {
 		return tmtJab1;

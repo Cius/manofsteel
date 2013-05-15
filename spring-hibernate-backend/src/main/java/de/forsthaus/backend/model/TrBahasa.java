@@ -7,7 +7,7 @@ public class TrBahasa {
 	private int version;
 	
 	private String nip;
-	private String nBahasa;
+	private String numBahasa;
 	private String kodeBahasa;
 	private String jBahasa;
 	private String userEnt;
@@ -32,11 +32,11 @@ public class TrBahasa {
 	public void setNip(String nip) {
 		this.nip = nip;
 	}
-	public String getnBahasa() {
-		return nBahasa;
+	public String getNumBahasa() {
+		return numBahasa;
 	}
-	public void setnBahasa(String nBahasa) {
-		this.nBahasa = nBahasa;
+	public void setNumBahasa(String numBahasa) {
+		this.numBahasa = numBahasa;
 	}
 	public String getKodeBahasa() {
 		return kodeBahasa;

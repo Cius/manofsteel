@@ -8,8 +8,8 @@ public class TpKgbPangkat {
 	
 	private String nip;
 	private String kodePejKgb;
-	private String nSTahu;
-	private Date tSTahu;
+	private String numSTahu;
+	private Date tglSTahu;
 	
 	private Date tmtKgb;
 	private int gaPokKgb;
@@ -18,8 +18,8 @@ public class TpKgbPangkat {
 	
 	private String kodeKantor;
 	private String kodePejPkt;
-	private String nSkPang;
-	private Date tSkPang;
+	private String numSkPang;
+	private Date tglSkPang;
 	private Date tmtPang;
 	
 	private String kodeGolRuPkt;
@@ -35,6 +35,7 @@ public class TpKgbPangkat {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
+	
 	public int getId() {
 		return id;
 	}
@@ -59,17 +60,17 @@ public class TpKgbPangkat {
 	public void setKodePejKgb(String kodePejKgb) {
 		this.kodePejKgb = kodePejKgb;
 	}
-	public String getnSTahu() {
-		return nSTahu;
+	public String getNumSTahu() {
+		return numSTahu;
 	}
-	public void setnSTahu(String nSTahu) {
-		this.nSTahu = nSTahu;
+	public void setNumSTahu(String numSTahu) {
+		this.numSTahu = numSTahu;
 	}
-	public Date gettSTahu() {
-		return tSTahu;
+	public Date getTglSTahu() {
+		return tglSTahu;
 	}
-	public void settSTahu(Date tSTahu) {
-		this.tSTahu = tSTahu;
+	public void setTglSTahu(Date tglSTahu) {
+		this.tglSTahu = tglSTahu;
 	}
 	public Date getTmtKgb() {
 		return tmtKgb;
@@ -107,17 +108,17 @@ public class TpKgbPangkat {
 	public void setKodePejPkt(String kodePejPkt) {
 		this.kodePejPkt = kodePejPkt;
 	}
-	public String getnSkPang() {
-		return nSkPang;
+	public String getNumSkPang() {
+		return numSkPang;
 	}
-	public void setnSkPang(String nSkPang) {
-		this.nSkPang = nSkPang;
+	public void setNumSkPang(String numSkPang) {
+		this.numSkPang = numSkPang;
 	}
-	public Date gettSkPang() {
-		return tSkPang;
+	public Date getTglSkPang() {
+		return tglSkPang;
 	}
-	public void settSkPang(Date tSkPang) {
-		this.tSkPang = tSkPang;
+	public void setTglSkPang(Date tglSkPang) {
+		this.tglSkPang = tglSkPang;
 	}
 	public Date getTmtPang() {
 		return tmtPang;

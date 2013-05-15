@@ -9,23 +9,23 @@ public class TpPendidikan {
 	private String nip;
 	private String kodeTpu;
 	private String kodeJur;
-	private String nJur;
-	private String nSek;
+	private String numJur;
+	private String numSek;
 	private String tempat;
 	private String tSttb;
 	private String kodeDikStr;
-	private String nDikStr;
+	private String numDikStr;
 	private String sAngkatan;
 	private String sTMulai;
 	private String sTahun;
 	private String sJam;
 	private String kodeDikFung;
-	private String nDikFung;
+	private String numDikFung;
 	private String fAngkatan;
 	private String fTahun;
 	private String fJam;
 	private String kodeDikTek;
-	private String nDikTek;
+	private String numDikTek;
 	private String tAngkatan;
 	private String tTahun;
 	private String tJam;
@@ -65,17 +65,17 @@ public class TpPendidikan {
 	public void setKodeJur(String kodeJur) {
 		this.kodeJur = kodeJur;
 	}
-	public String getnJur() {
-		return nJur;
+	public String getNumJur() {
+		return numJur;
 	}
-	public void setnJur(String nJur) {
-		this.nJur = nJur;
+	public void setNumJur(String numJur) {
+		this.numJur = numJur;
 	}
-	public String getnSek() {
-		return nSek;
+	public String getNumSek() {
+		return numSek;
 	}
-	public void setnSek(String nSek) {
-		this.nSek = nSek;
+	public void setNumSek(String numSek) {
+		this.numSek = numSek;
 	}
 	public String getTempat() {
 		return tempat;
@@ -83,10 +83,10 @@ public class TpPendidikan {
 	public void setTempat(String tempat) {
 		this.tempat = tempat;
 	}
-	public String gettSttb() {
+	public String getTglSttb() {
 		return tSttb;
 	}
-	public void settSttb(String tSttb) {
+	public void setTglSttb(String tSttb) {
 		this.tSttb = tSttb;
 	}
 	public String getKodeDikStr() {
@@ -95,11 +95,11 @@ public class TpPendidikan {
 	public void setKodeDikStr(String kodeDikStr) {
 		this.kodeDikStr = kodeDikStr;
 	}
-	public String getnDikStr() {
-		return nDikStr;
+	public String getNumDikStr() {
+		return numDikStr;
 	}
-	public void setnDikStr(String nDikStr) {
-		this.nDikStr = nDikStr;
+	public void setNumDikStr(String numDikStr) {
+		this.numDikStr = numDikStr;
 	}
 	public String getsAngkatan() {
 		return sAngkatan;
@@ -131,11 +131,11 @@ public class TpPendidikan {
 	public void setKodeDikFung(String kodeDikFung) {
 		this.kodeDikFung = kodeDikFung;
 	}
-	public String getnDikFung() {
-		return nDikFung;
+	public String getNumDikFung() {
+		return numDikFung;
 	}
-	public void setnDikFung(String nDikFung) {
-		this.nDikFung = nDikFung;
+	public void setNumDikFung(String numDikFung) {
+		this.numDikFung = numDikFung;
 	}
 	public String getfAngkatan() {
 		return fAngkatan;
@@ -161,28 +161,28 @@ public class TpPendidikan {
 	public void setKodeDikTek(String kodeDikTek) {
 		this.kodeDikTek = kodeDikTek;
 	}
-	public String getnDikTek() {
-		return nDikTek;
+	public String getNumDikTek() {
+		return numDikTek;
 	}
-	public void setnDikTek(String nDikTek) {
-		this.nDikTek = nDikTek;
+	public void setNumDikTek(String numDikTek) {
+		this.numDikTek = numDikTek;
 	}
-	public String gettAngkatan() {
+	public String getTglAngkatan() {
 		return tAngkatan;
 	}
-	public void settAngkatan(String tAngkatan) {
+	public void setTglAngkatan(String tAngkatan) {
 		this.tAngkatan = tAngkatan;
 	}
-	public String gettTahun() {
+	public String getTglTahun() {
 		return tTahun;
 	}
-	public void settTahun(String tTahun) {
+	public void setTglTahun(String tTahun) {
 		this.tTahun = tTahun;
 	}
-	public String gettJam() {
+	public String getTglJam() {
 		return tJam;
 	}
-	public void settJam(String tJam) {
+	public void setTglJam(String tJam) {
 		this.tJam = tJam;
 	}
 	public String getNilai_DikStr() {

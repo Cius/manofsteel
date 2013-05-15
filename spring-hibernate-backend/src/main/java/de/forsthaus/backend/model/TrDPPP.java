@@ -11,15 +11,15 @@ public class TrDPPP {
 	private String atasan;
 	private String thNilai;
 	
-	private int nSetia;
-	private int nPres;
-	private int nTaat;
-	private int nJujur;
-	private int nKerja;
-	private int nPkarsa;
-	private int nPimpin;
-	private int nTotal;
-	private int nRata;
+	private int numSetia;
+	private int numPres;
+	private int numTaat;
+	private int numJujur;
+	private int numKerja;
+	private int numPkarsa;
+	private int numPimpin;
+	private int numTotal;
+	private int numRata;
 	
 	private String userEnt;
 	private Date tglEnt;
@@ -62,59 +62,59 @@ public class TrDPPP {
 	public void setThNilai(String thNilai) {
 		this.thNilai = thNilai;
 	}
-	public int getnSetia() {
-		return nSetia;
+	public int getNumSetia() {
+		return numSetia;
 	}
-	public void setnSetia(int nSetia) {
-		this.nSetia = nSetia;
+	public void setNumSetia(int numSetia) {
+		this.numSetia = numSetia;
 	}
-	public int getnPres() {
-		return nPres;
+	public int getNumPres() {
+		return numPres;
 	}
-	public void setnPres(int nPres) {
-		this.nPres = nPres;
+	public void setNumPres(int numPres) {
+		this.numPres = numPres;
 	}
-	public int getnTaat() {
-		return nTaat;
+	public int getNumTaat() {
+		return numTaat;
 	}
-	public void setnTaat(int nTaat) {
-		this.nTaat = nTaat;
+	public void setNumTaat(int numTaat) {
+		this.numTaat = numTaat;
 	}
-	public int getnJujur() {
-		return nJujur;
+	public int getNumJujur() {
+		return numJujur;
 	}
-	public void setnJujur(int nJujur) {
-		this.nJujur = nJujur;
+	public void setNumJujur(int numJujur) {
+		this.numJujur = numJujur;
 	}
-	public int getnKerja() {
-		return nKerja;
+	public int getNumKerja() {
+		return numKerja;
 	}
-	public void setnKerja(int nKerja) {
-		this.nKerja = nKerja;
+	public void setNumKerja(int numKerja) {
+		this.numKerja = numKerja;
 	}
-	public int getnPkarsa() {
-		return nPkarsa;
+	public int getNumPkarsa() {
+		return numPkarsa;
 	}
-	public void setnPkarsa(int nPkarsa) {
-		this.nPkarsa = nPkarsa;
+	public void setNumPkarsa(int numPkarsa) {
+		this.numPkarsa = numPkarsa;
 	}
-	public int getnPimpin() {
-		return nPimpin;
+	public int getNumPimpin() {
+		return numPimpin;
 	}
-	public void setnPimpin(int nPimpin) {
-		this.nPimpin = nPimpin;
+	public void setNumPimpin(int numPimpin) {
+		this.numPimpin = numPimpin;
 	}
-	public int getnTotal() {
-		return nTotal;
+	public int getNumTotal() {
+		return numTotal;
 	}
-	public void setnTotal(int nTotal) {
-		this.nTotal = nTotal;
+	public void setNumTotal(int numTotal) {
+		this.numTotal = numTotal;
 	}
-	public int getnRata() {
-		return nRata;
+	public int getNumRata() {
+		return numRata;
 	}
-	public void setnRata(int nRata) {
-		this.nRata = nRata;
+	public void setNumRata(int numRata) {
+		this.numRata = numRata;
 	}
 	public String getUserEnt() {
 		return userEnt;

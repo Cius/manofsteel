@@ -8,7 +8,7 @@ public class TrOrganisasi {
 	
 	private String nip;
 	private String kodeJnsOrg;
-	private String nOrganisasi;
+	private String numOrganisasi;
 	private String jabOrg;
 	private String pimpinan;
 	private String tempat;
@@ -43,11 +43,11 @@ public class TrOrganisasi {
 	public void setKodeJnsOrg(String kodeJnsOrg) {
 		this.kodeJnsOrg = kodeJnsOrg;
 	}
-	public String getnOrganisasi() {
-		return nOrganisasi;
+	public String getNumOrganisasi() {
+		return numOrganisasi;
 	}
-	public void setnOrganisasi(String nOrganisasi) {
-		this.nOrganisasi = nOrganisasi;
+	public void setNumOrganisasi(String numOrganisasi) {
+		this.numOrganisasi = numOrganisasi;
 	}
 	public String getJabOrg() {
 		return jabOrg;
@@ -67,16 +67,16 @@ public class TrOrganisasi {
 	public void setTempat(String tempat) {
 		this.tempat = tempat;
 	}
-	public String gettMulai() {
+	public String getTglMulai() {
 		return tMulai;
 	}
-	public void settMulai(String tMulai) {
+	public void setTglMulai(String tMulai) {
 		this.tMulai = tMulai;
 	}
-	public String gettAkhir() {
+	public String getTglAkhir() {
 		return tAkhir;
 	}
-	public void settAkhir(String tAkhir) {
+	public void setTglAkhir(String tAkhir) {
 		this.tAkhir = tAkhir;
 	}
 	public String getUserEnt() {

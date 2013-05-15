@@ -8,7 +8,7 @@ public class TrJasa {
 	
 	private String nip;
 	private String kodeBintang;
-	private String nBintang;
+	private String numBintang;
 	private String pemberi;
 	
 	private String noSkJasa;
@@ -44,11 +44,11 @@ public class TrJasa {
 	public void setKodeBintang(String kodeBintang) {
 		this.kodeBintang = kodeBintang;
 	}
-	public String getnBintang() {
-		return nBintang;
+	public String getNumBintang() {
+		return numBintang;
 	}
-	public void setnBintang(String nBintang) {
-		this.nBintang = nBintang;
+	public void setNumBintang(String numBintang) {
+		this.numBintang = numBintang;
 	}
 	public String getPemberi() {
 		return pemberi;

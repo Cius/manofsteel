@@ -9,13 +9,13 @@ public class TrDiklat {
 	private String nip;
 	private String jnsDiklat;
 	private String kodeDiklat;
-	private String nDiklat;
+	private String numDiklat;
 	private String tempat;
 	private String panitia;
 	private String angkatan;
 	
-	private Date tMulai;
-	private Date tAkhir;
+	private Date tglMulai;
+	private Date tglAkhir;
 	private int jam;
 	private String nsttpp;
 	private String tsttpp;
@@ -60,11 +60,11 @@ public class TrDiklat {
 	public void setKodeDiklat(String kodeDiklat) {
 		this.kodeDiklat = kodeDiklat;
 	}
-	public String getnDiklat() {
-		return nDiklat;
+	public String getNumDiklat() {
+		return numDiklat;
 	}
-	public void setnDiklat(String nDiklat) {
-		this.nDiklat = nDiklat;
+	public void setNumDiklat(String numDiklat) {
+		this.numDiklat = numDiklat;
 	}
 	public String getTempat() {
 		return tempat;
@@ -84,17 +84,17 @@ public class TrDiklat {
 	public void setAngkatan(String angkatan) {
 		this.angkatan = angkatan;
 	}
-	public Date gettMulai() {
-		return tMulai;
+	public Date getTglMulai() {
+		return tglMulai;
 	}
-	public void settMulai(Date tMulai) {
-		this.tMulai = tMulai;
+	public void setTglMulai(Date tglMulai) {
+		this.tglMulai = tglMulai;
 	}
-	public Date gettAkhir() {
-		return tAkhir;
+	public Date getTglAkhir() {
+		return tglAkhir;
 	}
-	public void settAkhir(Date tAkhir) {
-		this.tAkhir = tAkhir;
+	public void setTglAkhir(Date tglAkhir) {
+		this.tglAkhir = tglAkhir;
 	}
 	public int getJam() {
 		return jam;

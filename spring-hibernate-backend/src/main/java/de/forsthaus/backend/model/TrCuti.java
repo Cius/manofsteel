@@ -9,7 +9,7 @@ public class TrCuti {
 	private String nip;
 	private String kodeJnsCuti;
 	private String kodePej;
-	private String nSk;
+	private String numSk;
 	private String tSk;
 	private String tMulai;
 	private String tAkhir;
@@ -48,28 +48,28 @@ public class TrCuti {
 	public void setKodePej(String kodePej) {
 		this.kodePej = kodePej;
 	}
-	public String getnSk() {
-		return nSk;
+	public String getNumSk() {
+		return numSk;
 	}
-	public void setnSk(String nSk) {
-		this.nSk = nSk;
+	public void setNumSk(String numSk) {
+		this.numSk = numSk;
 	}
-	public String gettSk() {
+	public String getTglSk() {
 		return tSk;
 	}
-	public void settSk(String tSk) {
+	public void setTglSk(String tSk) {
 		this.tSk = tSk;
 	}
-	public String gettMulai() {
+	public String getTglMulai() {
 		return tMulai;
 	}
-	public void settMulai(String tMulai) {
+	public void setTglMulai(String tMulai) {
 		this.tMulai = tMulai;
 	}
-	public String gettAkhir() {
+	public String getTglAkhir() {
 		return tAkhir;
 	}
-	public void settAkhir(String tAkhir) {
+	public void setTglAkhir(String tAkhir) {
 		this.tAkhir = tAkhir;
 	}
 	public String getUserEnt() {

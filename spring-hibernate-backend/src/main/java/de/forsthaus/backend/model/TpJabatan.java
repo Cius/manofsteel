@@ -8,19 +8,19 @@ public class TpJabatan {
 	
 	private String nip;
 	private String kodePejJab;
-	private String nSkJabat;
-	private Date tSkJabat;
+	private String numSkJabat;
+	private Date tglSkJabat;
 	private String jnsJab;
 	private String kodeJab;
 	private String kodeEselon;
 	private Date tmtjab;
-	private String sJab;
-	private String nJab;
-	private String nJab1;
+	private String sumpahJab;
+	private String namaJab;
+	private String namaJab1;
 	private String kodeInsKer;
 	private String kodeUnKer;
 	private String kodeSatKer;
-	private Date tmtEselon;
+	private String tmtEselon;
 	private Date tmtJab1;
 	private String kodeJnsGuru;
 	private String kodeInsInd;
@@ -54,17 +54,17 @@ public class TpJabatan {
 	public void setKodePejJab(String kodePejJab) {
 		this.kodePejJab = kodePejJab;
 	}
-	public String getnSkJabat() {
-		return nSkJabat;
+	public String getNumSkJabat() {
+		return numSkJabat;
 	}
-	public void setnSkJabat(String nSkJabat) {
-		this.nSkJabat = nSkJabat;
+	public void setNumSkJabat(String numSkJabat) {
+		this.numSkJabat = numSkJabat;
 	}
-	public Date gettSkJabat() {
-		return tSkJabat;
+	public Date getTglSkJabat() {
+		return tglSkJabat;
 	}
-	public void settSkJabat(Date tSkJabat) {
-		this.tSkJabat = tSkJabat;
+	public void setTglSkJabat(Date tglSkJabat) {
+		this.tglSkJabat = tglSkJabat;
 	}
 	public String getJnsJab() {
 		return jnsJab;
@@ -90,23 +90,23 @@ public class TpJabatan {
 	public void setTmtjab(Date tmtjab) {
 		this.tmtjab = tmtjab;
 	}
-	public String getsJab() {
-		return sJab;
+	public String getSumpahJab() {
+		return sumpahJab;
 	}
-	public void setsJab(String sJab) {
-		this.sJab = sJab;
+	public void setSumpahJab(String sJab) {
+		this.sumpahJab = sJab;
 	}
-	public String getnJab() {
-		return nJab;
+	public String getNamaJab() {
+		return namaJab;
 	}
-	public void setnJab(String nJab) {
-		this.nJab = nJab;
+	public void setNamaJab(String namaJab) {
+		this.namaJab = namaJab;
 	}
-	public String getnJab1() {
-		return nJab1;
+	public String getNamaJab1() {
+		return namaJab1;
 	}
-	public void setnJab1(String nJab1) {
-		this.nJab1 = nJab1;
+	public void setNamaJab1(String namaJab1) {
+		this.namaJab1 = namaJab1;
 	}
 	public String getKodeInsKer() {
 		return kodeInsKer;
@@ -126,10 +126,10 @@ public class TpJabatan {
 	public void setKodeSatKer(String kodeSatKer) {
 		this.kodeSatKer = kodeSatKer;
 	}
-	public Date getTmtEselon() {
+	public String getTmtEselon() {
 		return tmtEselon;
 	}
-	public void setTmtEselon(Date tmtEselon) {
+	public void setTmtEselon(String tmtEselon) {
 		this.tmtEselon = tmtEselon;
 	}
 	public Date getTmtJab1() {

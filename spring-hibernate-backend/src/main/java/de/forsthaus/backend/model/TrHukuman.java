@@ -10,7 +10,7 @@ public class TrHukuman {
 	private String tkHukum;
 	private String jnsHukum;
 	private String kodePej;
-	private String nSkHukum;
+	private String numSkHukum;
 	private String tSkHukum;
 	private String tMulai;
 	private String tAkhir;
@@ -55,28 +55,28 @@ public class TrHukuman {
 	public void setKodePej(String kodePej) {
 		this.kodePej = kodePej;
 	}
-	public String getnSkHukum() {
-		return nSkHukum;
+	public String getNumSkHukum() {
+		return numSkHukum;
 	}
-	public void setnSkHukum(String nSkHukum) {
-		this.nSkHukum = nSkHukum;
+	public void setNumSkHukum(String numSkHukum) {
+		this.numSkHukum = numSkHukum;
 	}
-	public String gettSkHukum() {
+	public String getTglSkHukum() {
 		return tSkHukum;
 	}
-	public void settSkHukum(String tSkHukum) {
+	public void setTglSkHukum(String tSkHukum) {
 		this.tSkHukum = tSkHukum;
 	}
-	public String gettMulai() {
+	public String getTglMulai() {
 		return tMulai;
 	}
-	public void settMulai(String tMulai) {
+	public void setTglMulai(String tMulai) {
 		this.tMulai = tMulai;
 	}
-	public String gettAkhir() {
+	public String getTglAkhir() {
 		return tAkhir;
 	}
-	public void settAkhir(String tAkhir) {
+	public void setTglAkhir(String tAkhir) {
 		this.tAkhir = tAkhir;
 	}
 	public String getUserEnt() {

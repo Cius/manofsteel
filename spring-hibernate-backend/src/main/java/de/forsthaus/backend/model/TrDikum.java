@@ -10,11 +10,11 @@ public class TrDikum {
 	private String kodeTpu;
 	private String kodeFak;
 	private String kodeJur;
-	private String nJur;
-	private String nSek;
+	private String numJur;
+	private String numSek;
 	private String tempat;
-	private String nKepSek;
-	private String nSttb;
+	private String numKepSek;
+	private String numSttb;
 	private String tSttb;
 	private String starec;
 	
@@ -58,17 +58,17 @@ public class TrDikum {
 	public void setKodeJur(String kodeJur) {
 		this.kodeJur = kodeJur;
 	}
-	public String getnJur() {
-		return nJur;
+	public String getNumJur() {
+		return numJur;
 	}
-	public void setnJur(String nJur) {
-		this.nJur = nJur;
+	public void setNumJur(String numJur) {
+		this.numJur = numJur;
 	}
-	public String getnSek() {
-		return nSek;
+	public String getNumSek() {
+		return numSek;
 	}
-	public void setnSek(String nSek) {
-		this.nSek = nSek;
+	public void setNumSek(String numSek) {
+		this.numSek = numSek;
 	}
 	public String getTempat() {
 		return tempat;
@@ -76,22 +76,22 @@ public class TrDikum {
 	public void setTempat(String tempat) {
 		this.tempat = tempat;
 	}
-	public String getnKepSek() {
-		return nKepSek;
+	public String getNumKepSek() {
+		return numKepSek;
 	}
-	public void setnKepSek(String nKepSek) {
-		this.nKepSek = nKepSek;
+	public void setNumKepSek(String numKepSek) {
+		this.numKepSek = numKepSek;
 	}
-	public String getnSttb() {
-		return nSttb;
+	public String getNumSttb() {
+		return numSttb;
 	}
-	public void setnSttb(String nSttb) {
-		this.nSttb = nSttb;
+	public void setNumSttb(String numSttb) {
+		this.numSttb = numSttb;
 	}
-	public String gettSttb() {
+	public String getTglSttb() {
 		return tSttb;
 	}
-	public void settSttb(String tSttb) {
+	public void setTglSttb(String tSttb) {
 		this.tSttb = tSttb;
 	}
 	public String getStarec() {

@@ -34,10 +34,10 @@ public class TpIdentitas {
 	private String alKKec;
 	private String alKDes;
 
-	private String nKarPeg;
-	private String nAsKes;
-	private String nTasPen;
-	private String nKarIs;
+	private String numKarPeg;
+	private String numAsKes;
+	private String numTasPen;
+	private String numKarIs;
 	private String npwp;
 	private String noPen;
 
@@ -269,36 +269,36 @@ public class TpIdentitas {
 		this.alKDes = alKDes;
 	}
 
-	public String getnKarPeg() {
-		return nKarPeg;
+	public String getNumKarPeg() {
+		return numKarPeg;
 	}
 
-	public void setnKarPeg(String nKarPeg) {
-		this.nKarPeg = nKarPeg;
+	public void setNumKarPeg(String numKarPeg) {
+		this.numKarPeg = numKarPeg;
 	}
 
-	public String getnAsKes() {
-		return nAsKes;
+	public String getNumAsKes() {
+		return numAsKes;
 	}
 
-	public void setnAsKes(String nAsKes) {
-		this.nAsKes = nAsKes;
+	public void setNumAsKes(String numAsKes) {
+		this.numAsKes = numAsKes;
 	}
 
-	public String getnTasPen() {
-		return nTasPen;
+	public String getNumTasPen() {
+		return numTasPen;
 	}
 
-	public void setnTasPen(String nTasPen) {
-		this.nTasPen = nTasPen;
+	public void setNumTasPen(String numTasPen) {
+		this.numTasPen = numTasPen;
 	}
 
-	public String getnKarIs() {
-		return nKarIs;
+	public String getNumKarIs() {
+		return numKarIs;
 	}
 
-	public void setnKarIs(String nKarIs) {
-		this.nKarIs = nKarIs;
+	public void setNumKarIs(String numKarIs) {
+		this.numKarIs = numKarIs;
 	}
 
 	public String getNpwp() {
