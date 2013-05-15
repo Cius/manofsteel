@@ -22,16 +22,16 @@
 		<property name="kodePej" type="string">
 			<column name="KPEJ" />
 		</property>
-		<property name="nSk" type="string">
+		<property name="numSk" type="string">
 			<column name="NSK" />
 		</property>
-		<property name="tSk" type="string">
+		<property name="tglSk" type="string">
 			<column name="TSK" />
 		</property>
-		<property name="tMulai" type="string">
+		<property name="tglMulai" type="string">
 			<column name="TMULAI" />
 		</property>
-		<property name="tAkhir" type="string">
+		<property name="tglAkhir" type="string">
 			<column name="TAKHIR" />
 		</property>
 		<property name="userEnt" type="string">

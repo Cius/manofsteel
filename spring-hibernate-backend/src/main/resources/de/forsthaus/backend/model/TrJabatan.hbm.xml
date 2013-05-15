@@ -34,16 +34,16 @@
 		<property name="tmtJab" type="string">
 			<column name="TMTJAB" />
 		</property>
-		<property name="nJab" type="string">
+		<property name="namaJab" type="string">
 			<column name="NJAB" />
 		</property>
-		<property name="nUnKer" type="string">
+		<property name="numUnKer" type="string">
 			<column name="NUNKER" />
 		</property>
-		<property name="nInstansi" type="string">
+		<property name="numInstansi" type="string">
 			<column name="NINSTANSI" />
 		</property>
-		<property name="nJab1" type="string">
+		<property name="namaJab1" type="string">
 			<column name="NJAB1" />
 		</property>
 		<property name="tmtJab1" type="string">

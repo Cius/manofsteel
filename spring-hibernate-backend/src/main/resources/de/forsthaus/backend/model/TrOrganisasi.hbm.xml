@@ -19,7 +19,7 @@
 		<property name="kodeJnsOrg" type="string">
 			<column name="KJNSORG" />
 		</property>
-		<property name="nOrganisasi" type="string">
+		<property name="numOrganisasi" type="string">
 			<column name="NORGANISASI" />
 		</property>
 		<property name="jabOrg" type="string">
@@ -31,10 +31,10 @@
 		<property name="tempat" type="string">
 			<column name="TEMPAT" />
 		</property>
-		<property name="tMulai" type="string">
+		<property name="tglMulai" type="string">
 			<column name="TMULAI" />
 		</property>
-		<property name="tAkhir" type="string">
+		<property name="tglAkhir" type="string">
 			<column name="TAKHIR" />
 		</property>
 		<property name="userEnt" type="string">

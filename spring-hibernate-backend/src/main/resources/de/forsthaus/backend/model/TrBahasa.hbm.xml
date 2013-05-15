@@ -16,7 +16,7 @@
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<property name="nBahasa" type="string">
+		<property name="numBahasa" type="string">
 			<column name="NBAHASA" />
 		</property>
 		<property name="kodeBahasa" type="string">

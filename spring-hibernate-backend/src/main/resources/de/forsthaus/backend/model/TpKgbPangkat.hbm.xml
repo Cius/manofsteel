@@ -19,10 +19,10 @@
 		<property name="kodePejKgb" type="string">
 			<column name="KPEJKGB" />
 		</property>
-		<property name="nSTahu" type="string">
+		<property name="numSTahu" type="string">
 			<column name="NSTAHU" />
 		</property>
-		<property name="tSTahu" type="date">
+		<property name="tglSTahu" type="date">
 			<column name="TSTAHU" />
 		</property>
 		<property name="tmtKgb" type="date">
@@ -43,10 +43,10 @@
 		<property name="kodePejPkt" type="string">
 			<column name="KPEJPKT" />
 		</property>
-		<property name="nSkPang" type="string">
+		<property name="numSkPang" type="string">
 			<column name="NSKPANG" />
 		</property>
-		<property name="tSkPang" type="date">
+		<property name="tglSkPang" type="date">
 			<column name="TSKPANG" />
 		</property>
 		<property name="tmtPang" type="date">

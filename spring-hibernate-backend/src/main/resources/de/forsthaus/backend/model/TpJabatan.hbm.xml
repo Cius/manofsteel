@@ -19,10 +19,10 @@
 		<property name="kodePejJab" type="string">
 			<column name="KPEJJAB" />
 		</property>
-		<property name="nSkJabat" type="string">
+		<property name="numSkJabat" type="string">
 			<column name="NSKJABAT" />
 		</property>
-		<property name="tSkJabat" type="date">
+		<property name="tglSkJabat" type="date">
 			<column name="TSKJABAT" />
 		</property>
 		<property name="jnsJab" type="string">
@@ -37,13 +37,13 @@
 		<property name="tmtjab" type="date">
 			<column name="TMTJAB" />
 		</property>
-		<property name="sJab" type="string">
+		<property name="sumpahJab" type="string">
 			<column name="SJAB" />
 		</property>
-		<property name="nJab" type="string">
+		<property name="namaJab" type="string">
 			<column name="NJAB" />
 		</property>
-		<property name="nJab1" type="string">
+		<property name="namaJab1" type="string">
 			<column name="NJAB1" />
 		</property>
 		<property name="kodeInsKer" type="string">
@@ -55,7 +55,7 @@
 		<property name="kodeSatKer" type="string">
 			<column name="KSATKER" />
 		</property>
-		<property name="tmtEselon" type="date">
+		<property name="tmtEselon" type="string">
 			<column name="TMTESELON" />
 		</property>
 		<property name="tmtJab1" type="date">

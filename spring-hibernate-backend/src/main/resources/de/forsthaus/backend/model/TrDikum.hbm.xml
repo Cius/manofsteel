@@ -25,22 +25,22 @@
 		<property name="kodeJur" type="string">
 			<column name="KJUR" />
 		</property>
-		<property name="nJur" type="string">
+		<property name="numJur" type="string">
 			<column name="NJUR" />
 		</property>
-		<property name="nSek" type="string">
+		<property name="numSek" type="string">
 			<column name="NSEK" />
 		</property>
 		<property name="tempat" type="string">
 			<column name="TEMPAT" />
 		</property>
-		<property name="nKepSek" type="string">
+		<property name="numKepSek" type="string">
 			<column name="NKEPSEK" />
 		</property>
-		<property name="nSttb" type="string">
+		<property name="numSttb" type="string">
 			<column name="NSTTB" />
 		</property>
-		<property name="tSttb" type="string">
+		<property name="tglSttb" type="string">
 			<column name="TSTTB" />
 		</property>
 		<property name="userEnt" type="string">

@@ -19,7 +19,7 @@
 		<property name="kodeBintang" type="string">
 			<column name="KBINTANG" />
 		</property>
-		<property name="nBintang" type="string">
+		<property name="numBintang" type="string">
 			<column name="NBINTANG" />
 		</property>
 		<property name="pemberi" type="string">

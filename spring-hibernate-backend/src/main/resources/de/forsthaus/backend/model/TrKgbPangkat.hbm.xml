@@ -22,10 +22,10 @@
 		<property name="kodePej" type="string">
 			<column name="KPEJ" />
 		</property>
-		<property name="nSkPang" type="string">
+		<property name="numSkPang" type="string">
 			<column name="NSKPANG" />
 		</property>
-		<property name="tSkPang" type="string">
+		<property name="tglSkPang" type="string">
 			<column name="TSKPANG" />
 		</property>
 		<property name="kodeGolRu" type="string">

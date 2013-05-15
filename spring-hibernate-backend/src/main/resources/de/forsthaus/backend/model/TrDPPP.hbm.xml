@@ -25,31 +25,31 @@
 		<property name="thNilai" type="string">
 			<column name="THNILAI" />
 		</property>
-		<property name="nSetia" type="java.lang.Integer">
+		<property name="numSetia" type="java.lang.Integer">
 			<column name="NSETIA" />
 		</property>
-		<property name="nPres" type="java.lang.Integer">
+		<property name="numPres" type="java.lang.Integer">
 			<column name="NPRES" />
 		</property>
-		<property name="nTaat" type="java.lang.Integer">
+		<property name="numTaat" type="java.lang.Integer">
 			<column name="NTAAT" />
 		</property>
-		<property name="nJujur" type="java.lang.Integer">
+		<property name="numJujur" type="java.lang.Integer">
 			<column name="NJUJUR" />
 		</property>
-		<property name="nKerja" type="java.lang.Integer">
+		<property name="numKerja" type="java.lang.Integer">
 			<column name="NKERJA" />
 		</property>
-		<property name="nPkarsa" type="java.lang.Integer">
+		<property name="numPkarsa" type="java.lang.Integer">
 			<column name="NPKARSA" />
 		</property>
-		<property name="nPimpin" type="java.lang.Integer">
+		<property name="numPimpin" type="java.lang.Integer">
 			<column name="NPIMPIN" />
 		</property>
-		<property name="nTotal" type="java.lang.Integer">
+		<property name="numTotal" type="java.lang.Integer">
 			<column name="NTOTAL" />
 		</property>
-		<property name="nRata" type="java.lang.Integer">
+		<property name="numRata" type="java.lang.Integer">
 			<column name="NRATA" />
 		</property>
 		<property name="userEnt" type="string">

@@ -16,14 +16,20 @@
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<many-to-one class="de.forsthaus.backend.model.TpIdentitas" name="identitas" property-ref="nip" column="nip"/>
+		<many-to-one class="de.forsthaus.backend.model.TpIdentitas" name="identitas" property-ref="nip" column="nip" unique="true" insert="false" update="false"/>
+		<many-to-one class="de.forsthaus.backend.model.TpKgbPangkat" name="pangkat" property-ref="nip" column="nip" unique="true" insert="false" update="false"/>
+		<many-to-one class="de.forsthaus.backend.model.TpJabatan" name="jabatan" property-ref="nip" column="nip" unique="true" insert="false" update="false"/>
+		<set name="pangkats" table="tr_kgbpangkat" cascade="all" lazy="false" inverse="true" order-by="TMT ASC">
+		    <key property-ref="nip"></key>
+		    <one-to-many class="de.forsthaus.backend.model.TrKgbPangkat"/>
+		</set>
 		<property name="kodePejCpns" type="string">
 			<column name="KPEJCPNS" />
 		</property>
 		<property name="skCpns" type="string">
 			<column name="SKCPNS" />
 		</property>
-		<property name="tSkCpns" type="date">
+		<property name="tglSkCpns" type="date">
 			<column name="TSKCPNS" />
 		</property>
 		<property name="tmtCpns" type="date">
@@ -56,7 +62,7 @@
 		<property name="skPns" type="string">
 			<column name="SKPNS" />
 		</property>
-		<property name="tSkPns" type="date">
+		<property name="tglSkPns" type="date">
 			<column name="TSKPNS" />
 		</property>
 		<property name="tmtPns" type="date">

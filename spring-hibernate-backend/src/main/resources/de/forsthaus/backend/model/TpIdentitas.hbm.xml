@@ -85,16 +85,16 @@
 		<property name="alKDes" type="string">
 			<column name="ALKDES" />
 		</property>
-		<property name="nKarPeg" type="string">
+		<property name="numKarPeg" type="string">
 			<column name="NKARPEG" />
 		</property>
-		<property name="nAsKes" type="string">
+		<property name="numAsKes" type="string">
 			<column name="NASKES" />
 		</property>
-		<property name="nTasPen" type="string">
+		<property name="numTasPen" type="string">
 			<column name="NTASPEN" />
 		</property>
-		<property name="nKarIs" type="string">
+		<property name="numKarIs" type="string">
 			<column name="NKARIS" />
 		</property>
 		<property name="npwp" type="string">

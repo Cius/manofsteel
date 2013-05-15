@@ -220,6 +220,7 @@
 	<bean id="unitKerjaDAO" class="de.forsthaus.backend.dao.impl.UnitKerjaDAOImpl" parent="basisDAO" />
 	<bean id="jenisGuruDAO" class="de.forsthaus.backend.dao.impl.JenisGuruDAOImpl" parent="basisDAO" />
 	<bean id="dikumDAO" class="de.forsthaus.backend.dao.impl.DikumDAOImpl" parent="basisDAO" />
+	<bean id="jabFungDAO" class="de.forsthaus.backend.dao.impl.JabFungDAOImpl" parent="basisDAO" />
 	
 
 	<!-- ====================================================== -->

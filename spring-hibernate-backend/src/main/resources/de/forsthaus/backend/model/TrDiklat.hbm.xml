@@ -22,7 +22,7 @@
 		<property name="kodeDiklat" type="string">
 			<column name="KDIKLAT" />
 		</property>
-		<property name="nDiklat" type="string">
+		<property name="numDiklat" type="string">
 			<column name="NDIKLAT" />
 		</property>
 		<property name="tempat" type="string">
@@ -34,10 +34,10 @@
 		<property name="angkatan" type="string">
 			<column name="ANGKATAN" />
 		</property>
-		<property name="tMulai" type="date">
+		<property name="tglMulai" type="date">
 			<column name="TMULAI" />
 		</property>
-		<property name="tAkhir" type="date">
+		<property name="tglAkhir" type="date">
 			<column name="TAKHIR" />
 		</property>
 		<property name="jam" type="java.lang.Integer">
