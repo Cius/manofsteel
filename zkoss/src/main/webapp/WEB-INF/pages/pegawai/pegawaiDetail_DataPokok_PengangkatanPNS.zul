@@ -1,9 +1,9 @@
-<?page title="Identitas Pegawai" contentType="text/html;charset=UTF-8"?>
-<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Identitas" ?>
+<?page title="PengangkatanPNS Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_PengangkatanPNS" ?>
 
 <zk>
-<window id="windowPegawaiDetail_DataPokok_Identitas" apply="${pegawaiDetailCtrl_DataPokok_Identitas}" title="Identitas Pegawai" border="normal">
-	<borderlayout id="borderLayout_PegawaiDataPokok_Identitas">
+<window id="windowPegawaiDetail_DataPokok_PengangkatanPNS" apply="${pegawaiDetailCtrl_DataPokok_PengangkatanPNS}" title="Pengangkatan PNS" border="normal">
+	<borderlayout id="borderLayout_PegawaiDataPokok_PengangkatanPNS">
 		<north>
 			<toolbar align="start" style="float:left; border-style: none;">
 				<button id="edit"
@@ -21,26 +21,22 @@
 						NIP <textbox id="textBox_nip" value="@{controller.selected.nip}" readonly="true"/>
 					</row>
 					<row>
-						Pejabat yang Menetapkan <hlayout><label id="label_pejabat"/> <button id="edit_pejabat">Select...</button></hlayout>
+						Pejabat yang Menetapkan <listbox id="comboBox_pejabat" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						Nomor SK PNS <textbox id="textBox_nosk" value="@{controller.selected.skPns}" readonly="true"/>
 					</row>
 					<row>
-						Tgl SK PNS <datebox id="dateBox_tglsk" value="@{controller.selected.tSkPns}" readonly="true"/>
+						Tgl SK PNS <datebox id="dateBox_tglsk" value="@{controller.selected.tglSkPns}" readonly="true"/>
 					</row>
 					<row>
-						Golongan Ruang <hlayout><label id="label_golru"/> <button id="edit_golru">Select...</button></hlayout>
+						Golongan Ruang <listbox id="comboBox_golru" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						TMT PNS <datebox id="dateBox_tmtpns" value="@{controller.selected.tmtPns}" readonly="true"/>
 					</row>
 					<row>
-						Sumpah/Janji PNS 
-						<combobox id="comboBox_sumpah" selectedItem="@{controller.selected.latPrajab}">
-							<comboitem value="1" label="SUDAH"/>
-							<comboitem value="2" label="BELUM"/>				
-						</combobox>
+						Sumpah/Janji PNS <listbox id="comboBox_sumpah" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 				</rows>
 			</grid>

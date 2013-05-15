@@ -10,18 +10,38 @@
 				<tabs width="200px">
 					<tab id="tab_PegawaiDataPokok_Identitas" label="Identitas Pegawai"
 					image="/images/icons/properties.gif"/>
-				</tabs>
-				<tabs width="200px">
-					<tab id="tab_PegawaiDataPokok_Pengangkatan" label="Pengangkatan CPNS"
+					<tab id="tab_PegawaiDataPokok_PengangkatanCPNS" label="Pengangkatan CPNS"
+					image="/images/icons/properties.gif"/>
+					<tab id="tab_PegawaiDataPokok_PengangkatanPNS" label="Pengangkatan PNS"
+					image="/images/icons/properties.gif"/>
+					<tab id="tab_PegawaiDataPokok_Pangkat" label="Pangkat Terakhir"
+					image="/images/icons/properties.gif"/>
+					<tab id="tab_PegawaiDataPokok_Jabatan" label="Jabatan Terakhir"
+					image="/images/icons/properties.gif"/>
+					<tab id="tab_PegawaiDataPokok_Gaji" label="Gaji Berkala Terakhir"
+					image="/images/icons/properties.gif"/>
+					<tab id="tab_PegawaiDataPokok_Pendidikan" label="Pendidikan Terakhir"
+					image="/images/icons/properties.gif"/>
+					<tab id="tab_PegawaiDataPokok_Instansi" label="Instansi Kerja"
 					image="/images/icons/properties.gif"/>
 				</tabs>
 				
 				<tabpanels>
 					<tabpanel id="tabPanel_PegawaiDataPokok_Identitas" height="100%"
 					style="border: none; padding: 0px; " />
-				</tabpanels>
-				<tabpanels>
 					<tabpanel id="tabPanel_PegawaiDataPokok_PengangkatanCPNS" height="100%"
+					style="border: none; padding: 0px; " />
+					<tabpanel id="tabPanel_PegawaiDataPokok_PengangkatanPNS" height="100%"
+					style="border: none; padding: 0px; " />
+					<tabpanel id="tabPanel_PegawaiDataPokok_Pangkat" height="100%"
+					style="border: none; padding: 0px; " />
+					<tabpanel id="tabPanel_PegawaiDataPokok_Jabatan" height="100%"
+					style="border: none; padding: 0px; " />
+					<tabpanel id="tabPanel_PegawaiDataPokok_Gaji" height="100%"
+					style="border: none; padding: 0px; " />
+					<tabpanel id="tabPanel_PegawaiDataPokok_Pendidikan" height="100%"
+					style="border: none; padding: 0px; " />
+					<tabpanel id="tabPanel_PegawaiDataPokok_Instansi" height="100%"
 					style="border: none; padding: 0px; " />
 				</tabpanels>
 			</tabbox>

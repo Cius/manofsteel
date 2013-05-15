@@ -1,9 +1,9 @@
-<?page title="Identitas Pegawai" contentType="text/html;charset=UTF-8"?>
-<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Identitas" ?>
+<?page title="Jabatan Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Jabatan" ?>
 
 <zk>
-<window id="windowPegawaiDetail_DataPokok_Identitas" apply="${pegawaiDetailCtrl_DataPokok_Identitas}" title="Identitas Pegawai" border="normal">
-	<borderlayout id="borderLayout_PegawaiDataPokok_Identitas">
+<window id="windowPegawaiDetail_DataPokok_Jabatan" apply="${pegawaiDetailCtrl_DataPokok_Jabatan}" title="Jabatan Terakhir" border="normal">
+	<borderlayout id="borderLayout_PegawaiDataPokok_Jabatan">
 		<north>
 			<toolbar align="start" style="float:left; border-style: none;">
 				<button id="edit"
@@ -18,34 +18,46 @@
 			<grid>
 				<rows>
 					<row>
-						NIP <textbox id="textBox_nip" value="@{controller.selected.nip}" readonly="true"/>
+						NIP <textbox id="textBox_nip" value="@{controller.selected.jabatan.nip}" readonly="true"/>
 					</row>
 					<row>
-						Pejabat yang Menetapkan <hlayout><label id="label_pejabat"/> <button id="edit_pejabat">Select...</button></hlayout>
+						Pejabat yang Menetapkan <listbox id="comboBox_pejabat" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Nomor SK CPNS <textbox id="textBox_nosk" value="@{controller.selected.skCpns}" readonly="true"/>
+						Nomor SK CPNS <textbox id="textBox_nosk" value="@{controller.selected.jabatan.numSkJabat}" readonly="true"/>
 					</row>
 					<row>
-						Tgl SK CPNS <datebox id="dateBox_tglsk" value="@{controller.selected.tSkCpns}" readonly="true"/>
+						Tgl SK CPNS <datebox id="dateBox_tglsk" value="@{controller.selected.jabatan.tglSkJabat}" readonly="true"/>
 					</row>
 					<row>
-						Unit Kerja <hlayout><label id="label_unker"/> <button id="edit_unker">Select...</button></hlayout>
+						Unit Kerja <listbox id="comboBox_unker" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Jenis Jabatan
-						<combobox id="comboBox_jenisjabatan" selectedItem="@{controller.selected.latPrajab}">
-							<comboitem value="1" label="FUNGSIONAL UMUM"/>						
-						</combobox>
+						Jenis Jabatan <listbox id="comboBox_jenisjabat" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Eselon <hlayout><label id="label_eselon"/> <button id="edit_eselon">Select...</button></hlayout>
+						Eselon <listbox id="comboBox_eselon" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Pok. Jabatan <hlayout><label id="label_pokjabatan"/> <button id="edit_pokjabatan">Select...</button></hlayout>
+						Rumpun Jabatan <listbox id="comboBox_rumjabat" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						TMT Jabatan <datebox id="dateBox_tmtjabatan" value="@{controller.selected.tSkCpns}" readonly="true"/>
+						Pok. Jabatan <listbox id="comboBox_pokjabat" mold="select" rows="1" hflex="1" disabled="true"/>
+					</row>
+					<row>
+						Nama Jabatan <textbox id="textBox_nmjabat" value="@{controller.selected.jabatan.namaJab}" readonly="true"/>
+					</row>
+					<row>
+						TMT Jabatan <datebox id="dateBox_tmtjabatan" value="@{controller.selected.jabatan.tmtjab}" readonly="true"/>
+					</row>
+					<row>
+						Sumpah Jabatan <listbox id="comboBox_sumpahjabat" mold="select" rows="1" hflex="1" disabled="true"/>
+					</row>
+					<row>
+						Jabatan Rangkap <textbox id="textBox_rangkap" value="@{controller.selected.jabatan.namaJab1}" readonly="true"/>
+					</row>
+					<row>
+						TMT Jabatan Rangkap <datebox id="dateBox_tmtrangkap" value="@{controller.selected.jabatan.tmtjab1}" readonly="true"/>
 					</row>
 				</rows>
 			</grid>

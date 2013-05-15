@@ -1,9 +1,9 @@
 <?page title="Identitas Pegawai" contentType="text/html;charset=UTF-8"?>
-<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Identitas" ?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_PengangkatanCPNS" ?>
 
 <zk>
-<window id="windowPegawaiDetail_DataPokok_Identitas" apply="${pegawaiDetailCtrl_DataPokok_Identitas}" title="Identitas Pegawai" border="normal">
-	<borderlayout id="borderLayout_PegawaiDataPokok_Identitas">
+<window id="windowPegawaiDetail_DataPokok_PengangkatanCPNS" apply="${pegawaiDetailCtrl_DataPokok_PengangkatanCPNS}" title="Pengangkatan CPNS" border="normal">
+	<borderlayout id="borderLayout_PegawaiDataPokok_PengangkatanCPNS">
 		<north>
 			<toolbar align="start" style="float:left; border-style: none;">
 				<button id="edit"
@@ -21,22 +21,22 @@
 						NIP <textbox id="textBox_nip" value="@{controller.selected.nip}" readonly="true"/>
 					</row>
 					<row>
-						Pejabat yang Menetapkan <hlayout><label id="label_pejabat"/> <button id="edit_pejabat">Select...</button></hlayout>
+						Pejabat yang Menetapkan <listbox id="comboBox_pejabat" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						Nomor SK CPNS <textbox id="textBox_nosk" value="@{controller.selected.skCpns}" readonly="true"/>
 					</row>
 					<row>
-						Tgl SK CPNS <datebox id="dateBox_tglsk" value="@{controller.selected.tSkCpns}" readonly="true"/>
+						Tgl SK CPNS <datebox id="dateBox_tglsk" value="@{controller.selected.tglSkCpns}" readonly="true"/>
 					</row>
 					<row>
-						Golongan Ruang <hlayout><label id="label_golru"/> <button id="edit_golru">Select...</button></hlayout>
+						Golongan Ruang <listbox id="comboBox_golru" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						TMT CPNS <datebox id="dateBox_tmtcpns" value="@{controller.selected.tmtCpns}" readonly="true"/>
 					</row>
 					<row>
-						Pendidikan Masuk CPNS <hlayout><label id="label_pendidikan"/> <button id="edit_pendidikan">Select...</button></hlayout>
+						Pendidikan Masuk CPNS <listbox id="comboBox_dikmasuk" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						TMT Melaksanakan Tugas <datebox id="dateBox_tmt" value="@{controller.selected.tmtTugas}" readonly="true"/>
@@ -45,13 +45,7 @@
 						Masa Kerja Golongan <hlayout><textbox id="textBox_thgolongan" value="@{controller.selected.thnKerja}" readonly="true"/><textbox id="textBox_blgolongan" value="@{controller.selected.blnKerja}" readonly="true"/></hlayout>
 					</row>
 					<row>
-						LatPraJabatan 
-						<combobox id="comboBox_latprajab" selectedItem="@{controller.selected.latPrajab}">
-							<comboitem value="1" label="DIKLAT PRAJAB I"/>
-							<comboitem value="2" label="DIKLAT PRAJAB II"/>
-							<comboitem value="3" label="DIKLAT PRAJAB III"/>
-							<comboitem value="0" label="TIDAK MENGIKUTI"/>							
-					</combobox>
+						LatPraJabatan <listbox id="comboBox_latprajab" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						Tahun LatPraJabatan <textbox id="textBox_thnprajab" value="@{controller.selected.thnPrajab}" readonly="true"/>

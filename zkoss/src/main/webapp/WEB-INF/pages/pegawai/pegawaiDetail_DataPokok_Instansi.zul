@@ -1,9 +1,9 @@
-<?page title="Identitas Pegawai" contentType="text/html;charset=UTF-8"?>
-<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Identitas" ?>
+<?page title="Instansi Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Instansi" ?>
 
 <zk>
-<window id="windowPegawaiDetail_DataPokok_Identitas" apply="${pegawaiDetailCtrl_DataPokok_Identitas}" title="Identitas Pegawai" border="normal">
-	<borderlayout id="borderLayout_PegawaiDataPokok_Identitas">
+<window id="windowPegawaiDetail_DataPokok_Instansi" apply="${pegawaiDetailCtrl_DataPokok_Instansi}" title="Instansi Kerja" border="normal">
+	<borderlayout id="borderLayout_PegawaiDataPokok_Instansi">
 		<north>
 			<toolbar align="start" style="float:left; border-style: none;">
 				<button id="edit"
@@ -21,7 +21,7 @@
 						NIP <textbox id="textBox_nip" value="@{controller.selected.nip}" readonly="true"/>
 					</row>
 					<row>
-						Instansi Induk <hlayout><label id="label_induk"/> <button id="edit_induk">Select...</button></hlayout>
+						Instansi Induk <listbox id="comboBox_insinduk" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						Instansi Kerja <textbox id="textBox_insker" value="@{controller.selected.nip}" readonly="true"/>

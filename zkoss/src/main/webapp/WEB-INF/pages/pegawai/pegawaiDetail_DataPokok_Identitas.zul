@@ -27,31 +27,31 @@
 						Tempat Lahir <textbox id="textBox_tempatlahir" value="@{controller.selected.identitas.tmLahir}" readonly="true"/>
 					</row>
 					<row>
-						Kota Lahir <combobox id="comboBox_kotalahir" value="@{controller.selected.identitas.kabLahir}" readonly="true"/>
+						Kota Lahir <listbox id="comboBox_kotalahir" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						Tanggal Lahir <datebox id="dateBox_tanggallahir" value="@{controller.selected.identitas.tgLahir}" readonly="true"/>
 					</row>
 					<row>
-						Jenis Kelamin <hlayout><label id="label_jeniskelamin"/> <button id="edit_jeniskelamin">Select...</button></hlayout>
+						Jenis Kelamin <listbox id="comboBox_jeniskelamin" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Agama <hlayout><label id="label_agama"/> <button id="edit_agama">Select...</button></hlayout>
+						Agama <listbox id="comboBox_agama" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Status Kepegawaian <hlayout><label id="label_statuskepegawaian"/> <button id="edit_statuskepegawaian">Select...</button></hlayout>
+						Status Kepegawaian <listbox id="comboBox_statuspeg" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Jenis Kepegawaian <hlayout><label id="label_jeniskepegawaian"/> <button id="edit_jeniskepegawaian">Select...</button></hlayout>
+						Jenis Kepegawaian <listbox id="comboBox_jenispeg" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Kedudukan Pegawai <hlayout><label id="label_kedudukanpegawai"/> <button id="edit_kedudukanpegawai">Select...</button></hlayout>
+						Kedudukan Pegawai <listbox id="comboBox_dudukpeg" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Status Perkawinan <hlayout><label id="label_statusperkawinan"/> <button id="edit_statusperkawinan">Select...</button></hlayout>
+						Status Perkawinan <listbox id="comboBox_statuskawin" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Golongan Darah <hlayout><label id="label_golongandarah"/> <button id="edit_golongandarah">Select...</button></hlayout>
+						Golongan Darah <listbox id="comboBox_goldarah" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						Alamat Tempat Tinggal <textbox id="textBox_alamat" value="@{controller.selected.identitas.alJalan}" readonly="true"/>
@@ -69,16 +69,16 @@
 						Kode Pos <textbox id="textBox_kodepos" value="@{controller.selected.identitas.kodePos}" readonly="true"/>
 					</row>
 					<row>
-						Provinsi <hlayout><label id="label_provinsi"/> <button id="edit_provinsi">Select...</button></hlayout>
+						Provinsi <listbox id="comboBox_provinsi" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Kab/Kota <hlayout><label id="label_kota"/> <button id="edit_kota">Select...</button></hlayout>
+						Kab/Kota <listbox id="comboBox_kota" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Kecamatan <hlayout><label id="label_kecamatan"/> <button id="edit_kecamatan">Select...</button></hlayout>
+						Kecamatan <listbox id="comboBox_kec" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Kel/Desa <hlayout><label id="label_desa"/> <button id="edit_desa">Select...</button></hlayout>
+						Kel/Desa <listbox id="comboBox_des" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						No. KARPEG <textbox id="textBox_karpeg" value="@{controller.selected.identitas.nKarPeg}" readonly="true"/>

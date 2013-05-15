@@ -1,9 +1,9 @@
-<?page title="Identitas Pegawai" contentType="text/html;charset=UTF-8"?>
-<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Identitas" ?>
+<?page title="Pangkat Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Pangkat" ?>
 
 <zk>
-<window id="windowPegawaiDetail_DataPokok_Identitas" apply="${pegawaiDetailCtrl_DataPokok_Identitas}" title="Identitas Pegawai" border="normal">
-	<borderlayout id="borderLayout_PegawaiDataPokok_Identitas">
+<window id="windowPegawaiDetail_DataPokok_Pangkat" apply="${pegawaiDetailCtrl_DataPokok_Pangkat}" title="Pangkat Terakhir" border="normal">
+	<borderlayout id="borderLayout_PegawaiDataPokok_Pangkat">
 		<north>
 			<toolbar align="start" style="float:left; border-style: none;">
 				<button id="edit"
@@ -21,28 +21,31 @@
 						NIP <textbox id="textBox_nip" value="@{controller.selected.nip}" readonly="true"/>
 					</row>
 					<row>
-						Pejabat yang Menetapkan <hlayout><label id="label_pejabat"/> <button id="edit_pejabat">Select...</button></hlayout>
+						Pejabat yang Menetapkan <listbox id="comboBox_pejabat" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						Nomor SK Pangkat <textbox id="textBox_nosk" value="@{controller.selected.skCpns}" readonly="true"/>
+						Nomor SK Pangkat <textbox id="textBox_nosk" value="@{controller.selected.pangkat.numSkPang}" readonly="true"/>
 					</row>
 					<row>
-						Tgl SK Pangkat <datebox id="dateBox_tglsk" value="@{controller.selected.tSkCpns}" readonly="true"/>
+						Tgl SK Pangkat <datebox id="dateBox_tglsk" value="@{controller.selected.pangkat.tglSkPang}" readonly="true"/>
 					</row>
 					<row>
-						Golongan Ruang <hlayout><label id="label_golru"/> <button id="edit_golru">Select...</button></hlayout>
+						Golongan Ruang <listbox id="comboBox_golru" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
-						TMT Pangkat <datebox id="dateBox_tmtpangkat" value="@{controller.selected.tmtCpns}" readonly="true"/>
+						TMT Pangkat <datebox id="dateBox_tmtpangkat" value="@{controller.selected.pangkat.tmtPang}" readonly="true"/>
 					</row>
 					<row>
-						Masa Kerja Golongan <hlayout><textbox id="textBox_thgolongan" value="@{controller.selected.thnKerja}" readonly="true"/><textbox id="textBox_blgolongan" value="@{controller.selected.blnKerja}" readonly="true"/></hlayout>
+						Masa Kerja Golongan <hlayout><textbox id="textBox_thgolongan" value="@{controller.selected.pangkat.thKerjaPkt}" readonly="true"/><textbox id="textBox_blgolongan" value="@{controller.selected.pangkat.blKerjaPkt}" readonly="true"/></hlayout>
 					</row>
 					<row>
-						Gaji Pokok <textbox id="textBox_gapok" value="@{controller.selected.gajiPokok}" readonly="true"/>
+						Gaji Pokok <textbox id="textBox_gapok" value="@{controller.selected.pangkat.gaPokPkt}" readonly="true"/>
 					</row>
 					<row>
-						Jenis Naik Pangkat <hlayout><label id="label_jenisnaikpangkat"/> <button id="edit_jenisnaikpangkat">Select...</button></hlayout>
+						Jenis Naik Pangkat <listbox id="comboBox_jenisnaik" mold="select" rows="1" hflex="1" disabled="true"/>
+					</row>
+					<row>
+						Angka Kredit <textbox id="textBox_kredit" value="@{controller.selected.pangkat.aKredit}" readonly="true"/>
 					</row>
 				</rows>
 			</grid>

@@ -1,9 +1,9 @@
-<?page title="Identitas Pegawai" contentType="text/html;charset=UTF-8"?>
-<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Identitas" ?>
+<?page title="Pendidikan Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Pendidikan" ?>
 
 <zk>
-<window id="windowPegawaiDetail_DataPokok_Identitas" apply="${pegawaiDetailCtrl_DataPokok_Identitas}" title="Identitas Pegawai" border="normal">
-	<borderlayout id="borderLayout_PegawaiDataPokok_Identitas">
+<window id="windowPegawaiDetail_DataPokok_Pendidikan" apply="${pegawaiDetailCtrl_DataPokok_Pendidikan}" title="Pendidikan Pegawai" border="normal">
+	<borderlayout id="borderLayout_PegawaiDataPokok_Pendidikan">
 		<north>
 			<toolbar align="start" style="float:left; border-style: none;">
 				<button id="edit"
@@ -18,22 +18,22 @@
 			<grid>
 				<rows>
 					<row>
-						NIP <textbox id="textBox_nip" value="@{controller.selected.nip}" readonly="true"/>
+						NIP <textbox id="textBox_nip" readonly="true"/>
 					</row>
 					<row>
-						Pendidikan Umum <textbox id="textBox_dikum" value="@{controller.selected.nip}" readonly="true"/>
+						Pendidikan Umum <textbox id="textBox_dikum" readonly="true"/>
 					</row>
 					<row>
-						Nama Sekolah <textbox id="textBox_sekolah" value="@{controller.selected.nip}" readonly="true"/>
+						Nama Sekolah <textbox id="textBox_sekolah" readonly="true"/>
 					</row>
 					<row>
-						Diklat Kepemimpinan <textbox id="textBox_dikpim" value="@{controller.selected.nip}" readonly="true"/>
+						Diklat Kepemimpinan <textbox id="textBox_dikpim" readonly="true"/>
 					</row>
 					<row>
-						Diklat Fungsional <textbox id="textBox_dikfung" value="@{controller.selected.nip}" readonly="true"/>
+						Diklat Fungsional <textbox id="textBox_dikfung" readonly="true"/>
 					</row>
 					<row>
-						Diklat Teknis <textbox id="textBox_diktek" value="@{controller.selected.nip}" readonly="true"/>
+						Diklat Teknis <textbox id="textBox_diktek" readonly="true"/>
 					</row>
 				</rows>
 			</grid>

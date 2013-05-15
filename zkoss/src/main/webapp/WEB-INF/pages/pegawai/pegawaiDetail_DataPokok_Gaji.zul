@@ -1,9 +1,9 @@
-<?page title="Identitas Pegawai" contentType="text/html;charset=UTF-8"?>
-<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Identitas" ?>
+<?page title="Gaji Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_DataPokok_Gaji" ?>
 
 <zk>
-<window id="windowPegawaiDetail_DataPokok_Identitas" apply="${pegawaiDetailCtrl_DataPokok_Identitas}" title="Identitas Pegawai" border="normal">
-	<borderlayout id="borderLayout_PegawaiDataPokok_Identitas">
+<window id="windowPegawaiDetail_DataPokok_Gaji" apply="${pegawaiDetailCtrl_DataPokok_Gaji}" title="Gaji Pegawai" border="normal">
+	<borderlayout id="borderLayout_PegawaiDataPokok_Gaji">
 		<north>
 			<toolbar align="start" style="float:left; border-style: none;">
 				<button id="edit"
@@ -21,7 +21,7 @@
 						NIP <textbox id="textBox_nip" value="@{controller.selected.nip}" readonly="true"/>
 					</row>
 					<row>
-						Pejabat yang Menetapkan <hlayout><label id="label_pejabat"/> <button id="edit_pejabat">Select...</button></hlayout>
+						Pejabat yang Menetapkan <listbox id="comboBox_pejabat" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 					<row>
 						Nomor Surat Pemberitahuan <textbox id="textBox_nosk" value="@{controller.selected.skCpns}" readonly="true"/>
@@ -30,7 +30,7 @@
 						Tgl Surat Pemberitahuan <datebox id="dateBox_tglsk" value="@{controller.selected.tSkCpns}" readonly="true"/>
 					</row>
 					<row>
-						Golongan Ruang <hlayout><label id="label_golru"/> <button id="edit_golru">Select...</button></hlayout>
+						Golongan Ruang <textbox id="textBox_golru" readonly="true"/>
 					</row>
 					<row>
 						TMT Kenaikan Gaji <datebox id="dateBox_tmtgaji" value="@{controller.selected.tmtCpns}" readonly="true"/>
@@ -42,7 +42,7 @@
 						Gaji Pokok <textbox id="textBox_gapok" value="@{controller.selected.skCpns}" readonly="true"/>
 					</row>
 					<row>
-						Wilayah Pembayaran Gaji <hlayout><label id="label_wilayahgaji"/> <button id="edit_wilayahgaji">Select...</button></hlayout>
+						Wilayah Pembayaran Gaji <listbox id="comboBox_wilgaji" mold="select" rows="1" hflex="1" disabled="true"/>
 					</row>
 				</rows>
 			</grid>
