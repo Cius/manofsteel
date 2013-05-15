@@ -69,4 +69,16 @@ public class DikumDAOImpl extends BasisDAO<Dikum> implements DikumDAO, Initializ
 		return getHibernateTemplate().find("SELECT new Dikum(ktpu, ndik) from Dikum dikum group by dikum.ktpu");
 	}
 
+	@Override
+	public Dikum getDikumByKtpu(String kodeTingkat) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Dikum.class);
+		criteria.add(Restrictions.eq("ktpu", kodeTingkat));
+		criteria.addOrder(Order.asc("ndik"));
+		try {
+			return ((List<Dikum>) getHibernateTemplate().findByCriteria(criteria)).get(0);
+		} catch(IndexOutOfBoundsException e) {
+			return null;
+		}		 
+	}
+
 }

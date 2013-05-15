@@ -64,6 +64,7 @@ public class WilayahDAOImpl extends BasisDAO<Wilayah> implements WilayahDAO, Ini
 	public List<Wilayah> getWilayahByType(String type) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Wilayah.class);
 		criteria.add(Restrictions.ilike("tipeWilayah", type, MatchMode.ANYWHERE));
+		criteria.addOrder(Order.asc("namaWilayah"));
 
 		return getHibernateTemplate().findByCriteria(criteria);
 	}

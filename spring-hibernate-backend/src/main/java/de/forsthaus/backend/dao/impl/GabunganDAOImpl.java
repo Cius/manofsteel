@@ -30,7 +30,7 @@ public class GabunganDAOImpl extends BasisDAO<Gabungan> implements GabunganDAO, 
 	@Override
 	public List<Gabungan> getAllGabungan() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Gabungan.class);
-		criteria.addOrder(Order.asc("kode"));
+		criteria.addOrder(Order.asc("nama"));
 
 		return getHibernateTemplate().findByCriteria(criteria);
 	}
