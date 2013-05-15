@@ -51,6 +51,7 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 	
 	private PegawaiListCtrl pegawaiListCtrl;
 	private PegawaiDetailCtrl_DataPokok pegawaiDetailCtrl_DataPokok;
+	private PegawaiDetailCtrl_RiwayatPengangkatan pegawaiDetailCtrl_RiwayatPengangkatan;
 	
 	private TpCpnsDAO tpCpnsDAO;
 	
@@ -134,5 +135,14 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 
 	public void setOriginal(TpCpns original) {
 		this.original = original;
+	}
+
+	public PegawaiDetailCtrl_RiwayatPengangkatan getPegawaiDetailCtrl_RiwayatPengangkatan() {
+		return pegawaiDetailCtrl_RiwayatPengangkatan;
+	}
+
+	public void setPegawaiDetailCtrl_RiwayatPengangkatan(
+			PegawaiDetailCtrl_RiwayatPengangkatan pegawaiDetailCtrl_RiwayatPengangkatan) {
+		this.pegawaiDetailCtrl_RiwayatPengangkatan = pegawaiDetailCtrl_RiwayatPengangkatan;
 	}
 }

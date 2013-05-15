@@ -44,8 +44,8 @@ public class PegawaiDetailCtrl_DataPokok_Pendidikan extends GFCBaseCtrl implemen
 	private static final long serialVersionUID = -4005265307103199688L;
 	private static final Logger logger = Logger.getLogger(PegawaiDetailCtrl_DataPokok_Pendidikan.class);
 	
-	protected Window windowPegawaiDetail_DataPokok_Identitas;
-	private Borderlayout borderLayout_PegawaiDataPokok_Identitas;
+	protected Window windowPegawaiDetail_DataPokok_Pendidikan;
+	private Borderlayout borderLayout_PegawaiDataPokok_Pendidikan;
 	private Textbox textBox_nip;
 	private Textbox textBox_dikum;
 	private Textbox textBox_sekolah;
@@ -91,7 +91,7 @@ public class PegawaiDetailCtrl_DataPokok_Pendidikan extends GFCBaseCtrl implemen
 		}
 	}
 	
-	public void onCreate$windowPegawaiDetail_DataPokok_Identitas(Event event) throws Exception {
+	public void onCreate$windowPegawaiDetail_DataPokok_Pendidikan(Event event) throws Exception {
 		this.buttonCtrl_Pegawai_DataPokok_Pendidikan = new ButtonStatusCtrl(getUserWorkspace(), btnController_classPrefix, true, null, null, null, null, null, null, null, edit, null, save, cancel, null);
 		this.binder = (AnnotateDataBinder) event.getTarget().getAttribute("binder", true);
 		this.binder.loadAll();
@@ -110,22 +110,6 @@ public class PegawaiDetailCtrl_DataPokok_Pendidikan extends GFCBaseCtrl implemen
 	
 	public void onClick$save(Event event) throws Exception {
 		doSave();
-	}
-	
-	public void onClick$edit_provinsi(Event event) throws Exception {
-		try {
-			Executions.createComponents("/WEB-INF/pages/pegawai/identitas/provinsiSelectDialog.zul", null, null);
-		} catch (final Exception e) {
-			logger.error("onOpenWindow:: error opening window / " + e.getMessage());
-
-			// Show a error box
-			String msg = e.getMessage();
-			String title = Labels.getLabel("message.Error");
-
-			MultiLineMessageBox.doSetTemplate();
-			MultiLineMessageBox.show(msg, title, MultiLineMessageBox.OK, "ERROR", true);
-
-		}
 	}
 	
 	private void doEdit() {
@@ -183,9 +167,9 @@ public class PegawaiDetailCtrl_DataPokok_Pendidikan extends GFCBaseCtrl implemen
 		int height = ((Intbox) Path.getComponent("/outerIndexWindow/currentDesktopHeight")).getValue().intValue();
 		height = height - menuOffset;
 		final int maxListBoxHeight = height - 152;
-		this.borderLayout_PegawaiDataPokok_Identitas.setHeight(String.valueOf(maxListBoxHeight) + "px");
+		this.borderLayout_PegawaiDataPokok_Pendidikan.setHeight(String.valueOf(maxListBoxHeight) + "px");
 
-		this.windowPegawaiDetail_DataPokok_Identitas.invalidate();
+		this.windowPegawaiDetail_DataPokok_Pendidikan.invalidate();
 	}
 	
 	public void doStoreInitValue() {

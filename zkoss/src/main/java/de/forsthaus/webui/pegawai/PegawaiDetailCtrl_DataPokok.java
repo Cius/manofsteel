@@ -32,8 +32,22 @@ public class PegawaiDetailCtrl_DataPokok extends GFCBaseCtrl implements Serializ
 	
 	private Tabbox tabbox_PegawaiDataPokok;
 	protected Tab tab_PegawaiDataPokok_Identitas;
+	protected Tab tab_PegawaiDataPokok_PengangkatanCPNS;
+	protected Tab tab_PegawaiDataPokok_PengangkatanPNS;
+	protected Tab tab_PegawaiDataPokok_Pangkat;
+	protected Tab tab_PegawaiDataPokok_Jabatan;
+	protected Tab tab_PegawaiDataPokok_Gaji;
+	protected Tab tab_PegawaiDataPokok_Pendidikan;
+	protected Tab tab_PegawaiDataPokok_Instansi;
 	
 	protected Tabpanel tabPanel_PegawaiDataPokok_Identitas;
+	protected Tabpanel tabPanel_PegawaiDataPokok_PengangkatanCPNS;
+	protected Tabpanel tabPanel_PegawaiDataPokok_PengangkatanPNS;
+	protected Tabpanel tabPanel_PegawaiDataPokok_Pangkat;
+	protected Tabpanel tabPanel_PegawaiDataPokok_Jabatan;
+	protected Tabpanel tabPanel_PegawaiDataPokok_Gaji;
+	protected Tabpanel tabPanel_PegawaiDataPokok_Pendidikan;
+	protected Tabpanel tabPanel_PegawaiDataPokok_Instansi;
 	
 	protected transient AnnotateDataBinder binder;
 	private PegawaiMainCtrl pegawaiMainCtrl;
@@ -89,6 +103,48 @@ public class PegawaiDetailCtrl_DataPokok extends GFCBaseCtrl implements Serializ
 
 		if (this.tabPanel_PegawaiDataPokok_Identitas != null) {
 			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiDataPokok_Identitas, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok_Identitas.zul");
+		}
+	}
+	
+	public void onSelect$tab_PegawaiDataPokok_PengangkatanCPNS(Event event) throws Exception {
+		if (this.tabPanel_PegawaiDataPokok_PengangkatanCPNS != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiDataPokok_PengangkatanCPNS, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok_PengangkatanCPNS.zul");
+		}
+	}
+	
+	public void onSelect$tab_PegawaiDataPokok_PengangkatanPNS(Event event) throws Exception {
+		if (this.tabPanel_PegawaiDataPokok_PengangkatanPNS != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiDataPokok_PengangkatanPNS, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok_PengangkatanPNS.zul");
+		}
+	}
+	
+	public void onSelect$tab_PegawaiDataPokok_Pangkat(Event event) throws Exception {
+		if (this.tabPanel_PegawaiDataPokok_Pangkat != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiDataPokok_Pangkat, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok_Pangkat.zul");
+		}
+	}
+	
+	public void onSelect$tab_PegawaiDataPokok_Jabatan(Event event) throws Exception {
+		if (this.tabPanel_PegawaiDataPokok_Jabatan != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiDataPokok_Jabatan, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok_Jabatan.zul");
+		}
+	}
+	
+	public void onSelect$tab_PegawaiDataPokok_Gaji(Event event) throws Exception {
+		if (this.tabPanel_PegawaiDataPokok_Gaji != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiDataPokok_Gaji, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok_Gaji.zul");
+		}
+	}
+	
+	public void onSelect$tab_PegawaiDataPokok_Pendidikan(Event event) throws Exception {
+		if (this.tabPanel_PegawaiDataPokok_Pendidikan != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiDataPokok_Pendidikan, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok_Pendidikan.zul");
+		}
+	}
+	
+	public void onSelect$tab_PegawaiDataPokok_Instansi(Event event) throws Exception {
+		if (this.tabPanel_PegawaiDataPokok_Instansi != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiDataPokok_Instansi, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok_Instansi.zul");
 		}
 	}
 	

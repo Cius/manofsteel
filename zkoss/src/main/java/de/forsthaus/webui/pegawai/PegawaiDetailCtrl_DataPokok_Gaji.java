@@ -21,6 +21,7 @@ import org.zkoss.zul.Intbox;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.ListModel;
 import org.zkoss.zul.ListModelList;
+import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
@@ -28,9 +29,15 @@ import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.GabunganDAO;
 import de.forsthaus.backend.dao.GolonganRuangDAO;
 import de.forsthaus.backend.dao.TpCpnsDAO;
+import de.forsthaus.backend.dao.TpKgbPangkatDAO;
 import de.forsthaus.backend.dao.WilayahDAO;
 import de.forsthaus.backend.model.TpCpns;
+import de.forsthaus.backend.model.TpIdentitas;
+import de.forsthaus.backend.model.TpKgbPangkat;
+import de.forsthaus.backend.util.ConstantsText;
 import de.forsthaus.backend.util.ZksampleBeanUtils;
+import de.forsthaus.webui.pegawai.model.GabunganListModelItemRenderer;
+import de.forsthaus.webui.pegawai.model.GolonganRuangListModelItemRenderer;
 import de.forsthaus.webui.util.ButtonStatusCtrl;
 import de.forsthaus.webui.util.GFCBaseCtrl;
 import de.forsthaus.webui.util.MultiLineMessageBox;
@@ -44,21 +51,21 @@ public class PegawaiDetailCtrl_DataPokok_Gaji extends GFCBaseCtrl implements Ser
 	private static final long serialVersionUID = -4005265307103199688L;
 	private static final Logger logger = Logger.getLogger(PegawaiDetailCtrl_DataPokok_Gaji.class);
 	
-	protected Window windowPegawaiDetail_DataPokok_Identitas;
-	private Borderlayout borderLayout_PegawaiDataPokok_Identitas;
+	protected Window windowPegawaiDetail_DataPokok_Gaji;
+	private Borderlayout borderLayout_PegawaiDataPokok_Gaji;
 	private Textbox textBox_nip;
-	private Label label_pejabat;
+	private Listbox comboBox_pejabat;
 	private Textbox textBox_nosk;
 	private Datebox dateBox_tglsk;
-	private Label label_golru;
 	private Datebox dateBox_tmtgaji;
 	private Textbox textBox_thgolongan;
 	private Textbox textBox_blgolongan;
+	private Textbox textBox_golru;
 	private Textbox textBox_gapok;
-	private Label label_wilayahgaji;
+	private Listbox comboBox_wilgaji;
 		
-	private final String btnController_classPrefix = "btn_Pegawai_DataPokok_PengangkatanCPNS_";
-	private ButtonStatusCtrl buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS;
+	private final String btnController_classPrefix = "btn_Pegawai_DataPokok_Gaji_";
+	private ButtonStatusCtrl buttonCtrl_Pegawai_DataPokok_Gaji;
 	private Button edit;
 	private Button save;
 	private Button cancel;
@@ -67,6 +74,7 @@ public class PegawaiDetailCtrl_DataPokok_Gaji extends GFCBaseCtrl implements Ser
 	private TpCpnsDAO tpCpnsDAO;
 	private GabunganDAO gabunganDAO;
 	private GolonganRuangDAO golonganRuangDAO;
+	private TpKgbPangkatDAO tpKgbPangkatDAO;
 	
 	private AnnotateDataBinder binder;
 	
@@ -95,20 +103,25 @@ public class PegawaiDetailCtrl_DataPokok_Gaji extends GFCBaseCtrl implements Ser
 		}
 	}
 	
-	public void onCreate$windowPegawaiDetail_DataPokok_Identitas(Event event) throws Exception {
-		this.buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS = new ButtonStatusCtrl(getUserWorkspace(), btnController_classPrefix, true, null, null, null, null, null, null, null, edit, null, save, cancel, null);
+	public void onCreate$windowPegawaiDetail_DataPokok_Gaji(Event event) throws Exception {
+		this.buttonCtrl_Pegawai_DataPokok_Gaji = new ButtonStatusCtrl(getUserWorkspace(), btnController_classPrefix, true, null, null, null, null, null, null, null, edit, null, save, cancel, null);
 		this.binder = (AnnotateDataBinder) event.getTarget().getAttribute("binder", true);
 		this.binder.loadAll();
 		
-		if(gabunganDAO.getGabunganByKodeTabelAndKode("12", getSelected().getKodePejCpns()) != null) {
-			label_pejabat.setValue(gabunganDAO.getGabunganByKodeTabelAndKode("12", getSelected().getKodePejCpns()).getNama());
-		}
-		if(golonganRuangDAO.getGolonganRuangByKode(getSelected().getKodeGolRuCpns()) != null) {
-			label_golru.setValue(golonganRuangDAO.getGolonganRuangByKode(getSelected().getKodeGolRuCpns()).get(0).getNamaGolonganRuang());
-		}
+		ListModelList pejabat = new ListModelList(gabunganDAO.getGabunganByKodeTabel(ConstantsText.KODETABEL_PEJABAT));
+		comboBox_pejabat.setModel(pejabat);
+		comboBox_pejabat.setItemRenderer(new GabunganListModelItemRenderer());
+		comboBox_pejabat.setSelectedIndex(pejabat.indexOf(gabunganDAO.getGabunganByKodeTabelAndKode(ConstantsText.KODETABEL_PEJABAT, getSelected().getPangkat().getKodePejKgb())));
+		
+		textBox_golru.setValue(golonganRuangDAO.getGolonganRuangByKode(getSelected().getPangkat().getKodeGolRuPkt()).get(0).getNamaGolonganRuang());
+		
+		ListModelList wilgaji = new ListModelList(gabunganDAO.getGabunganByKodeTabel(ConstantsText.KODETABEL_WILAYAHGAJI));
+		comboBox_wilgaji.setModel(wilgaji);
+		comboBox_wilgaji.setItemRenderer(new GabunganListModelItemRenderer());
+		comboBox_wilgaji.setSelectedIndex(wilgaji.indexOf(gabunganDAO.getGabunganByKodeTabelAndKode(ConstantsText.KODETABEL_WILAYAHGAJI, getSelected().getPangkat().getKodeKantor())));
 				
 		doFitSize(event);
-		this.buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS.setInitEdit();
+		this.buttonCtrl_Pegawai_DataPokok_Gaji.setInitEdit();
 	}
 	
 	public void onClick$edit(Event event) throws Exception {
@@ -123,25 +136,9 @@ public class PegawaiDetailCtrl_DataPokok_Gaji extends GFCBaseCtrl implements Ser
 		doSave();
 	}
 	
-	public void onClick$edit_provinsi(Event event) throws Exception {
-		try {
-			Executions.createComponents("/WEB-INF/pages/pegawai/identitas/provinsiSelectDialog.zul", null, null);
-		} catch (final Exception e) {
-			logger.error("onOpenWindow:: error opening window / " + e.getMessage());
-
-			// Show a error box
-			String msg = e.getMessage();
-			String title = Labels.getLabel("message.Error");
-
-			MultiLineMessageBox.doSetTemplate();
-			MultiLineMessageBox.show(msg, title, MultiLineMessageBox.OK, "ERROR", true);
-
-		}
-	}
-	
 	private void doEdit() {
 		doStoreInitValue();
-		this.buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS.setBtnStatus_Edit();
+		this.buttonCtrl_Pegawai_DataPokok_Gaji.setBtnStatus_Edit();
 		doReadOnlyMode(false);
 		getBinder().loadAll();
 		textBox_nip.setFocus(true);
@@ -152,24 +149,18 @@ public class PegawaiDetailCtrl_DataPokok_Gaji extends GFCBaseCtrl implements Ser
 		if(getBinder() != null) {
 			getBinder().loadAll();
 			doReadOnlyMode(true);
-			this.buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS.setInitEdit();
+			this.buttonCtrl_Pegawai_DataPokok_Gaji.setInitEdit();
 		}
 	}
 	
 	private void doSave() throws InterruptedException {
-		getPegawaiDetailCtrl_DataPokok().getBinder().saveAll();
-
 		try {
-			getTpCpnsDAO().saveOrUpdate(getPegawaiDetailCtrl_DataPokok().getSelected());
+			TpKgbPangkat pangkat = getSelected().getPangkat();
+			tpKgbPangkatDAO.saveOrUpdate(pangkat);
+			
 			doStoreInitValue();
 			// refresh the list
 			getPegawaiDetailCtrl_DataPokok().getPegawaiMainCtrl().getPegawaiListCtrl().doFillList();
-			// later refresh StatusBar
-			Events.postEvent("onSelect", getPegawaiDetailCtrl_DataPokok().getPegawaiMainCtrl().getPegawaiListCtrl().getListBox_PegawaiList(), getSelected());
-
-			// show the objects data in the statusBar
-			final String str = getSelected().getNip();
-			EventQueues.lookup("selectedObjectEventQueue", EventQueues.DESKTOP, true).publish(new Event("onChangeSelectedObject", null, str));
 
 		} catch (final DataAccessException e) {
 			ZksampleMessageUtils.showErrorMessage(e.getMostSpecificCause().toString());
@@ -180,13 +171,21 @@ public class PegawaiDetailCtrl_DataPokok_Gaji extends GFCBaseCtrl implements Ser
 			return;
 
 		} finally {
-			this.buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS.setInitEdit();
+			this.buttonCtrl_Pegawai_DataPokok_Gaji.setInitEdit();
 			doReadOnlyMode(true);
 		}
 	}
 	
 	public void doReadOnlyMode(boolean b) {
-		textBox_nip.setReadonly(b);
+//		textBox_nip.setReadonly(b);
+		comboBox_pejabat.setDisabled(b);
+		textBox_nosk.setReadonly(b);
+		dateBox_tglsk.setDisabled(b);
+		dateBox_tmtgaji.setReadonly(b);
+		textBox_thgolongan.setReadonly(b);
+		textBox_blgolongan.setReadonly(b);
+		textBox_gapok.setReadonly(b);
+		comboBox_wilgaji.setDisabled(b);
 	}
 	
 	public void doFitSize(Event event) {
@@ -194,9 +193,9 @@ public class PegawaiDetailCtrl_DataPokok_Gaji extends GFCBaseCtrl implements Ser
 		int height = ((Intbox) Path.getComponent("/outerIndexWindow/currentDesktopHeight")).getValue().intValue();
 		height = height - menuOffset;
 		final int maxListBoxHeight = height - 152;
-		this.borderLayout_PegawaiDataPokok_Identitas.setHeight(String.valueOf(maxListBoxHeight) + "px");
+		this.borderLayout_PegawaiDataPokok_Gaji.setHeight(String.valueOf(maxListBoxHeight) + "px");
 
-		this.windowPegawaiDetail_DataPokok_Identitas.invalidate();
+		this.windowPegawaiDetail_DataPokok_Gaji.invalidate();
 	}
 	
 	public void doStoreInitValue() {
@@ -294,6 +293,14 @@ public class PegawaiDetailCtrl_DataPokok_Gaji extends GFCBaseCtrl implements Ser
 
 	public void setGolonganRuangDAO(GolonganRuangDAO golonganRuangDAO) {
 		this.golonganRuangDAO = golonganRuangDAO;
+	}
+
+	public TpKgbPangkatDAO getTpKgbPangkatDAO() {
+		return tpKgbPangkatDAO;
+	}
+
+	public void setTpKgbPangkatDAO(TpKgbPangkatDAO tpKgbPangkatDAO) {
+		this.tpKgbPangkatDAO = tpKgbPangkatDAO;
 	}
 
 }

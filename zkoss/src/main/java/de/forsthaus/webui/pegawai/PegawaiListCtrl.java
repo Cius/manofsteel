@@ -22,6 +22,7 @@ import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.TpCpnsDAO;
 import de.forsthaus.backend.model.TpCpns;
 import de.forsthaus.backend.util.HibernateSearchObject;
+import de.forsthaus.webui.pegawai.model.PegawaiListListModelItemRenderer;
 import de.forsthaus.webui.util.ButtonStatusCtrl;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
 
@@ -94,6 +95,8 @@ public class PegawaiListCtrl extends GFCBaseListCtrl<TpCpns> implements Serializ
 		this.binder = (AnnotateDataBinder) event.getTarget().getAttribute("binder", true);
 		doFillList();
 		this.binder.loadAll();
+		
+		listBox_PegawaiList.setItemRenderer(new PegawaiListListModelItemRenderer());
 		
 		this.buttonCtrl.setInitNew();
 	}

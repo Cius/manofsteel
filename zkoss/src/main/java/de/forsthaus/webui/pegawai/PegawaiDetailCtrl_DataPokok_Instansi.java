@@ -5,9 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
-import org.zkoss.util.resource.Labels;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Path;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventQueues;
@@ -15,12 +13,8 @@ import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zul.Borderlayout;
 import org.zkoss.zul.Button;
-import org.zkoss.zul.Combobox;
-import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Intbox;
-import org.zkoss.zul.Label;
-import org.zkoss.zul.ListModel;
-import org.zkoss.zul.ListModelList;
+import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
@@ -28,12 +22,10 @@ import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.GabunganDAO;
 import de.forsthaus.backend.dao.GolonganRuangDAO;
 import de.forsthaus.backend.dao.TpCpnsDAO;
-import de.forsthaus.backend.dao.WilayahDAO;
 import de.forsthaus.backend.model.TpCpns;
 import de.forsthaus.backend.util.ZksampleBeanUtils;
 import de.forsthaus.webui.util.ButtonStatusCtrl;
 import de.forsthaus.webui.util.GFCBaseCtrl;
-import de.forsthaus.webui.util.MultiLineMessageBox;
 import de.forsthaus.webui.util.ZksampleMessageUtils;
 
 public class PegawaiDetailCtrl_DataPokok_Instansi extends GFCBaseCtrl implements Serializable {
@@ -44,16 +36,16 @@ public class PegawaiDetailCtrl_DataPokok_Instansi extends GFCBaseCtrl implements
 	private static final long serialVersionUID = -4005265307103199688L;
 	private static final Logger logger = Logger.getLogger(PegawaiDetailCtrl_DataPokok_Instansi.class);
 	
-	protected Window windowPegawaiDetail_DataPokok_Identitas;
-	private Borderlayout borderLayout_PegawaiDataPokok_Identitas;
+	protected Window windowPegawaiDetail_DataPokok_Instansi;
+	private Borderlayout borderLayout_PegawaiDataPokok_Instansi;
 	private Textbox textBox_nip;
-	private Label label_induk;
+	private Listbox comboBox_insinduk;
 	private Textbox textBox_insker;
 	private Textbox textBox_unker;
 	private Textbox textBox_lokker;
 		
-	private final String btnController_classPrefix = "btn_Pegawai_DataPokok_PengangkatanCPNS_";
-	private ButtonStatusCtrl buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS;
+	private final String btnController_classPrefix = "btn_Pegawai_DataPokok_Instansi_";
+	private ButtonStatusCtrl buttonCtrl_Pegawai_DataPokok_Instansi;
 	private Button edit;
 	private Button save;
 	private Button cancel;
@@ -90,13 +82,13 @@ public class PegawaiDetailCtrl_DataPokok_Instansi extends GFCBaseCtrl implements
 		}
 	}
 	
-	public void onCreate$windowPegawaiDetail_DataPokok_Identitas(Event event) throws Exception {
-		this.buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS = new ButtonStatusCtrl(getUserWorkspace(), btnController_classPrefix, true, null, null, null, null, null, null, null, edit, null, save, cancel, null);
+	public void onCreate$windowPegawaiDetail_DataPokok_Instansi(Event event) throws Exception {
+		this.buttonCtrl_Pegawai_DataPokok_Instansi = new ButtonStatusCtrl(getUserWorkspace(), btnController_classPrefix, true, null, null, null, null, null, null, null, edit, null, save, cancel, null);
 		this.binder = (AnnotateDataBinder) event.getTarget().getAttribute("binder", true);
 		this.binder.loadAll();
 				
 		doFitSize(event);
-		this.buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS.setInitEdit();
+		this.buttonCtrl_Pegawai_DataPokok_Instansi.setInitEdit();
 	}
 	
 	public void onClick$edit(Event event) throws Exception {
@@ -110,26 +102,10 @@ public class PegawaiDetailCtrl_DataPokok_Instansi extends GFCBaseCtrl implements
 	public void onClick$save(Event event) throws Exception {
 		doSave();
 	}
-	
-	public void onClick$edit_provinsi(Event event) throws Exception {
-		try {
-			Executions.createComponents("/WEB-INF/pages/pegawai/identitas/provinsiSelectDialog.zul", null, null);
-		} catch (final Exception e) {
-			logger.error("onOpenWindow:: error opening window / " + e.getMessage());
-
-			// Show a error box
-			String msg = e.getMessage();
-			String title = Labels.getLabel("message.Error");
-
-			MultiLineMessageBox.doSetTemplate();
-			MultiLineMessageBox.show(msg, title, MultiLineMessageBox.OK, "ERROR", true);
-
-		}
-	}
-	
+		
 	private void doEdit() {
 		doStoreInitValue();
-		this.buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS.setBtnStatus_Edit();
+		this.buttonCtrl_Pegawai_DataPokok_Instansi.setBtnStatus_Edit();
 		doReadOnlyMode(false);
 		getBinder().loadAll();
 		textBox_nip.setFocus(true);
@@ -140,7 +116,7 @@ public class PegawaiDetailCtrl_DataPokok_Instansi extends GFCBaseCtrl implements
 		if(getBinder() != null) {
 			getBinder().loadAll();
 			doReadOnlyMode(true);
-			this.buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS.setInitEdit();
+			this.buttonCtrl_Pegawai_DataPokok_Instansi.setInitEdit();
 		}
 	}
 	
@@ -168,7 +144,7 @@ public class PegawaiDetailCtrl_DataPokok_Instansi extends GFCBaseCtrl implements
 			return;
 
 		} finally {
-			this.buttonCtrl_Pegawai_DataPokok_PengangkatanCPNS.setInitEdit();
+			this.buttonCtrl_Pegawai_DataPokok_Instansi.setInitEdit();
 			doReadOnlyMode(true);
 		}
 	}
@@ -182,9 +158,9 @@ public class PegawaiDetailCtrl_DataPokok_Instansi extends GFCBaseCtrl implements
 		int height = ((Intbox) Path.getComponent("/outerIndexWindow/currentDesktopHeight")).getValue().intValue();
 		height = height - menuOffset;
 		final int maxListBoxHeight = height - 152;
-		this.borderLayout_PegawaiDataPokok_Identitas.setHeight(String.valueOf(maxListBoxHeight) + "px");
+		this.borderLayout_PegawaiDataPokok_Instansi.setHeight(String.valueOf(maxListBoxHeight) + "px");
 
-		this.windowPegawaiDetail_DataPokok_Identitas.invalidate();
+		this.windowPegawaiDetail_DataPokok_Instansi.invalidate();
 	}
 	
 	public void doStoreInitValue() {
