@@ -18,6 +18,8 @@ public interface DikumDAO {
 	
 	public List<Dikum> getDikumForTingkatPendidikan();
 	
+	public Dikum getDikumByKtpu(String kodeTingkat);
+	
 	public void saveOrUpdate(Dikum entity);
 
 	public void delete(Dikum entity);

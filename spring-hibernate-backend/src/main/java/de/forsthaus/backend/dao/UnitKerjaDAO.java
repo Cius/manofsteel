@@ -15,7 +15,7 @@ public interface UnitKerjaDAO {
 	public UnitKerja getUnitKerjaById(long id);
 
 	public List<UnitKerja> getUnitKerjaByType(String type);
-
+	
 	public List<UnitKerja> getUnitKerjasLikeNameAndType(String string, String type);
 
 	public void saveOrUpdate(UnitKerja entity);
