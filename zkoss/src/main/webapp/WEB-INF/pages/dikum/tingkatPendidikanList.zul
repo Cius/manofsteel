@@ -95,7 +95,7 @@
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"
 							label="Tingkat Pendidikan Umum"
-							sort="auto" width="25%" />
+							sort="auto" width="75%" />
 					</listhead>
 				</listbox>
 

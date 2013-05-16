@@ -131,7 +131,7 @@ public class StatusKepegawaianListCtrl extends GFCBaseListCtrl<Gabungan> impleme
 
 		// ++ create the searchObject and init sorting ++//
 		HibernateSearchObject<Gabungan> soGabungan = new HibernateSearchObject<Gabungan>(Gabungan.class, getCountRows());
-		soGabungan.addFilterEqual("kodeTabel", "2");
+		soGabungan.addFilterEqual("kodeTabel", "02");
 		soGabungan.addSort("kode", false);
 
 		// set the paging params

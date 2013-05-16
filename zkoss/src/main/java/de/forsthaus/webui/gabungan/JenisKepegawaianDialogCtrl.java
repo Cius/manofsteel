@@ -558,7 +558,7 @@ public class JenisKepegawaianDialogCtrl extends GFCBaseCtrl implements Serializa
 	public void doSave() throws InterruptedException {
 
 		final Gabungan gol = getJenisKepegawaian();
-		gol.setKodeTabel("3");
+		gol.setKodeTabel("03");
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// force validation, if on, than execute by component.getValue()

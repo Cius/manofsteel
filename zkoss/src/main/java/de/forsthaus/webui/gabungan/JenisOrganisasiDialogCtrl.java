@@ -558,7 +558,7 @@ public class JenisOrganisasiDialogCtrl extends GFCBaseCtrl implements Serializab
 	public void doSave() throws InterruptedException {
 
 		final Gabungan gol = getJenisOrganisasi();
-		gol.setKodeTabel("7");
+		gol.setKodeTabel("07");
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// force validation, if on, than execute by component.getValue()

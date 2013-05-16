@@ -65,14 +65,13 @@
 
 						<grid sclass="GridPlain">
 							<columns>
-								<column align="right" width="130px" />
+								<column align="right" width="175px" />
 								<column width="100%" />
 							</columns>
 							<rows>
 								<row>
 									<hbox>
 										<label value="Kode" />
-										<label value="*" style="color:red;font-size:10px" />
 									</hbox>
 									<textbox id="tb_Kode" hflex="1" />
 								</row>

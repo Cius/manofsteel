@@ -558,7 +558,7 @@ public class JenisHukumanBeratDialogCtrl extends GFCBaseCtrl implements Serializ
 	public void doSave() throws InterruptedException {
 
 		final Gabungan gol = getJenisHukumanBerat();
-		gol.setKodeTabel("5");
+		gol.setKodeTabel("05");
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// force validation, if on, than execute by component.getValue()

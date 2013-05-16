@@ -46,10 +46,6 @@
 						image="/images/icons/btn_print2_16x16.gif"
 						tooltiptext="${c:l('button_UnitKerjaAlamatList_PrintRightList.tooltiptext')}" />
 					<separator bar="true" orient="vertical" />
-					<button id="button_UnitKerjaAlamatList_New"
-						sclass="oT_ButtonWithIcon"
-						image="/images/icons/btn_new2_16x16.gif"
-						tooltiptext="${c:l('button_UnitKerjaAlamatList_NewRight.tooltiptext')}" />
 				</toolbar>
 			</hbox>
 		</div>
@@ -70,22 +66,22 @@
 						<listheader id="listheader_UnitKerjaAlamatList_UnitKerja"
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"
-							label="UnitKerjaAlamat"
+							label="Unit Kerja"
 							sort="auto" width="40%" />
 						<listheader id="listheader_UnitKerjaAlamatList_Jalan"
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"
-							label="Eselon"
-							sort="auto" width="20%" />
+							label="Nama Jalan"
+							sort="auto" width="30%" />
 						<listheader id="listheader_UnitKerjaAlamatList_Kota"
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"
-							label="Lokasi Kerja/Kecamatan"
+							label="Kota/Kecamatan"
 							sort="auto" width="20%" />
 						<listheader id="listheader_UnitKerjaAlamatList_Telp"
 							sclass="FDListBoxHeader1" image="/images/icons/create_doc.gif"
-							label="Kode"
-							sort="auto" width="20%" />
+							label="Telp"
+							sort="auto" width="10%" />
 					</listhead>
 				</listbox>
 

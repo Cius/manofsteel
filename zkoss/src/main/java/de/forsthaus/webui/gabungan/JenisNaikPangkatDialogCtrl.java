@@ -558,7 +558,7 @@ public class JenisNaikPangkatDialogCtrl extends GFCBaseCtrl implements Serializa
 	public void doSave() throws InterruptedException {
 
 		final Gabungan gol = getJenisNaikPangkat();
-		gol.setKodeTabel("8");
+		gol.setKodeTabel("08");
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// force validation, if on, than execute by component.getValue()

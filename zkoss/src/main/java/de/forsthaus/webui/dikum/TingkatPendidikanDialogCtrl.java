@@ -337,9 +337,7 @@ public class TingkatPendidikanDialogCtrl extends GFCBaseCtrl implements Serializ
 			// We GET it from the backend.
 			tingkatPendidikan = getDikumDAO().getNewDikum();
 			setTingkatPendidikan(tingkatPendidikan);
-		} else {
-			setTingkatPendidikan(null);
-		}
+		} 
 
 		// set Readonly mode accordingly if the object is new or not.
 		if (tingkatPendidikan.isNew()) {
@@ -521,8 +519,6 @@ public class TingkatPendidikanDialogCtrl extends GFCBaseCtrl implements Serializ
 	 * Set the components for edit mode. <br>
 	 */
 	private void doEdit() {
-
-		tb_Kode.setReadonly(false);
 		tb_TingkatPendidikan.setReadonly(false);
 
 		btnCtrl.setBtnStatus_Edit();

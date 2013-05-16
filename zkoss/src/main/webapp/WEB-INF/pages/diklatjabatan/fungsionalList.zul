@@ -70,12 +70,12 @@
 						<listheader id="listheader_FungsionalList_Kode"
 							sclass="FDListBoxHeader1" image="/images/icons/create_doc.gif"
 							label="Kode"
-							sort="auto" width="20%" />
+							sort="auto" width="25%" />
 						<listheader id="listheader_FungsionalList_Nama"
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"
 							label="Nama Diklat Jabatan"
-							sort="auto" width="80%" />
+							sort="auto" width="75%" />
 					</listhead>
 				</listbox>
 

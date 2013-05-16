@@ -230,7 +230,7 @@
 	</bean>
 	<bean id="jenjangPendidikanDialogCtrl" class="de.forsthaus.webui.dikum.JenjangPendidikanDialogCtrl" parent="basisCtrl" scope="prototype">
 		<property name="dikumDAO" ref="dikumDAO" />
-		<property name="golonganDAO" ref="golonganDAO" />
+		<property name="golonganRuangDAO" ref="golonganRuangDAO" />
 	</bean>
 	<bean id="jenjangPendidikanListCtrl" class="de.forsthaus.webui.dikum.JenjangPendidikanListCtrl" parent="basisListCtrl" scope="prototype">
 		<property name="dikumDAO" ref="dikumDAO" />

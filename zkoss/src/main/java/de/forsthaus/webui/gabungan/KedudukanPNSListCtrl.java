@@ -130,7 +130,7 @@ public class KedudukanPNSListCtrl extends GFCBaseListCtrl<Gabungan> implements S
 
 		// ++ create the searchObject and init sorting ++//
 		HibernateSearchObject<Gabungan> soGabungan = new HibernateSearchObject<Gabungan>(Gabungan.class, getCountRows());
-		soGabungan.addFilterEqual("kodeTabel", "4");
+		soGabungan.addFilterEqual("kodeTabel", "04");
 		soGabungan.addSort("kode", false);
 
 		// set the paging params

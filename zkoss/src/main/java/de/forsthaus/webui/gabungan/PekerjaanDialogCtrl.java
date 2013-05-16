@@ -558,7 +558,7 @@ public class PekerjaanDialogCtrl extends GFCBaseCtrl implements Serializable {
 	public void doSave() throws InterruptedException {
 
 		final Gabungan gol = getPekerjaan();
-		gol.setKodeTabel("6");
+		gol.setKodeTabel("06");
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// force validation, if on, than execute by component.getValue()

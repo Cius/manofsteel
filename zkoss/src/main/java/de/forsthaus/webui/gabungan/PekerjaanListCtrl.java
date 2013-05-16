@@ -130,7 +130,7 @@ public class PekerjaanListCtrl extends GFCBaseListCtrl<Gabungan> implements Seri
 
 		// ++ create the searchObject and init sorting ++//
 		HibernateSearchObject<Gabungan> soGabungan = new HibernateSearchObject<Gabungan>(Gabungan.class, getCountRows());
-		soGabungan.addFilterEqual("kodeTabel", "6");
+		soGabungan.addFilterEqual("kodeTabel", "06");
 		soGabungan.addSort("kode", false);
 
 		// set the paging params

@@ -20,6 +20,7 @@ package de.forsthaus.webui.dikum;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -45,11 +46,9 @@ import org.zkoss.zul.Window;
 import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.DikumDAO;
 import de.forsthaus.backend.model.Dikum;
-import de.forsthaus.backend.model.SecRight;
 import de.forsthaus.backend.util.HibernateSearchObject;
 import de.forsthaus.webui.dikum.model.JenjangPendidikanGolRuangListModelItemRenderer;
 import de.forsthaus.webui.dikum.model.TingkatPendidikanListModelItemRenderer;
-import de.forsthaus.webui.unitkerja.model.UnitOrganisasiListModelItemRenderer;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
 import de.forsthaus.webui.util.MultiLineMessageBox;
 import de.forsthaus.webui.util.ZksampleMessageUtils;
@@ -208,7 +207,7 @@ public class JenjangPendidikanListCtrl extends GFCBaseListCtrl<Dikum> implements
 			lml = (ListModelList)listBoxJenjangPendidikan.getModel();
 			lml.clear();
 			soOrder.addFilterLike("kjur", "%00000");
-			soOrder.addFilterLike("kjur", uk.getKjur().substring(0, 1) + "%");
+			soOrder.addFilterEqual("ktpu", uk.getKtpu());
 			getPagedListWrapper().init(soOrder, listBoxJenjangPendidikan, paging_JenjangPendidikanList);
 		}
 
@@ -245,11 +244,12 @@ public class JenjangPendidikanListCtrl extends GFCBaseListCtrl<Dikum> implements
 		paging_TingkatPendidikanSearchList.setDetailed(true);
 
 		// ++ create the searchObject and init sorting ++ //
-		HibernateSearchObject<Dikum> searchObject = new HibernateSearchObject<Dikum>(Dikum.class, 20);
-		searchObject.addSort("ktpu", false);
+//		HibernateSearchObject<Dikum> searchObject = new HibernateSearchObject<Dikum>(Dikum.class, 20);
+//		searchObject.addSort("ktpu", false);
+		List<Dikum> list = getDikumDAO().getDikumForTingkatPendidikan();
 
 		// Set the ListModel.
-		getPlwTingkatPendidikan().init(searchObject, listBoxTingkatPendidikanSearch, paging_TingkatPendidikanSearchList);
+		getPlwTingkatPendidikan().init(list, listBoxTingkatPendidikanSearch, paging_TingkatPendidikanSearchList);
 		// set the itemRenderer
 		listBoxTingkatPendidikanSearch.setItemRenderer(new TingkatPendidikanListModelItemRenderer());
 	}

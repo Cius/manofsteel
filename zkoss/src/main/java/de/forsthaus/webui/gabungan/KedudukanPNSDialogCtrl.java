@@ -558,7 +558,7 @@ public class KedudukanPNSDialogCtrl extends GFCBaseCtrl implements Serializable 
 	public void doSave() throws InterruptedException {
 
 		final Gabungan gol = getKedudukanPNS();
-		gol.setKodeTabel("4");
+		gol.setKodeTabel("04");
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// force validation, if on, than execute by component.getValue()

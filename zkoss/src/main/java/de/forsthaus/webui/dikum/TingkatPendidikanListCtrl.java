@@ -19,11 +19,8 @@
 package de.forsthaus.webui.dikum;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.zkoss.util.resource.Labels;
@@ -41,14 +38,9 @@ import org.zkoss.zul.Paging;
 import org.zkoss.zul.Panel;
 import org.zkoss.zul.Window;
 
-import com.googlecode.genericdao.search.Search;
-
 import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.DikumDAO;
-import de.forsthaus.backend.dao.DikumDAO;
 import de.forsthaus.backend.model.Dikum;
-import de.forsthaus.backend.model.Dikum;
-import de.forsthaus.backend.util.HibernateSearchObject;
 import de.forsthaus.webui.dikum.model.TingkatPendidikanListModelItemRenderer;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
 import de.forsthaus.webui.util.MultiLineMessageBox;
@@ -139,7 +131,7 @@ public class TingkatPendidikanListCtrl extends GFCBaseListCtrl<Dikum> implements
 		listheader_TingkatPendidikanList_Nama.setSortDescending(new FieldComparator("ndik", false));
 
 		// ++ create the searchObject and init sorting ++//
-		List<Dikum> list = getDikumDAO().getAllDikum();
+		List<Dikum> list = getDikumDAO().getDikumForTingkatPendidikan();
 
 		// set the paging params
 		paging_TingkatPendidikanList.setPageSize(getCountRows());

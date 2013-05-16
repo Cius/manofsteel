@@ -558,7 +558,7 @@ public class StatusKepegawaianDialogCtrl extends GFCBaseCtrl implements Serializ
 	public void doSave() throws InterruptedException {
 
 		final Gabungan gol = getStatusKepegawaian();
-		gol.setKodeTabel("2");
+		gol.setKodeTabel("02");
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// force validation, if on, than execute by component.getValue()

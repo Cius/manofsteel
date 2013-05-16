@@ -558,7 +558,7 @@ public class JenisHukumanRinganDialogCtrl extends GFCBaseCtrl implements Seriali
 	public void doSave() throws InterruptedException {
 
 		final Gabungan gol = getJenisHukumanRingan();
-		gol.setKodeTabel("5");
+		gol.setKodeTabel("05");
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// force validation, if on, than execute by component.getValue()

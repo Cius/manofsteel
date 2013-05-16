@@ -337,9 +337,7 @@ public class FungsionalDialogCtrl extends GFCBaseCtrl implements Serializable {
 			// We GET it from the backend.
 			fungsional = getGabunganDAO().getNewGabungan();
 			setFungsional(fungsional);
-		} else {
-			setFungsional(null);
-		}
+		} 
 
 		// set Readonly mode accordingly if the object is new or not.
 		if (fungsional.isNew()) {
@@ -521,8 +519,6 @@ public class FungsionalDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 * Set the components for edit mode. <br>
 	 */
 	private void doEdit() {
-
-		tb_Kode.setReadonly(false);
 		tb_Fungsional.setReadonly(false);
 
 		btnCtrl.setBtnStatus_Edit();

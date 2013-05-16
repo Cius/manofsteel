@@ -42,10 +42,13 @@ import org.zkoss.zul.Panel;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
+import com.googlecode.genericdao.search.Filter;
+
 import de.forsthaus.UserWorkspace;
 import de.forsthaus.backend.dao.DikumDAO;
 import de.forsthaus.backend.model.Dikum;
 import de.forsthaus.backend.util.HibernateSearchObject;
+import de.forsthaus.webui.dikum.model.JenjangPendidikanGolRuangListModelItemRenderer;
 import de.forsthaus.webui.dikum.model.JurusanGolRuangListModelItemRenderer;
 import de.forsthaus.webui.unitkerja.model.UnitKerjaListModelItemRenderer;
 import de.forsthaus.webui.util.GFCBaseListCtrl;
@@ -160,6 +163,11 @@ public class JurusanListCtrl extends GFCBaseListCtrl<Dikum> implements Serializa
 
 		// ++ create the searchObject and init sorting ++//
 		HibernateSearchObject<Dikum> soJurusan = new HibernateSearchObject<Dikum>(Dikum.class, getCountRows());
+		soJurusan.addFilterLike("kjur", "%00");
+		Filter f = Filter.equal("ktpu", "11");
+		soJurusan.addFilterNot(f);
+		Filter f2 = Filter.like("kjur", "%00000");
+		soJurusan.addFilterNot(f2);
 		soJurusan.addSort("kjur", false);
 
 		// set the paging params
@@ -173,13 +181,13 @@ public class JurusanListCtrl extends GFCBaseListCtrl<Dikum> implements Serializa
 
 	}
 	
-	public void onClick$button_bbox_UnitOrganisasi_Search(Event event) {
+	public void onClick$button_bbox_JenjangPendidikan_Search(Event event) {
 		// logger.debug(event.toString());
 
 		doSearch();
 	}
 	
-	public void onClick$button_bbox_UnitOrganisasi_Close(Event event) {
+	public void onClick$button_bbox_JenjangPendidikan_Close(Event event) {
 		// logger.debug(event.toString());
 
 		bandbox_JenjangPendidikanSearch.close();
@@ -198,7 +206,7 @@ public class JurusanListCtrl extends GFCBaseListCtrl<Dikum> implements Serializa
 		getPlwJenjangPendidikan().init(searchObj, listBoxJenjangPendidikanSearch, paging_JenjangPendidikanSearchList);
 	}
 	
-	public void onSelect$listBoxUnitKerjaSearch(Event event) {
+	public void onSelect$listBoxJenjangPendidikanSearch(Event event) {
 		// logger.debug(event.toString());
 
 		Listitem item = listBoxJenjangPendidikanSearch.getSelectedItem();
@@ -206,12 +214,12 @@ public class JurusanListCtrl extends GFCBaseListCtrl<Dikum> implements Serializa
 		Dikum uk = (Dikum) item.getAttribute("data");
 		bandbox_JenjangPendidikanSearch.setValue(uk.getNjur());
 		HibernateSearchObject<Dikum> soOrder = new HibernateSearchObject<Dikum>(Dikum.class, 20);
-		soOrder.addSort("kunker", false);
+		soOrder.addSort("kjur", false);
 				
 		if (item != null) {
 			lml = (ListModelList)listBoxJurusan.getModel();
 			lml.clear();
-//			soOrder.addFilterLike("kunker", uk.getKunker().substring(0, 5) + "%");
+			soOrder.addFilterLike("kjur", uk.getKjur().substring(0, 2) + "%00");
 			getPagedListWrapper().init(soOrder, listBoxJurusan, paging_JurusanList);
 		}
 
@@ -235,7 +243,7 @@ public class JurusanListCtrl extends GFCBaseListCtrl<Dikum> implements Serializa
 
 	}
 	
-	public void onOpen$bandbox_UnitKerjaSearch(Event event) throws Exception {
+	public void onOpen$bandbox_JenjangPendidikanSearch(Event event) throws Exception {
 		// logger.debug(event.toString());
 
 		listheader_Kode.setSortAscending(new FieldComparator("kunker", true));
@@ -253,12 +261,13 @@ public class JurusanListCtrl extends GFCBaseListCtrl<Dikum> implements Serializa
 
 		// ++ create the searchObject and init sorting ++ //
 		HibernateSearchObject<Dikum> searchObject = new HibernateSearchObject<Dikum>(Dikum.class, 20);
+		searchObject.addFilterLike("kjur", "%00000");
 		searchObject.addSort("kjur", false);
 
 		// Set the ListModel.
 		getPlwJenjangPendidikan().init(searchObject, listBoxJenjangPendidikanSearch, paging_JenjangPendidikanSearchList);
 		// set the itemRenderer
-		listBoxJenjangPendidikanSearch.setItemRenderer(new UnitKerjaListModelItemRenderer());
+		listBoxJenjangPendidikanSearch.setItemRenderer(new JenjangPendidikanGolRuangListModelItemRenderer());
 	}
 
 	/**

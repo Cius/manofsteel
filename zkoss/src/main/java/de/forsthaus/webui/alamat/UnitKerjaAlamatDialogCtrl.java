@@ -344,9 +344,7 @@ public class UnitKerjaAlamatDialogCtrl extends GFCBaseCtrl implements Serializab
 			// We GET it from the backend.
 			unitKerja = getUnitKerjaDAO().getNewUnitKerja();
 			setUnitKerja(unitKerja);
-		} else {
-			setUnitKerja(null);
-		}
+		} 
 
 		// set Readonly mode accordingly if the object is new or not.
 		if (unitKerja.isNew()) {
@@ -437,11 +435,7 @@ public class UnitKerjaAlamatDialogCtrl extends GFCBaseCtrl implements Serializab
 	private void doSetValidation() {
 
 		setValidationOn(true);
-
-		tb_Alamat.setConstraint("NO EMPTY");
 		tb_UnitKerja.setConstraint("NO EMPTY");
-		tb_Kota.setConstraint("NO EMPTY");
-		tb_Telp.setConstraint("NO EMPTY");
 	}
 
 	/**
@@ -450,11 +444,7 @@ public class UnitKerjaAlamatDialogCtrl extends GFCBaseCtrl implements Serializab
 	private void doRemoveValidation() {
 
 		setValidationOn(false);
-
-		tb_Alamat.setConstraint("");
 		tb_UnitKerja.setConstraint("");
-		tb_Kota.setConstraint("");
-		tb_Telp.setConstraint("");
 	}
 
 	// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -546,7 +536,6 @@ public class UnitKerjaAlamatDialogCtrl extends GFCBaseCtrl implements Serializab
 	private void doEdit() {
 
 		tb_Alamat.setReadonly(false);
-		tb_UnitKerja.setReadonly(false);
 		tb_Kota.setReadonly(false);
 		tb_Telp.setReadonly(false);
 

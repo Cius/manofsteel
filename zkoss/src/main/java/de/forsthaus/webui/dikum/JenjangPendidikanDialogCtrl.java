@@ -365,8 +365,6 @@ public class JenjangPendidikanDialogCtrl extends GFCBaseCtrl implements Serializ
 			// We GET it from the backend.
 			jenjangPendidikan = getDikumDAO().getNewDikum();
 			setJenjangPendidikan(jenjangPendidikan);
-		} else {
-			setJenjangPendidikan(null);
 		}
 
 		// set Readonly mode accordingly if the object is new or not.
@@ -559,8 +557,6 @@ public class JenjangPendidikanDialogCtrl extends GFCBaseCtrl implements Serializ
 	 * Set the components for edit mode. <br>
 	 */
 	private void doEdit() {
-
-		tb_Kode.setReadonly(false);
 		tb_JenjangPendidikan.setReadonly(false);
 		dd_Gawal.setDisabled(false);
 		dd_Gakhir.setDisabled(false);

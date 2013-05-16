@@ -130,7 +130,7 @@ public class JenisHukumanRinganListCtrl extends GFCBaseListCtrl<Gabungan> implem
 
 		// ++ create the searchObject and init sorting ++//
 		HibernateSearchObject<Gabungan> soGabungan = new HibernateSearchObject<Gabungan>(Gabungan.class, getCountRows());
-		soGabungan.addFilterEqual("kodeTabel", "5");
+		soGabungan.addFilterEqual("kodeTabel", "05");
 		soGabungan.addFilterLike("kode", "1%");
 		soGabungan.addSort("kode", false);
 

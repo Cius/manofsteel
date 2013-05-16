@@ -337,9 +337,7 @@ public class StrukturalDialogCtrl extends GFCBaseCtrl implements Serializable {
 			// We GET it from the backend.
 			struktural = getGabunganDAO().getNewGabungan();
 			setStruktural(struktural);
-		} else {
-			setStruktural(null);
-		}
+		} 
 
 		// set Readonly mode accordingly if the object is new or not.
 		if (struktural.isNew()) {
@@ -522,7 +520,6 @@ public class StrukturalDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 */
 	private void doEdit() {
 
-		tb_Kode.setReadonly(false);
 		tb_Struktural.setReadonly(false);
 
 		btnCtrl.setBtnStatus_Edit();

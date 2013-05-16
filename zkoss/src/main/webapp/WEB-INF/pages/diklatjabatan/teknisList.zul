@@ -95,7 +95,7 @@
 							sclass="FDListBoxHeader1"
 							image="/images/icons/exdDataPerspective.gif"
 							label="Nama Diklat Jabatan"
-							sort="auto" width="25%" />
+							sort="auto" width="75%" />
 					</listhead>
 				</listbox>
 

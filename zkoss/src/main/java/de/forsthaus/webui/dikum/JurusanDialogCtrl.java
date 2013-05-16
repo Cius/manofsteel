@@ -20,7 +20,6 @@ package de.forsthaus.webui.dikum;
 
 import java.io.Serializable;
 import java.util.Map;
-import java.util.regex.Matcher;
 
 import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
@@ -35,14 +34,10 @@ import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
-import de.forsthaus.backend.dao.EselonDAO;
 import de.forsthaus.backend.dao.DikumDAO;
 import de.forsthaus.backend.dao.GolonganRuangDAO;
-import de.forsthaus.backend.dao.WilayahDAO;
-import de.forsthaus.backend.model.Eselon;
 import de.forsthaus.backend.model.Dikum;
 import de.forsthaus.backend.model.GolonganRuang;
-import de.forsthaus.backend.model.Wilayah;
 import de.forsthaus.webui.dikum.model.DikumGolonganRuangListModelItemRenderer;
 import de.forsthaus.webui.util.ButtonStatusCtrl;
 import de.forsthaus.webui.util.GFCBaseCtrl;
@@ -374,9 +369,7 @@ public class JurusanDialogCtrl extends GFCBaseCtrl implements Serializable {
 			// We GET it from the backend.
 			jurusan = getDikumDAO().getNewDikum();
 			setDikum(jurusan);
-		} else {
-			setDikum(null);
-		}
+		} 
 
 		// set Readonly mode accordingly if the object is new or not.
 		if (jurusan.isNew()) {
@@ -474,7 +467,6 @@ public class JurusanDialogCtrl extends GFCBaseCtrl implements Serializable {
 
 		tb_Kode.setConstraint("NO EMPTY");
 		tb_Jurusan.setConstraint("NO EMPTY");
-		tb_Rumpun.setConstraint("NO EMPTY");
 	}
 
 	/**
@@ -576,8 +568,6 @@ public class JurusanDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 * Set the components for edit mode. <br>
 	 */
 	private void doEdit() {
-
-		tb_Kode.setReadonly(false);
 		tb_Jurusan.setReadonly(false);
 		dd_Gawal.setDisabled(false);
 		dd_Gakhir.setDisabled(false);

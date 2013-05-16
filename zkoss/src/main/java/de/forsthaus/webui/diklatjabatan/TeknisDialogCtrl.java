@@ -337,8 +337,6 @@ public class TeknisDialogCtrl extends GFCBaseCtrl implements Serializable {
 			// We GET it from the backend.
 			teknis = getGabunganDAO().getNewGabungan();
 			setTeknis(teknis);
-		} else {
-			setTeknis(null);
 		}
 
 		// set Readonly mode accordingly if the object is new or not.
@@ -522,7 +520,6 @@ public class TeknisDialogCtrl extends GFCBaseCtrl implements Serializable {
 	 */
 	private void doEdit() {
 
-		tb_Kode.setReadonly(false);
 		tb_Teknis.setReadonly(false);
 
 		btnCtrl.setBtnStatus_Edit();

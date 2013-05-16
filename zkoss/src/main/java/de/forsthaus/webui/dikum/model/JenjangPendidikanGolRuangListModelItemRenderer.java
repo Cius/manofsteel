@@ -21,6 +21,7 @@ package de.forsthaus.webui.dikum.model;
 import java.io.Serializable;
 
 import org.apache.log4j.Logger;
+import org.zkoss.zk.ui.sys.ComponentsCtrl;
 import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Listitem;
 import org.zkoss.zul.ListitemRenderer;
@@ -62,6 +63,7 @@ public class JenjangPendidikanGolRuangListModelItemRenderer implements ListitemR
 		lc.setParent(item);
 
 		item.setAttribute("data", data);
+		ComponentsCtrl.applyForward(item, "onDoubleClick=onDoubleClickedJenjangPendidikanItem");
 	}
 
 }

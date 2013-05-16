@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="1.5.0">
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="zksample2">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
@@ -7,10 +6,7 @@
         <dependent-module archiveName="spring-hibernate-backend-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spring-hibernate-backend/spring-hibernate-backend">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="KeyGenZkoss-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/KeyGenZkoss/KeyGenZkoss">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="java-output-path"/>
-        <property name="context-root" value="zksample2"/>
+        <property name="context-root" value="sample"/>
     </wb-module>
 </project-modules>

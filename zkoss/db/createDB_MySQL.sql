@@ -9,7 +9,7 @@ drop database if exists test_db;
 create database test_db;
 */
 
-use test_db;
+use SIMPEG2013;
 
 drop table if exists auftrag;
 drop table if exists kunde;

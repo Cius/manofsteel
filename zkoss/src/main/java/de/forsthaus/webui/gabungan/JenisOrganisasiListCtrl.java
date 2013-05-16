@@ -130,7 +130,7 @@ public class JenisOrganisasiListCtrl extends GFCBaseListCtrl<Gabungan> implement
 
 		// ++ create the searchObject and init sorting ++//
 		HibernateSearchObject<Gabungan> soGabungan = new HibernateSearchObject<Gabungan>(Gabungan.class, getCountRows());
-		soGabungan.addFilterEqual("kodeTabel", "7");
+		soGabungan.addFilterEqual("kodeTabel", "07");
 		soGabungan.addSort("kode", false);
 
 		// set the paging params
