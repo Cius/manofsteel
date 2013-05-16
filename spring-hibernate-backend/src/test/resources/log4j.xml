@@ -8,10 +8,8 @@
 		<param name="Threshold" value="ALL" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{ISO8601} %-6p [%t] %c{1} M[%M] - %m\n" />
-			<!--
-				param name="ConversionPattern" value="%d{ISO8601} %-6p [%t] %c{1}
-				M[%M] - %m\n" /
-			-->
+			<!-- param name="ConversionPattern" value="%d{ISO8601} %-6p [%t] %c{1} 
+				M[%M] - %m\n" / -->
 		</layout>
 		<filter class="org.apache.log4j.varia.LevelRangeFilter">
 			<param name="LevelMax" value="WARN" />
@@ -73,6 +71,6 @@
 		<level value="ALL" />
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="STDERR" />
-		<!-- appender-ref ref="FILE" /-->
+		<!-- appender-ref ref="FILE" / -->
 	</root>
 </log4j:configuration>

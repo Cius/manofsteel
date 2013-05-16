@@ -5,28 +5,25 @@
 <hibernate-mapping>
 	<class name="de.forsthaus.backend.model.UnitKerja" table="mst_unitkerja">
 
-		<!--
-			<id name="id" type="long"> <column name="art_id" /> <generator
-			class="assigned" /> </id>
-		-->
+		<!-- <id name="id" type="long"> <column name="art_id" /> <generator class="assigned" 
+			/> </id> -->
 
 		<id name="id" type="long">
 			<column name="id" />
 			<generator class="increment">
 				<param name="sequence">unitkerja_seq</param>
-				<!--
-					for mySQL use generator class="native" <generator class="native" />
-				-->
+				<!-- for mySQL use generator class="native" <generator class="native" 
+					/> -->
 			</generator>
 		</id>
 
 		<version name="version" column="VERSION" type="integer" />
 
 		<property name="kinsker" type="string">
-			<column name="KINSKER"  not-null="true" />
+			<column name="KINSKER" not-null="true" />
 		</property>
 		<property name="kunker" type="string">
-			<column name="KUNKER" not-null="true"/>
+			<column name="KUNKER" not-null="true" />
 		</property>
 		<property name="nunker" type="string">
 			<column name="NUNKER" />
@@ -64,8 +61,8 @@
 		<property name="klokasi" type="string">
 			<column name="KLOKASI" />
 		</property>
-		<many-to-one name="eselon" class="de.forsthaus.backend.model.Eselon" property-ref="kEselon"
-			fetch="join" lazy="false">
+		<many-to-one name="eselon" class="de.forsthaus.backend.model.Eselon"
+			property-ref="kEselon" fetch="join" lazy="false">
 			<column name="keselon" />
 		</many-to-one>
 

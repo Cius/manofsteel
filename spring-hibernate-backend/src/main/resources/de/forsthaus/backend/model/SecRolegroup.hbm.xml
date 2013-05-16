@@ -5,18 +5,15 @@
 <hibernate-mapping>
 	<class name="de.forsthaus.backend.model.SecRolegroup" table="sec_rolegroup">
 
-		<!--
-			<id name="id" type="long"> <column name="rlg_id" /> <generator
-			class="assigned" /> </id>
-		-->
+		<!-- <id name="id" type="long"> <column name="rlg_id" /> <generator class="assigned" 
+			/> </id> -->
 
 		<id name="id" type="long">
 			<column name="rlg_id" />
 			<generator class="increment">
 				<param name="sequence">sec_rolegroup_seq</param>
-				<!--
-					for mySQL use generator class="native" <generator class="native" />
-				-->
+				<!-- for mySQL use generator class="native" <generator class="native" 
+					/> -->
 			</generator>
 		</id>
 

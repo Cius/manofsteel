@@ -5,28 +5,25 @@
 <hibernate-mapping>
 	<class name="de.forsthaus.backend.model.JenisGuru" table="mst_jnsguru">
 
-		<!--
-			<id name="id" type="long"> <column name="art_id" /> <generator
-			class="assigned" /> </id>
-		-->
+		<!-- <id name="id" type="long"> <column name="art_id" /> <generator class="assigned" 
+			/> </id> -->
 
 		<id name="id" type="long">
 			<column name="id" />
 			<generator class="increment">
 				<param name="sequence">gabungan_seq</param>
-				<!--
-					for mySQL use generator class="native" <generator class="native" />
-				-->
+				<!-- for mySQL use generator class="native" <generator class="native" 
+					/> -->
 			</generator>
 		</id>
 
 		<version name="version" column="VERSION" type="integer" />
 
 		<property name="kjnsGuru" type="string">
-			<column name="kjnsguru"  not-null="true"/>
+			<column name="kjnsguru" not-null="true" />
 		</property>
 		<property name="njnsGuru" type="string">
-			<column name="njnsguru" not-null="true"/>
+			<column name="njnsguru" not-null="true" />
 		</property>
 	</class>
 

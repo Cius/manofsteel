@@ -9,9 +9,8 @@
 			<column name="anw_id" />
 			<generator class="increment">
 				<param name="sequence">app_news_seq</param>
-				<!--
-					for mySQL use generator class="native" <generator class="native" />
-				-->
+				<!-- for mySQL use generator class="native" <generator class="native" 
+					/> -->
 			</generator>
 		</id>
 

@@ -8,15 +8,16 @@
 		<id name="id" type="java.lang.Integer">
 			<column name="id" />
 			<generator class="increment">
-				<param name="sequence">tpcpns_seq</param></generator>
+				<param name="sequence">tpcpns_seq</param>
+			</generator>
 		</id>
 
 		<version name="version" column="VERSION" type="integer" />
-		
+
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
-		<one-to-one name="master" class="de.forsthaus.backend.model.TbMaster"/>
+		<one-to-one name="master" class="de.forsthaus.backend.model.TbMaster" />
 		<property name="kPejCpns" type="string">
 			<column name="KPEJCPNS" />
 		</property>

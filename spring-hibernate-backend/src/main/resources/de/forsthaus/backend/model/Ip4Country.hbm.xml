@@ -6,18 +6,15 @@
 
 	<class name="de.forsthaus.backend.model.Ip4Country" table="sys_ip4country">
 
-		<!--
-			<id name="id" type="long"> <column name="i4co_id" /> <generator
-			class="assigned" /> </id>
-		-->
+		<!-- <id name="id" type="long"> <column name="i4co_id" /> <generator class="assigned" 
+			/> </id> -->
 
 		<id name="id" type="long">
 			<column name="i4co_id" />
 			<generator class="increment">
 				<param name="sequence">sys_ip4country_seq</param>
-				<!--
-					for mySQL use generator class="native" <generator class="native" />
-				-->
+				<!-- for mySQL use generator class="native" <generator class="native" 
+					/> -->
 			</generator>
 		</id>
 

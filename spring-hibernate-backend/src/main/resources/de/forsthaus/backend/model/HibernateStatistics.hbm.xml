@@ -9,9 +9,8 @@
 		<id name="id" type="long" column="id">
 			<generator class="increment">
 				<param name="sequence">hibernate_statistics_seq</param>
-				<!--
-					for mySQL use generator class="native" <generator class="native" />
-				-->
+				<!-- for mySQL use generator class="native" <generator class="native" 
+					/> -->
 			</generator>
 		</id>
 

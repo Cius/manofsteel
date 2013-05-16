@@ -6,18 +6,15 @@
 
 	<class name="de.forsthaus.backend.model.Branche" table="branche">
 
-		<!--
-			<id name="id" type="long"> <column name="bra_id" /> <generator
-			class="assigned" /> </id>
-		-->
+		<!-- <id name="id" type="long"> <column name="bra_id" /> <generator class="assigned" 
+			/> </id> -->
 
 		<id name="id" type="long">
 			<column name="bra_id" />
 			<generator class="increment">
 				<param name="sequence">branche_seq</param>
-				<!--
-					for mySQL use generator class="native" <generator class="native" />
-				-->
+				<!-- for mySQL use generator class="native" <generator class="native" 
+					/> -->
 			</generator>
 		</id>
 

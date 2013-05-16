@@ -5,18 +5,15 @@
 <hibernate-mapping>
 	<class name="de.forsthaus.backend.model.Eselon" table="mst_eselon">
 
-		<!--
-			<id name="id" type="long"> <column name="art_id" /> <generator
-			class="assigned" /> </id>
-		-->
+		<!-- <id name="id" type="long"> <column name="art_id" /> <generator class="assigned" 
+			/> </id> -->
 
 		<id name="id" type="long">
 			<column name="id" />
 			<generator class="increment">
 				<param name="sequence">eselon_seq</param>
-				<!--
-					for mySQL use generator class="native" <generator class="native" />
-				-->
+				<!-- for mySQL use generator class="native" <generator class="native" 
+					/> -->
 			</generator>
 		</id>
 
@@ -28,12 +25,12 @@
 		<property name="nEselon" type="string">
 			<column name="NESELON" />
 		</property>
-		<many-to-one name="gAwal" class="de.forsthaus.backend.model.GolonganRuang"
-			fetch="join" lazy="false">
+		<many-to-one name="gAwal"
+			class="de.forsthaus.backend.model.GolonganRuang" fetch="join" lazy="false">
 			<column name="GAWAL" />
 		</many-to-one>
-		<many-to-one name="gAkhir" class="de.forsthaus.backend.model.GolonganRuang"
-			fetch="join" lazy="false">
+		<many-to-one name="gAkhir"
+			class="de.forsthaus.backend.model.GolonganRuang" fetch="join" lazy="false">
 			<column name="GAKHIR" />
 		</many-to-one>
 		<property name="tunJab" type="double">

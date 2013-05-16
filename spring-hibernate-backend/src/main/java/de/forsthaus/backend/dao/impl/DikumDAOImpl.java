@@ -59,6 +59,7 @@ public class DikumDAOImpl extends BasisDAO<Dikum> implements DikumDAO, Initializ
 		return getHibernateTemplate().findByCriteria(criteria);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Dikum> getDikumForTingkatPendidikan() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Dikum.class);
@@ -66,7 +67,7 @@ public class DikumDAOImpl extends BasisDAO<Dikum> implements DikumDAO, Initializ
 															.add(Projections.groupProperty("ndik")));
 		criteria.addOrder(Order.asc("ktpu"));
 
-		return getHibernateTemplate().find("SELECT new Dikum(ktpu, ndik) from Dikum dikum group by dikum.ktpu");
+		return getHibernateTemplate().find("SELECT new Dikum(id, version, ktpu, ndik) from Dikum dikum group by dikum.ktpu");
 	}
 
 	@Override

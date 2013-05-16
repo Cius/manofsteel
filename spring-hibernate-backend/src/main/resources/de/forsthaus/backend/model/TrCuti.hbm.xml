@@ -8,7 +8,8 @@
 		<id name="id" type="java.lang.Integer">
 			<column name="id" />
 			<generator class="increment">
-				<param name="sequence">trcuti_seq</param></generator>
+				<param name="sequence">trcuti_seq</param>
+			</generator>
 		</id>
 
 		<version name="version" column="VERSION" type="integer" />

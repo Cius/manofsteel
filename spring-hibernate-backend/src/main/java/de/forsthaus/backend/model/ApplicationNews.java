@@ -18,6 +18,7 @@
  */
 package de.forsthaus.backend.model;
 
+
 import java.util.Date;
 
 import org.apache.commons.lang.builder.ToStringBuilder;

@@ -5,18 +5,15 @@
 <hibernate-mapping>
 	<class name="de.forsthaus.backend.model.Kelurahan" table="mst_kelurahan">
 
-		<!--
-			<id name="id" type="long"> <column name="art_id" /> <generator
-			class="assigned" /> </id>
-		-->
+		<!-- <id name="id" type="long"> <column name="art_id" /> <generator class="assigned" 
+			/> </id> -->
 
 		<id name="id" type="long">
 			<column name="kode" />
 			<generator class="increment">
 				<param name="sequence">kelurahan_seq</param>
-				<!--
-					for mySQL use generator class="native" <generator class="native" />
-				-->
+				<!-- for mySQL use generator class="native" <generator class="native" 
+					/> -->
 			</generator>
 		</id>
 
@@ -32,7 +29,7 @@
 			fetch="join">
 			<column name="kode_kecamatan" not-null="true" />
 		</many-to-one>
-		
+
 	</class>
 
 </hibernate-mapping>

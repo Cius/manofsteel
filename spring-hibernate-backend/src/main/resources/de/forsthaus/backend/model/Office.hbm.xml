@@ -6,18 +6,15 @@
 
 	<class name="de.forsthaus.backend.model.Office" table="filiale">
 
-		<!--
-			<id name="id" type="long"> <column name="fil_id" /> <generator
-			class="assigned" /> </id>
-		-->
+		<!-- <id name="id" type="long"> <column name="fil_id" /> <generator class="assigned" 
+			/> </id> -->
 
 		<id name="id" type="long">
 			<column name="fil_id" />
 			<generator class="increment">
 				<param name="sequence">filiale_seq</param>
-				<!--
-					for mySQL use generator class="native" <generator class="native" />
-				-->
+				<!-- for mySQL use generator class="native" <generator class="native" 
+					/> -->
 			</generator>
 		</id>
 
@@ -38,10 +35,8 @@
 		<property name="filOrt" type="string">
 			<column name="fil_ort" length="50" />
 		</property>
-		<!--
-			<set name="customers" inverse="true"> <key> <column name="kun_fil_id"
-			not-null="true" /> </key> <one-to-many
-			class="de.forsthaus.backend.model.Customer" /> </set>
-		-->
+		<!-- <set name="customers" inverse="true"> <key> <column name="kun_fil_id" 
+			not-null="true" /> </key> <one-to-many class="de.forsthaus.backend.model.Customer" 
+			/> </set> -->
 	</class>
 </hibernate-mapping>

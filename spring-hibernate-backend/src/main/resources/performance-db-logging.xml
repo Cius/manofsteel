@@ -28,8 +28,8 @@
 	</tx:advice>
 
 	<!-- ====================================================== -->
-	<!--         Define Aspect pointcuts and advisors           -->
-	<!--               for the transaction scopes.              -->
+	<!-- Define Aspect pointcuts and advisors -->
+	<!-- for the transaction scopes. -->
 	<!-- ====================================================== -->
 	<aop:config>
 		<aop:pointcut id="loggingMethods"

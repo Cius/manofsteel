@@ -23,9 +23,11 @@ public class Dikum implements java.io.Serializable, Entity {
 	public Dikum() {
 	}
 	
-	public Dikum(String kjur, String njur) {
-		this.kjur = kjur;
-		this.njur = njur;
+	public Dikum(long id, int version, String ktpu, String ndik) {
+		this.id = id;
+		this.version = version;
+		this.ktpu = ktpu;
+		this.ndik = ndik;
 	}
 
 	public void setId(long id) {
