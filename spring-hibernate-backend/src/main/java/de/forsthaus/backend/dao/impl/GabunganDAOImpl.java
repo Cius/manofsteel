@@ -70,7 +70,9 @@ public class GabunganDAOImpl extends BasisDAO<Gabungan> implements GabunganDAO, 
 	public Gabungan getGabunganByKodeTabelAndKode(String tabel, String kode) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Gabungan.class);
 		criteria.add(Restrictions.eq("kodeTabel", tabel));
-		criteria.add(Restrictions.eq("kode", kode));
+		
+		int iKode = Integer.parseInt(kode);
+		criteria.add(Restrictions.eq("kode", String.valueOf(iKode)));
 		
 		try {
 			return ((List<Gabungan>) getHibernateTemplate().findByCriteria(criteria)).get(0);
