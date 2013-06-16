@@ -1,7 +1,9 @@
 package de.forsthaus.backend.model;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import de.forsthaus.backend.util.PegawaiUtil;
 
@@ -36,7 +38,7 @@ public class TpCpns {
 	private TpKgbPangkat pangkat;
 	private TpJabatan jabatan;
 	
-	private List<TrKgbPangkat> pangkats;
+	private Set<TrKgbPangkat> pangkats = new HashSet<TrKgbPangkat>();
 	
 	private String kGolRuCpnsDesc;
 	private String latPrajabDesc;
@@ -293,11 +295,11 @@ public class TpCpns {
 		this.jabatan = jabatan;
 	}
 
-	public List<TrKgbPangkat> getPangkats() {
+	public Set<TrKgbPangkat> getPangkats() {
 		return pangkats;
 	}
 
-	public void setPangkats(List<TrKgbPangkat> pangkats) {
+	public void setPangkats(Set<TrKgbPangkat> pangkats) {
 		this.pangkats = pangkats;
 	}
 
