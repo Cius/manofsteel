@@ -25,6 +25,8 @@
 				<!-- TabPanel DETAILS / DETAILS -->
 				<tabpanel id="tabpanel_DataPokok" height="100%"
 					style="border: none; padding: 0px; " />
+				<tabpanel id="tabpanel_RiwayatPengangkatan" height="100%"
+					style="border: none; padding: 0px; " />
 			</tabpanels>
 		</tabbox>
 	</window>
