@@ -51,7 +51,7 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 	
 	private PegawaiListCtrl pegawaiListCtrl;
 	private PegawaiDetailCtrl_DataPokok pegawaiDetailCtrl_DataPokok;
-//	private PegawaiDetailCtrl_RiwayatPengangkatan pegawaiDetailCtrl_RiwayatPengangkatan;
+	private PegawaiDetailCtrl_RiwayatPengangkatan pegawaiDetailCtrl_RiwayatPengangkatan;
 	
 	private TpCpnsDAO tpCpnsDAO;
 	
@@ -85,6 +85,23 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 
 		if (this.tabpanel_DataPokok != null) {
 			ZksampleCommonUtils.createTabPanelContent(this.tabpanel_DataPokok, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_DataPokok.zul");
+		}
+	}
+	
+	public void onSelect$tab_RiwayatPengangkatan(Event event) {
+		if (this.tabpanel_RiwayatPengangkatan.getFirstChild() != null) {
+			this.tab_RiwayatPengangkatan.setSelected(true);
+
+			// refresh the Binding mechanism
+			getPegawaiDetailCtrl_DataPokok().setSelected(getSelected());
+			getPegawaiDetailCtrl_DataPokok().getBinder().loadAll();
+			
+			Events.sendEvent(new Event("onSelect", getPegawaiDetailCtrl_RiwayatPengangkatan().tabPanel_PegawaiRiwayatPengangkatan_Kepangkatan, getSelected()));
+			return;
+		}
+
+		if (this.tabpanel_RiwayatPengangkatan != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabpanel_RiwayatPengangkatan, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan.zul");
 		}
 	}
 
@@ -137,12 +154,12 @@ public class PegawaiMainCtrl extends GFCBaseCtrl implements Serializable {
 		this.original = original;
 	}
 
-//	public PegawaiDetailCtrl_RiwayatPengangkatan getPegawaiDetailCtrl_RiwayatPengangkatan() {
-//		return pegawaiDetailCtrl_RiwayatPengangkatan;
-//	}
-//
-//	public void setPegawaiDetailCtrl_RiwayatPengangkatan(
-//			PegawaiDetailCtrl_RiwayatPengangkatan pegawaiDetailCtrl_RiwayatPengangkatan) {
-//		this.pegawaiDetailCtrl_RiwayatPengangkatan = pegawaiDetailCtrl_RiwayatPengangkatan;
-//	}
+	public PegawaiDetailCtrl_RiwayatPengangkatan getPegawaiDetailCtrl_RiwayatPengangkatan() {
+		return pegawaiDetailCtrl_RiwayatPengangkatan;
+	}
+
+	public void setPegawaiDetailCtrl_RiwayatPengangkatan(
+			PegawaiDetailCtrl_RiwayatPengangkatan pegawaiDetailCtrl_RiwayatPengangkatan) {
+		this.pegawaiDetailCtrl_RiwayatPengangkatan = pegawaiDetailCtrl_RiwayatPengangkatan;
+	}
 }
