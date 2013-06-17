@@ -13,6 +13,7 @@ public class TrDPPP {
 	
 	private int numSetia;
 	private int numPres;
+	private int numTangJawab;
 	private int numTaat;
 	private int numJujur;
 	private int numKerja;
@@ -25,6 +26,10 @@ public class TrDPPP {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
+	
+	public boolean isNew() {
+		return (getId() == Long.MIN_VALUE + 1);
+	}
 	
 	public int getId() {
 		return id;
@@ -139,5 +144,11 @@ public class TrDPPP {
 	}
 	public void setTglEdt(Date tglEdt) {
 		this.tglEdt = tglEdt;
+	}
+	public int getNumTangJawab() {
+		return numTangJawab;
+	}
+	public void setNumTangJawab(int numTangJawab) {
+		this.numTangJawab = numTangJawab;
 	}
 }

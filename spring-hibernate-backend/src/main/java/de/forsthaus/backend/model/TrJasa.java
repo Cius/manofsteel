@@ -20,6 +20,10 @@ public class TrJasa {
 	private Date tglEnt;
 	private String userEdt;
 	private Date tglEdt;
+	
+	public boolean isNew() {
+		return (getId() == Long.MIN_VALUE + 1);
+	}
 	public int getId() {
 		return id;
 	}

@@ -40,9 +40,12 @@ public class ConstantsText {
 	public static final String KODETABEL_STATUSPEG 			= "2";
 	public static final String KODETABEL_JENISPEG 			= "3";
 	public static final String KODETABEL_DUDUKPEG 			= "4";
+	public static final String KODETABEL_JENISHUK 			= "5";
+	public static final String KODETABEL_JENISORG 			= "7";
 	public static final String KODETABEL_JENISNAIK 			= "8";
 	public static final String KODETABEL_POKJABATAN 		= "11";
 	public static final String KODETABEL_PEJABAT 			= "12";
+	public static final String KODETABEL_TANDAJASA 			= "13";
 	public static final String KODETABEL_WILAYAHGAJI 		= "17";
 	public static final String KODETABEL_JENISJABATAN 		= "29";
 	

@@ -104,5 +104,9 @@ public class TrOrganisasi {
 		this.tglEdt = tglEdt;
 	}
 	
+	public boolean isNew() {
+		return (getId() == Long.MIN_VALUE + 1);
+	}
+	
 	
 }
