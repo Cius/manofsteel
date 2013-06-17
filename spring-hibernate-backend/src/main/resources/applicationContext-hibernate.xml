@@ -216,6 +216,12 @@
 	
 	<bean id="trKgbPangkatDao" class="de.forsthaus.backend.dao.impl.TrKgbPangkatDAOImpl" parent="basisDAO"/>
 	<bean id="trJabatanDao" class="de.forsthaus.backend.dao.impl.TrJabatanDAOImpl" parent="basisDAO"/>
+	<bean id="trOrganisasiDao" class="de.forsthaus.backend.dao.impl.TrOrganisasiDAOImpl" parent="basisDAO"/>
+	<bean id="trJasaDao" class="de.forsthaus.backend.dao.impl.TrJasaDAOImpl" parent="basisDAO"/>
+	<bean id="trMutasiDao" class="de.forsthaus.backend.dao.impl.TrMutasiDAOImpl" parent="basisDAO"/>
+	<bean id="trBahasaDao" class="de.forsthaus.backend.dao.impl.TrBahasaDAOImpl" parent="basisDAO"/>
+	<bean id="trDPPPDao" class="de.forsthaus.backend.dao.impl.TrDPPPDAOImpl" parent="basisDAO"/>
+	<bean id="trHukumanDao" class="de.forsthaus.backend.dao.impl.TrHukumanDAOImpl" parent="basisDAO"/>
 
 	<bean id="wilayahDAO" class="de.forsthaus.backend.dao.impl.WilayahDAOImpl" parent="basisDAO" />
 	<bean id="golonganRuangDAO" class="de.forsthaus.backend.dao.impl.GolonganRuangDAOImpl" parent="basisDAO" />

@@ -32,6 +32,9 @@
 		<property name="numPres" type="java.lang.Integer">
 			<column name="NPRES" />
 		</property>
+		<property name="numTangJawab" type="java.lang.Integer">
+			<column name="NTJAWAB" />
+		</property>
 		<property name="numTaat" type="java.lang.Integer">
 			<column name="NTAAT" />
 		</property>
