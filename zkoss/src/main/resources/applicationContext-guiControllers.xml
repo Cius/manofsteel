@@ -410,6 +410,39 @@
 	    <property name="gabunganDAO" ref="gabunganDAO"/>
 	    <property name="golonganRuangDAO" ref="golonganRuangDAO"/>
 	</bean>
+	<bean id="pegawaiDetailCtrl_RiwayatPengangkatan_Organisasi" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_RiwayatPengangkatan_Organisasi" parent="basisCtrl" scope="prototype">
+	    <property name="trOrganisasiDAO" ref="trOrganisasiDao"/>
+	</bean>	
+	<bean id="pegawaiDetailCtrl_RiwayatPengangkatan_OrganisasiDialog" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_RiwayatPengangkatan_OrganisasiDialog" parent="basisCtrl" scope="prototype">
+	    <property name="trOrganisasiDAO" ref="trOrganisasiDao"/>
+	    <property name="gabunganDAO" ref="gabunganDAO"/>
+	</bean>
+	<bean id="pegawaiDetailCtrl_RiwayatPengangkatan_Jasa" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_RiwayatPengangkatan_Jasa" parent="basisCtrl" scope="prototype">
+	    <property name="trJasaDAO" ref="trJasaDao"/>
+	</bean>	
+	<bean id="pegawaiDetailCtrl_RiwayatPengangkatan_JasaDialog" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_RiwayatPengangkatan_JasaDialog" parent="basisCtrl" scope="prototype">
+	    <property name="trJasaDAO" ref="trJasaDao"/>
+	    <property name="gabunganDAO" ref="gabunganDAO"/>
+	</bean>
+	<bean id="pegawaiDetailCtrl_RiwayatPengangkatan_Bahasa" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_RiwayatPengangkatan_Bahasa" parent="basisCtrl" scope="prototype">
+	    <property name="trBahasaDAO" ref="trBahasaDao"/>
+	</bean>	
+	<bean id="pegawaiDetailCtrl_RiwayatPengangkatan_BahasaDialog" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_RiwayatPengangkatan_BahasaDialog" parent="basisCtrl" scope="prototype">
+	    <property name="trBahasaDAO" ref="trBahasaDao"/>
+	</bean>
+	<bean id="pegawaiDetailCtrl_RiwayatPengangkatan_DPPP" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_RiwayatPengangkatan_DPPP" parent="basisCtrl" scope="prototype">
+	    <property name="trDPPPDAO" ref="trDPPPDao"/>
+	</bean>	
+	<bean id="pegawaiDetailCtrl_RiwayatPengangkatan_DPPPDialog" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_RiwayatPengangkatan_DPPPDialog" parent="basisCtrl" scope="prototype">
+	    <property name="trDPPPDAO" ref="trDPPPDao"/>
+	</bean>
+	<bean id="pegawaiDetailCtrl_RiwayatPengangkatan_Hukuman" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_RiwayatPengangkatan_Hukuman" parent="basisCtrl" scope="prototype">
+	    <property name="trHukumanDAO" ref="trHukumanDao"/>
+	</bean>	
+	<bean id="pegawaiDetailCtrl_RiwayatPengangkatan_HukumanDialog" class="de.forsthaus.webui.pegawai.PegawaiDetailCtrl_RiwayatPengangkatan_HukumanDialog" parent="basisCtrl" scope="prototype">
+	    <property name="trHukumanDAO" ref="trHukumanDao"/>
+	    <property name="gabunganDAO" ref="gabunganDAO"/>
+	</bean>
 	
 	<bean id="provinsiSelectCtrl" class="de.forsthaus.webui.pegawai.identitas.IdentitasSelectCtrl_Provinsi" parent="basisCtrl" scope="prototype">
 	    <property name="wilayahDAO" ref="wilayahDAO"/>
