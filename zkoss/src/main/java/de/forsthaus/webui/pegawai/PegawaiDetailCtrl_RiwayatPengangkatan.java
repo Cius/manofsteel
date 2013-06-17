@@ -33,30 +33,42 @@ public class PegawaiDetailCtrl_RiwayatPengangkatan extends GFCBaseCtrl implement
 	private Tabbox tabbox_PegawaiRiwayatPengangkatan;
 	protected Tab tab_PegawaiRiwayatPengangkatan_Kepangkatan;
 	protected Tab tab_PegawaiRiwayatPengangkatan_Jabatan;
-	protected Tab tab_PegawaiRiwayatPengangkatan_PengangkatanPNS;
-	protected Tab tab_PegawaiRiwayatPengangkatan_Pangkat;
-	protected Tab tab_PegawaiRiwayatPengangkatan_Jabatan2;
-	protected Tab tab_PegawaiRiwayatPengangkatan_Gaji;
-	protected Tab tab_PegawaiRiwayatPengangkatan_Pendidikan;
-	protected Tab tab_PegawaiRiwayatPengangkatan_Instansi;
+	protected Tab tab_PegawaiRiwayatPengangkatan_Organisasi;
+	protected Tab tab_PegawaiRiwayatPengangkatan_Jasa;
+	protected Tab tab_PegawaiRiwayatPengangkatan_LN;
+	protected Tab tab_PegawaiRiwayatPengangkatan_Bahasa;
+	protected Tab tab_PegawaiRiwayatPengangkatan_DPPP;
+	protected Tab tab_PegawaiRiwayatPengangkatan_Hukuman;
 	
 	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Kepangkatan;
 	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Jabatan;
-	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_PengangkatanPNS;
-	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Pangkat;
-	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Jabatan2;
-	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Gaji;
-	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Pendidikan;
-	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Instansi;
+	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Organisasi;
+	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Jasa;
+	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_LN;
+	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Bahasa;
+	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_DPPP;
+	protected Tabpanel tabPanel_PegawaiRiwayatPengangkatan_Hukuman;
 	
 	private BindingListModelList riwayatPengangkatanModelList_Kepangkatan;
 	private BindingListModelList riwayatPengangkatanModelList_Jabatan;
+	private BindingListModelList riwayatPengangkatanModelList_Organisasi;
+	private BindingListModelList riwayatPengangkatanModelList_Jasa;	
+	private BindingListModelList riwayatPengangkatanModelList_LN;	
+	private BindingListModelList riwayatPengangkatanModelList_Bahasa;
+	private BindingListModelList riwayatPengangkatanModelList_DPPP;	
+	private BindingListModelList riwayatPengangkatanModelList_Hukuman;	
 	
 	private TpKgbPangkatDAO tpKgbPangkatDAO;
 	
 	private PegawaiMainCtrl pegawaiMainCtrl;
 	private PegawaiDetailCtrl_RiwayatPengangkatan_Kepangkatan pegawaiDetailCtrl_RiwayatPengangkatan_Kepangkatan;
 	private PegawaiDetailCtrl_RiwayatPengangkatan_Jabatan pegawaiDetailCtrl_RiwayatPengangkatan_Jabatan;
+	private PegawaiDetailCtrl_RiwayatPengangkatan_Organisasi pegawaiDetailCtrl_RiwayatPengangkatan_Organisasi;
+	private PegawaiDetailCtrl_RiwayatPengangkatan_Jasa pegawaiDetailCtrl_RiwayatPengangkatan_Jasa;
+	private PegawaiDetailCtrl_RiwayatPengangkatan_LN pegawaiDetailCtrl_RiwayatPengangkatan_LN;
+	private PegawaiDetailCtrl_RiwayatPengangkatan_Bahasa pegawaiDetailCtrl_RiwayatPengangkatan_Bahasa;
+	private PegawaiDetailCtrl_RiwayatPengangkatan_DPPP pegawaiDetailCtrl_RiwayatPengangkatan_DPPP;
+	private PegawaiDetailCtrl_RiwayatPengangkatan_Hukuman pegawaiDetailCtrl_RiwayatPengangkatan_Hukuman;
 		
 	public PegawaiDetailCtrl_RiwayatPengangkatan() {
 		super();
@@ -111,39 +123,39 @@ public class PegawaiDetailCtrl_RiwayatPengangkatan extends GFCBaseCtrl implement
 		}
 	}
 	
-	public void onSelect$tab_PegawaiRiwayatPengangkatan_PengangkatanPNS(Event event) throws Exception {
-		if (this.tabPanel_PegawaiRiwayatPengangkatan_PengangkatanPNS != null) {
-			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_PengangkatanPNS, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_PengangkatanPNS.zul");
+	public void onSelect$tab_PegawaiRiwayatPengangkatan_Organisasi(Event event) throws Exception {
+		if (this.tabPanel_PegawaiRiwayatPengangkatan_Organisasi != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_Organisasi, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_Organisasi.zul");
 		}
 	}
 	
-	public void onSelect$tab_PegawaiRiwayatPengangkatan_Pangkat(Event event) throws Exception {
-		if (this.tabPanel_PegawaiRiwayatPengangkatan_Pangkat != null) {
-			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_Pangkat, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_Pangkat.zul");
+	public void onSelect$tab_PegawaiRiwayatPengangkatan_Jasa(Event event) throws Exception {
+		if (this.tabPanel_PegawaiRiwayatPengangkatan_Jasa != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_Jasa, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_Jasa.zul");
 		}
 	}
 	
-	public void onSelect$tab_PegawaiRiwayatPengangkatan_Jabatan2(Event event) throws Exception {
-		if (this.tabPanel_PegawaiRiwayatPengangkatan_Jabatan2 != null) {
-			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_Jabatan2, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_Jabatan2.zul");
+	public void onSelect$tab_PegawaiRiwayatPengangkatan_LN(Event event) throws Exception {
+		if (this.tabPanel_PegawaiRiwayatPengangkatan_LN != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_LN, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_LN.zul");
 		}
 	}
 	
-	public void onSelect$tab_PegawaiRiwayatPengangkatan_Gaji(Event event) throws Exception {
-		if (this.tabPanel_PegawaiRiwayatPengangkatan_Gaji != null) {
-			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_Gaji, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_Gaji.zul");
+	public void onSelect$tab_PegawaiRiwayatPengangkatan_Bahasa(Event event) throws Exception {
+		if (this.tabPanel_PegawaiRiwayatPengangkatan_Bahasa != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_Bahasa, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_Bahasa.zul");
 		}
 	}
 	
-	public void onSelect$tab_PegawaiRiwayatPengangkatan_Pendidikan(Event event) throws Exception {
-		if (this.tabPanel_PegawaiRiwayatPengangkatan_Pendidikan != null) {
-			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_Pendidikan, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_Pendidikan.zul");
+	public void onSelect$tab_PegawaiRiwayatPengangkatan_DPPP(Event event) throws Exception {
+		if (this.tabPanel_PegawaiRiwayatPengangkatan_DPPP != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_DPPP, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_DPPP.zul");
 		}
 	}
 	
-	public void onSelect$tab_PegawaiRiwayatPengangkatan_Instansi(Event event) throws Exception {
-		if (this.tabPanel_PegawaiRiwayatPengangkatan_Instansi != null) {
-			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_Instansi, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_Instansi.zul");
+	public void onSelect$tab_PegawaiRiwayatPengangkatan_Hukuman(Event event) throws Exception {
+		if (this.tabPanel_PegawaiRiwayatPengangkatan_Hukuman != null) {
+			ZksampleCommonUtils.createTabPanelContent(this.tabPanel_PegawaiRiwayatPengangkatan_Hukuman, this, "ModuleMainController", "/WEB-INF/pages/pegawai/pegawaiDetail_RiwayatPengangkatan_Hukuman.zul");
 		}
 	}
 	
@@ -223,5 +235,113 @@ public class PegawaiDetailCtrl_RiwayatPengangkatan extends GFCBaseCtrl implement
 	public void setPegawaiDetailCtrl_RiwayatPengangkatan_Jabatan(
 			PegawaiDetailCtrl_RiwayatPengangkatan_Jabatan pegawaiDetailCtrl_RiwayatPengangkatan_Jabatan) {
 		this.pegawaiDetailCtrl_RiwayatPengangkatan_Jabatan = pegawaiDetailCtrl_RiwayatPengangkatan_Jabatan;
+	}
+
+	public BindingListModelList getRiwayatPengangkatanModelList_Organisasi() {
+		return riwayatPengangkatanModelList_Organisasi;
+	}
+
+	public void setRiwayatPengangkatanModelList_Organisasi(
+			BindingListModelList riwayatPengangkatanModelList_Organisasi) {
+		this.riwayatPengangkatanModelList_Organisasi = riwayatPengangkatanModelList_Organisasi;
+	}
+
+	public PegawaiDetailCtrl_RiwayatPengangkatan_Organisasi getPegawaiDetailCtrl_RiwayatPengangkatan_Organisasi() {
+		return pegawaiDetailCtrl_RiwayatPengangkatan_Organisasi;
+	}
+
+	public void setPegawaiDetailCtrl_RiwayatPengangkatan_Organisasi(
+			PegawaiDetailCtrl_RiwayatPengangkatan_Organisasi pegawaiDetailCtrl_RiwayatPengangkatan_Organisasi) {
+		this.pegawaiDetailCtrl_RiwayatPengangkatan_Organisasi = pegawaiDetailCtrl_RiwayatPengangkatan_Organisasi;
+	}
+
+	public BindingListModelList getRiwayatPengangkatanModelList_Jasa() {
+		return riwayatPengangkatanModelList_Jasa;
+	}
+
+	public void setRiwayatPengangkatanModelList_Jasa(
+			BindingListModelList riwayatPengangkatanModelList_Jasa) {
+		this.riwayatPengangkatanModelList_Jasa = riwayatPengangkatanModelList_Jasa;
+	}
+
+	public PegawaiDetailCtrl_RiwayatPengangkatan_Jasa getPegawaiDetailCtrl_RiwayatPengangkatan_Jasa() {
+		return pegawaiDetailCtrl_RiwayatPengangkatan_Jasa;
+	}
+
+	public void setPegawaiDetailCtrl_RiwayatPengangkatan_Jasa(
+			PegawaiDetailCtrl_RiwayatPengangkatan_Jasa pegawaiDetailCtrl_RiwayatPengangkatan_Jasa) {
+		this.pegawaiDetailCtrl_RiwayatPengangkatan_Jasa = pegawaiDetailCtrl_RiwayatPengangkatan_Jasa;
+	}
+
+	public BindingListModelList getRiwayatPengangkatanModelList_Bahasa() {
+		return riwayatPengangkatanModelList_Bahasa;
+	}
+
+	public void setRiwayatPengangkatanModelList_Bahasa(
+			BindingListModelList riwayatPengangkatanModelList_Bahasa) {
+		this.riwayatPengangkatanModelList_Bahasa = riwayatPengangkatanModelList_Bahasa;
+	}
+
+	public PegawaiDetailCtrl_RiwayatPengangkatan_Bahasa getPegawaiDetailCtrl_RiwayatPengangkatan_Bahasa() {
+		return pegawaiDetailCtrl_RiwayatPengangkatan_Bahasa;
+	}
+
+	public void setPegawaiDetailCtrl_RiwayatPengangkatan_Bahasa(
+			PegawaiDetailCtrl_RiwayatPengangkatan_Bahasa pegawaiDetailCtrl_RiwayatPengangkatan_Bahasa) {
+		this.pegawaiDetailCtrl_RiwayatPengangkatan_Bahasa = pegawaiDetailCtrl_RiwayatPengangkatan_Bahasa;
+	}
+
+	public BindingListModelList getRiwayatPengangkatanModelList_DPPP() {
+		return riwayatPengangkatanModelList_DPPP;
+	}
+
+	public void setRiwayatPengangkatanModelList_DPPP(
+			BindingListModelList riwayatPengangkatanModelList_DPPP) {
+		this.riwayatPengangkatanModelList_DPPP = riwayatPengangkatanModelList_DPPP;
+	}
+
+	public PegawaiDetailCtrl_RiwayatPengangkatan_DPPP getPegawaiDetailCtrl_RiwayatPengangkatan_DPPP() {
+		return pegawaiDetailCtrl_RiwayatPengangkatan_DPPP;
+	}
+
+	public void setPegawaiDetailCtrl_RiwayatPengangkatan_DPPP(
+			PegawaiDetailCtrl_RiwayatPengangkatan_DPPP pegawaiDetailCtrl_RiwayatPengangkatan_DPPP) {
+		this.pegawaiDetailCtrl_RiwayatPengangkatan_DPPP = pegawaiDetailCtrl_RiwayatPengangkatan_DPPP;
+	}
+
+	public BindingListModelList getRiwayatPengangkatanModelList_LN() {
+		return riwayatPengangkatanModelList_LN;
+	}
+
+	public void setRiwayatPengangkatanModelList_LN(
+			BindingListModelList riwayatPengangkatanModelList_LN) {
+		this.riwayatPengangkatanModelList_LN = riwayatPengangkatanModelList_LN;
+	}
+
+	public PegawaiDetailCtrl_RiwayatPengangkatan_LN getPegawaiDetailCtrl_RiwayatPengangkatan_LN() {
+		return pegawaiDetailCtrl_RiwayatPengangkatan_LN;
+	}
+
+	public void setPegawaiDetailCtrl_RiwayatPengangkatan_LN(
+			PegawaiDetailCtrl_RiwayatPengangkatan_LN pegawaiDetailCtrl_RiwayatPengangkatan_LN) {
+		this.pegawaiDetailCtrl_RiwayatPengangkatan_LN = pegawaiDetailCtrl_RiwayatPengangkatan_LN;
+	}
+
+	public BindingListModelList getRiwayatPengangkatanModelList_Hukuman() {
+		return riwayatPengangkatanModelList_Hukuman;
+	}
+
+	public void setRiwayatPengangkatanModelList_Hukuman(
+			BindingListModelList riwayatPengangkatanModelList_Hukuman) {
+		this.riwayatPengangkatanModelList_Hukuman = riwayatPengangkatanModelList_Hukuman;
+	}
+
+	public PegawaiDetailCtrl_RiwayatPengangkatan_Hukuman getPegawaiDetailCtrl_RiwayatPengangkatan_Hukuman() {
+		return pegawaiDetailCtrl_RiwayatPengangkatan_Hukuman;
+	}
+
+	public void setPegawaiDetailCtrl_RiwayatPengangkatan_Hukuman(
+			PegawaiDetailCtrl_RiwayatPengangkatan_Hukuman pegawaiDetailCtrl_RiwayatPengangkatan_Hukuman) {
+		this.pegawaiDetailCtrl_RiwayatPengangkatan_Hukuman = pegawaiDetailCtrl_RiwayatPengangkatan_Hukuman;
 	}
 }
