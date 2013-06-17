@@ -1,0 +1,91 @@
+<?page title="Daftar Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_RiwayatPengangkatan_DPPP" ?>
+
+<zk>
+<window id="windowPegawaiDetail_RiwayatPengangkatan_DPPP" apply="${pegawaiDetailCtrl_RiwayatPengangkatan_DPPP}" title="Daftar Pegawai" border="normal">
+		<div sclass="z-toolbar" style="padding:0">
+			<hbox sclass="hboxRemoveWhiteStrips" width="100%" pack="strech">
+				<toolbar align="start" style="float:left; border-style:none;">
+					<textbox id="txt_Nip" width="120px" readonly="true"/>
+					<button id="button_New" sclass="oT_ButtonWithIcon"
+					image="/images/icons/btn_new_16x16.gif"/>
+				</toolbar>
+			</hbox>
+		</div>
+		
+		<borderlayout id="borderLayout_dppp">
+		<!-- PAGING COMPONENT -->
+			<north border="none" height="26px">
+				<paging id="paging_dppp" />
+			</north>
+
+			<center border="none">
+
+				<!-- DATABINDED LISTBOX -->
+				<listbox id="listBox_dppp"
+					style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px;"
+					model="@{controller.riwayatPengangkatanModelList_DPPP}" 
+					vflex="true"
+					selectedItem="@{controller.selectedDPPP}"
+					tooltiptext="${c:l('listbox.tooltiptext')}" width="100%"
+					height="100%" multiple="false">
+					<listhead sizable="true">
+						<listheader id="listHeader_dppp_tahun"
+							sclass="FDListBoxHeader1"
+							label="Tahun Penilaian" sort="auto" width="100%" />
+						<listheader id="listHeader_dppp_kesetiaan"
+							sclass="FDListBoxHeader1"
+							label="Kemampuan Berdppp" sort="auto" width="100%" />
+						<listheader id="listHeader_dppp_prestasi"
+							sclass="FDListBoxHeader1"
+							label="Kemampuan Berdppp" sort="auto" width="100%" />
+						<listheader id="listHeader_dppp_tanggungjawab"
+							sclass="FDListBoxHeader1"
+							label="Kemampuan Berdppp" sort="auto" width="100%" />
+						<listheader id="listHeader_dppp_ketaatan"
+							sclass="FDListBoxHeader1"
+							label="Kemampuan Berdppp" sort="auto" width="100%" />
+						<listheader id="listHeader_dppp_kejujuran"
+							sclass="FDListBoxHeader1"
+							label="Kemampuan Berdppp" sort="auto" width="100%" />
+						<listheader id="listHeader_dppp_kerjasama"
+							sclass="FDListBoxHeader1"
+							label="Kemampuan Berdppp" sort="auto" width="100%" />
+						<listheader id="listHeader_dppp_prakarsa"
+							sclass="FDListBoxHeader1"
+							label="Kemampuan Berdppp" sort="auto" width="100%" />
+						<listheader id="listHeader_dppp_kepemimpinan"
+							sclass="FDListBoxHeader1"
+							label="Kemampuan Berdppp" sort="auto" width="100%" />
+						<listheader id="listHeader_dppp_total"
+							sclass="FDListBoxHeader1"
+							label="Kemampuan Berdppp" sort="auto" width="100%" />
+						<listheader id="listHeader_dppp_rata"
+							sclass="FDListBoxHeader1"
+							label="Kemampuan Berdppp" sort="auto" width="100%" />
+					</listhead>
+
+					<listitem self="@{each='dppp'}"
+						value="dppp"
+						forward="onDoubleClick=onDoubleClicked">
+
+						<listcell style="padding-left: 5px" label="@{dppp.thNilai}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.numSetia}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.numPres}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.numTangJawab}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.numTaat}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.numJujur}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.numKerja}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.numPkarsa}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.numPimpin}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.numTotal}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.numRata}"/>
+						<listcell style="padding-left: 5px" label="@{dppp.thNilai}"/>
+					</listitem>
+
+				</listbox>
+
+			</center>
+	</borderlayout>
+</window>
+</zk>

@@ -1,0 +1,82 @@
+<?page title="Daftar Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_RiwayatPengangkatan_Jabatan" ?>
+
+<zk>
+<window id="windowPegawaiDetail_RiwayatPengangkatan_Jabatan" apply="${pegawaiDetailCtrl_RiwayatPengangkatan_Jabatan}" title="Daftar Pegawai" border="normal">
+		<div sclass="z-toolbar" style="padding:0">
+			<hbox sclass="hboxRemoveWhiteStrips" width="100%" pack="strech">
+				<toolbar align="start" style="float:left; border-style:none;">
+					<textbox id="txt_Nip" width="120px" readonly="true"/>
+					<button id="button_New" sclass="oT_ButtonWithIcon"
+					image="/images/icons/btn_new_16x16.gif"/>
+				</toolbar>
+			</hbox>
+		</div>
+		
+		<borderlayout id="borderLayout_jabatan">
+		<!-- PAGING COMPONENT -->
+			<north border="none" height="26px">
+				<paging id="paging_jabatan" />
+			</north>
+
+			<center border="none">
+
+				<!-- DATABINDED LISTBOX -->
+				<listbox id="listBox_jabatan"
+					style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px;"
+					model="@{controller.riwayatPengangkatanModelList_Jabatan}" 
+					vflex="true"
+					selectedItem="@{controller.selectedPangkat}"
+					tooltiptext="${c:l('listbox.tooltiptext')}" width="100%"
+					height="100%" multiple="false">
+					<listhead sizable="true">
+						<listheader id="listHeader_jabatan_unker"
+							sclass="FDListBoxHeader1"
+							label="Unit Kerja" sort="auto" width="100%" />
+						<listheader id="listHeader_jabatan_instansi"
+							sclass="FDListBoxHeader1"
+							label="Instansi" sort="auto" width="100%" />
+						<listheader id="listHeader_jabatan_jenis"
+							sclass="FDListBoxHeader1"
+							label="Jenis Jabatan" sort="auto" width="100%" />
+						<listheader id="listHeader_jabatan_eselon"
+							sclass="FDListBoxHeader1"
+							label="Eselon" sort="auto" width="100%" />
+						<listheader id="listHeader_jabatan_nama"
+							sclass="FDListBoxHeader1"
+							label="Nama Jabatan" sort="auto" width="100%" />
+						<listheader id="listHeader_jabatan_tmt"
+							sclass="FDListBoxHeader1"
+							label="TMT Jabatan" sort="auto" width="100%" />
+						<listheader id="listHeader_jabatan_pejabat"
+							sclass="FDListBoxHeader1"
+							label="Pejabat yang Menetapkan" sort="auto" width="100%" />
+						<listheader id="listHeader_jabatan_nosk"
+							sclass="FDListBoxHeader1"
+							label="No. SK Jabatan" sort="auto" width="100%" />
+						<listheader id="listHeader_jabatan_tglsk"
+							sclass="FDListBoxHeader1"
+							label="Tgl. SK Jabatan" sort="auto" width="100%" />
+					</listhead>
+
+					<listitem self="@{each='jabatan'}"
+						value="jabatan"
+						forward="onDoubleClick=onDoubleClicked">
+
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+					</listitem>
+
+				</listbox>
+
+			</center>
+	</borderlayout>
+</window>
+</zk>

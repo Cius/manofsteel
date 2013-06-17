@@ -1,0 +1,74 @@
+<?page title="Daftar Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_RiwayatPengangkatan_Hukuman" ?>
+
+<zk>
+<window id="windowPegawaiDetail_RiwayatPengangkatan_Hukuman" apply="${pegawaiDetailCtrl_RiwayatPengangkatan_Hukuman}" title="Daftar Pegawai" border="normal">
+		<div sclass="z-toolbar" style="padding:0">
+			<hbox sclass="hboxRemoveWhiteStrips" width="100%" pack="strech">
+				<toolbar align="start" style="float:left; border-style:none;">
+					<textbox id="txt_Nip" width="120px" readonly="true"/>
+					<button id="button_New" sclass="oT_ButtonWithIcon"
+					image="/images/icons/btn_new_16x16.gif"/>
+				</toolbar>
+			</hbox>
+		</div>
+		
+		<borderlayout id="borderLayout_hukuman">
+		<!-- PAGING COMPONENT -->
+			<north border="none" height="26px">
+				<paging id="paging_hukuman" />
+			</north>
+
+			<center border="none">
+
+				<!-- DATABINDED LISTBOX -->
+				<listbox id="listBox_hukuman"
+					style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px;"
+					model="@{controller.riwayatPengangkatanModelList_Hukuman}" 
+					vflex="true"
+					selectedItem="@{controller.selectedHukuman}"
+					tooltiptext="${c:l('listbox.tooltiptext')}" width="100%"
+					height="100%" multiple="false">
+					<listhead sizable="true">
+						<listheader id="listHeader_hukuman_tingkat"
+							sclass="FDListBoxHeader1"
+							label="Tingkat Hukuman" sort="auto" width="100%" />
+						<listheader id="listHeader_hukuman_jenis"
+							sclass="FDListBoxHeader1"
+							label="Jenis Hukuman" sort="auto" width="100%" />
+						<listheader id="listHeader_hukuman_pejabat"
+							sclass="FDListBoxHeader1"
+							label="Pejabat yang Menetapkan" sort="auto" width="100%" />
+						<listheader id="listHeader_hukuman_nosk"
+							sclass="FDListBoxHeader1"
+							label="No. SK Hukuman" sort="auto" width="100%" />
+						<listheader id="listHeader_hukuman_tglsk"
+							sclass="FDListBoxHeader1"
+							label="Tgl. SK Hukuman" sort="auto" width="100%" />
+						<listheader id="listHeader_hukuman_tglmulai"
+							sclass="FDListBoxHeader1"
+							label="Tgl. Mulai Hukuman" sort="auto" width="100%" />
+						<listheader id="listHeader_hukuman_tglakhir"
+							sclass="FDListBoxHeader1"
+							label="Tgl. Akhir Hukuman" sort="auto" width="100%" />
+					</listhead>
+
+					<listitem self="@{each='hukuman'}"
+						value="hukuman"
+						forward="onDoubleClick=onDoubleClicked">
+
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+					</listitem>
+
+				</listbox>
+
+			</center>
+	</borderlayout>
+</window>
+</zk>

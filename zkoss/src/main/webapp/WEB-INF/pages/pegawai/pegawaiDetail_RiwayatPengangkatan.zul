@@ -12,13 +12,13 @@
 					image="/images/icons/properties.gif"/>
 					<tab id="tab_PegawaiRiwayatPengangkatan_Jabatan" label="Pengangkatan CPNS"
 					image="/images/icons/properties.gif"/>
-					<tab id="tab_PegawaiRiwayatPengangkatan_PengangkatanPNS" label="Pengangkatan PNS"
+					<tab id="tab_PegawaiRiwayatPengangkatan_Organisasi" label="Pengangkatan PNS"
 					image="/images/icons/properties.gif"/>
-					<tab id="tab_PegawaiRiwayatPengangkatan_Pangkat" label="Pangkat Terakhir"
+					<tab id="tab_PegawaiRiwayatPengangkatan_Jasa" label="Pangkat Terakhir"
 					image="/images/icons/properties.gif"/>
-					<tab id="tab_PegawaiRiwayatPengangkatan_Jabatan2" label="Jabatan Terakhir"
+					<tab id="tab_PegawaiRiwayatPengangkatan_Bahasa" label="Jabatan Terakhir"
 					image="/images/icons/properties.gif"/>
-					<tab id="tab_PegawaiRiwayatPengangkatan_Gaji" label="Gaji Berkala Terakhir"
+					<tab id="tab_PegawaiRiwayatPengangkatan_DPPP" label="Gaji Berkala Terakhir"
 					image="/images/icons/properties.gif"/>
 					<tab id="tab_PegawaiRiwayatPengangkatan_Pendidikan" label="Pendidikan Terakhir"
 					image="/images/icons/properties.gif"/>
@@ -31,13 +31,13 @@
 					style="border: none; padding: 0px; " />
 					<tabpanel id="tabPanel_PegawaiRiwayatPengangkatan_Jabatan" height="100%"
 					style="border: none; padding: 0px; " />
-					<tabpanel id="tabPanel_PegawaiRiwayatPengangkatan_PengangkatanPNS" height="100%"
+					<tabpanel id="tabPanel_PegawaiRiwayatPengangkatan_Organisasi" height="100%"
 					style="border: none; padding: 0px; " />
-					<tabpanel id="tabPanel_PegawaiRiwayatPengangkatan_Pangkat" height="100%"
+					<tabpanel id="tabPanel_PegawaiRiwayatPengangkatan_Jasa" height="100%"
 					style="border: none; padding: 0px; " />
-					<tabpanel id="tabPanel_PegawaiRiwayatPengangkatan_Jabatan2" height="100%"
+					<tabpanel id="tabPanel_PegawaiRiwayatPengangkatan_Bahasa" height="100%"
 					style="border: none; padding: 0px; " />
-					<tabpanel id="tabPanel_PegawaiRiwayatPengangkatan_Gaji" height="100%"
+					<tabpanel id="tabPanel_PegawaiRiwayatPengangkatan_DPPP" height="100%"
 					style="border: none; padding: 0px; " />
 					<tabpanel id="tabPanel_PegawaiRiwayatPengangkatan_Pendidikan" height="100%"
 					style="border: none; padding: 0px; " />

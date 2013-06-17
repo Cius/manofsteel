@@ -1,0 +1,62 @@
+<?page title="Daftar Pegawai" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./windowPegawaiDetail_RiwayatPengangkatan_LN" ?>
+
+<zk>
+<window id="windowPegawaiDetail_RiwayatPengangkatan_LN" apply="${pegawaiDetailCtrl_RiwayatPengangkatan_LN}" title="Daftar Pegawai" border="normal">
+		<div sclass="z-toolbar" style="padding:0">
+			<hbox sclass="hboxRemoveWhiteStrips" width="100%" pack="strech">
+				<toolbar align="start" style="float:left; border-style:none;">
+					<textbox id="txt_Nip" width="120px" readonly="true"/>
+					<button id="button_New" sclass="oT_ButtonWithIcon"
+					image="/images/icons/btn_new_16x16.gif"/>
+				</toolbar>
+			</hbox>
+		</div>
+		
+		<borderlayout id="borderLayout_ln">
+		<!-- PAGING COMPONENT -->
+			<north border="none" height="26px">
+				<paging id="paging_ln" />
+			</north>
+
+			<center border="none">
+
+				<!-- DATABINDED LISTBOX -->
+				<listbox id="listBox_ln"
+					style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px;"
+					model="@{controller.riwayatPengangkatanModelList_LN}" 
+					vflex="true"
+					selectedItem="@{controller.selectedPangkat}"
+					tooltiptext="${c:l('listbox.tooltiptext')}" width="100%"
+					height="100%" multiple="false">
+					<listhead sizable="true">
+						<listheader id="listHeader_ln_jenis"
+							sclass="FDListBoxHeader1"
+							label="Jenis Penugasan" sort="auto" width="100%" />
+						<listheader id="listHeader_ln_negara"
+							sclass="FDListBoxHeader1"
+							label="Negara Tujuan" sort="auto" width="100%" />
+						<listheader id="listHeader_ln_tglmulai"
+							sclass="FDListBoxHeader1"
+							label="Tgl. Mulai" sort="auto" width="100%" />
+						<listheader id="listHeader_ln_tglakhir"
+							sclass="FDListBoxHeader1"
+							label="Tgl. Akhir" sort="auto" width="100%" />
+					</listhead>
+
+					<listitem self="@{each='ln'}"
+						value="ln"
+						forward="onDoubleClick=onDoubleClicked">
+
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+						<listcell style="padding-left: 5px" />
+					</listitem>
+
+				</listbox>
+
+			</center>
+	</borderlayout>
+</window>
+</zk>
