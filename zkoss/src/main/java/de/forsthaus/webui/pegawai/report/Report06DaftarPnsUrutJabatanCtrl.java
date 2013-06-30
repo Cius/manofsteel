@@ -67,7 +67,7 @@ public class Report06DaftarPnsUrutJabatanCtrl extends GFCBaseCtrl implements Ser
 		Map<String,Object> criterias = new HashMap<String, Object>();
 		criterias.put(ConstantsText.UNIT_KERJA,sUnitKerja);
 		criterias.put(ConstantsText.UNIT_ORGANISASI,sUnitOrganisasi);
-		listTbMaster = TbMasterDAO.getDaftarPnsUrutJabatan(criterias);
+		listTbMaster = TbMasterDAO.getDaftar06PnsUrutJabatan(criterias);
 		
 		Map<String,String> parameters = new HashMap<String,String>();
 		parameters.put("PARAM_TITLE", composeTitle());

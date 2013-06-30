@@ -96,7 +96,7 @@ public class Report04DaftarPnsUrutPangkatCtrl extends GFCBaseCtrl implements Ser
 		criterias.put(ConstantsText.SUB_KRITERIA, sSubKriteria);
 		criterias.put(ConstantsText.UNIT_KERJA,sUnitKerja);
 		criterias.put(ConstantsText.UNIT_ORGANISASI,sUnitOrganisasi);
-		listTbMaster = TbMasterDAO.getDaftarPnsUrutPangkat(criterias);
+		listTbMaster = TbMasterDAO.getDaftar04PnsUrutPangkat(criterias);
 		
 		Map<String,String> parameters = new HashMap<String,String>();
 		parameters.put("PARAM_TITLE", composeTitle());

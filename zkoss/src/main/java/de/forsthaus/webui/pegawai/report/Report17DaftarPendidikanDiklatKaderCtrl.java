@@ -12,7 +12,6 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zkex.zul.Jasperreport;
 import org.zkoss.zul.Button;
-import org.zkoss.zul.Label;
 import org.zkoss.zul.api.Listbox;
 
 import de.forsthaus.backend.dao.MasterUnitKerjaDAO;
@@ -22,29 +21,32 @@ import de.forsthaus.backend.model.TbMaster;
 import de.forsthaus.backend.util.ConstantsText;
 import de.forsthaus.webui.util.GFCBaseCtrl;
 
-public class Report03DaftarPnsUrutNipCtrl extends GFCBaseCtrl implements Serializable {
+public class Report17DaftarPendidikanDiklatKaderCtrl extends GFCBaseCtrl implements Serializable {
 
 	private static final long serialVersionUID = -6484788269534812786L;
-	private Listbox listKriteria;
-	private Listbox listSubKriteria;
+	private Listbox listJenis;
 	private Listbox listJenisKelamin;
 	private Listbox listUnitOrganisasi;
-	private Listbox listUnitKerja;
-	private Label lblSubKriteria;
+	private Listbox listUnitKerja;	
 	private Button btnCari;
 	private Jasperreport report;
 	
+	String [] arrJenis = {"APDN"};
+	String [] arrKodeJenis = {"APDN"};
+
 	private TbMasterDAO TbMasterDAO;
 	private MasterUnitKerjaDAO masterUnitKerjaDAO;
 
-	public Report03DaftarPnsUrutNipCtrl() {
+	public Report17DaftarPendidikanDiklatKaderCtrl() {
 		super();
 	}
-	
+
 	public void onCreate$window_Report(Event event) throws InterruptedException {
-		// Init Kriteria
-		lblSubKriteria.setVisible(false);
-		listSubKriteria.setVisible(false);
+		//init jenis
+		for (int i = 0; i < arrJenis.length; i++) {
+			listJenis.appendItemApi(arrJenis[i], arrKodeJenis[i]);
+		}
+		listJenis.setSelectedIndex(listJenis.getItemCount()-1);
 		
 		//Init Unit Organisasi & Unit Kerja
 		List<MasterUnitKerja> listObjetUnitKerja = masterUnitKerjaDAO.findbyUnitKerja(ConstantsText.KODE_UNIT_KERJA);
@@ -67,18 +69,14 @@ public class Report03DaftarPnsUrutNipCtrl extends GFCBaseCtrl implements Seriali
 			}
 		}
 	}
-	
+
 	public void onClick$btnCari(Event event) throws InterruptedException {
 		List<TbMaster> listTbMaster = new ArrayList<TbMaster>();
+		String sJenis = listJenis.getSelectedItemApi().getValue().toString();
 		String sJenisKelamin = listJenisKelamin.getSelectedItemApi().getValue().toString();
-		String sKriteria = listKriteria.getSelectedItemApi().getValue().toString();
-		String sTahun = "";
 		String sUnitOrganisasi = listUnitOrganisasi.getSelectedItemApi().getValue().toString();
 		String sUnitKerja = listUnitKerja.getSelectedItemApi().getValue().toString();
 		
-		if(!sKriteria.equals(ConstantsText.SELURUH)){
-			sTahun = listSubKriteria.getSelectedItemApi().getValue().toString();
-		}
 		if(!sUnitKerja.equals("")){
 			String [] arrUnitKerja = sUnitKerja.split(ConstantsText.SEPARATOR);
 			sUnitKerja = arrUnitKerja[0];
@@ -86,36 +84,32 @@ public class Report03DaftarPnsUrutNipCtrl extends GFCBaseCtrl implements Seriali
 			String [] arrUnitOrganisasi = sUnitOrganisasi.split(ConstantsText.SEPARATOR);
 			sUnitOrganisasi = arrUnitOrganisasi[0];
 		}
-         
-		Map<String,Object> criterias = new HashMap<String, Object>();
+
+		Map<String, Object> criterias = new HashMap<String, Object>();
+		criterias.put(ConstantsText.JENIS, sJenis);
 		criterias.put(ConstantsText.JENIS_KELAMIN, sJenisKelamin);
-		criterias.put(ConstantsText.KRITERIA, sKriteria);
-		criterias.put(ConstantsText.SUB_KRITERIA, sTahun);
-		criterias.put(ConstantsText.UNIT_KERJA,sUnitKerja);
-		criterias.put(ConstantsText.UNIT_ORGANISASI,sUnitOrganisasi);
-		listTbMaster = TbMasterDAO.getDaftar03PnsUrutNip(criterias);
-		
-		Map<String,String> parameters = new HashMap<String,String>();
+		criterias.put(ConstantsText.UNIT_KERJA, sUnitKerja);
+		criterias.put(ConstantsText.UNIT_ORGANISASI, sUnitOrganisasi);
+		listTbMaster = TbMasterDAO.getDaftar17PendidikanDiklatKader(criterias);
+
+		Map<String, String> parameters = new HashMap<String, String>();
 		parameters.put("PARAM_TITLE", composeTitle());
 		parameters.put("PARAM_PATH_LOGO", ConstantsText.PARAM_PATH_LOGO);
-		
+
 		JRBeanCollectionDataSource jbs = new JRBeanCollectionDataSource(listTbMaster);
 		report.setDatasource(jbs);
-		report.setSrc("/reports/03daftar_pns_urut_nip.jasper");
+		report.setSrc("/reports/17daftar_pendidikan_diklat_kader.jasper");
 		report.setParameters(parameters);
 		report.setType("pdf");
 	}
-	
-	private String composeTitle(){
-		String sJenisKelamin = listJenisKelamin.getSelectedItemApi().getValue().toString();
-		String sKriteria = listKriteria.getSelectedItemApi().getValue().toString();
-		String sTahun = "";
+
+	private String composeTitle() {
+		String sJenis = listJenis.getSelectedItemApi().getValue().toString();
+		String sJenisKelamin = listUnitOrganisasi.getSelectedItemApi().getValue().toString();
 		String sUnitOrganisasi = listUnitOrganisasi.getSelectedItemApi().getValue().toString();
 		String sUnitKerja = listUnitKerja.getSelectedItemApi().getValue().toString();
+		int iJenis = listJenis.getSelectedIndex();
 		
-		if(!sKriteria.equals(ConstantsText.SELURUH)){
-			sTahun = listSubKriteria.getSelectedItemApi().getValue().toString();
-		}
 		if(!sUnitKerja.equals("")){
 			String [] arrUnitKerja = sUnitKerja.split(ConstantsText.SEPARATOR);
 			sUnitKerja = arrUnitKerja[1];
@@ -123,45 +117,24 @@ public class Report03DaftarPnsUrutNipCtrl extends GFCBaseCtrl implements Seriali
 			String [] arrUnitOrganisasi = sUnitOrganisasi.split(ConstantsText.SEPARATOR);
 			sUnitOrganisasi = arrUnitOrganisasi[1];
 		}
-	
-		String title = "DAFTAR NOMINATIF PEGAWAI NEGERI SIPIL ";
+
+		String title = "DAFTAR NOMINATIF PNS BERDASARKAN ALUMNI DIKLAT KADER ";
+		
 		if(!sJenisKelamin.equals(ConstantsText.JENIS_KELAMIN_SELURUH)){
-			title+=sJenisKelamin;
+			title +=sJenisKelamin+" ";
 		}
-		title += " BERDASARKAN URUT NIP / ";
-		if(!sKriteria.equals("")){
-			title += sKriteria+" ";
-		}
-		if(!sTahun.equals("")){
-			title += sTahun;
-		}
-		title +="<br/>";
-		if(!sUnitKerja.equals("")){
-			title += "DI LINGKUNGAN : "+sUnitKerja;
-		}else if(!sUnitOrganisasi.equals("")){
-			title += "DI LINGKUNGAN : "+sUnitOrganisasi;
-		}else{
+		
+		title += arrJenis[iJenis];
+		title += "<br/>";
+		if (!sUnitKerja.equals("")) {
+			title += "DI LINGKUNGAN : " + sUnitKerja;
+		} else if (!sUnitOrganisasi.equals("")) {
+			title += "DI LINGKUNGAN : " + sUnitOrganisasi;
+		} else {
 			title += "DI LINGKUNGAN PEMERINTAH KABUPATEN SANGGAU";
 		}
 		return title;
-		//"DAFTAR NOMINATIF PEGAWAI NEGERI SIPIL " + (!$P{PARAM_GENDER}.equals("")?$P{PARAM_GENDER}+" ":"") + "BERDASARKAN URUT NIP / " + (!$P{PARAM_OPSI_URUT}.equals("")?$P{PARAM_OPSI_URUT}+" TAHUN "+$P{PARAM_TAHUN}:"") + "<br/>" + (!$P{PARAM_LINGKUNGAN}.equals("")?"DI LINGKUNGAN : "+$P{PARAM_LINGKUNGAN}:"DI LINGKUNGAN PEMERINTAH KABUPATEN SANGGAU")
-	}
-
-	
-	public Listbox getListKriteria() {
-		return listKriteria;
-	}
-
-	public void setListKriteria(Listbox listKriteria) {
-		this.listKriteria = listKriteria;
-	}
-
-	public Listbox getListJenisKelamin() {
-		return listJenisKelamin;
-	}
-
-	public void setListJenisKelamin(Listbox listJenisKelamin) {
-		this.listJenisKelamin = listJenisKelamin;
+		//"DAFTAR NOMINATIF PNS FUNGSIONAL UMUM "+ (!$P{PARAM_GENDER}.equals("")?$P{PARAM_GENDER}+" ":"") + (!$P{PARAM_KELOMPOK}.equals("")?"SEBAGAI "+$P{PARAM_KELOMPOK}+" ":"") + (!$P{PARAM_GOLONGAN}.equals("")?"DENGAN GOL. RUANG "+$P{PARAM_GOLONGAN}:"")+ "<br/>" + (!$P{PARAM_LINGKUNGAN}.equals("")?"DI LINGKUNGAN : "+$P{PARAM_LINGKUNGAN}:"DI LINGKUNGAN PEMERINTAH KABUPATEN SANGGAU")
 	}
 
 	public Listbox getListUnitOrganisasi() {
@@ -174,6 +147,22 @@ public class Report03DaftarPnsUrutNipCtrl extends GFCBaseCtrl implements Seriali
 
 	public Listbox getListUnitKerja() {
 		return listUnitKerja;
+	}
+
+	public Listbox getListJenis() {
+		return listJenis;
+	}
+
+	public void setListJenis(Listbox listJenis) {
+		this.listJenis = listJenis;
+	}
+
+	public Listbox getListJenisKelamin() {
+		return listJenisKelamin;
+	}
+
+	public void setListJenisKelamin(Listbox listJenisKelamin) {
+		this.listJenisKelamin = listJenisKelamin;
 	}
 
 	public void setListUnitKerja(Listbox listUnitKerja) {
@@ -202,22 +191,6 @@ public class Report03DaftarPnsUrutNipCtrl extends GFCBaseCtrl implements Seriali
 
 	public void setTbMasterDAO(TbMasterDAO TbMasterDAO) {
 		this.TbMasterDAO = TbMasterDAO;
-	}
-
-	public Listbox getListSubKriteria() {
-		return listSubKriteria;
-	}
-
-	public void setListSubKriteria(Listbox listSubKriteria) {
-		this.listSubKriteria = listSubKriteria;
-	}
-
-	public Label getLblSubKriteria() {
-		return lblSubKriteria;
-	}
-
-	public void setLblSubKriteria(Label lblSubKriteria) {
-		this.lblSubKriteria = lblSubKriteria;
 	}
 
 	public MasterUnitKerjaDAO getMasterUnitKerjaDAO() {

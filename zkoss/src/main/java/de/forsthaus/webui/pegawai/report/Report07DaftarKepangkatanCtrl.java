@@ -108,7 +108,7 @@ public class Report07DaftarKepangkatanCtrl extends GFCBaseCtrl implements Serial
 		criterias.put(ConstantsText.JENIS_KELAMIN, sJenisKelamin);
 		criterias.put(ConstantsText.UNIT_KERJA,sUnitKerja);
 		criterias.put(ConstantsText.UNIT_ORGANISASI,sUnitOrganisasi);
-		listTbMaster = TbMasterDAO.getDaftarKepangkatan(criterias);
+		listTbMaster = TbMasterDAO.getDaftar07Kepangkatan(criterias);
 		
 		Map<String,String> parameters = new HashMap<String,String>();
 		parameters.put("PARAM_TITLE", composeTitle());

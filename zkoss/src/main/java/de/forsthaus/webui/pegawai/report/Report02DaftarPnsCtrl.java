@@ -105,7 +105,7 @@ public class Report02DaftarPnsCtrl extends GFCBaseCtrl implements Serializable {
 		criterias.put(ConstantsText.MASA_KERJA_AKHIR, sMasaKerjaAkhir);
 		criterias.put(ConstantsText.UNIT_KERJA,sUnitKerja);
 		criterias.put(ConstantsText.UNIT_ORGANISASI,sUnitOrganisasi);
-		listTbMaster = tbMasterDAO.getDaftarPns(criterias);
+		listTbMaster = tbMasterDAO.getDaftar02Pns(criterias);
 		
 		Map<String,String> parameters = new HashMap<String,String>();
 		parameters.put("PARAM_TITLE", composeTitle());

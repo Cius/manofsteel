@@ -107,7 +107,7 @@ public class Report08DaftarJabatanStrukturalCtrl extends GFCBaseCtrl implements 
 		criterias.put(ConstantsText.JENIS_KELAMIN, sJenisKelamin);
 		criterias.put(ConstantsText.UNIT_KERJA, sUnitKerja);
 		criterias.put(ConstantsText.UNIT_ORGANISASI, sUnitOrganisasi);
-		listTbMaster = TbMasterDAO.getDaftarJabatanStruktural(criterias);
+		listTbMaster = TbMasterDAO.getDaftar08JabatanStruktural(criterias);
 		System.out.println("count:"+listTbMaster.size());
 
 		Map<String, String> parameters = new HashMap<String, String>();
