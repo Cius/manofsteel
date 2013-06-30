@@ -726,6 +726,129 @@
 		<property name="tbMasterDAO" ref="tbMasterDao" />
 		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
 	</bean>
+	
+	<bean id="report09DaftarJabatanFungsionalKhusus" class="de.forsthaus.webui.pegawai.report.Report09DaftarJabatanFungsionalKhususCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+		<property name="masterJabFungDAO" ref="masterJabFungDao" />
+	</bean>
+	
+	<bean id="report10DaftarJabatanFungsionalUmum" class="de.forsthaus.webui.pegawai.report.Report10DaftarJabatanFungsionalUmumCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report12DaftarJabatanJenisGuru" class="de.forsthaus.webui.pegawai.report.Report12DaftarJabatanJenisGuruCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report14DaftarJabatanStrukturalBelumDiklatpim" class="de.forsthaus.webui.pegawai.report.Report14DaftarJabatanStrukturalBelumDiklatpimCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report15DaftarPendidikanUmumTerakhir" class="de.forsthaus.webui.pegawai.report.Report15DaftarPendidikanUmumTerakhirCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report16DaftarPendidikanDiklatJabatan" class="de.forsthaus.webui.pegawai.report.Report16DaftarPendidikanDiklatJabatanCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report17DaftarPendidikanDiklatKader" class="de.forsthaus.webui.pegawai.report.Report17DaftarPendidikanDiklatKaderCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report18DaftarPendidikanPenataranSeminar" class="de.forsthaus.webui.pegawai.report.Report18DaftarPendidikanPenataranSeminarCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report19DaftarPendidikanKursusNonKedinasan" class="de.forsthaus.webui.pegawai.report.Report19DaftarPendidikanKursusNonKedinasanCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report20DaftarPendidikanPraJabatan" class="de.forsthaus.webui.pegawai.report.Report20DaftarPendidikanPraJabatanCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+		
+	<bean id="report22DaftarPendidikanSekolahAkademi" class="de.forsthaus.webui.pegawai.report.Report22DaftarPendidikanSekolahAkademiCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+			
+	<bean id="report23DaftarPendidikanAlumniJurusan" class="de.forsthaus.webui.pegawai.report.Report23DaftarPendidikanAlumniJurusanCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report24DaftarKenaikanPangkat" class="de.forsthaus.webui.pegawai.report.Report24DaftarKenaikanPangkatCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+
+	<bean id="report25DaftarKenaikanGaji" class="de.forsthaus.webui.pegawai.report.Report25DaftarKenaikanGajiCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report27DaftarPensiun" class="de.forsthaus.webui.pegawai.report.Report27DaftarPensiunCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report28DaftarMasaKerja" class="de.forsthaus.webui.pegawai.report.Report28DaftarMasaKerjaCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report29DaftarPersyaratan" class="de.forsthaus.webui.pegawai.report.Report29DaftarPersyaratanCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report30DaftarKepemilikanKartu" class="de.forsthaus.webui.pegawai.report.Report30DaftarKepemilikanKartuCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report31DaftarAlamatKantorRumah" class="de.forsthaus.webui.pegawai.report.Report31DaftarAlamatKantorRumahCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report32DaftarRiwayatHidup" class="de.forsthaus.webui.pegawai.report.Report32DaftarRiwayatHidupCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report33FormulirSimpeg" class="de.forsthaus.webui.pegawai.report.Report33FormulirSimpegCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report34DaftarPenguasaanBahasa" class="de.forsthaus.webui.pegawai.report.Report34DaftarPenguasaanBahasaCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="trBahasaDAO" ref="trBahasaDao" />
+	</bean>
+	
+	<bean id="report35DaftarUcapanPurnaBhakti" class="de.forsthaus.webui.pegawai.report.Report35DaftarUcapanPurnaBhaktiCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	<bean id="report36DaftarUcapanUlangTahun" class="de.forsthaus.webui.pegawai.report.Report36DaftarUcapanUlangTahunCtrl" parent="basisCtrl" scope="prototype">
+		<property name="tbMasterDAO" ref="tbMasterDao" />
+		<property name="masterUnitKerjaDAO" ref="masterUnitKerjaDao" />
+	</bean>
+	
+	
 </beans>
 
 
