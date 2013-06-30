@@ -1,0 +1,39 @@
+<?page title="Laporan Pegawai Negeri Sipil" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+<window id="window_Report" title="Daftar Ucapan Terima Kasih PNS Purna Bhakti" border="normal" apply="${report35DaftarUcapanPurnaBhakti}">
+	<include src="menuReport.zul"/>
+	<panel border="normal" title="">
+		<panelchildren>
+			<vbox width="100%">
+				<grid vflex="1">
+					<columns>
+						<column label="" width="150px" />
+						<column label="" />
+					</columns>
+					<rows>
+						<row>
+							<label value="Bulan" />
+							<listbox id="listBulan" onSelect="" mold="select" rows="1" />
+						</row>
+						<row>
+							<hlayout></hlayout>
+							<button id="btnCari" label="Cari" image="/images/icons/search.gif" />
+						</row>
+					</rows>
+				</grid>
+				
+				<splitter id="s1" collapse="before"/>
+			
+				<jasperreport id="report" height="450px"/>
+				
+			</vbox>
+		</panelchildren>
+	</panel>
+	
+	<zscript><![CDATA[
+	                  
+    ]]></zscript>
+</window>
+</zk>

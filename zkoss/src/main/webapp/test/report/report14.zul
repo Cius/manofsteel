@@ -2,7 +2,7 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 
 <zk>
-<window id="window_Report" title="Laporan Daftar Jabatan Fungsional Khusus" border="normal" apply="${report09DaftarJabatanFungsionalKhusus}">
+<window id="window_Report" title="Laporan Daftar Jabatan Struktural Belum Diklatpim" border="normal" apply="${report14DaftarJabatanStrukturalBelumDiklatpim}">
 	<include src="menuReport.zul"/>
 	<panel border="normal" title="">
 		<panelchildren>
@@ -16,16 +16,10 @@
 					</columns>
 					<rows>
 						<row>
-							<label value="Rumpun" />
-							<listbox id="listRumpun" onSelect="" mold="select" rows="1" width="100px" />
+							<label value="Eselon" />
+							<listbox id="listEselon" onSelect="" mold="select" rows="1" width="100px" />
 							<label value="Unit Kerja" />
 							<listbox id="listUnitKerja" onSelect="checkUnitKerja()" mold="select" rows="1" width="250px"/>
-						</row>
-						<row>
-							<label value="Gol. Ruang" />
-							<listbox id="listGolongan" onSelect="" mold="select" rows="1" width="100px"/>
-							<label value="Unit Organisasi" />
-							<listbox id="listUnitOrganisasi" onSelect="checkUnitOrganisasi()" mold="select" rows="1" width="250px"/>
 						</row>
 						<row>
 							<label value="Jenis Kelamin" />
@@ -34,8 +28,8 @@
 								<listitem label="PRIA" value="PRIA" />
 								<listitem label="WANITA" value="WANITA" />
 							</listbox>
-							<hlayout></hlayout>
-							<hlayout></hlayout>
+							<label value="Unit Organisasi" />
+							<listbox id="listUnitOrganisasi" onSelect="checkUnitOrganisasi()" mold="select" rows="1" width="250px"/>
 						</row>
 						<row>
 							<hlayout></hlayout>

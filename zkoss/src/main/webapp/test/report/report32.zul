@@ -2,7 +2,7 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 
 <zk>
-<window id="window_Report" title="Laporan Daftar Jabatan Fungsional Khusus" border="normal" apply="${report09DaftarJabatanFungsionalKhusus}">
+<window id="window_Report" title="Daftar Riwayat Hidup" border="normal" apply="${report32DaftarRiwayatHidup}">
 	<include src="menuReport.zul"/>
 	<panel border="normal" title="">
 		<panelchildren>
@@ -16,8 +16,8 @@
 					</columns>
 					<rows>
 						<row>
-							<label value="Rumpun" />
-							<listbox id="listRumpun" onSelect="" mold="select" rows="1" width="100px" />
+							<label value="Kelompok" />
+							<listbox id="listKelompok" onSelect="" mold="select" rows="1" width="100px" />
 							<label value="Unit Kerja" />
 							<listbox id="listUnitKerja" onSelect="checkUnitKerja()" mold="select" rows="1" width="250px"/>
 						</row>

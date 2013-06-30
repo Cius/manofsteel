@@ -1,0 +1,46 @@
+<?page title="Laporan Pegawai Negeri Sipil" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+<window id="window_Report" title="Laporan Daftar Penguasaan Bahasa" border="normal" apply="${report34DaftarPenguasaanBahasa}">
+	<include src="menuReport.zul"/>
+	<panel border="normal" title="">
+		<panelchildren>
+			<vbox width="100%">
+				<grid vflex="1">
+					<columns>
+						<column label="" width="150px" />
+						<column label="" />
+					</columns>
+					<rows>
+						<row>
+							<label value="Jenis Bahasa" />
+							<listbox id="listJenisBahasa" mold="select" rows="1" width="100px" >
+								<listitem label="ASING" value="A" selected="true"/>
+								<listitem label="DAERAH" value="D" />
+							</listbox>
+						</row>
+						<row>
+							<label value="Nama Bahasa" />
+							<listbox id="listNamaBahasa" mold="select" rows="1" width="100px"/>							
+						</row>
+						<row>
+							<hlayout></hlayout>
+							<button id="btnCari" label="Cari" image="/images/icons/search.gif" />
+						</row>
+					</rows>
+				</grid>
+				
+				<splitter id="s1" collapse="before"/>
+			
+				<jasperreport id="report" height="450px"/>
+				
+			</vbox>
+		</panelchildren>
+	</panel>
+	
+	<zscript><![CDATA[
+	                  
+    ]]></zscript>
+</window>
+</zk>

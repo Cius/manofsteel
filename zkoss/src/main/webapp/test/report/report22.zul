@@ -1,0 +1,47 @@
+<?page title="Laporan Pegawai Negeri Sipil" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+<window id="window_Report" title="Laporan Daftar Alumni Sekolah/ Akademi/ Perguruan Tinggi" border="normal" apply="${report22DaftarPendidikanSekolahAkademi}">
+	<include src="menuReport.zul"/>
+	<panel border="normal" title="">
+		<panelchildren>
+			<vbox width="100%">
+				<grid vflex="1">
+					<columns>
+						<column label="" width="150px" />
+						<column label="" width="300px"/>
+						<column label="" width="150px"/>
+						<column label="" />
+					</columns>
+					<rows>
+						<row>
+							<label value="Jenjang" />
+							<listbox id="listPendidikan" onSelect="" mold="select" rows="1" width="100px" />
+						</row>
+						<row>
+							<label id="lblSubPendidikan" />
+							<listbox id="listSubPendidikan" onSelect="" mold="select" rows="1" width="100px"/>
+						</row>
+						<row>
+							<hlayout></hlayout>
+							<button id="btnCari" label="Cari" image="/images/icons/search.gif" />
+							<hlayout></hlayout>
+							<hlayout></hlayout>
+						</row>
+					</rows>
+				</grid>
+				
+				<splitter id="s1" collapse="before"/>
+			
+				<jasperreport id="report" height="450px"/>
+				
+			</vbox>
+		</panelchildren>
+	</panel>
+	
+	<zscript><![CDATA[	                  
+       
+    ]]></zscript>
+</window>
+</zk>
