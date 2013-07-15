@@ -17,12 +17,18 @@ import org.springframework.dao.support.DataAccessUtils;
 import de.forsthaus.backend.dao.TbMasterDAO;
 import de.forsthaus.backend.model.TbMaster;
 import de.forsthaus.backend.util.ConstantsText;
+import de.forsthaus.backend.util.MonthEqExpression;
 
 public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 
 	@Override
 	public TbMaster getNew() {
 		return new TbMaster();
+	}
+	
+	@Override
+	public int getCount() {
+		return DataAccessUtils.intResult(getHibernateTemplate().find("SELECT COUNT(nip) FROM TbMaster")); 
 	}
 
 	@SuppressWarnings("unchecked")
@@ -46,7 +52,7 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public  List<TbMaster> getDaftarCpns(Map<String,Object>criterias) {
+	public  List<TbMaster> getDaftar01Cpns(Map<String,Object>criterias) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
 		
 		String jenisKelamin = (String)criterias.get(ConstantsText.JENIS_KELAMIN);
@@ -99,7 +105,7 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public  List<TbMaster> getDaftarPns(Map<String,Object>criterias) {
+	public  List<TbMaster> getDaftar02Pns(Map<String,Object>criterias) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
 		
 		String jenisKelamin = (String)criterias.get(ConstantsText.JENIS_KELAMIN);
@@ -203,7 +209,7 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<TbMaster> getDaftarPnsUrutNip(Map<String, Object> criterias) {
+	public List<TbMaster> getDaftar03PnsUrutNip(Map<String, Object> criterias) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
 		
 		criteria.addOrder(Order.asc("nip"));
@@ -251,7 +257,7 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<TbMaster> getDaftarPnsUrutNama(Map<String, Object> criterias) {
+	public List<TbMaster> getDaftar05PnsUrutNama(Map<String, Object> criterias) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
 		
 		criteria.createAlias("identitas", "c");
@@ -285,7 +291,7 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<TbMaster> getDaftarPnsUrutPangkat(Map<String, Object> criterias) {
+	public List<TbMaster> getDaftar04PnsUrutPangkat(Map<String, Object> criterias) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
 		
 		criteria.createAlias("tpjabatan", "b");
@@ -316,7 +322,7 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<TbMaster> getDaftarPnsUrutJabatan(Map<String, Object> criterias) {
+	public List<TbMaster> getDaftar06PnsUrutJabatan(Map<String, Object> criterias) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
 		
 		criteria.createAlias("tpjabatan", "b");
@@ -337,7 +343,7 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<TbMaster> getDaftarKepangkatan(Map<String, Object> criterias) {
+	public List<TbMaster> getDaftar07Kepangkatan(Map<String, Object> criterias) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
 		
 		criteria.createAlias("tpjabatan", "b");
@@ -353,7 +359,7 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 		}
 		
 		if(!golAwal.equals(ConstantsText.SELURUH)){
-			String [] kodeGols ={"11","12","13","14","15","21","22","23","24","25","31","32","33","34","35","41","42","43","44","45"};
+			String [] kodeGols =ConstantsText.kodeGols;
 			List<String> listGol = new ArrayList<String>();
 			
 			if(golAwal.equals(golAkhir)){
@@ -390,7 +396,7 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<TbMaster> getDaftarJabatanStruktural(Map<String, Object> criterias) {
+	public List<TbMaster> getDaftar08JabatanStruktural(Map<String, Object> criterias) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
 		
 		criteria.createAlias("tpjabatan", "b");
@@ -448,22 +454,668 @@ public class TbMasterDAOImpl extends BasisDAO<TbMaster> implements TbMasterDAO {
 		return getHibernateTemplate().findByCriteria(criteria);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
-	public int getCount() {
-		return DataAccessUtils.intResult(getHibernateTemplate().find("SELECT COUNT(nip) FROM TbMaster")); 
+	public List<TbMaster> getDaftar09JabatanFungsionalKhusus(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		criteria.add(Restrictions.eq("b.jnsJab", "2"));
+		String jenisKelamin = (String)criterias.get(ConstantsText.JENIS_KELAMIN);
+		String rumpun = (String)criterias.get(ConstantsText.RUMPUN);
+		String golongan = (String)criterias.get(ConstantsText.GOLONGAN);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(!jenisKelamin.equals(ConstantsText.JENIS_KELAMIN_SELURUH)){
+			criteria.add(Restrictions.eq("kelamin", jenisKelamin.equals(ConstantsText.JENIS_KELAMIN_PRIA)?"LAKI-LAKI":"PEREMPUAN"));
+		}
+		
+		if(!rumpun.equals(ConstantsText.SELURUH)){
+			criteria.add(Restrictions.eq("kodeJab", rumpun));
+		}
+		
+		if(!golongan.equals(ConstantsText.SELURUH)){
+			criteria.add(Restrictions.eq("kodeGol", golongan));
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
 	}
-
-	@Override
-	public List<String> getUnitKerja() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<String> getUnitOrganisasi() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar10JabatanFungsionalUmum(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		criteria.add(Restrictions.eq("b.jnsJab", "2"));
+		String jenisKelamin = (String)criterias.get(ConstantsText.JENIS_KELAMIN);
+		String rumpun = (String)criterias.get(ConstantsText.RUMPUN);
+		String golongan = (String)criterias.get(ConstantsText.GOLONGAN);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(!jenisKelamin.equals(ConstantsText.JENIS_KELAMIN_SELURUH)){
+			criteria.add(Restrictions.eq("kelamin", jenisKelamin.equals(ConstantsText.JENIS_KELAMIN_PRIA)?"LAKI-LAKI":"PEREMPUAN"));
+		}
+		
+		if(!rumpun.equals(ConstantsText.SELURUH)){
+			criteria.add(Restrictions.eq("kodeJab", rumpun));
+		}
+		
+		if(!golongan.equals(ConstantsText.SELURUH)){
+			criteria.add(Restrictions.eq("kodeGol", golongan));
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar35PurnaBhakti(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.add(Restrictions.eq("statusPegawai", "PNS"));
+		criteria.addOrder(Order.asc("nip"));
+		int bulan = (Integer)criterias.get(ConstantsText.BULAN);
+		
+		criteria.add(new MonthEqExpression("tglLahir", bulan));
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar36UlangTahun(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.addOrder(Order.asc("nip"));
+		int bulan = (Integer)criterias.get(ConstantsText.BULAN);
+		
+		criteria.add(new MonthEqExpression("tglLahir", bulan));
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar34PenguasaanBahasa(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("trBahasa", "b");
+		criteria.addOrder(Order.asc("nip"));
+		criteria.add(Restrictions.eq("statusPegawai", "PNS"));
+		criteria.add(Restrictions.eq("b.kodeBahasa", "A"));
+		String namaBahasa = (String)criterias.get(ConstantsText.NAMA_BAHASA);
+		String jenisBahasa = (String)criterias.get(ConstantsText.JENIS_BAHASA);
+		
+		criteria.add(Restrictions.eq("b.jBahasa", jenisBahasa));
+		criteria.add(Restrictions.eq("b.nBahasa", namaBahasa));
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar31AlamatKantorRumah(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		String jenisJabatan = (String)criterias.get(ConstantsText.JABATAN);
+		String eselon = (String)criterias.get(ConstantsText.ESELON);
+		
+		System.out.println("jk:"+jenisJabatan);
+		System.out.println("aw:"+eselon);
+		
+		if(!jenisJabatan.equals(ConstantsText.SELURUH)){
+			criteria.add(Restrictions.eq("b.jnsJab", jenisJabatan));
+		}
+		
+		if(!eselon.equals(ConstantsText.SELURUH)){
+			criteria.add(Restrictions.like("kodeEselon", eselon+"_"));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar30KepemilikianKartu(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("identitas", "i");
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		
+		String kartu = (String)criterias.get(ConstantsText.KARTU);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(kartu.equals(ConstantsText.KARTU_KARPEG)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarPeg", ""))
+					.add(Restrictions.eq("i.nKarPeg", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_ASKES)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nAsKes", ""))
+					.add(Restrictions.eq("i.nAsKes", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_TASPEN)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nTasPen", ""))
+					.add(Restrictions.eq("i.nTasPen", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARIS)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarIs", ""))
+					.add(Restrictions.eq("i.nKarIs", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARSU)){
+			
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar29Persyaratan(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("identitas", "i");
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		
+		String kartu = (String)criterias.get(ConstantsText.KARTU);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(kartu.equals(ConstantsText.KARTU_KARPEG)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarPeg", ""))
+					.add(Restrictions.eq("i.nKarPeg", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_ASKES)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nAsKes", ""))
+					.add(Restrictions.eq("i.nAsKes", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_TASPEN)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nTasPen", ""))
+					.add(Restrictions.eq("i.nTasPen", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARIS)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarIs", ""))
+					.add(Restrictions.eq("i.nKarIs", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARSU)){
+			
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar28MasaKerja(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("identitas", "i");
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		
+		String kartu = (String)criterias.get(ConstantsText.KARTU);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(kartu.equals(ConstantsText.KARTU_KARPEG)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarPeg", ""))
+					.add(Restrictions.eq("i.nKarPeg", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_ASKES)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nAsKes", ""))
+					.add(Restrictions.eq("i.nAsKes", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_TASPEN)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nTasPen", ""))
+					.add(Restrictions.eq("i.nTasPen", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARIS)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarIs", ""))
+					.add(Restrictions.eq("i.nKarIs", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARSU)){
+			
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar27Pensiun(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("identitas", "i");
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		
+		String kartu = (String)criterias.get(ConstantsText.KARTU);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(kartu.equals(ConstantsText.KARTU_KARPEG)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarPeg", ""))
+					.add(Restrictions.eq("i.nKarPeg", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_ASKES)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nAsKes", ""))
+					.add(Restrictions.eq("i.nAsKes", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_TASPEN)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nTasPen", ""))
+					.add(Restrictions.eq("i.nTasPen", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARIS)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarIs", ""))
+					.add(Restrictions.eq("i.nKarIs", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARSU)){
+			
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar25KenaikanGaji(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("identitas", "i");
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		
+		String kartu = (String)criterias.get(ConstantsText.KARTU);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(kartu.equals(ConstantsText.KARTU_KARPEG)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarPeg", ""))
+					.add(Restrictions.eq("i.nKarPeg", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_ASKES)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nAsKes", ""))
+					.add(Restrictions.eq("i.nAsKes", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_TASPEN)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nTasPen", ""))
+					.add(Restrictions.eq("i.nTasPen", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARIS)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarIs", ""))
+					.add(Restrictions.eq("i.nKarIs", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARSU)){
+			
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar24KenaikanPangkat(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("identitas", "i");
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		
+		String kartu = (String)criterias.get(ConstantsText.KARTU);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(kartu.equals(ConstantsText.KARTU_KARPEG)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarPeg", ""))
+					.add(Restrictions.eq("i.nKarPeg", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_ASKES)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nAsKes", ""))
+					.add(Restrictions.eq("i.nAsKes", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_TASPEN)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nTasPen", ""))
+					.add(Restrictions.eq("i.nTasPen", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARIS)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarIs", ""))
+					.add(Restrictions.eq("i.nKarIs", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARSU)){
+			
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar23PendidikanAlumniJurusan(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("identitas", "i");
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		
+		String kartu = (String)criterias.get(ConstantsText.KARTU);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(kartu.equals(ConstantsText.KARTU_KARPEG)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarPeg", ""))
+					.add(Restrictions.eq("i.nKarPeg", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_ASKES)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nAsKes", ""))
+					.add(Restrictions.eq("i.nAsKes", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_TASPEN)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nTasPen", ""))
+					.add(Restrictions.eq("i.nTasPen", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARIS)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarIs", ""))
+					.add(Restrictions.eq("i.nKarIs", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARSU)){
+			
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar22PendidikanSekolahAkademi(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("identitas", "i");
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		
+		String kartu = (String)criterias.get(ConstantsText.KARTU);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(kartu.equals(ConstantsText.KARTU_KARPEG)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarPeg", ""))
+					.add(Restrictions.eq("i.nKarPeg", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_ASKES)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nAsKes", ""))
+					.add(Restrictions.eq("i.nAsKes", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_TASPEN)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nTasPen", ""))
+					.add(Restrictions.eq("i.nTasPen", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARIS)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarIs", ""))
+					.add(Restrictions.eq("i.nKarIs", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARSU)){
+			
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar20PendidikanPraJabatan(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("identitas", "i");
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		
+		String kartu = (String)criterias.get(ConstantsText.KARTU);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(kartu.equals(ConstantsText.KARTU_KARPEG)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarPeg", ""))
+					.add(Restrictions.eq("i.nKarPeg", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_ASKES)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nAsKes", ""))
+					.add(Restrictions.eq("i.nAsKes", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_TASPEN)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nTasPen", ""))
+					.add(Restrictions.eq("i.nTasPen", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARIS)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarIs", ""))
+					.add(Restrictions.eq("i.nKarIs", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARSU)){
+			
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TbMaster> getDaftar19PendidikanKursusNonKedinasan(Map<String, Object> criterias) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TbMaster.class);
+		
+		criteria.createAlias("identitas", "i");
+		criteria.createAlias("tpjabatan", "b");
+		criteria.addOrder(Order.asc("nip"));
+		
+		String kartu = (String)criterias.get(ConstantsText.KARTU);
+		String unitKerja = (String)criterias.get(ConstantsText.UNIT_KERJA);
+		String unitOrganisasi = (String)criterias.get(ConstantsText.UNIT_ORGANISASI);
+		
+		if(kartu.equals(ConstantsText.KARTU_KARPEG)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarPeg", ""))
+					.add(Restrictions.eq("i.nKarPeg", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_ASKES)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nAsKes", ""))
+					.add(Restrictions.eq("i.nAsKes", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_TASPEN)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nTasPen", ""))
+					.add(Restrictions.eq("i.nTasPen", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARIS)){
+			criteria.add(Restrictions.disjunction()
+					.add(Restrictions.eq("i.nKarIs", ""))
+					.add(Restrictions.eq("i.nKarIs", "-"))
+			);
+		}else if(kartu.equals(ConstantsText.KARTU_KARSU)){
+			
+		}
+		
+		if(!unitKerja.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitKerja.substring(0, 5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitKerja.substring(5, 7)));
+		}else if(!unitOrganisasi.equals("")){
+			criteria.add(Restrictions.eq("b.kodeUnKer", unitOrganisasi.substring(0,5)));
+			criteria.add(Restrictions.eq("b.kodeSatKer", unitOrganisasi.substring(5, 7)));
+		}
+		
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
+
+	@Override
+	public List<TbMaster> getDaftar12JabatanJenisGuru(
+			Map<String, Object> criterias) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TbMaster> getDaftar14JabatanStrukturalBelumDiklatpim(
+			Map<String, Object> criterias) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TbMaster> getDaftar15PendidikanUmumTerakhir(
+			Map<String, Object> criterias) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TbMaster> getDaftar16PendidikanDiklatJabatan(
+			Map<String, Object> criterias) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TbMaster> getDaftar17PendidikanDiklatKader(
+			Map<String, Object> criterias) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TbMaster> getDaftar18PendidikanPenataranSeminarCtrl(
+			Map<String, Object> criterias) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.dao.support.DataAccessUtils;
 
@@ -39,6 +40,16 @@ public class TrBahasaDAOImpl extends BasisDAO<TrBahasa> implements TrBahasaDAO {
 	@Override
 	public int getCount() {
 		return DataAccessUtils.intResult(getHibernateTemplate().find("SELECT COUNT(nip) FROM TrBahasa")); 
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<String> getBahasaByJenis(String jenisBahasa) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(TrBahasa.class);	
+		criteria.add(Restrictions.eq("jBahasa", jenisBahasa));
+		criteria.add(Restrictions.not(Restrictions.eq("nBahasa", "BAHASA INDONESIA")));
+		criteria.setProjection(Projections.distinct(Projections.property("nBahasa")));
+		return getHibernateTemplate().findByCriteria(criteria);
 	}
 
 }
