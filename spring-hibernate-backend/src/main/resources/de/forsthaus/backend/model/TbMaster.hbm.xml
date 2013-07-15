@@ -13,7 +13,7 @@
 		</id>
 
 		<version name="version" column="VERSION" type="integer" />
-
+		
 		<property name="nip" type="string">
 			<column name="NIP" />
 		</property>
@@ -37,6 +37,10 @@
 			<key column="NIP" property-ref="nip" />
 			<one-to-many class="de.forsthaus.backend.model.TrDiklat" />
 		</set>
+        <set name="trBahasa" table="tr_bahasa" inverse="true" lazy="false" fetch="select">
+            <key column="NIP" property-ref="nip"/>
+            <one-to-many class="de.forsthaus.backend.model.TrBahasa" />
+        </set>
 		<property name="nama" type="string">
 			<column name="NAMA" />
 		</property>
