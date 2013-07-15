@@ -61,6 +61,8 @@
 				</value>
 				<value>de/forsthaus/backend/model/MasterUnitKerja.hbm.xml
 				</value>
+				<value>de/forsthaus/backend/model/MasterJabFung.hbm.xml
+				</value>
 				<value>de/forsthaus/backend/model/Wilayah.hbm.xml
 				</value>
 				<value>de/forsthaus/backend/model/GolonganRuang.hbm.xml
@@ -205,7 +207,11 @@
 	
 	<bean id="masterUnitKerjaDao" class="de.forsthaus.backend.dao.impl.MasterUnitKerjaDAOImpl" parent="basisDAO"/>
 	
+	<bean id="masterJabFungDao" class="de.forsthaus.backend.dao.impl.MasterJabFungDAOImpl" parent="basisDAO"/>
+	
 	<bean id="tpCpnsDao" class="de.forsthaus.backend.dao.impl.TpCpnsDAOImpl" parent="basisDAO"/>
+	
+	<bean id="trBahasaDao" class="de.forsthaus.backend.dao.impl.TrBahasaDAOImpl" parent="basisDAO"/>
 	
 	<bean id="tbMasterDao" class="de.forsthaus.backend.dao.impl.TbMasterDAOImpl" parent="basisDAO"/>
 	
