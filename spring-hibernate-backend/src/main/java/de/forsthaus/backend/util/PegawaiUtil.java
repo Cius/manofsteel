@@ -105,7 +105,8 @@ public class PegawaiUtil {
 	
 	public static void main(String[] args) {
 		char a = 'a';
-		a++;		
-		System.out.println(a);
+		List list = getTanggalBulanSekarang(new Date());
+		System.out.println(list.get(0));
+		System.out.println(list.get(1));
 	}
 }
