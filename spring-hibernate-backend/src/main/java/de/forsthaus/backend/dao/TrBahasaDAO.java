@@ -13,5 +13,5 @@ public interface TrBahasaDAO {
 	public void save(TrBahasa entity);
 	public void saveOrUpdate(TrBahasa entity);
 	public void delete(TrBahasa entity);
-
+	public List<String> getBahasaByJenis(String nip);
 }
