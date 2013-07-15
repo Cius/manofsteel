@@ -70,6 +70,7 @@ public class TbMaster {
 	private TpCpns cpns;
 	private TpJabatan tpjabatan;
 	private Set<TrDiklat> trdiklat = new HashSet<TrDiklat>();
+	private Set<TrBahasa> trBahasa = new HashSet<TrBahasa>();
 	
 	private String masaKerja;
 	private int tahunKerja;
@@ -609,6 +610,14 @@ public class TbMaster {
 
 	public void setTrdiklat(Set<TrDiklat> trdiklat) {
 		this.trdiklat = trdiklat;
+	}
+
+	public Set<TrBahasa> getTrBahasa() {
+		return trBahasa;
+	}
+
+	public void setTrBahasa(Set<TrBahasa> trBahasa) {
+		this.trBahasa = trBahasa;
 	}
 
 	public String getDiklatTerakhir() {
